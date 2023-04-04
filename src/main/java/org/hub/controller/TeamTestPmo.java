@@ -8,7 +8,7 @@ public class TeamTestPmo {
 		System.out.println("다시 수정 ");
 		System.out.println("다시 수정1 ");
 		System.out.println("다시 수정2 ");
-		System.out.println("다시 수정2 ");
+		System.out.println("다시 수정2 ");System.out.println("다시 수정2 ");
 	}
 
 }
