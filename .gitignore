@@ -178,4 +178,5 @@ MANIFEST.MF
 .classpath
 .project
 .springBeans
+.gitignore
 >>>>>>> refs/remotes/origin/main
