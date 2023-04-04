@@ -5,6 +5,7 @@ public class TeamTestPmo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("되나요");
+		System.out.println("다시 수정 ");
 	}
 
 }
