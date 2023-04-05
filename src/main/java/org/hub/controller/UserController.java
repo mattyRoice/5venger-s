@@ -1,6 +1,5 @@
 package org.hub.controller;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,5 +15,11 @@ public class UserController {
 	public String login() throws Exception {
 		log.info("= = user login = = ");
 		return "userLogin";
+	}
+	
+	@GetMapping(value= "/register")
+	public String register() {		
+		log.info("= = user Register = = ");
+		return "userRegister";
 	}
 }
