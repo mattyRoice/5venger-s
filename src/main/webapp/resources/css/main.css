@@ -10,7 +10,7 @@
     height: 85px;
     padding: 0 10px;
 	}
-	
+	 
 	.navbar_postRegister__FJnRS, .navbar_login__3Ui-- {
 	    box-sizing: inherit;
     outline: none;
@@ -34,6 +34,23 @@
     padding-bottom: 20px;
     padding-left: 16px;
     margin-bottom: 30px;
+	}
+	
+	.navbar_logo__a5PmC {
+	font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    color: inherit;
+    box-sizing: inherit;
+    width: 105px;
+    height: 32px;
+	}
+	
+	.navbar_loginElementWrapper__11CeH {
+	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    box-sizing: inherit;
+    display: flex;
+    grid-gap: 30px;
+    gap: 30px;
+    align-items: center;
 	}
 	
 	.Category_categoryItem__1ko8V {
@@ -124,3 +141,182 @@
 		margin-left: 100px;
 		margin-right: 100px;
 	}
+	.firstBanner_containerWrapper__1QH6h {
+		    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    background-color: #edfaf7;
+    margin-bottom: 16px;
+	}
+	
+	.firstBanner_container__1M3Ft{
+	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    display: flex;
+    max-width: 1200px;
+    height: 330px;
+    padding: 0 20px;
+    margin: 0 auto;
+	}
+	
+	.firstBanner_leftCover__1KzCe{
+	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    flex: 1.5 1;
+    margin: auto 0;
+	}
+	
+	.firstBanner_title__3ov1t {
+	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    display: inline-block;
+    font-size: 32px;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+	}
+	
+	.firstBanner_subContainer__2lho6 {
+	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+	}
+	
+	.firstBanner_subText__1pOla {
+	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    font-size: 22px;
+    display: block;
+	}
+	
+	.firstBanner_rightCover__3Olog {
+	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    flex: 1 1;
+    margin: auto;
+	}
+	
+	.firstBanner_coverImage__1yB1- {
+	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    width: 334px;
+    height: auto;
+    display: block;
+	}
+	
+	
+	.secondBanner_containerWrapper__1N-i4 {
+	       font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    background-color: #fff088;
+	}
+	.secondBanner_container_1Nu6b {
+	      font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    display: flex;
+    max-width: 1200px;
+    height: 330px;
+    padding: 0 20px;
+    margin: 0 auto;
+    }
+    .secondBanner_leftCover__1y4GQ {
+          font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    flex: 1 1;
+    margin: auto 0;
+    }
+    
+    .secondBanner_promotion__3s4jx {
+      user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: inherit;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 5px 30px;
+    color: #fff;
+    background: #b291dd;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    }
+    
+    .secondBanner_title__pzIWX {
+        font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    display: inline-block;
+    font-size: 32px;
+    font-weight: 700;
+    padding: 0;
+    margin: 0 0 15px;
+    }
+    
+    .secondBanner_subText__rl70c {
+        font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    display: block;
+    font-size: 22px;
+    }
+    
+    .secondBanner_rightCover__3Xm1n {
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    flex: 1 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    .secondBanner_coverImage__1psJQ {
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    box-sizing: inherit;
+    width: 381px;
+    height: auto;
+    display: block;
+    }

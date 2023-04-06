@@ -28,4 +28,10 @@ public class UserController {
 		log.info("====== ");
 		return "interest";
 	}
+	
+	@GetMapping(value= "/mypage")
+	public String mypageSet() {		
+		log.info("= = user mypage = = ");
+		return "userMypage";
+	}
 }

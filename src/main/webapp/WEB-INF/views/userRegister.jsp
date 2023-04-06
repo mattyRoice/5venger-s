@@ -36,6 +36,17 @@
 			  padding: 15px;
 			  margin: auto;
 			}
+			
+			.btn.nav-link {
+			  background-color: #fff;
+			  color: #ff914d;;
+			}
+			
+			.btn.nav-link.active {
+			  background-color: #ff914d;
+			  color: #fff;
+			}
+			
 
     	</style>
 	</head>
@@ -52,13 +63,13 @@
 			
 				<ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
 				  <li class="nav-item" role="presentation">
-				    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">1단계</button>
+				    <button class="btn nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">1단계</button>
 				  </li>
 				  <li class="nav-item" role="presentation">
-				    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">2단계</button>
+				    <button class="btn nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">2단계</button>
 				  </li>
 				  <li class="nav-item" role="presentation">
-				    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">3단계</button>
+				    <button class="btn nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">3단계</button>
 				  </li>	  
 				</ul>
 				
@@ -67,7 +78,7 @@
 				  	<div class="text-center fs-4 fw-bolder mt-5 mb-5">StudyHub에 처음 오셨군요!<br>우선, 사용하실 닉네임을 설정해 볼까요?</div>
 				  	<input class="form-control form-control-lg mb-5" type="text" id="unickName" name="unickName" placeholder="닉네임을 입력하세요." aria-label=".form-control-lg example">
 				  	<div class="text-center">	
-					  	<button type="button" class="btn btn-outline-primary me-2">다음</button>
+					  	<button type="button" class="btn me-2" style="border-color:#ff914d; color:#ff914d">다음</button>
 						<button type="button" class="btn btn-outline-secondary">돌아가기</button>
 					</div>
 				  
@@ -110,7 +121,7 @@
 					    <option value="30">Zeplin</option>					    
 					</select>
 					<div class="text-center mt-5">		
-					  	<button type="button" class="btn btn-outline-primary me-2">다음</button>
+					  	<button type="button" class="btn me-2" style="border-color:#ff914d; color:#ff914d">다음</button>
 						<button type="button" class="btn btn-outline-secondary">돌아가기</button>
 					</div>				  					  	
 				  </div>
@@ -121,17 +132,17 @@
 					<div class="container text-center mb-3">
 					<div class="row mb-3">
 						<div class="col text-end" id="profile">
-							<img class=" rounded-circle" src="/resources/Images/profileLogo.png" width=100 alt="Profile Image" >
+							<img class="rounded-circle border border-4" src="/resources/Images/profileLogo.png" width=100 alt="Profile Image" >
 						</div>
 						<div class="col text-center mt-2">
-						  	<div><button class="btn btn-primary d-block mb-2" type="submit">이미지 선택</button></div>
-						  	<div><button class="btn btn-primary d-block" type="submit">이미지 제거</button></div>
+						  	<div><button class="btn d-block mb-2" style="background-color:#ff914d; color:#fff" type="submit">이미지 선택</button></div>
+						  	<div><button class="btn d-block" style="background-color:#ff914d; color:#fff" type="submit">이미지 제거</button></div>
 					  	</div>
 					</div>  						  					  	 	
 				  </div>
-				  <div class="text-center">		
-					  	<button type="button" class="btn btn-outline-primary me-2">가입완료</button>
-						<button type="button" class="btn btn-outline-secondary">돌아가기</button>
+				  	<div class="text-center">		
+					  	<button type="button" class="btn mt-5 me-2" style="border-color:#ff914d; color:#ff914d">가입완료</button>
+						<button type="button" class="btn btn-outline-secondary mt-5">돌아가기</button>
 					</div>				 
 				  </div>
 				  
@@ -150,5 +161,13 @@
        
     })
     
+    $(document).ready(function () {
+    	const firstButton = document.querySelector('.btn.nav-link:first-child');   	
+    	firstButton.className = 'btn nav-link active';
+    	
+    });
+    
+
+  
 </script>
 </html>
