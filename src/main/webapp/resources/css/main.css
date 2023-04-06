@@ -231,15 +231,15 @@
 	
 	
 	.secondBanner_containerWrapper__1N-i4 {
-	       font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     color: inherit;
     box-sizing: inherit;
     background-color: #fff088;
 	}
-	.secondBanner_container_1Nu6b {
-	      font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+	.secondBanner_container__1Nu6b {
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     color: inherit;
@@ -317,6 +317,8 @@
     color: inherit;
     box-sizing: inherit;
     width: 381px;
-    height: auto;
+    height: auto; 
     display: block;
     }
+   
+   
