@@ -12,6 +12,153 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="/resources/css/main.css" type="text/css" />
 <title>StudyHub</title>
+<style>
+li {
+    padding: 0;
+}
+.studyItem_badgeWrapper__3AW7k {
+    display: flex;
+    align-items: center;
+    grid-gap: 3px;
+    gap: 3px;
+}
+.badge_badge__ZfNyB {
+    height: 28px;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -.04em;
+}
+.badge_study__39LDm {
+    border-radius: 20px;
+    padding: 4px 12px;
+    background: #efefef;
+    color: #656565;
+}
+.studyItem_schedule__3oAnA {
+    display: flex;
+    font-size: 14px;
+    grid-gap: 8px;
+    gap: 8px;
+    color: #999;
+    font-weight: 500;
+    margin-top: 20px;
+}
+.studyItem_scheduleTitle__1KN_9 {
+    letter-spacing: -4%;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.studyItem_schedule__3oAnA {
+    display: flex;
+    font-size: 14px;
+    grid-gap: 8px;
+    gap: 8px;
+    color: #999;
+    font-weight: 500;
+    margin-top: 20px;
+}
+.studyItem_title__2B_2o {
+    font-size: 17px;
+    min-height: 50px;
+    line-height: 28px;
+    font-weight: 500;
+    letter-spacing: -.05em;
+    margin: 7px 0 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-break: break-all;
+    overflow: hidden;
+}
+.studyItem_positionList__1jzi_ {
+    height: 22px;
+    display: flex;
+    margin-bottom: 20px;
+    grid-gap: 3px;
+    gap: 3px;
+}
+.studyItem_position__2sRRD {
+    padding: 3px 10px;
+    grid-gap: 5px;
+    gap: 5px;
+    height: 22px;
+    background: #f2f4f8;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
+    color: #3e86f5;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.studyItem_content__1mJ9M {
+    margin-bottom: 24px;
+    padding: 0;
+    display: flex;
+    grid-gap: 8px;
+    gap: 8px;
+    list-style: none;
+}
+
+.studyItem_border__2zAjs {
+    border-top: 2px solid #f2f2f2;
+}
+
+.studyItem_bookmark__2YtKX {
+    display: block;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+}
+.studyItem_content__1mJ9M {
+    margin-bottom: 24px;
+    padding: 0;
+    display: flex;
+    grid-gap: 8px;
+    gap: 8px;
+    list-style: none;
+}
+.studyItem_language__20yqw, .studyItem_languageImage__1AfGa {
+    width: 60px;
+    height: 60px;
+}
+.studyItem_userInfo__1KkGa, .studyItem_viewsAndComment__1Bxpj {
+    display: flex;
+    grid-gap: 10px;
+    gap: 10px;
+}
+.studyItem_info__OFIQU {
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: space-between;
+    letter-spacing: -.04em;
+    margin-top: 8px;
+}
+.avatar_user__1Pgut {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.avatar_userImg__hogPI {
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+</style>
 </head>
 <body>
 <div id="root">
@@ -192,25 +339,240 @@
 	</nav>
 
 
-	<div class="content">
-		<div class="row row-cols-1 row-cols-md-4 g-4">
 	
-			<%
-			for (int i = 0; i < 20; i++) {
+	<%
+	for (int i = 0; i < 5; i++) {
 			%>
-			<div class="col">
-				<div class="card h-100">
-						<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">This is a wider card with supporting text
-							below as a natural lead-in to additional content. This content is
-							a little bit longer.</p>
-					</div>
-					<div class="card-footer">
-						<small class="text-muted">Last updated 3 mins ago</small>
-					</div>
-				</div>
-			</div>
+		<div class="container">
+        <div class="row">   
+        <div class="col"> <div class="card" style="width: 100%">
+            <div class="card-body">
+            <!-- 프로젝트-->
+            <div class= "studyItem_badgeWrapper__3AW7k">
+                <div class="badge_badge__ZfNyB">
+                   <div class="badge_study__39LDm"> 프로젝트
+                   </div> 
+                </div>
+            </div>
+            <!--마감일-->
+            <div class="studyItem_schedule__3oAnA">
+                <p class="studyItem_scheduleTitle__1KN_9">마감일  |</p>
+                <p>2023.04.07</p>
+            </div>
+            <!--게시글 제목-->
+
+            <h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
+            <!--분야-->
+            <ul class="studyItem_positionList__1jzi_">
+                <li class="studyItem_position__2sRRD">디자이너</li>
+                <li class="studyItem_position__2sRRD">디자이너</li>
+                <li class="studyItem_position__2sRRD">디자이너</li>
+            </ul>
+            
+
+            <!--기술태그-->
+            <ul class="studyItem_content__1mJ9M">
+                <li class="studyItem_language__20yqw">
+                    <img class="studyItem_languageImage__1AfGa" title="java" src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" alt="language">
+                </li>
+                <li class="studyItem_language__20yqw">
+                    <img class="studyItem_languageImage__1AfGa" title="java" src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" alt="language">
+                </li>
+                <li class="studyItem_language__20yqw">
+                    <img class="studyItem_languageImage__1AfGa" title="java" src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" alt="language">
+                </li>
+            </ul>
+
+            <!--구분선-->
+            <div class="studyItem_border__2zAjs"></div>
+
+            <!-- user, 조회수 댓글-->
+            <div class="studyItem_userInfo__1KkGa">
+                <div class="avatar_user__1Pgut">
+                    <img class="avatar_userImg__hogPI" width="30px" height="30px"
+                    src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="avatar">
+                </div>
+                <div>닉네임</div>
+            </div>
+            <!--관심등록 이미지 영역-->
+            <img class="studyItem_bookmark__2YtKX" src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="marker"/>
+
+
+    </div> <!-- card-body 끝-->    
+    </div><!--class="card-->
+    </div> <!-- col-md4 끝--> 
+    <div class="col"> <div class="card" style="width: 100%">
+            <div class="card-body">
+            <!-- 프로젝트-->
+            <div class= "studyItem_badgeWrapper__3AW7k">
+                <div class="badge_badge__ZfNyB">
+                   <div class="badge_study__39LDm"> 프로젝트
+                   </div> 
+                </div>
+            </div>
+            <!--마감일-->
+            <div class="studyItem_schedule__3oAnA">
+                <p class="studyItem_scheduleTitle__1KN_9">마감일  |</p>
+                <p>2023.04.07</p>
+            </div>
+            <!--게시글 제목-->
+
+            <h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
+            <!--분야-->
+            <ul class="studyItem_positionList__1jzi_">
+                <li class="studyItem_position__2sRRD">디자이너</li>
+                <li class="studyItem_position__2sRRD">디자이너</li>
+                <li class="studyItem_position__2sRRD">디자이너</li>
+            </ul>
+            
+
+            <!--기술태그-->
+            <ul class="studyItem_content__1mJ9M">
+                <li class="studyItem_language__20yqw">
+                    <img class="studyItem_languageImage__1AfGa" title="java" src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" alt="language">
+                </li>
+                <li class="studyItem_language__20yqw">
+                    <img class="studyItem_languageImage__1AfGa" title="java" src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" alt="language">
+                </li>
+                <li class="studyItem_language__20yqw">
+                    <img class="studyItem_languageImage__1AfGa" title="java" src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" alt="language">
+                </li>
+            </ul>
+
+            <!--구분선-->
+            <div class="studyItem_border__2zAjs"></div>
+
+            <!-- user, 조회수 댓글-->
+            <div class="studyItem_userInfo__1KkGa">
+                <div class="avatar_user__1Pgut">
+                    <img class="avatar_userImg__hogPI" width="30px" height="30px"
+                    src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="avatar">
+                </div>
+                <div>닉네임</div>
+            </div>
+            <!--관심등록 이미지 영역-->
+            <img class="studyItem_bookmark__2YtKX" src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="marker"/>
+
+
+    </div> <!-- card-body 끝-->    
+    </div><!--class="card-->
+    </div> <!-- col-md4 끝-->
+    <div class="col"> <div class="card" style="width: 100%">
+            <div class="card-body">
+            <!-- 프로젝트-->
+            <div class= "studyItem_badgeWrapper__3AW7k">
+                <div class="badge_badge__ZfNyB">
+                   <div class="badge_study__39LDm"> 프로젝트
+                   </div> 
+                </div>
+            </div>
+            <!--마감일-->
+            <div class="studyItem_schedule__3oAnA">
+                <p class="studyItem_scheduleTitle__1KN_9">마감일  |</p>
+                <p>2023.04.07</p>
+            </div>
+            <!--게시글 제목-->
+
+            <h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
+            <!--분야-->
+            <ul class="studyItem_positionList__1jzi_">
+                <li class="studyItem_position__2sRRD">디자이너</li>
+                <li class="studyItem_position__2sRRD">디자이너</li>
+                <li class="studyItem_position__2sRRD">디자이너</li>
+            </ul>
+            
+
+            <!--기술태그-->
+            <ul class="studyItem_content__1mJ9M">
+                <li class="studyItem_language__20yqw">
+                    <img class="studyItem_languageImage__1AfGa" title="java" src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" alt="language">
+                </li>
+                <li class="studyItem_language__20yqw">
+                    <img class="studyItem_languageImage__1AfGa" title="java" src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" alt="language">
+                </li>
+                <li class="studyItem_language__20yqw">
+                    <img class="studyItem_languageImage__1AfGa" title="java" src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" alt="language">
+                </li>
+            </ul>
+
+            <!--구분선-->
+            <div class="studyItem_border__2zAjs"></div>
+
+            <!-- user, 조회수 댓글-->
+            <div class="studyItem_userInfo__1KkGa">
+                <div class="avatar_user__1Pgut">
+                    <img class="avatar_userImg__hogPI" width="30px" height="30px"
+                    src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="avatar">
+                </div>
+                <div>닉네임</div>
+            </div>
+            <!--관심등록 이미지 영역-->
+            <img class="studyItem_bookmark__2YtKX" src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="marker"/>
+
+
+    </div> <!-- card-body 끝-->    
+    </div><!--class="card-->
+    </div> <!-- col-md4 끝--> 
+    <div class="col"> <div class="card" style="width: 100%">
+            <div class="card-body">
+            <!-- 프로젝트-->
+            <div class= "studyItem_badgeWrapper__3AW7k">
+                <div class="badge_badge__ZfNyB">
+                   <div class="badge_study__39LDm"> 프로젝트
+                   </div> 
+                </div>
+            </div>
+            <!--마감일-->
+            <div class="studyItem_schedule__3oAnA">
+                <p class="studyItem_scheduleTitle__1KN_9">마감일  |</p>
+                <p>2023.04.07</p>
+            </div>
+            <!--게시글 제목-->
+
+            <h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
+            <!--분야-->
+            <ul class="studyItem_positionList__1jzi_">
+                <li class="studyItem_position__2sRRD">디자이너</li>
+                <li class="studyItem_position__2sRRD">디자이너</li>
+                <li class="studyItem_position__2sRRD">디자이너</li>
+            </ul>
+            
+
+            <!--기술태그-->
+            <ul class="studyItem_content__1mJ9M">
+                <li class="studyItem_language__20yqw">
+                    <img class="studyItem_languageImage__1AfGa" title="java" src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" alt="language">
+                </li>
+                <li class="studyItem_language__20yqw">
+                    <img class="studyItem_languageImage__1AfGa" title="java" src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" alt="language">
+                </li>
+                <li class="studyItem_language__20yqw">
+                    <img class="studyItem_languageImage__1AfGa" title="java" src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" alt="language">
+                </li>
+            </ul>
+
+            <!--구분선-->
+            <div class="studyItem_border__2zAjs"></div>
+
+            <!-- user, 조회수 댓글-->
+            <div class="studyItem_userInfo__1KkGa">
+                <div class="avatar_user__1Pgut">
+                    <img class="avatar_userImg__hogPI" width="30px" height="30px"
+                    src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="avatar">
+                </div>
+                <div>닉네임</div>
+            </div>
+            <!--관심등록 이미지 영역-->
+            <img class="studyItem_bookmark__2YtKX" src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="marker"/>
+
+
+    </div> <!-- card-body 끝-->    
+    </div><!--class="card-->
+    </div> <!-- col-md4 끝-->   
+	 </div><!--row 끝-->
+	    <br>
+    </div><!--container 끝-->
+</div>  
 			<%
 			}
 			%>
