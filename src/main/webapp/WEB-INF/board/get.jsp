@@ -1,505 +1,390 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@include file="../includes/header.jsp"%>
+<!DOCTYPE html>
+<html lang ="UTF-8">
+<head>
+<style>
+.studyContent_wrapper__VVyNH {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 5rem;
+}
+.studyContent_postHeader__2Qu_y {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+.studyContent_title__3680o {
+    margin-top: 2.5rem;
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 126.5%;
+    letter-spacing: -.005em;
+    color: #000;
+}
+.studyContent_userAndDate__1iYDv {
+    margin-top: 32px;
+    padding-bottom: 32px;
+    border-bottom: 3px solid #f2f2f2;
+    display: flex;
+    grid-gap: 15px;
+    gap: 15px;
+    align-items: center;
+}
+.studyContent_user__1XYmH {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.studyContent_userImg__3gyI- {
+    cursor: pointer;
+    display: block;
+    height: 3rem;
+    width: 3rem;
+    margin-right: 16px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.studyContent_userName__1GBr8 {
+    color: #333;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    padding-right: 15px;
+    border-right: 2px solid #e1e1e1;
+}
+.studyContent_registeredDate__3lybC {
+    font-size: 18px;
+    color: #717171;
+}
+.studyInfo_studyGrid__38Lfj {
+    display: grid;
+    grid-template-columns: repeat(2,3fr);
+    grid-row-gap: 24px;
+    row-gap: 24px;
+    margin-top: 60px;
+}
+.studyInfo_contentWrapper__KkSUP {
+    display: flex;
+    position: relative;
+    align-items: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+.studyInfo_title__3jXRE {
+    color: #717171;
+    margin-right: 40px;
+}
+.studyInfo_content__eqtqC {
+    color: #333;
+}
+.contactPoint_contactWrapper__2T_GC, .contactPoint_email__1a-aY {
+    position: absolute;
+    left: 110px;
+    background: #f2f4f8;
+    border-radius: 10px;
+    color: #4a5e75;
+}
+.studyInfo_content__eqtqC {
+    color: #333;
+}
+.studyInfo_languageList__1usTa {
+    display: flex;
+    grid-gap: 12px;
+    gap: 12px;
+}
+.studyInfo_language__3A3Vi, .studyInfo_languageImage__2b-u9 {
+    width: 30px;
+    height: 30px;
+}
+.studyInfo_positions__3JIxy {
+    height: 22px;
+    padding: 3px 10px;
+    background: #f2f4f8;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #4a5e75;
+}
+.contactPoint_link__2MqRR {
+    display: flex;
+    grid-gap: 8px;
+    gap: 8px;
+    font-size: 16px;
+    padding: 8px 12px;
+    -webkit-text-decoration-line: underline;
+    text-decoration-line: underline;
+    -webkit-text-decoration-color: #4a5e75;
+    text-decoration-color: #4a5e75;
+}
+.contactPoint_linkImg__2_927 {
+    width: 16px;
+    height: 16px;
+}
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.studyContent_postContentWrapper__187Zh {
+    margin-top: 132px;
+    font-size: 1.125rem;
+    word-break: break-all;
+    line-height: 1.7;
+    letter-spacing: -.004em;
+}
 
+* {
+    box-sizing: inherit;
+}
+.studyContent_postInfo__3zpYu {
+    margin: 0;
+    color: #333;
+    font-size: 26px;
+    font-weight: 700;
+    padding-bottom: 24px;
+    border-bottom: 3px solid #f2f2f2;
+}
+.studyContent_postContent__2c-FO {
+    width: 100%;
+    margin: 40px auto 0;
+}
+.studyContent_commentAndViews__LrV6X {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+.studyContent_postComment__2lpJV {
+    width: 100%;
+    margin: 0 auto;
+}
+.commentInput_commentInput__39H41 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+.commentInput_commentCount__2dHvH {
+    margin: 0 0 30px;
+    font-size: 22px;
+}
+.commentInput_commentInput__39H41 textarea {
+    font-family: inherit;
+    padding: 1rem 1rem 1.5rem;
+    outline: none;
+    border: 2px solid #e1e1e1;
+    border-radius: 16px;
+    width: 100%;
+    min-height: 100px;
+    margin-bottom: 10px;
+    resize: none;
+}
+.commentInput_buttonWrapper__2f_l9 {
+    display: flex;
+    justify-content: flex-end;
+    margin: 16px 0 24px;
+}
+.commentInput_buttonComplete__24z4R {
+    padding: 0px 0px;
+    min-width: 120px;
+    height: 40px;
+    background-color:#ffb300;
+    border-radius: 50px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 16px;
+}
+.commentList_CommentList__30HUh {
+    width: 100%;
+}
+body {
+    margin: 200px;
+    margin-top: 0px;
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    box-sizing: border-box;
+    min-height: 100%;
+}
+.navbar_navbar__O41pd {
+    margin: auto;
+    max-width: 1180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 0 10px;
+}
+.navbar_logo__a5PmC {
+    width: 105px;
+    height: 32px;
+}
+.navbar_loginElementWrapper__11CeH {
+    display: flex;
+    grid-gap: 30px;
+    gap: 30px;
+    align-items: center;
+}.navbar_login__3Ui--, .navbar_postRegister__FJnRS {
+    font-weight: 600;
+    font-size: 1.125rem;
+}
 
-<div class="row">
-  <div class="col-lg-12">
-    <h1 class="page-header">Board Register</h1>
-  </div>
-  <!-- /.col-lg-12 -->
-</div>
-<!-- /.row -->
- 
-<div class="row">
-  <div class="col-lg-12">
-    <div class="panel panel-default">
-
-      <div class="panel-heading">Board Read Page</div>
-      <!-- /.panel-heading -->
-      <div class="panel-body">
-
-          <div class="form-group">
-          <label>Bno</label> <input class="form-control" name='bno'
-            value='<c:out value="${board.bno }"/>' readonly="readonly">
+button {
+    outline: none;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+.notice_notificationWrapper__obnzH {
+    position: relative;
+    cursor: pointer;
+}
+.notice_imageWrapper__1A5dg {
+    position: relative;
+}
+.notice_notification__1bz33 {
+    display: block;
+}
+.loginUser_userWrapper__1c_jd {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.loginUser_userImg__1JpxQ {
+    display: block;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: all .125s ease-in 0s;
+}
+.loginUser_userWrapper__1c_jd svg {
+    font-size: 1.5rem;
+    color: #868e96;
+    transition: all .125s ease-in 0s;
+    margin-right: -.4375rem;
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
+   <!--헤더-->
+<nav class="navbar_navbar__O41pd"><a href="/">
+    <img class="navbar_logo__a5PmC" src="./studyhub_logo.png" alt="logo"></a>
+    <div class="navbar_loginElementWrapper__11CeH"><button class="navbar_postRegister__FJnRS">새 글 쓰기</button>
+        <div class="notice_notificationWrapper__obnzH"><div class="notice_imageWrapper__1A5dg">
+            <img class="notice_notification__1bz33" src="https://holaworld.io/images/info/notification.svg" alt="notification"></div>
+        </div><div class="loginUser_userWrapper__1c_jd">
+            <img class="loginUser_userImg__1JpxQ" src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="userImg">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 10l5 5 5-5z"></path>
+            </svg>
         </div>
-
-        <div class="form-group">
-          <label>Title</label> <input class="form-control" name='title'
-            value='<c:out value="${board.title }"/>' readonly="readonly">
-        </div>
-
-        <div class="form-group">
-          <label>Text area</label>
-          <textarea class="form-control" rows="3" name='content'
-            readonly="readonly"><c:out value="${board.content}" /></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>Writer</label> <input class="form-control" name='writer'
-            value='<c:out value="${board.writer }"/>' readonly="readonly">
-        </div>
-
-<%-- 		<button data-oper='modify' class="btn btn-default">
-        <a href="/board/modify?bno=<c:out value="${board.bno}"/>">Modify</a></button>
-        <button data-oper='list' class="btn btn-info">
-        <a href="/board/list">List</a></button> --%>
-
-
-<button data-oper='modify' class="btn btn-default">Modify</button>
-<button data-oper='list' class="btn btn-info">List</button>
-
-<%-- <form id='operForm' action="/boad/modify" method="get">
-  <input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
-</form> --%>
-
-
-<form id='operForm' action="/boad/modify" method="get">
-  <input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
-  <input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
-  <input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
-  <input type='hidden' name='keyword' value='<c:out value="${cri.keyword}"/>'>
-  <input type='hidden' name='type' value='<c:out value="${cri.type}"/>'>  
- 
-</form>
-
-
-
-      </div>
-      <!--  end panel-body -->
-
     </div>
-    <!--  end panel-body -->
-  </div>
-  <!-- end panel -->
-</div>
-<!-- /.row -->
+</nav> <!--헤더 끝-->
 
+ <!--게시글 기본 정보 영역-->    
+<section class="studyContent_postHeader__2Qu_y">
+    <!--뒤로가기버튼-->
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" color="808080" cursor="pointer" height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="color: rgb(128, 128, 128);">
+    <path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path>
+    </svg>
 
-<div class='row'>
+    <!--게시글 제목-->
+    <div class="studyContent_title__3680o">포트폴리오 같이 하실 디자이너 모집합니다!</div>
 
-  <div class="col-lg-12">
+    <!--사용자 닉네임영역-->
+    <div class="studyContent_userAndDate__1iYDv">
+        <div class="studyContent_user__1XYmH">
+            <img class="studyContent_userImg__3gyI-" src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="userImg">
+            <div class="studyContent_userName__1GBr8">닉네임</div>
+        </div><div class="studyContent_registeredDate__3lybC">2023.04.02</div>
+    </div>
+    
 
-    <!-- /.panel -->
-    <div class="panel panel-default">
-<!--       <div class="panel-heading">
-        <i class="fa fa-comments fa-fw"></i> Reply
-      </div> -->
-      
-      <div class="panel-heading">
-        <i class="fa fa-comments fa-fw"></i> Reply
-        <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button>
-      </div>      
-      
-      
-      <!-- /.panel-heading -->
-      <div class="panel-body">        
-      
-        <ul class="chat">
+    <!--게시글 기본 정보 영역-->
+    <ul class="studyInfo_studyGrid__38Lfj">
+        <li class="studyInfo_contentWrapper__KkSUP">
+            <span class="studyInfo_title__3jXRE">모집 구분</span>
+            <span class="studyInfo_content__eqtqC">프로젝트</span>
+        </li>
+        <li class="studyInfo_contentWrapper__KkSUP">
+            <span class="studyInfo_title__3jXRE">진행 방식</span>
+            <span class="studyInfo_content__eqtqC">온라인</span>
+        </li>
+        <li class="studyInfo_contentWrapper__KkSUP">
+            <span class="studyInfo_title__3jXRE">모집 인원</span>
+            <span class="studyInfo_content__eqtqC">1명</span>
+        </li>
+        <li class="studyInfo_contentWrapper__KkSUP">
+            <span class="studyInfo_title__3jXRE">시작 예정</span>
+            <span class="studyInfo_content__eqtqC">2023.04.02</span>
+        </li>
+        <li class="studyInfo_contentWrapper__KkSUP">
+            <span class="studyInfo_title__3jXRE">연락 방법</span>
+            <div class="contactPoint_contactWrapper__2T_GC">
+                <a class="contactPoint_link__2MqRR" href="https://open.kakao.com/o/sirqtbdf" target="_blank" rel="noreferrer">
+                    <span>카카오톡 오픈채팅</span><img class="contactPoint_linkImg__2_927" src="https://holaworld.io/images/info/link.svg" alt=""></a>
+                </div>
+        </li>
+        <li class="studyInfo_contentWrapper__KkSUP">
+            <span class="studyInfo_title__3jXRE">예상 기간</span>
+            <span class="studyInfo_content__eqtqC">1개월</span>
+        </li>
+        <li class="studyInfo_contentWrapper__KkSUP">
+            <span class="studyInfo_title__3jXRE">사용 언어</span>
+            <ul class="studyInfo_languageList__1usTa">
+                <li class="studyInfo_language__3A3Vi">
+                    <img class="studyInfo_languageImage__2b-u9" src="https://holaworld.io/images/languages/react.svg" alt="language">
+                </li>
+                <li class="studyInfo_language__3A3Vi">
+                    <img class="studyInfo_languageImage__2b-u9" src="https://holaworld.io/images/languages/typescript.svg" alt="language">
+                </li>
+            </ul>
+        </li>
+        <li class="studyInfo_contentWrapper__KkSUP">
+            <span class="studyInfo_title__3jXRE">모집 분야</span>
+            <ul class="studyInfo_languageList__1usTa"><li class="studyInfo_positions__3JIxy">디자이너</li></ul>
+        </li>
+    </ul>
+</section>  <!--게시글 기본 정보 영역 끝-->
 
-        </ul>
-        <!-- ./ end ul -->
-      </div>
-      <!-- /.panel .chat-panel -->
+<!--본문 영역-->
+<div class="studyContent_postContentWrapper__187Zh">
+    <h2 class="studyContent_postInfo__3zpYu">프로젝트 소개</h2>
+    <div class="studyContent_postContent__2c-FO">
+        <p>안녕하세요!디자이너분을 구인하고자 글을 작성하게 되었습니다.</p>
+        <p>환승시민은 프론트엔드 개발자 ,백엔드 개발자 2명으로 이루어진 팀으로 지하철 일대일 채팅 서비스입니다.</p>
+        <p>현재 환승시민 리팩토링을 진행하는 과정에 새로운 환승시민 디자인을 입혀줄 UIUX 디자이너를 구하고 있습니다!</p>
+    </div>
+</div><!--본문영역 끝-->
 
-	<div class="panel-footer"></div>
-
-
-		</div>
-  </div>
-  <!-- ./ end row -->
-</div>
-
-
-
-<!-- Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-        aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"
-                aria-hidden="true">&times;</button>
-              <h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
+<!--댓글영역-->
+<section class="studyContent_commentAndViews__LrV6X">
+    <div class="studyContent_postComment__2lpJV">
+        <div class="commentInput_commentInput__39H41">
+            <h1 class="commentInput_commentCount__2dHvH">0개의 댓글이 있습니다.</h1>
+            <textarea class="commentInput_commentText__2er8t" placeholder="댓글을 입력하세요."></textarea>
+            <div class="commentInput_buttonWrapper__2f_l9">
+                <button class="commentInput_buttonComplete__24z4R" name="register">댓글 등록</button>
             </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label>Reply</label> 
-                <input class="form-control" name='reply' value='New Reply!!!!'>
-              </div>      
-              <div class="form-group">
-                <label>Replyer</label> 
-                <input class="form-control" name='replyer' value='replyer'>
-              </div>
-              <div class="form-group">
-                <label>Reply Date</label> 
-                <input class="form-control" name='replyDate' value='2018-01-01 13:13'>
-              </div>
-      
-            </div>
-<div class="modal-footer">
-        <button id='modalModBtn' type="button" class="btn btn-warning">Modify</button>
-        <button id='modalRemoveBtn' type="button" class="btn btn-danger">Remove</button>
-        <button id='modalRegisterBtn' type="button" class="btn btn-primary">Register</button>
-        <button id='modalCloseBtn' type="button" class="btn btn-default">Close</button>
-      </div>          </div>
-          <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-
-
-
-<script type="text/javascript" src="/resources/js/reply.js"></script>
-
-<script>
-
-$(document).ready(function () {
-  
-  var bnoValue = '<c:out value="${board.bno}"/>';
-  var replyUL = $(".chat");
-  
-    showList(1);
-    
-function showList(page){
-	
-	  console.log("show list " + page);
-    
-    replyService.getList({bno:bnoValue,page: page|| 1 }, function(replyCnt, list) {
-      
-    console.log("replyCnt: "+ replyCnt );
-    console.log("list: " + list);
-    console.log(list);
-    
-    if(page == -1){
-      pageNum = Math.ceil(replyCnt/10.0);
-      showList(pageNum);
-      return;
-    }
-      
-     var str="";
-     
-     if(list == null || list.length == 0){
-       return;
-     }
-     
-     for (var i = 0, len = list.length || 0; i < len; i++) {
-       str +="<li class='left clearfix' data-rno='"+list[i].rno+"'>";
-       str +="  <div><div class='header'><strong class='primary-font'>["
-    	   +list[i].rno+"] "+list[i].replyer+"</strong>"; 
-       str +="    <small class='pull-right text-muted'>"
-           +replyService.displayTime(list[i].replyDate)+"</small></div>";
-       str +="    <p>"+list[i].reply+"</p></div></li>";
-     }
-     
-     replyUL.html(str);
-     
-     showReplyPage(replyCnt);
-
- 
-   });//end function
-     
- }//end showList
-    
-    var pageNum = 1;
-    var replyPageFooter = $(".panel-footer");
-    
-    function showReplyPage(replyCnt){
-      
-      var endNum = Math.ceil(pageNum / 10.0) * 10;  
-      var startNum = endNum - 9; 
-      
-      var prev = startNum != 1;
-      var next = false;
-      
-      if(endNum * 10 >= replyCnt){
-        endNum = Math.ceil(replyCnt/10.0);
-      }
-      
-      if(endNum * 10 < replyCnt){
-        next = true;
-      }
-      
-      var str = "<ul class='pagination pull-right'>";
-      
-      if(prev){
-        str+= "<li class='page-item'><a class='page-link' href='"+(startNum -1)+"'>Previous</a></li>";
-      }
-      
-      for(var i = startNum ; i <= endNum; i++){
-        
-        var active = pageNum == i? "active":"";
-        
-        str+= "<li class='page-item "+active+" '><a class='page-link' href='"+i+"'>"+i+"</a></li>";
-      }
-      
-      if(next){
-        str+= "<li class='page-item'><a class='page-link' href='"+(endNum + 1)+"'>Next</a></li>";
-      }
-      
-      str += "</ul></div>";
-      
-      console.log(str);
-      
-      replyPageFooter.html(str);
-    }
-     
-    replyPageFooter.on("click","li a", function(e){
-       e.preventDefault();
-       console.log("page click");
-       
-       var targetPageNum = $(this).attr("href");
-       
-       console.log("targetPageNum: " + targetPageNum);
-       
-       pageNum = targetPageNum;
-       
-       showList(pageNum);
-     });     
-
-    
-/*     function showList(page){
-      
-      replyService.getList({bno:bnoValue,page: page|| 1 }, function(list) {
-        
-        var str="";
-       if(list == null || list.length == 0){
-        
-        replyUL.html("");
-        
-        return;
-      }
-       for (var i = 0, len = list.length || 0; i < len; i++) {
-           str +="<li class='left clearfix' data-rno='"+list[i].rno+"'>";
-           str +="  <div><div class='header'><strong class='primary-font'>"+list[i].replyer+"</strong>"; 
-           str +="    <small class='pull-right text-muted'>"+replyService.displayTime(list[i].replyDate)+"</small></div>";
-           str +="    <p>"+list[i].reply+"</p></div></li>";
-         }
-
-
-    replyUL.html(str);
-
-      });//end function
-      
-   }//end showList */
-   
-    var modal = $(".modal");
-    var modalInputReply = modal.find("input[name='reply']");
-    var modalInputReplyer = modal.find("input[name='replyer']");
-    var modalInputReplyDate = modal.find("input[name='replyDate']");
-    
-    var modalModBtn = $("#modalModBtn");
-    var modalRemoveBtn = $("#modalRemoveBtn");
-    var modalRegisterBtn = $("#modalRegisterBtn");
-    
-    $("#modalCloseBtn").on("click", function(e){
-    	
-    	modal.modal('hide');
-    });
-    
-    $("#addReplyBtn").on("click", function(e){
-      
-      modal.find("input").val("");
-      modalInputReplyDate.closest("div").hide();
-      modal.find("button[id !='modalCloseBtn']").hide();
-      
-      modalRegisterBtn.show();
-      
-      $(".modal").modal("show");
-      
-    });
-    
-
-    modalRegisterBtn.on("click",function(e){
-      
-      var reply = {
-            reply: modalInputReply.val(),
-            replyer:modalInputReplyer.val(),
-            bno:bnoValue
-          };
-      replyService.add(reply, function(result){
-        
-        alert(result);
-        
-        modal.find("input").val("");
-        modal.modal("hide");
-        
-        //showList(1);
-        showList(-1);
-        
-      });
-      
-    });
-
-
-  //댓글 조회 클릭 이벤트 처리 
-    $(".chat").on("click", "li", function(e){
-      
-      var rno = $(this).data("rno");
-      
-      replyService.get(rno, function(reply){
-      
-        modalInputReply.val(reply.reply);
-        modalInputReplyer.val(reply.replyer);
-        modalInputReplyDate.val(replyService.displayTime( reply.replyDate))
-        .attr("readonly","readonly");
-        modal.data("rno", reply.rno);
-        
-        modal.find("button[id !='modalCloseBtn']").hide();
-        modalModBtn.show();
-        modalRemoveBtn.show();
-        
-        $(".modal").modal("show");
-            
-      });
-    });
-  
-    
-/*     modalModBtn.on("click", function(e){
-      
-      var reply = {rno:modal.data("rno"), reply: modalInputReply.val()};
-      
-      replyService.update(reply, function(result){
-            
-        alert(result);
-        modal.modal("hide");
-        showList(1);
-        
-      });
-      
-    });
-
-    modalRemoveBtn.on("click", function (e){
-    	  
-  	  var rno = modal.data("rno");
-  	  
-  	  replyService.remove(rno, function(result){
-  	        
-  	      alert(result);
-  	      modal.modal("hide");
-  	      showList(1);
-  	      
-  	  });
-  	  
-  	}); */
-
-    modalModBtn.on("click", function(e){
-    	  
-   	  var reply = {rno:modal.data("rno"), reply: modalInputReply.val()};
-   	  
-   	  replyService.update(reply, function(result){
-   	        
-   	    alert(result);
-   	    modal.modal("hide");
-   	    showList(pageNum);
-   	    
-   	  });
-   	  
-   	});
-
-
-   	modalRemoveBtn.on("click", function (e){
-   	  
-   	  var rno = modal.data("rno");
-   	  
-   	  replyService.remove(rno, function(result){
-   	        
-   	      alert(result);
-   	      modal.modal("hide");
-   	      showList(pageNum);
-   	      
-   	  });
-   	  
-   	});
-
- 
-});
-
-</script>
-
-
-
-<script>
-
-/* console.log("===============");
-console.log("JS TEST");
-
-var bnoValue = '<c:out value="${board.bno}"/>'; */
-
-//for replyService add test
-/* replyService.add(
-    
-    {reply:"JS Test", replyer:"tester", bno:bnoValue}
-    ,
-    function(result){ 
-      alert("RESULT: " + result);
-    }
-); */
-
-
-//reply List Test
-/* replyService.getList({bno:bnoValue, page:1}, function(list){
-    
-	  for(var i = 0,  len = list.length||0; i < len; i++ ){
-	    console.log(list[i]);
-	  }
-});
- */
-
- 
-/*  //17번 댓글 삭제 테스트 
- replyService.remove(17, function(count) {
-
-   console.log(count);
-
-   if (count === "success") {
-     alert("REMOVED");
-   }
- }, function(err) {
-   alert('ERROR...');
- });
- */
- 
-
-//12번 댓글 수정 
-/* replyService.update({
-  rno : 12,
-  bno : bnoValue,
-  reply : "Modified Reply...."
-}, function(result) {
-
-  alert("수정 완료...");
-
-});  
- */
-
-</script>  
-
-
-<script type="text/javascript">
-$(document).ready(function() {
-  
-  var operForm = $("#operForm"); 
-  
-  $("button[data-oper='modify']").on("click", function(e){
-    
-    operForm.attr("action","/board/modify").submit();
-    
-  });
-  
-    
-  $("button[data-oper='list']").on("click", function(e){
-    
-    operForm.find("#bno").remove();
-    operForm.attr("action","/board/list")
-    operForm.submit();
-    
-  });  
-});
-</script>
-
-
-<%@include file="../includes/footer.jsp"%>
+        <ul class="commentList_CommentList__30HUh"></ul>
+    </div>
+</section><!--댓글영역 끝-->
+</body>
+</html>
