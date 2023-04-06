@@ -23,7 +23,7 @@ public class UserController {
 		return "userRegister";
 	}
 	
-	@GetMapping(value="/interst")
+	@GetMapping(value="/interest")
 	public String interest() {
 		log.info("====== ");
 		return "interest";
