@@ -265,7 +265,7 @@
           <img src = "studyhub_logo.png" height = "130" width = "300">
         </div>
       </div>
-      <div class="col-md-9">Team 5vengers</div>
+      <div class="col-md-9">Team-5vengers</div>
       <div class="col-auto">이용약관</div>
       <div class="col-auto">개인정보처리방침</div>
       <div class="col-auto">서비스소개</div>
