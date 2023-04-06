@@ -96,47 +96,6 @@
         </div>
       </div>
     </div>
-    
-    <br>
-
-    <div class="container text-center">
-      <div class="row g-4">
-        <div class="col">
-          <div class="card" style="width: 20rem; border-radius: 20px;">
-            <div class="card-body">
-              <h5 class="card-title">페이지 만들기 어려워요!</h5>
-              <h6 class="card-subtitle mb-2 text-muted"><img src = "https://cdn.freebiesupply.com/logos/large/2x/spring-3-logo-png-transparent.png" width = "30" height = "30"></h6>
-              <p class="card-text">스프링 마크를 넣어봤습니다!</p>
-              <a href="#" class="card-link">상세보기</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" style="width: 20rem; border-radius: 20px;">
-            <div class="card-body">
-              <h5 class="card-title">페이지 만들기 어려워요!</h5>
-              <h6 class="card-subtitle mb-2 text-muted"><img src = "https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" width = "30" height = "30"></h6>
-              <p class="card-text">이것은 C여</p>
-              <a href="#" class="card-link">상세보기</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" style="width: 20rem; border-radius: 20px;">
-            <div class="card-body">
-              <h5 class="card-title">페이지 만들기 어려워요!</h5>
-              <h6 class="card-subtitle mb-2 text-muted">
-                <img src = "https://cdn.freebiesupply.com/logos/large/2x/spring-3-logo-png-transparent.png" width = "30" height = "30">
-                <img src = "https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" width = "30" height = "30"></h6>
-              <p class="card-text">내용을 설명해주세요</p>
-              <a href="#" class="card-link">상세보기</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    
 
     <br>
 
@@ -176,8 +135,8 @@
         </div>
       </div>
     </div>
-    
-    
+
+
 
     <br>
 
@@ -217,9 +176,11 @@
         </div>
       </div>
     </div>
-    
+
+
+
     <br>
-    
+
     <div class="container text-center">
       <div class="row g-4">
         <div class="col">
@@ -256,7 +217,46 @@
         </div>
       </div>
     </div>
-    
+
+    <br>
+
+    <div class="container text-center">
+      <div class="row g-4">
+        <div class="col">
+          <div class="card" style="width: 20rem; border-radius: 20px;">
+            <div class="card-body">
+              <h5 class="card-title">페이지 만들기 어려워요!</h5>
+              <h6 class="card-subtitle mb-2 text-muted"><img src = "https://cdn.freebiesupply.com/logos/large/2x/spring-3-logo-png-transparent.png" width = "30" height = "30"></h6>
+              <p class="card-text">스프링 마크를 넣어봤습니다!</p>
+              <a href="#" class="card-link">상세보기</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 20rem; border-radius: 20px;">
+            <div class="card-body">
+              <h5 class="card-title">페이지 만들기 어려워요!</h5>
+              <h6 class="card-subtitle mb-2 text-muted"><img src = "https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" width = "30" height = "30"></h6>
+              <p class="card-text">이것은 C여</p>
+              <a href="#" class="card-link">상세보기</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 20rem; border-radius: 20px;">
+            <div class="card-body">
+              <h5 class="card-title">페이지 만들기 어려워요!</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                <img src = "https://cdn.freebiesupply.com/logos/large/2x/spring-3-logo-png-transparent.png" width = "30" height = "30">
+                <img src = "https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" width = "30" height = "30"></h6>
+              <p class="card-text">내용을 설명해주세요</p>
+              <a href="#" class="card-link">상세보기</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <hr>
 
     <div class="row">
