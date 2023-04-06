@@ -11,8 +11,10 @@ import lombok.extern.log4j.Log4j;
 public class BoardController {
 		
 	@GetMapping("/main")
-	public void getMain() {
+	public String getMain() {
 		System.out.println("main으로 이동");
 		log.info("main 이동");
+		
+		return "main";
 	}
 }
