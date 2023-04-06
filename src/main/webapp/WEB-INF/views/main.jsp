@@ -10,10 +10,22 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
-<link rel="stylesheet"  href="hub/resources/css/main.css" type="test/css" />
-<title>Insert title here</title>
+<link rel="stylesheet" href="/resources/css/main.css" type="text/css" />
+<title>StudyHub</title>
 </head>
 <body>
+<div id="root">
+	<nav class="navbar_navbar__O41pd">
+		<a href="/"> <img class="navbar_logo__a5PmC"
+			src="/resources/Images/SHLogo.png" alt="logo">
+		</a>
+		<div class="navbar_loginElementWrapper__11CeH">
+			<button class="navbar_postRegister__FJnRS">새 글 쓰기</button>
+			<button class="navbar_login__3Ui--">로그인</button>
+		</div>
+	</nav>
+
+
 	<div class="firstBanner">
 		<div id="carouselExampleControls" class="carousel slide"
 			data-bs-ride="carousel">
@@ -24,8 +36,8 @@
 						<span>스터디허브에서 함께할 팀원을 찾으세요</span>
 					</div>
 					<div class="col">
-						<img src="/hub/resources/images/dominik-unsplash.jpg"
-							class="d-block w-100" height="330px" alt="...">
+						<img src="/resources/Images/SHLogo.png" class="d-block w-100"
+							height="330px" alt="...">
 					</div>
 				</div>
 
@@ -34,8 +46,8 @@
 						<h2>StudyHub!는 봄맞이 새단장 완료</h2>
 						<span>더 편해진 스터디허브! 모르는 사람 없게 해주세요</span>
 					</div>
-					<img src="/hub/resources/images/jack-unsplash.jpg"
-						class="d-block w-100" height="330px" alt="...">
+					<img src="/resources/Images/SHLogo.png" class="d-block w-100"
+						height="330px" alt="...">
 				</div>
 			</div>
 			<button class="carousel-control-prev" type="button"
@@ -51,36 +63,6 @@
 		</div>
 	</div>
 
-	<!-- 	<nav class="navbar navbar-expand-lg bg-light"> -->
-	<!-- 		<div class="container-fluid"> -->
-	<!-- 			<a class="navbar-brand" href="#">Navbar</a> -->
-	<!-- 			<button class="navbar-toggler" type="button" -->
-	<!-- 				data-bs-toggle="collapse" data-bs-target="#navbarNav" -->
-	<!-- 				aria-controls="navbarNav" aria-expanded="false" -->
-	<!-- 				aria-label="Toggle navigation"> -->
-	<!-- 				<span class="navbar-toggler-icon"></span> -->
-	<!-- 			</button> -->
-
-
-	<!-- 			<div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-	<!-- 				<ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
-	<!-- 					<li class="nav-item"><a class="nav-link active" -->
-	<!-- 						aria-current="page" href="#">인기</a></li> -->
-	<!-- 					<li class="nav-item"><a class="nav-link" href="#">프론트엔드</a></li> -->
-	<!-- 					<li class="nav-item"><a class="nav-link" href="#">백엔드</a></li> -->
-	<!-- 					<li class="nav-item"><a class="nav-link" href="#">모바일</a></li> -->
-	<!-- 					<li class="nav-item"><a class="nav-link" href="#">기타</a></li> -->
-	<!-- 					<li class="nav-item"><a class="nav-link" href="#">모두보기</a></li> -->
-	<!-- 				</ul> -->
-	<!-- 				<form class="d-flex" role="search"> -->
-	<!-- 					<input class="form-control me-2" type="search" placeholder="Search" -->
-	<!-- 						aria-label="Search"> -->
-	<!-- 					<button class="btn btn-outline-success" type="submit">Search</button> -->
-	<!-- 				</form> -->
-	<!-- 			</div> -->
-	<!-- 		</div> -->
-	<!-- 	</nav> -->
-
 	<section class="desktopFilter_filterWrapper__1gwsT">
 		<ul class="Category_categories__3bwPA">
 			<li class="Category_categoryItem__1ko8V ">인기</li>
@@ -88,9 +70,10 @@
 			<li class="Category_categoryItem__1ko8V ">백엔드</li>
 			<li class="Category_categoryItem__1ko8V ">모바일</li>
 			<li class="Category_categoryItem__1ko8V ">기타</li>
-			<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">모두보기</li>
+			<li
+				class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">모두보기</li>
 		</ul>
-		
+
 		<ul class="LanguageBar_languages__2Ilqf">
 			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
 				class="LanguageBar_logo__332tN"
@@ -209,33 +192,32 @@
 	</nav>
 
 
-
-	<div class="row row-cols-1 row-cols-md-4 g-4">
-
-		<%
-		for (int i = 0; i < 20; i++) {
-		%>
-		<div class="col">
-			<div class="card h-100">
-				<img src="..." class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text">This is a wider card with supporting text
-						below as a natural lead-in to additional content. This content is
-						a little bit longer.</p>
-				</div>
-				<div class="card-footer">
-					<small class="text-muted">Last updated 3 mins ago</small>
+	<div class="content">
+		<div class="row row-cols-1 row-cols-md-4 g-4">
+	
+			<%
+			for (int i = 0; i < 20; i++) {
+			%>
+			<div class="col">
+				<div class="card h-100">
+						<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">This is a wider card with supporting text
+							below as a natural lead-in to additional content. This content is
+							a little bit longer.</p>
+					</div>
+					<div class="card-footer">
+						<small class="text-muted">Last updated 3 mins ago</small>
+					</div>
 				</div>
 			</div>
+			<%
+			}
+			%>
+	
 		</div>
-		<%
-		}
-		%>
-
 	</div>
-
-
+</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
