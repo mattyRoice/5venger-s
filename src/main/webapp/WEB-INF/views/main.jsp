@@ -177,7 +177,7 @@ ul {
 </style>
 </head>
 <body>
-	<!--  전체 바디 태그-->
+	<!--  전체 바디 태그 root -->
 	<div id="root">
 		<!--  nav 태그 -->
 		<nav class="navbar_navbar__O41pd">
@@ -250,108 +250,115 @@ ul {
 		<!--  필터 아이콘 보기  -->
 		<section class="desktopFilter_filterWrapper__1gwsT">
 			<ul class="Category_categories__3bwPA">
-				<li
-					class="Category_categoryItem__1ko8V ">인기</li>
+				<li class="Category_categoryItem__1ko8V ">인기</li>
 				<li class="Category_categoryItem__1ko8V ">프론트엔드</li>
 				<li class="Category_categoryItem__1ko8V ">백엔드</li>
 				<li class="Category_categoryItem__1ko8V ">모바일</li>
 				<li class="Category_categoryItem__1ko8V ">기타</li>
-				<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">모두보기</li>
+				<li
+					class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">모두보기</li>
 			</ul>
 			<ul class="LanguageBar_languages__2Ilqf">
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
 					class="LanguageBar_logo__332tN"
-					src="https://holaworld.io/images/languages/javascript.svg" alt="JavaScript"><span>JavaScript</span></li>
+					src="https://holaworld.io/images/languages/javascript.svg"
+					alt="JavaScript"><span>JavaScript</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
 					class="LanguageBar_logo__332tN"
-					src="https://holaworld.io/images/languages/typescript.svg" alt="TypeScript"><span>TypeScript</span></li>
+					src="https://holaworld.io/images/languages/typescript.svg"
+					alt="TypeScript"><span>TypeScript</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/react.svg"
-					alt="React"><span>React</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/react.svg" alt="React"><span>React</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/vue.svg"
-					alt="Vue"><span>Vue</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/vue.svg" alt="Vue"><span>Vue</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/svelte.svg"
-					alt="Svelte"><span>Svelte</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/svelte.svg" alt="Svelte"><span>Svelte</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/nextjs.svg"
-					alt="Nextjs"><span>Nextjs</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/nextjs.svg" alt="Nextjs"><span>Nextjs</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/nodejs.svg"
-					alt="Nodejs"><span>Nodejs</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/nodejs.svg" alt="Nodejs"><span>Nodejs</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/java.svg"
-					alt="Java"><span>Java</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/java.svg" alt="Java"><span>Java</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/spring.svg"
-					alt="Spring"><span>Spring</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/spring.svg" alt="Spring"><span>Spring</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/go.svg"
-					alt="Go"><span>Go</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/go.svg" alt="Go"><span>Go</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/nestjs.svg"
-					alt="Nestjs"><span>Nestjs</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/nestjs.svg" alt="Nestjs"><span>Nestjs</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/kotlin.svg"
-					alt="Kotlin"><span>Kotlin</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/kotlin.svg" alt="Kotlin"><span>Kotlin</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/express.svg"
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/express.svg"
 					alt="Express"><span>Express</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/mysql.svg"
-					alt="MySQL"><span>MySQL</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/mysql.svg" alt="MySQL"><span>MySQL</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/mongodb.svg"
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/mongodb.svg"
 					alt="MongoDB"><span>MongoDB</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/python.svg"
-					alt="Python"><span>Python</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/python.svg" alt="Python"><span>Python</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/django.svg"
-					alt="Django"><span>Django</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/django.svg" alt="Django"><span>Django</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/php.svg"
-					alt="php"><span>php</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/php.svg" alt="php"><span>php</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/graphql.svg"
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/graphql.svg"
 					alt="GraphQL"><span>GraphQL</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
 					class="LanguageBar_logo__332tN"
-					src="https://holaworld.io/images/languages/firebase.svg" alt="Firebase"><span>Firebase</span></li>
+					src="https://holaworld.io/images/languages/firebase.svg"
+					alt="Firebase"><span>Firebase</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/flutter.svg"
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/flutter.svg"
 					alt="Flutter"><span>Flutter</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/swift.svg"
-					alt="Swift"><span>Swift</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/swift.svg" alt="Swift"><span>Swift</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
 					class="LanguageBar_logo__332tN"
 					src="/images/languages/reactnative.svg" alt="ReactNative"><span>ReactNative</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/unity.svg"
-					alt="Unity"><span>Unity</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/unity.svg" alt="Unity"><span>Unity</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/aws.svg"
-					alt="AWS"><span>AWS</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/aws.svg" alt="AWS"><span>AWS</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
 					class="LanguageBar_logo__332tN"
 					src="/images/languages/kubernetes.svg" alt="Kubernetes"><span>Kubernetes</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/docker.svg"
-					alt="Docker"><span>Docker</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/docker.svg" alt="Docker"><span>Docker</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/git.svg"
-					alt="Git"><span>Git</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/git.svg" alt="Git"><span>Git</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/figma.svg"
-					alt="Figma"><span>Figma</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/figma.svg" alt="Figma"><span>Figma</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/zeplin.svg"
-					alt="Zeplin"><span>Zeplin</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/zeplin.svg" alt="Zeplin"><span>Zeplin</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/jest.svg"
-					alt="Jest"><span>Jest</span></li>
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/jest.svg" alt="Jest"><span>Jest</span></li>
 			</ul>
 			<div class="SelectedLanguage_selectedWrapper__2StUQ">
 				<ul class="SelectedLanguage_selectedLanguages__DYJjl"></ul>
@@ -387,12 +394,12 @@ ul {
 					</div>
 				</div>
 				<div class="toggleSwitch_switch__hglrb">
-					<span class="toggleSwitch_switchTitle__1g_TJ">모집 중만 보기</span><label
-						class="toggleSwitch_switchLabel__2oz0J toggleSwitch_switchChecked__SrqJl"
-						for="switchInput"><input type="checkbox"
-						class="toggleSwitch_switchCheckbox__3lrfj" id="switchInput"
-						checked="">
-						<div class="toggleSwitch_ball__3F55h"></div></label>
+					<span class="toggleSwitch_switchTitle__1g_TJ">모집 중만 보기</span>
+					<label	class="toggleSwitch_switchLabel__2oz0J toggleSwitch_switchChecked__SrqJl"
+						for="switchInput">
+							<input type="checkbox"	class="toggleSwitch_switchCheckbox__3lrfj" id="switchInput" checked>
+							<div class="toggleSwitch_ball__3F55h"></div>
+					</label>
 				</div>
 			</div>
 
@@ -668,13 +675,13 @@ ul {
 				<br>
 			</div>
 			<!--container 끝-->
+			<%
+			}
+			%>
 		</main>
 		<!--  main 끝 -->
 	</div>
-	<!--  root 끝 -->
-	<%
-	}
-	%>
+	<!-- 전체 바디 태그 root 끝 -->
 
 
 	<script
