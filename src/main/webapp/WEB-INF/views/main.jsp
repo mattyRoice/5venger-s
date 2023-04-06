@@ -241,7 +241,7 @@ ul {
 			</button>
 		</div>
 
-
+  
 
 		<section class="desktopFilter_filterWrapper__1gwsT">
 			<ul class="Category_categories__3bwPA">
