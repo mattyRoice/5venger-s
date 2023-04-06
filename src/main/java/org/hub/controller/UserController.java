@@ -22,4 +22,10 @@ public class UserController {
 		log.info("= = user Register = = ");
 		return "userRegister";
 	}
+	
+	@GetMapping(value="/interst")
+	public String interest() {
+		log.info("====== ");
+		return "interest";
+	}
 }
