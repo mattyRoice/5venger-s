@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>관심글</title>
@@ -96,6 +97,47 @@
         </div>
       </div>
     </div>
+    
+    <br>
+
+    <div class="container text-center">
+      <div class="row g-4">
+        <div class="col">
+          <div class="card" style="width: 20rem; border-radius: 20px;">
+            <div class="card-body">
+              <h5 class="card-title">페이지 만들기 어려워요!</h5>
+              <h6 class="card-subtitle mb-2 text-muted"><img src = "https://cdn.freebiesupply.com/logos/large/2x/spring-3-logo-png-transparent.png" width = "30" height = "30"></h6>
+              <p class="card-text">스프링 마크를 넣어봤습니다!</p>
+              <a href="#" class="card-link">상세보기</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 20rem; border-radius: 20px;">
+            <div class="card-body">
+              <h5 class="card-title">페이지 만들기 어려워요!</h5>
+              <h6 class="card-subtitle mb-2 text-muted"><img src = "https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" width = "30" height = "30"></h6>
+              <p class="card-text">이것은 C여</p>
+              <a href="#" class="card-link">상세보기</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 20rem; border-radius: 20px;">
+            <div class="card-body">
+              <h5 class="card-title">페이지 만들기 어려워요!</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                <img src = "https://cdn.freebiesupply.com/logos/large/2x/spring-3-logo-png-transparent.png" width = "30" height = "30">
+                <img src = "https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" width = "30" height = "30"></h6>
+              <p class="card-text">내용을 설명해주세요</p>
+              <a href="#" class="card-link">상세보기</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
 
     <br>
 
@@ -135,49 +177,8 @@
         </div>
       </div>
     </div>
-
-
-
-    <br>
-
-    <div class="container text-center">
-      <div class="row g-4">
-        <div class="col">
-          <div class="card" style="width: 20rem; border-radius: 20px;">
-            <div class="card-body">
-              <h5 class="card-title">페이지 만들기 어려워요!</h5>
-              <h6 class="card-subtitle mb-2 text-muted"><img src = "https://cdn.freebiesupply.com/logos/large/2x/spring-3-logo-png-transparent.png" width = "30" height = "30"></h6>
-              <p class="card-text">스프링 마크를 넣어봤습니다!</p>
-              <a href="#" class="card-link">상세보기</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" style="width: 20rem; border-radius: 20px;">
-            <div class="card-body">
-              <h5 class="card-title">페이지 만들기 어려워요!</h5>
-              <h6 class="card-subtitle mb-2 text-muted"><img src = "https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" width = "30" height = "30"></h6>
-              <p class="card-text">이것은 C여</p>
-              <a href="#" class="card-link">상세보기</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" style="width: 20rem; border-radius: 20px;">
-            <div class="card-body">
-              <h5 class="card-title">페이지 만들기 어려워요!</h5>
-              <h6 class="card-subtitle mb-2 text-muted">
-                <img src = "https://cdn.freebiesupply.com/logos/large/2x/spring-3-logo-png-transparent.png" width = "30" height = "30">
-                <img src = "https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" width = "30" height = "30"></h6>
-              <p class="card-text">내용을 설명해주세요</p>
-              <a href="#" class="card-link">상세보기</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
+    
+    
 
     <br>
 
@@ -217,9 +218,9 @@
         </div>
       </div>
     </div>
-
+    
     <br>
-
+    
     <div class="container text-center">
       <div class="row g-4">
         <div class="col">
@@ -256,7 +257,7 @@
         </div>
       </div>
     </div>
-
+    
     <hr>
 
     <div class="row">
@@ -265,7 +266,7 @@
           <img src = "studyhub_logo.png" height = "130" width = "300">
         </div>
       </div>
-      <div class="col-md-9">Team 5vengers</div>
+      <div class="col-md-9">Team-5vengers</div>
       <div class="col-auto">이용약관</div>
       <div class="col-auto">개인정보처리방침</div>
       <div class="col-auto">서비스소개</div>
