@@ -729,7 +729,7 @@ ul {
 		  
 		  var selectedClass = 'LanguageBar_selected__1R9Jv';
 		  var otherClasses = '.LanguageBar_languageIcon__Um7GQ:not(.' + selectedClass + ')';
-
+ 
 		  $('li').click(function() {
 		    // 이전에 선택된 <li> 요소의 클래스를 삭제
 		    $('.' + selectedClass).removeClass(selectedClass);
