@@ -715,7 +715,7 @@ ul {
 		        return false; // 반복문 탈출
 		      }
 		    });
-
+ 
 		    if (!isExist) { // 같은 언어가 없으면 새로운 <li> 태그 추가
 		      var newLi = $('<li>').attr('class', 'SelectedLanguage_selectedLanguage__3AUIy');
 		      var newDi = $('<div>').text(text);
@@ -726,7 +726,7 @@ ul {
 		      $('.SelectedLanguage_selectedLanguages__DYJjl').append(newLi);
 		 	
 		  });
-		  
+		  -
 		  var selectedClass = 'LanguageBar_selected__1R9Jv';
 		  var otherClasses = '.LanguageBar_languageIcon__Um7GQ:not(.' + selectedClass + ')';
   
