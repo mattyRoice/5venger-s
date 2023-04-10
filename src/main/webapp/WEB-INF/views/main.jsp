@@ -710,7 +710,7 @@ ul {
 		    // 새로운 <li> 태그와 <img> 태그 생성
 		    var newLi = $('<li>').text(text);
 		    var newImg = $('<img>').attr('src', 'https://holaworld.io/images/info/delete.svg');
-
+ 
 		    // 다른 <ul> 태그에 <li>와 <img> 추가
 		    $('.SelectedLanguage_selectedLanguages__DYJjl').append(newLi);
 		    $('.SelectedLanguage_selectedLanguages__DYJjl').append(newImg);
