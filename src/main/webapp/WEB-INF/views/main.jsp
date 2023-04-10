@@ -724,6 +724,7 @@ ul {
 		      $(newLi).append(newDi);
 		      $(newLi).append(newImg);
 		      $('.SelectedLanguage_selectedLanguages__DYJjl').append(newLi);
+		    };
 		 	
 		  });
 		  
@@ -753,6 +754,8 @@ ul {
 		  });
 		  
 		});
+		  
+		
 		  
 		 
 		
