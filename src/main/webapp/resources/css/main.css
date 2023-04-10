@@ -809,7 +809,6 @@
     transition: all .1s ease-in;
     cursor: pointer;
     opacity: .3;
-    transform: scale(1.05);
 }
 
 .SelectedLanguage_resetFilter__2EZuH {
