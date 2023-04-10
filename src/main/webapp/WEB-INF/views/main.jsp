@@ -700,7 +700,7 @@ ul {
 // 		searchContainer.addEventListener('click', () => {
 // 		  searchBox.style.right = '0';
 // 		});
-		
+ 
 		$(document).ready(function() {
 		  // 선택한 <li> 태그를 클릭할 때마다 실행되는 함수
 		  $('.LanguageBar_languageIcon__Um7GQ.LanguageBar_full__3qQet').click(function() {
