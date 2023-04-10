@@ -28,7 +28,7 @@
 	<mybatis-spring:scan base-package="org.hub.mapper"/>
 	
 
-	<!-- <context:component-scan base-package="org.hub.service"></context:component-scan> -->
+	<context:component-scan base-package="org.hub.service"></context:component-scan>
 
 
 </beans>

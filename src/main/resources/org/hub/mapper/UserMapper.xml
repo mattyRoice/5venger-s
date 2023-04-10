@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.hub.mapper.UserMapper">
+	
+		
+	<select id="login" resultType ="org.hub.domain.UserVO">
+		select*from user_tbl where uidkey = #{uidKey}
+	</select>
+	
+	<select id="getList" resultType ="org.hub.domain.UserVO">
+			select*from user_tbl
+	</select>
+	
+	<insert id="insert">
+		insert into user_tbl (uidkey, usnstype, unickname)
+		values (#{uidKey}, #{usnsType}, #{unickName})
+	</insert>
+	
+	<select id="read" resultType ="org.hub.domain.UserVO">
+		select*from user_tbl where uidkey = #{uidKey}
+	</select>
+	
+	<delete id="delete">
+		delete from user_tbl where uidkey = #{uidKey}
+	</delete>
+	
+	<update id="update">
+		update user_tbl 
+		set unickname = #{unickName} 
+		where uidkey = #{uidKey}
+	</update>
+</mapper>
