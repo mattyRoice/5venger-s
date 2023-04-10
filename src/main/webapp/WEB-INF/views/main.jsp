@@ -518,10 +518,10 @@ ul {
 										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
 										alt="language"></li>
 								</ul>
-
+ 
 								<!--구분선-->
 								<div class="studyItem_border__2zAjs"></div>
-
+ 
 								<!-- user, 조회수 댓글-->
 								<div class="studyItem_userInfo__1KkGa">
 									<div class="avatar_user__1Pgut">
@@ -700,20 +700,31 @@ ul {
 // 		searchContainer.addEventListener('click', () => {
 // 		  searchBox.style.right = '0';
 // 		});
- 
+		
 		$(document).ready(function() {
 		  // 선택한 <li> 태그를 클릭할 때마다 실행되는 함수
-		  $('.LanguageBar_languageIcon__Um7GQ.LanguageBar_full__3qQet').click(function() {
+		  $('.LanguageBar_languageIcon__Um7GQ').click(function() {
 		    // 선택한 <li> 태그의 텍스트를 가져옴
 		    var text = $(this).text();
- 
-		    // 새로운 <li> 태그와 <img> 태그 생성
-		    var newLi = $('<li>').text(text);
-		    var newImg = $('<img>').attr('src', 'https://holaworld.io/images/info/delete.svg');
- 
-		    // 다른 <ul> 태그에 <li>와 <img> 추가
-		    $('.SelectedLanguage_selectedLanguages__DYJjl').append(newLi);
-		    $('.SelectedLanguage_selectedLanguages__DYJjl').append(newImg);
+
+		 // 이미 선택된 언어 리스트에 같은 언어가 있는지 체크
+		    var isExist = false;
+		    $('.SelectedLanguage_selectedLanguages__DYJjl li').each(function() {
+		      if ($(this).text() === text) {
+		        isExist = true;
+		        return false; // 반복문 탈출
+		      }
+		    });
+
+		    if (!isExist) { // 같은 언어가 없으면 새로운 <li> 태그 추가
+		      var newLi = $('<li>').attr('class', 'SelectedLanguage_selectedLanguage__3AUIy');
+		      var newDi = $('<div>').text(text);
+		      var newImg = $('<img>').attr('src', 'https://holaworld.io/images/info/delete.svg').attr('alt', 'deleteButton');
+
+		      $(newLi).append(newDi);
+		      $(newLi).append(newImg);
+		      $('.SelectedLanguage_selectedLanguages__DYJjl').append(newLi);
+		 	
 		  });
 		  
 		  var selectedClass = 'LanguageBar_selected__1R9Jv';
@@ -731,28 +742,19 @@ ul {
 		    $(this).removeClass('LanguageBar_transparent__3wlZf').addClass('LanguageBar_full__3qQet');
 		  });
 		  
-		 
-		  
-		  $('.LanguageBar_languageIcon__Um7GQ.LanguageBar_full__3qQet').click(function() {
-		    // 다른 ul 요소 안에 새로운 li 요소 추가
-		    var targetUl = $(this).closest('.other-ul');
-		    targetUl.append('<li>New Item</li>');
+		 	  
+		  // <li> 태그 클릭 시 클래스 변경
+		  $('ul.LanguageBar_languages__2Ilqf > li').click(function() {
+		    // 현재 선택된 <li> 태그의 클래스를 변경
+		    $(this).removeClass('LanguageBar_languageIcon__Um7GQ LanguageBar_transparent__3wlZf').addClass('LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet');
 
-		    // 새로 추가된 li 요소의 뒤쪽에 span 태그 추가
-		    var targetLi = targetUl.find('li:last-child');
-		    if (targetLi.nextAll('.SelectedLanguage_resetFilter__2EZuH').length === 0) {
-		      targetLi.after('<span class="SelectedLanguage_resetFilter__2EZuH">X</span>');
-		    }
-
-		    // span 태그 클릭 시 페이지 새로고침
-		    targetLi.nextAll('.SelectedLanguage_resetFilter__2EZuH').click(function(e) {
-		      e.stopPropagation();
-		      location.reload();
-		    });
+		    // 다른 <li> 태그의 클래스를 변경
+		    $(this).siblings().removeClass('LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet').addClass('LanguageBar_languageIcon__Um7GQ LanguageBar_transparent__3wlZf');
 		  });
-
 		  
 		});
+		  
+		 
 		
 	</script>
 
