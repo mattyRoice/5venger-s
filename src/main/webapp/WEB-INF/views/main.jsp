@@ -518,7 +518,7 @@ ul {
 										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
 										alt="language"></li>
 								</ul>
-
+ 
 								<!--구분선-->
 								<div class="studyItem_border__2zAjs"></div>
 
