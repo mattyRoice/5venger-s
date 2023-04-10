@@ -177,7 +177,9 @@ ul {
 </style>
 </head>
 <body>
+	<!--  전체 바디 태그 root -->
 	<div id="root">
+		<!--  nav 태그 -->
 		<nav class="navbar_navbar__O41pd">
 			<a href="/"> <img class="navbar_logo__a5PmC"
 				src="/resources/Images/SHLogo.png" alt="logo">
@@ -188,9 +190,11 @@ ul {
 			</div>
 		</nav>
 
+		<!--  상단 배너 태그 -->
 		<div id="carouselExampleControls" class="carousel slide"
 			data-bs-ride="carousel">
 			<div class="carousel-inner">
+				<!--  첫 번째 배너 -->
 				<div class="carousel-item active">
 					<div class="firstBanner_containerWrapper__1QH6h">
 						<div class="firstBanner_container__1M3Ft">
@@ -209,6 +213,7 @@ ul {
 						</div>
 					</div>
 				</div>
+				<!--  두 번째 배너 -->
 				<div class="carousel-item">
 					<div class="secondBanner_containerWrapper__1N-i4">
 						<div class="secondBanner_container__1Nu6b">
@@ -219,7 +224,7 @@ ul {
 								<span class="secondBanner_subText__rl70c">더 편해진 스터디허브!
 									모르는 사람 없게 해주세요 🙏</span>
 							</div>
-							
+
 							<div class="secondBanner_rightCover__3Xm1n">
 								<img class="secondBanner_coverImage__1psJQ"
 									src="https://holaworld.io/images/banner/22.png"
@@ -229,426 +234,454 @@ ul {
 					</div>
 				</div>
 			</div>
-	<button class="carousel-control-prev" type="button"
-		data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-		<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-			class="visually-hidden">Previous</span>
-	</button>
-	<button class="carousel-control-next" type="button"
-		data-bs-target="#carouselExampleControls" data-bs-slide="next">
-		<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
-			class="visually-hidden">Next</span>
-	</button>
-	</div>
-	
-	
-
-
-
-	<section class="desktopFilter_filterWrapper__1gwsT">
-		<ul class="Category_categories__3bwPA">
-			<li class="Category_categoryItem__1ko8V ">인기</li>
-			<li class="Category_categoryItem__1ko8V ">프론트엔드</li>
-			<li class="Category_categoryItem__1ko8V ">백엔드</li>
-			<li class="Category_categoryItem__1ko8V ">모바일</li>
-			<li class="Category_categoryItem__1ko8V ">기타</li>
-			<li
-				class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">모두보기</li>
-		</ul>
-
-		<ul class="LanguageBar_languages__2Ilqf">
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN"
-				src="/images/languages/javascript.svg" alt="JavaScript"><span>JavaScript</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN"
-				src="/images/languages/typescript.svg" alt="TypeScript"><span>TypeScript</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/react.svg"
-				alt="React"><span>React</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/vue.svg"
-				alt="Vue"><span>Vue</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/svelte.svg"
-				alt="Svelte"><span>Svelte</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/nextjs.svg"
-				alt="Nextjs"><span>Nextjs</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/nodejs.svg"
-				alt="Nodejs"><span>Nodejs</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/java.svg"
-				alt="Java"><span>Java</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/spring.svg"
-				alt="Spring"><span>Spring</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/go.svg"
-				alt="Go"><span>Go</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/nestjs.svg"
-				alt="Nestjs"><span>Nestjs</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/kotlin.svg"
-				alt="Kotlin"><span>Kotlin</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/express.svg"
-				alt="Express"><span>Express</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/mysql.svg"
-				alt="MySQL"><span>MySQL</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/mongodb.svg"
-				alt="MongoDB"><span>MongoDB</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/python.svg"
-				alt="Python"><span>Python</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/django.svg"
-				alt="Django"><span>Django</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/php.svg"
-				alt="php"><span>php</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/graphql.svg"
-				alt="GraphQL"><span>GraphQL</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/firebase.svg"
-				alt="Firebase"><span>Firebase</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/flutter.svg"
-				alt="Flutter"><span>Flutter</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/swift.svg"
-				alt="Swift"><span>Swift</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN"
-				src="/images/languages/reactnative.svg" alt="ReactNative"><span>ReactNative</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/unity.svg"
-				alt="Unity"><span>Unity</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/aws.svg"
-				alt="AWS"><span>AWS</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN"
-				src="/images/languages/kubernetes.svg" alt="Kubernetes"><span>Kubernetes</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/docker.svg"
-				alt="Docker"><span>Docker</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/git.svg"
-				alt="Git"><span>Git</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/figma.svg"
-				alt="Figma"><span>Figma</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/zeplin.svg"
-				alt="Zeplin"><span>Zeplin</span></li>
-			<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-				class="LanguageBar_logo__332tN" src="/images/languages/jest.svg"
-				alt="Jest"><span>Jest</span></li>
-		</ul>
-		<div class="SelectedLanguage_selectedWrapper__2StUQ">
-			<ul class="SelectedLanguage_selectedLanguages__DYJjl"></ul>
+			<!--  배너 좌우 컨트롤 버튼 -->
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExampleControls" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
 		</div>
-		<div class="search_container__2ExFE">
-			<img class="search_searchImg__2ia6h" src="images/info/search.png"
-				alt="sub logo">
-		</div>
-	</section>
 
-	<nav class="navbar navbar-expand-lg bg-light">
-
-		<a class="nav-link dropdown-toggle" href="#" role="button"
-			data-bs-toggle="dropdown" aria-expanded="false"> Dropdown </a>
-		<ul class="dropdown-menu">
-			<li><a class="dropdown-item" href="#">Action</a></li>
-			<li><a class="dropdown-item" href="#">Another action</a></li>
-			<li><hr class="dropdown-divider"></li>
-			<li><a class="dropdown-item" href="#">Something else here</a></li>
-		</ul>
-
-	</nav>
-
-
-
-	<%
-	for (int i = 0; i < 5; i++) {
-	%>
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<div class="card" style="width: 100%">
-					<div class="card-body">
-						<!-- 프로젝트-->
-						<div class="studyItem_badgeWrapper__3AW7k">
-							<div class="badge_badge__ZfNyB">
-								<div class="badge_study__39LDm">프로젝트</div>
-							</div>
-						</div>
-						<!--마감일-->
-						<div class="studyItem_schedule__3oAnA">
-							<p class="studyItem_scheduleTitle__1KN_9">마감일 |</p>
-							<p>2023.04.07</p>
-						</div>
-						<!--게시글 제목-->
-
-						<h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
-						<!--분야-->
-						<ul class="studyItem_positionList__1jzi_">
-							<li class="studyItem_position__2sRRD">디자이너</li>
-							<li class="studyItem_position__2sRRD">디자이너</li>
-							<li class="studyItem_position__2sRRD">디자이너</li>
-						</ul>
-
-
-						<!--기술태그-->
-						<ul class="studyItem_content__1mJ9M">
-							<li class="studyItem_language__20yqw"><img
-								class="studyItem_languageImage__1AfGa" title="java"
-								src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-								alt="language"></li>
-							<li class="studyItem_language__20yqw"><img
-								class="studyItem_languageImage__1AfGa" title="java"
-								src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-								alt="language"></li>
-							<li class="studyItem_language__20yqw"><img
-								class="studyItem_languageImage__1AfGa" title="java"
-								src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-								alt="language"></li>
-						</ul>
-
-						<!--구분선-->
-						<div class="studyItem_border__2zAjs"></div>
-
-						<!-- user, 조회수 댓글-->
-						<div class="studyItem_userInfo__1KkGa">
-							<div class="avatar_user__1Pgut">
-								<img class="avatar_userImg__hogPI" width="30px" height="30px"
-									src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-									alt="avatar">
-							</div>
-							<div>닉네임</div>
-						</div>
-						<!--관심등록 이미지 영역-->
-						<img class="studyItem_bookmark__2YtKX"
-							src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-							alt="marker" />
-
-
-					</div>
-					<!-- card-body 끝-->
-				</div>
-				<!--class="card-->
+		<!--  필터 아이콘 보기  -->
+		<section class="desktopFilter_filterWrapper__1gwsT">
+			<ul class="Category_categories__3bwPA">
+				<li class="Category_categoryItem__1ko8V ">인기</li>
+				<li class="Category_categoryItem__1ko8V ">프론트엔드</li>
+				<li class="Category_categoryItem__1ko8V ">백엔드</li>
+				<li class="Category_categoryItem__1ko8V ">모바일</li>
+				<li class="Category_categoryItem__1ko8V ">기타</li>
+				<li
+					class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">모두보기</li>
+			</ul>
+			<ul class="LanguageBar_languages__2Ilqf">
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/javascript.svg"
+					alt="JavaScript"><span>JavaScript</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/typescript.svg"
+					alt="TypeScript"><span>TypeScript</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/react.svg" alt="React"><span>React</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/vue.svg" alt="Vue"><span>Vue</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/svelte.svg" alt="Svelte"><span>Svelte</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/nextjs.svg" alt="Nextjs"><span>Nextjs</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/nodejs.svg" alt="Nodejs"><span>Nodejs</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/java.svg" alt="Java"><span>Java</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/spring.svg" alt="Spring"><span>Spring</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/go.svg" alt="Go"><span>Go</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/nestjs.svg" alt="Nestjs"><span>Nestjs</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/kotlin.svg" alt="Kotlin"><span>Kotlin</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/express.svg"
+					alt="Express"><span>Express</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/mysql.svg" alt="MySQL"><span>MySQL</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/mongodb.svg"
+					alt="MongoDB"><span>MongoDB</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/python.svg" alt="Python"><span>Python</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/django.svg" alt="Django"><span>Django</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/php.svg" alt="php"><span>php</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/graphql.svg"
+					alt="GraphQL"><span>GraphQL</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/firebase.svg"
+					alt="Firebase"><span>Firebase</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/flutter.svg"
+					alt="Flutter"><span>Flutter</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/swift.svg" alt="Swift"><span>Swift</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="/images/languages/reactnative.svg" alt="ReactNative"><span>ReactNative</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/unity.svg" alt="Unity"><span>Unity</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/aws.svg" alt="AWS"><span>AWS</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="/images/languages/kubernetes.svg" alt="Kubernetes"><span>Kubernetes</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/docker.svg" alt="Docker"><span>Docker</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/git.svg" alt="Git"><span>Git</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/figma.svg" alt="Figma"><span>Figma</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/zeplin.svg" alt="Zeplin"><span>Zeplin</span></li>
+				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
+					class="LanguageBar_logo__332tN"
+					src="https://holaworld.io/images/languages/jest.svg" alt="Jest"><span>Jest</span></li>
+			</ul>
+			<div class="SelectedLanguage_selectedWrapper__2StUQ">
+				<ul class="SelectedLanguage_selectedLanguages__DYJjl"></ul>
 			</div>
-			<!-- col-md4 끝-->
-			<div class="col">
-				<div class="card" style="width: 100%">
-					<div class="card-body">
-						<!-- 프로젝트-->
-						<div class="studyItem_badgeWrapper__3AW7k">
-							<div class="badge_badge__ZfNyB">
-								<div class="badge_study__39LDm">프로젝트</div>
-							</div>
-						</div>
-						<!--마감일-->
-						<div class="studyItem_schedule__3oAnA">
-							<p class="studyItem_scheduleTitle__1KN_9">마감일 |</p>
-							<p>2023.04.07</p>
-						</div>
-						<!--게시글 제목-->
-
-						<h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
-						<!--분야-->
-						<ul class="studyItem_positionList__1jzi_">
-							<li class="studyItem_position__2sRRD">디자이너</li>
-							<li class="studyItem_position__2sRRD">디자이너</li>
-							<li class="studyItem_position__2sRRD">디자이너</li>
-						</ul>
-
-
-						<!--기술태그-->
-						<ul class="studyItem_content__1mJ9M">
-							<li class="studyItem_language__20yqw"><img
-								class="studyItem_languageImage__1AfGa" title="java"
-								src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-								alt="language"></li>
-							<li class="studyItem_language__20yqw"><img
-								class="studyItem_languageImage__1AfGa" title="java"
-								src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-								alt="language"></li>
-							<li class="studyItem_language__20yqw"><img
-								class="studyItem_languageImage__1AfGa" title="java"
-								src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-								alt="language"></li>
-						</ul>
-
-						<!--구분선-->
-						<div class="studyItem_border__2zAjs"></div>
-
-						<!-- user, 조회수 댓글-->
-						<div class="studyItem_userInfo__1KkGa">
-							<div class="avatar_user__1Pgut">
-								<img class="avatar_userImg__hogPI" width="30px" height="30px"
-									src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-									alt="avatar">
-							</div>
-							<div>닉네임</div>
-						</div>
-						<!--관심등록 이미지 영역-->
-						<img class="studyItem_bookmark__2YtKX"
-							src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-							alt="marker" />
-
-
-					</div>
-					<!-- card-body 끝-->
-				</div>
-				<!--class="card-->
+			<div class="search_container__2ExFE">
+				<img class="search_searchImg__2ia6h"
+					src="https://holaworld.io/images/info/search.png" alt="sub logo"><input
+					placeholder="제목, 게시글 검색" class="search_searchInput__1BF6g" value="">
 			</div>
-			<!-- col-md4 끝-->
-			<div class="col">
-				<div class="card" style="width: 100%">
-					<div class="card-body">
-						<!-- 프로젝트-->
-						<div class="studyItem_badgeWrapper__3AW7k">
-							<div class="badge_badge__ZfNyB">
-								<div class="badge_study__39LDm">프로젝트</div>
+		</section>
+		<main class="mainContent_main_F2EU9">
+			<div class="mainContent_categoryWrapper__1n063">
+				<div class="findMyPosition_selectWrapper__23xHq">
+					<div class=" css-2b097c-container">
+						<span aria-live="polite" aria-atomic="false"
+							aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
+						<div class=" css-1n44zxc-control">
+							<div class=" css-1wfrg0q">
+								<div class=" css-1wa3eu0-placeholder">내 포지션 찾기</div>
+								<input id="react-select-2-input" readonly="" tabindex="0"
+									aria-autocomplete="list" class="css-62g3xt-dummyInput" value="">
+							</div>
+							<div class=" css-1wy0on6">
+								<span class=" css-43ykx9-indicatorSeparator"></span>
+								<div class=" css-tlfecz-indicatorContainer" aria-hidden="true">
+									<svg height="20" width="20" viewBox="0 0 20 20"
+										aria-hidden="true" focusable="false" class="css-8mmkcg">
+									<path
+											d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path></svg>
+								</div>
 							</div>
 						</div>
-						<!--마감일-->
-						<div class="studyItem_schedule__3oAnA">
-							<p class="studyItem_scheduleTitle__1KN_9">마감일 |</p>
-							<p>2023.04.07</p>
-						</div>
-						<!--게시글 제목-->
-
-						<h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
-						<!--분야-->
-						<ul class="studyItem_positionList__1jzi_">
-							<li class="studyItem_position__2sRRD">디자이너</li>
-							<li class="studyItem_position__2sRRD">디자이너</li>
-							<li class="studyItem_position__2sRRD">디자이너</li>
-						</ul>
-
-
-						<!--기술태그-->
-						<ul class="studyItem_content__1mJ9M">
-							<li class="studyItem_language__20yqw"><img
-								class="studyItem_languageImage__1AfGa" title="java"
-								src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-								alt="language"></li>
-							<li class="studyItem_language__20yqw"><img
-								class="studyItem_languageImage__1AfGa" title="java"
-								src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-								alt="language"></li>
-							<li class="studyItem_language__20yqw"><img
-								class="studyItem_languageImage__1AfGa" title="java"
-								src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-								alt="language"></li>
-						</ul>
-
-						<!--구분선-->
-						<div class="studyItem_border__2zAjs"></div>
-
-						<!-- user, 조회수 댓글-->
-						<div class="studyItem_userInfo__1KkGa">
-							<div class="avatar_user__1Pgut">
-								<img class="avatar_userImg__hogPI" width="30px" height="30px"
-									src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-									alt="avatar">
-							</div>
-							<div>닉네임</div>
-						</div>
-						<!--관심등록 이미지 영역-->
-						<img class="studyItem_bookmark__2YtKX"
-							src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-							alt="marker" />
-
-
 					</div>
-					<!-- card-body 끝-->
 				</div>
-				<!--class="card-->
+				<div class="toggleSwitch_switch__hglrb">
+					<span class="toggleSwitch_switchTitle__1g_TJ">모집 중만 보기</span>
+					<label	class="toggleSwitch_switchLabel__2oz0J toggleSwitch_switchChecked__SrqJl"
+						for="switchInput">
+							<input type="checkbox"	class="toggleSwitch_switchCheckbox__3lrfj" id="switchInput" checked>
+							<div class="toggleSwitch_ball__3F55h"></div>
+					</label>
+				</div>
 			</div>
-			<!-- col-md4 끝-->
-			<div class="col">
-				<div class="card" style="width: 100%">
-					<div class="card-body">
-						<!-- 프로젝트-->
-						<div class="studyItem_badgeWrapper__3AW7k">
-							<div class="badge_badge__ZfNyB">
-								<div class="badge_study__39LDm">프로젝트</div>
-							</div>
-						</div>
-						<!--마감일-->
-						<div class="studyItem_schedule__3oAnA">
-							<p class="studyItem_scheduleTitle__1KN_9">마감일 |</p>
-							<p>2023.04.07</p>
-						</div>
-						<!--게시글 제목-->
-
-						<h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
-						<!--분야-->
-						<ul class="studyItem_positionList__1jzi_">
-							<li class="studyItem_position__2sRRD">디자이너</li>
-							<li class="studyItem_position__2sRRD">디자이너</li>
-							<li class="studyItem_position__2sRRD">디자이너</li>
-						</ul>
 
 
-						<!--기술태그-->
-						<ul class="studyItem_content__1mJ9M">
-							<li class="studyItem_language__20yqw"><img
-								class="studyItem_languageImage__1AfGa" title="java"
-								src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-								alt="language"></li>
-							<li class="studyItem_language__20yqw"><img
-								class="studyItem_languageImage__1AfGa" title="java"
-								src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-								alt="language"></li>
-							<li class="studyItem_language__20yqw"><img
-								class="studyItem_languageImage__1AfGa" title="java"
-								src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-								alt="language"></li>
-						</ul>
 
-						<!--구분선-->
-						<div class="studyItem_border__2zAjs"></div>
+			<%
+			for (int i = 0; i < 5; i++) {
+			%>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="card" style="width: 100%">
+							<div class="card-body">
+								<!-- 프로젝트-->
+								<div class="studyItem_badgeWrapper__3AW7k">
+									<div class="badge_badge__ZfNyB">
+										<div class="badge_study__39LDm">프로젝트</div>
+									</div>
+								</div>
+								<!--마감일-->
+								<div class="studyItem_schedule__3oAnA">
+									<p class="studyItem_scheduleTitle__1KN_9">마감일 |</p>
+									<p>2023.04.07</p>
+								</div>
+								<!--게시글 제목-->
 
-						<!-- user, 조회수 댓글-->
-						<div class="studyItem_userInfo__1KkGa">
-							<div class="avatar_user__1Pgut">
-								<img class="avatar_userImg__hogPI" width="30px" height="30px"
+								<h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
+								<!--분야-->
+								<ul class="studyItem_positionList__1jzi_">
+									<li class="studyItem_position__2sRRD">디자이너</li>
+									<li class="studyItem_position__2sRRD">디자이너</li>
+									<li class="studyItem_position__2sRRD">디자이너</li>
+								</ul>
+
+
+								<!--기술태그-->
+								<ul class="studyItem_content__1mJ9M">
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="java"
+										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										alt="language"></li>
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="java"
+										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										alt="language"></li>
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="java"
+										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										alt="language"></li>
+								</ul>
+
+								<!--구분선-->
+								<div class="studyItem_border__2zAjs"></div>
+
+								<!-- user, 조회수 댓글-->
+								<div class="studyItem_userInfo__1KkGa">
+									<div class="avatar_user__1Pgut">
+										<img class="avatar_userImg__hogPI" width="30px" height="30px"
+											src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
+											alt="avatar">
+									</div>
+									<div>닉네임</div>
+								</div>
+								<!--관심등록 이미지 영역-->
+								<img class="studyItem_bookmark__2YtKX"
 									src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-									alt="avatar">
+									alt="marker" />
+
+
 							</div>
-							<div>닉네임</div>
+							<!-- card-body 끝-->
 						</div>
-						<!--관심등록 이미지 영역-->
-						<img class="studyItem_bookmark__2YtKX"
-							src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-							alt="marker" />
-
-
+						<!--class="card-->
 					</div>
-					<!-- card-body 끝-->
+					<!-- col-md4 끝-->
+					<div class="col">
+						<div class="card" style="width: 100%">
+							<div class="card-body">
+								<!-- 프로젝트-->
+								<div class="studyItem_badgeWrapper__3AW7k">
+									<div class="badge_badge__ZfNyB">
+										<div class="badge_study__39LDm">프로젝트</div>
+									</div>
+								</div>
+								<!--마감일-->
+								<div class="studyItem_schedule__3oAnA">
+									<p class="studyItem_scheduleTitle__1KN_9">마감일 |</p>
+									<p>2023.04.07</p>
+								</div>
+								<!--게시글 제목-->
+
+								<h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
+								<!--분야-->
+								<ul class="studyItem_positionList__1jzi_">
+									<li class="studyItem_position__2sRRD">디자이너</li>
+									<li class="studyItem_position__2sRRD">디자이너</li>
+									<li class="studyItem_position__2sRRD">디자이너</li>
+								</ul>
+
+
+								<!--기술태그-->
+								<ul class="studyItem_content__1mJ9M">
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="java"
+										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										alt="language"></li>
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="java"
+										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										alt="language"></li>
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="java"
+										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										alt="language"></li>
+								</ul>
+
+								<!--구분선-->
+								<div class="studyItem_border__2zAjs"></div>
+
+								<!-- user, 조회수 댓글-->
+								<div class="studyItem_userInfo__1KkGa">
+									<div class="avatar_user__1Pgut">
+										<img class="avatar_userImg__hogPI" width="30px" height="30px"
+											src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
+											alt="avatar">
+									</div>
+									<div>닉네임</div>
+								</div>
+								<!--관심등록 이미지 영역-->
+								<img class="studyItem_bookmark__2YtKX"
+									src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
+									alt="marker" />
+
+
+							</div>
+							<!-- card-body 끝-->
+						</div>
+						<!--class="card-->
+					</div>
+					<!-- col-md4 끝-->
+					<div class="col">
+						<div class="card" style="width: 100%">
+							<div class="card-body">
+								<!-- 프로젝트-->
+								<div class="studyItem_badgeWrapper__3AW7k">
+									<div class="badge_badge__ZfNyB">
+										<div class="badge_study__39LDm">프로젝트</div>
+									</div>
+								</div>
+								<!--마감일-->
+								<div class="studyItem_schedule__3oAnA">
+									<p class="studyItem_scheduleTitle__1KN_9">마감일 |</p>
+									<p>2023.04.07</p>
+								</div>
+								<!--게시글 제목-->
+
+								<h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
+								<!--분야-->
+								<ul class="studyItem_positionList__1jzi_">
+									<li class="studyItem_position__2sRRD">디자이너</li>
+									<li class="studyItem_position__2sRRD">디자이너</li>
+									<li class="studyItem_position__2sRRD">디자이너</li>
+								</ul>
+
+
+								<!--기술태그-->
+								<ul class="studyItem_content__1mJ9M">
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="java"
+										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										alt="language"></li>
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="java"
+										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										alt="language"></li>
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="java"
+										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										alt="language"></li>
+								</ul>
+
+								<!--구분선-->
+								<div class="studyItem_border__2zAjs"></div>
+
+								<!-- user, 조회수 댓글-->
+								<div class="studyItem_userInfo__1KkGa">
+									<div class="avatar_user__1Pgut">
+										<img class="avatar_userImg__hogPI" width="30px" height="30px"
+											src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
+											alt="avatar">
+									</div>
+									<div>닉네임</div>
+								</div>
+								<!--관심등록 이미지 영역-->
+								<img class="studyItem_bookmark__2YtKX"
+									src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
+									alt="marker" />
+
+
+							</div>
+							<!-- card-body 끝-->
+						</div>
+						<!--class="card-->
+					</div>
+					<!-- col-md4 끝-->
+					<div class="col">
+						<div class="card" style="width: 100%">
+							<div class="card-body">
+								<!-- 프로젝트-->
+								<div class="studyItem_badgeWrapper__3AW7k">
+									<div class="badge_badge__ZfNyB">
+										<div class="badge_study__39LDm">프로젝트</div>
+									</div>
+								</div>
+								<!--마감일-->
+								<div class="studyItem_schedule__3oAnA">
+									<p class="studyItem_scheduleTitle__1KN_9">마감일 |</p>
+									<p>2023.04.07</p>
+								</div>
+								<!--게시글 제목-->
+
+								<h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
+								<!--분야-->
+								<ul class="studyItem_positionList__1jzi_">
+									<li class="studyItem_position__2sRRD">디자이너</li>
+									<li class="studyItem_position__2sRRD">디자이너</li>
+									<li class="studyItem_position__2sRRD">디자이너</li>
+								</ul>
+
+
+								<!--기술태그-->
+								<ul class="studyItem_content__1mJ9M">
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="java"
+										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										alt="language"></li>
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="java"
+										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										alt="language"></li>
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="java"
+										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										alt="language"></li>
+								</ul>
+
+								<!--구분선-->
+								<div class="studyItem_border__2zAjs"></div>
+
+								<!-- user, 조회수 댓글-->
+								<div class="studyItem_userInfo__1KkGa">
+									<div class="avatar_user__1Pgut">
+										<img class="avatar_userImg__hogPI" width="30px" height="30px"
+											src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
+											alt="avatar">
+									</div>
+									<div>닉네임</div>
+								</div>
+								<!--관심등록 이미지 영역-->
+								<img class="studyItem_bookmark__2YtKX"
+									src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
+									alt="marker" />
+
+
+							</div>
+							<!-- card-body 끝-->
+						</div>
+						<!--class="card-->
+					</div>
+					<!-- col-md4 끝-->
 				</div>
-				<!--class="card-->
+				<!--row 끝-->
+				<br>
 			</div>
-			<!-- col-md4 끝-->
-		</div>
-		<!--row 끝-->
-		<br>
+			<!--container 끝-->
+			<%
+			}
+			%>
+		</main>
+		<!--  main 끝 -->
 	</div>
-	<!--container 끝-->
-	</div>
-	<%
-	}
-	%>
+	<!-- 전체 바디 태그 root 끝 -->
 
 
 	<script
@@ -657,5 +690,9 @@ ul {
 		crossorigin="anonymous">
 		
 	</script>
+	<script>
+		
+	</script>
+
 </body>
 </html>
