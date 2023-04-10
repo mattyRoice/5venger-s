@@ -706,7 +706,7 @@ ul {
 		  $('.LanguageBar_languageIcon__Um7GQ.LanguageBar_full__3qQet').click(function() {
 		    // 선택한 <li> 태그의 텍스트를 가져옴
 		    var text = $(this).text();
-
+ 
 		    // 새로운 <li> 태그와 <img> 태그 생성
 		    var newLi = $('<li>').text(text);
 		    var newImg = $('<img>').attr('src', 'https://holaworld.io/images/info/delete.svg');
