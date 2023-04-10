@@ -521,7 +521,7 @@ ul {
  
 								<!--구분선-->
 								<div class="studyItem_border__2zAjs"></div>
-
+ 
 								<!-- user, 조회수 댓글-->
 								<div class="studyItem_userInfo__1KkGa">
 									<div class="avatar_user__1Pgut">
