@@ -362,7 +362,9 @@ ul {
 					src="https://holaworld.io/images/languages/jest.svg" alt="Jest"><span>Jest</span></li>
 			</ul>
 			<div class="SelectedLanguage_selectedWrapper__2StUQ">
-				<ul class="SelectedLanguage_selectedLanguages__DYJjl"></ul>
+				<ul class="SelectedLanguage_selectedLanguages__DYJjl">
+					<li class="SelectedLanguage_selectedLanguage__3AUIy" style="display: none;"><span class="SelectedLanguage_resetFilter__2EZuH">필터 초기화</span></li>
+				</ul>
 			</div>
 			<div class="search_container__2ExFE">
 				<img class="search_searchImg__2ia6h"
@@ -687,79 +689,101 @@ ul {
 	<!-- 전체 바디 태그 root 끝 -->
 
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-		crossorigin="anonymous">		
-	</script>
-	<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-	<script>
-// 		const searchContainer = document.querySelector('.search-container');
-// 		const searchBox = document.querySelector('.search-box');
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+	crossorigin="anonymous">		
+</script>
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+<script>
+	let isFirst = true;
+	let count = 0;
+	var selectedClass = 'LanguageBar_full__3qQet';
+	var otherClasses = '.LanguageBar_languageIcon__Um7GQ:not(.' + selectedClass + ')';
 	
-// 		searchContainer.addEventListener('click', () => {
-// 		  searchBox.style.right = '0';
-// 		});
+	$('#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child').click(function() {
+		location.reload();
+	});
+	
+	$('#root > section > ul.LanguageBar_languages__2Ilqf > li').click(function() {
+		if(isFirst) {
+			isFirst = false;
+			$('.LanguageBar_languageIcon__Um7GQ').removeClass(selectedClass).addClass('LanguageBar_transparent__3wlZf');
+		}
 		
-		$(document).ready(function() {
-		  // 선택한 <li> 태그를 클릭할 때마다 실행되는 함수
-		  $('.LanguageBar_languageIcon__Um7GQ').click(function() {
-		    // 선택한 <li> 태그의 텍스트를 가져옴
-		    var text = $(this).text();
-
-		 // 이미 선택된 언어 리스트에 같은 언어가 있는지 체크
-		    var isExist = false;
-		    $('.SelectedLanguage_selectedLanguages__DYJjl li').each(function() {
-		      if ($(this).text() === text) {
-		        isExist = true;
-		        return false; // 반복문 탈출
-		      }
-		    });
-
-		    if (!isExist) { // 같은 언어가 없으면 새로운 <li> 태그 추가
-		      var newLi = $('<li>').attr('class', 'SelectedLanguage_selectedLanguage__3AUIy');
-		      var newDi = $('<div>').text(text);
-		      var newImg = $('<img>').attr('src', 'https://holaworld.io/images/info/delete.svg').attr('alt', 'deleteButton');
-
-		      $(newLi).append(newDi);
-		      $(newLi).append(newImg);
-		      $('.SelectedLanguage_selectedLanguages__DYJjl').append(newLi);
-		    };
-		 	
-		  });
-		  
-		  var selectedClass = 'LanguageBar_selected__1R9Jv';
-		  var otherClasses = '.LanguageBar_languageIcon__Um7GQ:not(.' + selectedClass + ')';
-
-		  $('li').click(function() {
-		    // 이전에 선택된 <li> 요소의 클래스를 삭제
-		    $('.' + selectedClass).removeClass(selectedClass);
-
-		    // 현재 선택된 <li> 요소에 클래스 추가
-		    $(this).addClass(selectedClass);
-
-		    // 다른 <li> 요소의 클래스를 변경
-		    $(otherClasses).removeClass('LanguageBar_full__3qQet').addClass('LanguageBar_transparent__3wlZf');
-		    $(this).removeClass('LanguageBar_transparent__3wlZf').addClass('LanguageBar_full__3qQet');
-		  });
-		  
-		 	  
-		  // <li> 태그 클릭 시 클래스 변경
-		  $('ul.LanguageBar_languages__2Ilqf > li').click(function() {
-		    // 현재 선택된 <li> 태그의 클래스를 변경
-		    $(this).removeClass('LanguageBar_languageIcon__Um7GQ LanguageBar_transparent__3wlZf').addClass('LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet');
-
-		    // 다른 <li> 태그의 클래스를 변경
-		    $(this).siblings().removeClass('LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet').addClass('LanguageBar_languageIcon__Um7GQ LanguageBar_transparent__3wlZf');
-		  });
-		  
+		let $this = $(this);
+		let language = $this.text();
+		
+		if($this.hasClass(selectedClass)) {
+			count--;
+			toogleLanguageBar($this, "inactive");
+			removeLanguageFilter(language);
+		} else {
+			count++;
+			toogleLanguageBar($this, "active");
+			addLanguageFilter(language);
+			
+			$('#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child').css("display", "flex"); 
+		}
+		
+		if(!isFirst && count == 0) {
+			isFirst = true;
+			$('.LanguageBar_languageIcon__Um7GQ').removeClass('LanguageBar_transparent__3wlZf').addClass(selectedClass);
+			$('#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child').css("display", "none"); 
+		}
+	});
+	
+	function toogleLanguageBar($languageBar, status) {
+		if(status === "active") {
+			$languageBar.addClass(selectedClass).removeClass('LanguageBar_transparent__3wlZf');
+		} else {
+			$languageBar.removeClass(selectedClass).addClass('LanguageBar_transparent__3wlZf');
+		}
+	}
+	
+	function addLanguageFilter(language) {
+		var newLi = $('<li>').attr('class', 'SelectedLanguage_selectedLanguage__3AUIy');
+		var newDi = $('<div>').text(language);
+		var newImg = $('<img>').attr('src', 'https://holaworld.io/images/info/delete.svg').attr('alt', 'deleteButton');
+		
+		$(newLi).append(newDi);
+		$(newLi).append(newImg);
+		$('.SelectedLanguage_selectedLanguages__DYJjl').prepend(newLi);
+			
+		// 추가된 <li> 태그에 클릭 이벤트 핸들러 추가
+		$(newLi).click(function() {
+			$(this).remove();
+			
+			var language = $(this).text();
+			
+			$('li.LanguageBar_languageIcon__Um7GQ').each(function() {
+				let nthLanguage = $(this).text();
+				
+				if(nthLanguage === language) {
+					count--;
+					$(this).removeClass(selectedClass).addClass('LanguageBar_transparent__3wlZf');
+					
+					if(count == 0) {
+						isFirst = true;
+						$('.LanguageBar_languageIcon__Um7GQ').removeClass('LanguageBar_transparent__3wlZf').addClass(selectedClass);
+						$('#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child').css("display", "none"); 
+					}
+				}
+			});
 		});
-		  
+	}
+	
+	function removeLanguageFilter(language) {
+		let $languageFilters = $('.SelectedLanguage_selectedLanguages__DYJjl > li');
 		
-		  
-		 
-		
-	</script>
+		$languageFilters.each(function() {
+			let nthLanguage = $(this).text();
+			if(nthLanguage === language) {
+				$(this).remove();
+			}
+		});
+	}
+</script>
 
 </body>
 </html>
