@@ -10,7 +10,7 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/admin/*")
 @Log4j
 
-public class AdminUserCotroller {
+public class AdminCotroller {
 	
 	@GetMapping("/login")
 	public String adminLogin() {
