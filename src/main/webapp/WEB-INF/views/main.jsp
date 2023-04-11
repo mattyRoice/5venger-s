@@ -144,8 +144,8 @@ ul {
 }
 
 .studyItem_language__20yqw, .studyItem_languageImage__1AfGa {
-	width: 60px;
-	height: 60px;
+	width: 32px;
+	height: 32px;
 }
 
 .studyItem_userInfo__1KkGa, .studyItem_viewsAndComment__1Bxpj {
@@ -335,7 +335,8 @@ ul {
 					src="https://holaworld.io/images/languages/swift.svg" alt="Swift"><span>Swift</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
 					class="LanguageBar_logo__332tN"
-					src="https://holaworld.io/images/languages/reactnative.svg" alt="ReactNative"><span>ReactNative</span></li>
+					src="https://holaworld.io/images/languages/reactnative.svg"
+					alt="ReactNative"><span>ReactNative</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
 					class="LanguageBar_logo__332tN"
 					src="https://holaworld.io/images/languages/unity.svg" alt="Unity"><span>Unity</span></li>
@@ -344,7 +345,8 @@ ul {
 					src="https://holaworld.io/images/languages/aws.svg" alt="AWS"><span>AWS</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
 					class="LanguageBar_logo__332tN"
-					src="https://holaworld.io/images/languages/kubernetes.svg" alt="Kubernetes"><span>Kubernetes</span></li>
+					src="https://holaworld.io/images/languages/kubernetes.svg"
+					alt="Kubernetes"><span>Kubernetes</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
 					class="LanguageBar_logo__332tN"
 					src="https://holaworld.io/images/languages/docker.svg" alt="Docker"><span>Docker</span></li>
@@ -363,7 +365,9 @@ ul {
 			</ul>
 			<div class="SelectedLanguage_selectedWrapper__2StUQ">
 				<ul class="SelectedLanguage_selectedLanguages__DYJjl">
-					<li class="SelectedLanguage_selectedLanguage__3AUIy" style="display: none;"><span class="SelectedLanguage_resetFilter__2EZuH">필터 초기화</span></li>
+					<li class="SelectedLanguage_selectedLanguage__3AUIy"
+						style="display: none;"><span
+						class="SelectedLanguage_resetFilter__2EZuH">필터 초기화</span></li>
 				</ul>
 			</div>
 			<div class="search_container__2ExFE">
@@ -380,31 +384,45 @@ ul {
 					<div class=" css-2b097c-container">
 						<span aria-live="polite" aria-atomic="false"
 							aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
-						<div class=" css-1n44zxc-control">
-							<div class=" css-1wfrg0q">
-								<div class=" css-1uccc91-singleValue">전체</div>
-								<input id="react-select-3-input" readonly="" tabindex="0"
-									aria-autocomplete="list" class="css-62g3xt-dummyInput" value="">
-							</div>
-							<div class=" css-1wy0on6">
-								<span class=" css-43ykx9-indicatorSeparator"></span>
-								<div class=" css-tlfecz-indicatorContainer" aria-hidden="true">
-									<svg height="20" width="20" viewBox="0 0 20 20"
-										aria-hidden="true" focusable="false" class="css-8mmkcg">
-										<path
-											d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path></svg>
-								</div>
-							</div>
-						</div>
+
+						<select class="form-select form-select-lg mb-3"
+							aria-label=".form-select-lg example">
+							<option selected>내 포지션 찾기</option>
+							<option value="all">전체</option>
+							<option value="front">프론트엔드</option>
+							<option value="back">백엔드</option>
+							<option value="ios">IOS</option>
+							<option value="android">안드로이드</option>
+							<option value="devops">DevOps</option>
+							<option value="designer">디자이너</option>
+							<option value="pm">PM</option>
+						</select>
+
+						<!-- 						<div class=" css-1n44zxc-control"> -->
+						<!-- 							<div class=" css-1wfrg0q"> -->
+						<!-- 								<div class=" css-1uccc91-singleValue">전체</div> -->
+						<!-- 								<input id="react-select-3-input" readonly="" tabindex="0" -->
+						<!-- 									aria-autocomplete="list" class="css-62g3xt-dummyInput" value=""> -->
+						<!-- 							</div> -->
+						<!-- 							<div class=" css-1wy0on6"> -->
+						<!-- 								<span class=" css-43ykx9-indicatorSeparator"></span> -->
+						<!-- 								<div class=" css-tlfecz-indicatorContainer" aria-hidden="true"> -->
+						<!-- 									<svg height="20" width="20" viewBox="0 0 20 20" -->
+						<!-- 										aria-hidden="true" focusable="false" class="css-8mmkcg"> -->
+						<!-- 										<path -->
+						<!-- 											d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path></svg> -->
+						<!-- 								</div> -->
+						<!-- 							</div> -->
+						<!-- 						</div> -->
 					</div>
 				</div>
 				<div class="toggleSwitch_switch__hglrb">
-					<span class="toggleSwitch_switchTitle__1g_TJ">모집 중만 보기</span><label
-						class="toggleSwitch_switchLabel__2oz0J toggleSwitch_switchChecked__SrqJl"
-						for="switchInput"><input type="checkbox"
-						class="toggleSwitch_switchCheckbox__3lrfj" id="switchInput"
-						checked="">
-					<div class="toggleSwitch_ball__3F55h"></div></label>
+					<span class="toggleSwitch_switchTitle__1g_TJ">모집 중만 보기</span>
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" role="switch"
+							id="flexSwitchCheckChecked" checked>
+					</div>
+					</label>
 				</div>
 			</div>
 
@@ -418,10 +436,10 @@ ul {
 					<div class="col">
 						<div class="card" style="width: 100%">
 							<div class="card-body">
-								<!-- 프로젝트-->
+								<!-- 스터디-->
 								<div class="studyItem_badgeWrapper__3AW7k">
 									<div class="badge_badge__ZfNyB">
-										<div class="badge_study__39LDm">프로젝트</div>
+										<div class="badge_study__39LDm">스터디</div>
 									</div>
 								</div>
 								<!--마감일-->
@@ -431,7 +449,108 @@ ul {
 								</div>
 								<!--게시글 제목-->
 
-								<h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
+								<h6 class="studyItem_title__2B_2o">웹 제작 스터디 같이할 비전공자 모집합니다</h6>
+								<!--분야-->
+								<ul class="studyItem_positionList__1jzi_">
+									<li class="studyItem_position__2sRRD">디자이너</li>
+									<li class="studyItem_position__2sRRD">디자이너</li>
+									<li class="studyItem_position__2sRRD">디자이너</li>
+								</ul>
+
+
+								<!--기술태그-->
+								<ul class="studyItem_content__1mJ9M">
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="spring"
+										src="https://holaworld.io/images/languages/spring.svg"
+										alt="language"></li>
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="figma"
+										src="https://holaworld.io/images/languages/figma.svg"
+										alt="language"></li>
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="javascript"
+										src="https://holaworld.io/images/languages/javascript.svg"
+										alt="language"></li>
+								</ul>
+
+								<!--구분선-->
+								<div class="studyItem_border__2zAjs"></div>
+
+								<!-- 메인게시글 하단 -->
+								<section class="studyItem_info__OFIQU">
+									<!--  user이미지, user 닉네임 -->
+									<div class="studyItem_userInfo__1KkGa">
+										<div class="avatar_user__1Pgut">
+											<img class="avatar_userImg__hogPI" width="30px" height="30px"
+												src="/resources/Images/profileLogo.png"
+												alt="avatar">
+										</div>
+										<div>냠냠</div>
+									</div>
+									
+									<!--  조회수,댓글 -->
+									<div class="studyItem_viewsAndComment__1Bxpj">
+										<!--  조회수 -->
+										<div class="studyItem_infoItem__3vxSf">
+											<svg stroke="currentColor" fill="currentColor"
+												stroke-width="0" viewBox="0 0 1024 1024" color="#999999"
+												height="24" width="24" xmlns="http://www.w3.org/2000/svg"
+												style="color: rgb(153, 153, 153);">
+												<path
+													d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"></path></svg>
+											<p>173</p>
+										</div>
+										
+										<!--  댓글 -->
+										<div class="studyItem_infoItem__3vxSf">
+											<svg stroke="currentColor" fill="currentColor"
+												stroke-width="0" viewBox="0 0 512 512" color="#999999"
+												height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+												style="color: rgb(153, 153, 153);">
+												<path
+													d="M256 32C114.6 32 0 125.1 0 240c0 47.6 19.9 91.2 52.9 126.3C38 405.7 7 439.1 6.5 439.5c-6.6 7-8.4 17.2-4.6 26S14.4 480 24 480c61.5 0 110-25.7 139.1-46.3C192 442.8 223.2 448 256 448c141.4 0 256-93.1 256-208S397.4 32 256 32zm0 368c-26.7 0-53.1-4.1-78.4-12.1l-22.7-7.2-19.5 13.8c-14.3 10.1-33.9 21.4-57.5 29 7.3-12.1 14.4-25.7 19.9-40.2l10.6-28.1-20.6-21.8C69.7 314.1 48 282.2 48 240c0-88.2 93.3-160 208-160s208 71.8 208 160-93.3 160-208 160z"></path></svg>
+											<p>0</p>
+										</div>
+									</div>
+								</section>
+
+
+								<!-- <div class="studyItem_userInfo__1KkGa">
+									<div class="avatar_user__1Pgut">
+										<img class="avatar_userImg__hogPI" width="30px" height="30px"
+											src="/resources/Images/profileLogo.png" alt="avatar">
+									</div>
+									<div>닉네임</div>
+								</div>
+								관심등록 이미지 영역								
+								<img class="studyItem_bookmark__2YtKX"
+									src="/resources/Images/profileLogo.png" alt="marker" /> -->
+
+
+							</div>
+							<!-- card-body 끝-->
+						</div>
+						<!--class="card-->
+					</div>
+					<!-- col-md4 끝-->
+					<div class="col studyItem_studyItem__1Iipn studyItem_open__1PGn-">
+						<div class="card" style="width: 100%">
+							<div class="card-body">
+								<!-- 프로젝트-->
+								<div class="studyItem_badgeWrapper__3AW7k">
+									<div class="badge_badge__ZfNyB">
+										<div class="badge_study__39LDm">스터디</div>
+									</div>
+								</div>
+								<!--마감일-->
+								<div class="studyItem_schedule__3oAnA">
+									<p class="studyItem_scheduleTitle__1KN_9">마감일 |</p>
+									<p>2023.04.07</p>
+								</div>
+								<!--게시글 제목-->
+
+								<h6 class="studyItem_title__2B_2o">웹 제작 스터디 같이할 비전공자 모집합니다</h6>
 								<!--분야-->
 								<ul class="studyItem_positionList__1jzi_">
 									<li class="studyItem_position__2sRRD">디자이너</li>
@@ -444,35 +563,58 @@ ul {
 								<ul class="studyItem_content__1mJ9M">
 									<li class="studyItem_language__20yqw"><img
 										class="studyItem_languageImage__1AfGa" title="java"
-										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										src="https://holaworld.io/images/languages/java.svg"
 										alt="language"></li>
 									<li class="studyItem_language__20yqw"><img
 										class="studyItem_languageImage__1AfGa" title="java"
-										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										src="https://holaworld.io/images/languages/java.svg"
 										alt="language"></li>
 									<li class="studyItem_language__20yqw"><img
 										class="studyItem_languageImage__1AfGa" title="java"
-										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										src="https://holaworld.io/images/languages/java.svg"
 										alt="language"></li>
 								</ul>
 
 								<!--구분선-->
 								<div class="studyItem_border__2zAjs"></div>
 
-								<!-- user, 조회수 댓글-->
-								<div class="studyItem_userInfo__1KkGa">
-									<div class="avatar_user__1Pgut">
-										<img class="avatar_userImg__hogPI" width="30px" height="30px"
-											src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-											alt="avatar">
+								<!-- 메인게시글 하단 -->
+								<section class="studyItem_info__OFIQU">
+									<!--  user이미지, user 닉네임 -->
+									<div class="studyItem_userInfo__1KkGa">
+										<div class="avatar_user__1Pgut">
+											<img class="avatar_userImg__hogPI" width="30px" height="30px"
+												src="/resources/Images/profileLogo.png"
+												alt="avatar">
+										</div>
+										<div>yoonocean</div>
 									</div>
-									<div>닉네임</div>
-								</div>
-								<!--관심등록 이미지 영역-->
-								<img class="studyItem_bookmark__2YtKX"
-									src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-									alt="marker" />
-
+									
+									<!--  조회수,댓글 -->
+									<div class="studyItem_viewsAndComment__1Bxpj">
+										<!--  조회수 -->
+										<div class="studyItem_infoItem__3vxSf">
+											<svg stroke="currentColor" fill="currentColor"
+												stroke-width="0" viewBox="0 0 1024 1024" color="#999999"
+												height="24" width="24" xmlns="http://www.w3.org/2000/svg"
+												style="color: rgb(153, 153, 153);">
+												<path
+													d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"></path></svg>
+											<p>194</p>
+										</div>
+										
+										<!--  댓글 -->
+										<div class="studyItem_infoItem__3vxSf">
+											<svg stroke="currentColor" fill="currentColor"
+												stroke-width="0" viewBox="0 0 512 512" color="#999999"
+												height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+												style="color: rgb(153, 153, 153);">
+												<path
+													d="M256 32C114.6 32 0 125.1 0 240c0 47.6 19.9 91.2 52.9 126.3C38 405.7 7 439.1 6.5 439.5c-6.6 7-8.4 17.2-4.6 26S14.4 480 24 480c61.5 0 110-25.7 139.1-46.3C192 442.8 223.2 448 256 448c141.4 0 256-93.1 256-208S397.4 32 256 32zm0 368c-26.7 0-53.1-4.1-78.4-12.1l-22.7-7.2-19.5 13.8c-14.3 10.1-33.9 21.4-57.5 29 7.3-12.1 14.4-25.7 19.9-40.2l10.6-28.1-20.6-21.8C69.7 314.1 48 282.2 48 240c0-88.2 93.3-160 208-160s208 71.8 208 160-93.3 160-208 160z"></path></svg>
+											<p>0</p>
+										</div>
+									</div>
+								</section>
 
 							</div>
 							<!-- card-body 끝-->
@@ -486,7 +628,7 @@ ul {
 								<!-- 프로젝트-->
 								<div class="studyItem_badgeWrapper__3AW7k">
 									<div class="badge_badge__ZfNyB">
-										<div class="badge_study__39LDm">프로젝트</div>
+										<div class="badge_study__39LDm">스터디</div>
 									</div>
 								</div>
 								<!--마감일-->
@@ -496,7 +638,7 @@ ul {
 								</div>
 								<!--게시글 제목-->
 
-								<h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
+								<h6 class="studyItem_title__2B_2o">웹 제작 스터디 같이할 비전공자 모집합니다</h6>
 								<!--분야-->
 								<ul class="studyItem_positionList__1jzi_">
 									<li class="studyItem_position__2sRRD">디자이너</li>
@@ -504,39 +646,86 @@ ul {
 									<li class="studyItem_position__2sRRD">디자이너</li>
 								</ul>
 
-
-								<!--기술태그-->
+								<!--기술태그 -->
 								<ul class="studyItem_content__1mJ9M">
 									<li class="studyItem_language__20yqw"><img
-										class="studyItem_languageImage__1AfGa" title="java"
-										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										class="studyItem_languageImage__1AfGa" title="spring"
+										src="https://holaworld.io/images/languages/spring.svg"
 										alt="language"></li>
 									<li class="studyItem_language__20yqw"><img
 										class="studyItem_languageImage__1AfGa" title="java"
-										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										src="https://holaworld.io/images/languages/java.svg"
 										alt="language"></li>
 									<li class="studyItem_language__20yqw"><img
-										class="studyItem_languageImage__1AfGa" title="java"
-										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
+										class="studyItem_languageImage__1AfGa" title="mysql"
+										src="https://holaworld.io/images/languages/mysql.svg"
+										alt="language"></li>
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="react"
+										src="https://holaworld.io/images/languages/react.svg"
+										alt="language"></li>
+									<li class="studyItem_language__20yqw"><img
+										class="studyItem_languageImage__1AfGa" title="figma"
+										src="https://holaworld.io/images/languages/figma.svg"
 										alt="language"></li>
 								</ul>
- 
+
+
+								<!-- 								<ul class="studyItem_content__1mJ9M"> -->
+								<!-- 									<li class="studyItem_language__20yqw"><img -->
+								<!-- 										class="studyItem_languageImage__1AfGa" title="java" -->
+								<!-- 										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" -->
+								<!-- 										alt="language"></li> -->
+								<!-- 									<li class="studyItem_language__20yqw"><img -->
+								<!-- 										class="studyItem_languageImage__1AfGa" title="java" -->
+								<!-- 										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" -->
+								<!-- 										alt="language"></li> -->
+								<!-- 									<li class="studyItem_language__20yqw"><img -->
+								<!-- 										class="studyItem_languageImage__1AfGa" title="java" -->
+								<!-- 										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png" -->
+								<!-- 										alt="language"></li> -->
+								<!-- 								</ul> -->
+
 								<!--구분선-->
 								<div class="studyItem_border__2zAjs"></div>
- 
-								<!-- user, 조회수 댓글-->
-								<div class="studyItem_userInfo__1KkGa">
-									<div class="avatar_user__1Pgut">
-										<img class="avatar_userImg__hogPI" width="30px" height="30px"
-											src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-											alt="avatar">
+
+								<!-- 메인게시글 하단 -->
+								<section class="studyItem_info__OFIQU">
+									<!--  user이미지, user 닉네임 -->
+									<div class="studyItem_userInfo__1KkGa">
+										<div class="avatar_user__1Pgut">
+											<img class="avatar_userImg__hogPI" width="30px" height="30px"
+												src="/resources/Images/profileLogo.png"
+												alt="avatar">
+										</div>
+										<div>토순니</div>
 									</div>
-									<div>닉네임</div>
-								</div>
-								<!--관심등록 이미지 영역-->
-								<img class="studyItem_bookmark__2YtKX"
-									src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-									alt="marker" />
+									
+									<!--  조회수,댓글 -->
+									<div class="studyItem_viewsAndComment__1Bxpj">
+										<!--  조회수 -->
+										<div class="studyItem_infoItem__3vxSf">
+											<svg stroke="currentColor" fill="currentColor"
+												stroke-width="0" viewBox="0 0 1024 1024" color="#999999"
+												height="24" width="24" xmlns="http://www.w3.org/2000/svg"
+												style="color: rgb(153, 153, 153);">
+												<path
+													d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"></path></svg>
+											<p>131</p>
+										</div>
+										
+										<!--  댓글 -->
+										<div class="studyItem_infoItem__3vxSf">
+											<svg stroke="currentColor" fill="currentColor"
+												stroke-width="0" viewBox="0 0 512 512" color="#999999"
+												height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+												style="color: rgb(153, 153, 153);">
+												<path
+													d="M256 32C114.6 32 0 125.1 0 240c0 47.6 19.9 91.2 52.9 126.3C38 405.7 7 439.1 6.5 439.5c-6.6 7-8.4 17.2-4.6 26S14.4 480 24 480c61.5 0 110-25.7 139.1-46.3C192 442.8 223.2 448 256 448c141.4 0 256-93.1 256-208S397.4 32 256 32zm0 368c-26.7 0-53.1-4.1-78.4-12.1l-22.7-7.2-19.5 13.8c-14.3 10.1-33.9 21.4-57.5 29 7.3-12.1 14.4-25.7 19.9-40.2l10.6-28.1-20.6-21.8C69.7 314.1 48 282.2 48 240c0-88.2 93.3-160 208-160s208 71.8 208 160-93.3 160-208 160z"></path></svg>
+											<p>0</p>
+										</div>
+									</div>
+								</section>
 
 
 							</div>
@@ -546,12 +735,12 @@ ul {
 					</div>
 					<!-- col-md4 끝-->
 					<div class="col">
-						<div class="card" style="width: 100%">
+						<div class="card" style="width: 100%, border-radius: 30px">
 							<div class="card-body">
 								<!-- 프로젝트-->
 								<div class="studyItem_badgeWrapper__3AW7k">
 									<div class="badge_badge__ZfNyB">
-										<div class="badge_study__39LDm">프로젝트</div>
+										<div class="badge_study__39LDm">스터디</div>
 									</div>
 								</div>
 								<!--마감일-->
@@ -561,7 +750,7 @@ ul {
 								</div>
 								<!--게시글 제목-->
 
-								<h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
+								<h6 class="studyItem_title__2B_2o">웹 제작 스터디 같이할 비전공자 모집합니다</h6>
 								<!--분야-->
 								<ul class="studyItem_positionList__1jzi_">
 									<li class="studyItem_position__2sRRD">디자이너</li>
@@ -589,84 +778,43 @@ ul {
 								<!--구분선-->
 								<div class="studyItem_border__2zAjs"></div>
 
-								<!-- user, 조회수 댓글-->
-								<div class="studyItem_userInfo__1KkGa">
-									<div class="avatar_user__1Pgut">
-										<img class="avatar_userImg__hogPI" width="30px" height="30px"
-											src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-											alt="avatar">
+								<!-- 메인게시글 하단 -->
+								<section class="studyItem_info__OFIQU">
+									<!--  user이미지, user 닉네임 -->
+									<div class="studyItem_userInfo__1KkGa">
+										<div class="avatar_user__1Pgut">
+											<img class="avatar_userImg__hogPI" width="30px" height="30px"
+												src="/resources/Images/profileLogo.png"
+												alt="avatar">
+										</div>
+										<div>IT스터디</div>
 									</div>
-									<div>닉네임</div>
-								</div>
-								<!--관심등록 이미지 영역-->
-								<img class="studyItem_bookmark__2YtKX"
-									src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-									alt="marker" />
-
-
-							</div>
-							<!-- card-body 끝-->
-						</div>
-						<!--class="card-->
-					</div>
-					<!-- col-md4 끝-->
-					<div class="col">
-						<div class="card" style="width: 100%">
-							<div class="card-body">
-								<!-- 프로젝트-->
-								<div class="studyItem_badgeWrapper__3AW7k">
-									<div class="badge_badge__ZfNyB">
-										<div class="badge_study__39LDm">프로젝트</div>
+									
+									<!--  조회수,댓글 -->
+									<div class="studyItem_viewsAndComment__1Bxpj">
+										<!--  조회수 -->
+										<div class="studyItem_infoItem__3vxSf">
+											<svg stroke="currentColor" fill="currentColor"
+												stroke-width="0" viewBox="0 0 1024 1024" color="#999999"
+												height="24" width="24" xmlns="http://www.w3.org/2000/svg"
+												style="color: rgb(153, 153, 153);">
+												<path
+													d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"></path></svg>
+											<p>131</p>
+										</div>
+										
+										<!--  댓글 -->
+										<div class="studyItem_infoItem__3vxSf">
+											<svg stroke="currentColor" fill="currentColor"
+												stroke-width="0" viewBox="0 0 512 512" color="#999999"
+												height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+												style="color: rgb(153, 153, 153);">
+												<path
+													d="M256 32C114.6 32 0 125.1 0 240c0 47.6 19.9 91.2 52.9 126.3C38 405.7 7 439.1 6.5 439.5c-6.6 7-8.4 17.2-4.6 26S14.4 480 24 480c61.5 0 110-25.7 139.1-46.3C192 442.8 223.2 448 256 448c141.4 0 256-93.1 256-208S397.4 32 256 32zm0 368c-26.7 0-53.1-4.1-78.4-12.1l-22.7-7.2-19.5 13.8c-14.3 10.1-33.9 21.4-57.5 29 7.3-12.1 14.4-25.7 19.9-40.2l10.6-28.1-20.6-21.8C69.7 314.1 48 282.2 48 240c0-88.2 93.3-160 208-160s208 71.8 208 160-93.3 160-208 160z"></path></svg>
+											<p>0</p>
+										</div>
 									</div>
-								</div>
-								<!--마감일-->
-								<div class="studyItem_schedule__3oAnA">
-									<p class="studyItem_scheduleTitle__1KN_9">마감일 |</p>
-									<p>2023.04.07</p>
-								</div>
-								<!--게시글 제목-->
-
-								<h6 class="studyItem_title__2B_2o">웹 제작 프로젝트 같이할 디자이너 모집합니다</h6>
-								<!--분야-->
-								<ul class="studyItem_positionList__1jzi_">
-									<li class="studyItem_position__2sRRD">디자이너</li>
-									<li class="studyItem_position__2sRRD">디자이너</li>
-									<li class="studyItem_position__2sRRD">디자이너</li>
-								</ul>
-
-
-								<!--기술태그-->
-								<ul class="studyItem_content__1mJ9M">
-									<li class="studyItem_language__20yqw"><img
-										class="studyItem_languageImage__1AfGa" title="java"
-										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-										alt="language"></li>
-									<li class="studyItem_language__20yqw"><img
-										class="studyItem_languageImage__1AfGa" title="java"
-										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-										alt="language"></li>
-									<li class="studyItem_language__20yqw"><img
-										class="studyItem_languageImage__1AfGa" title="java"
-										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
-										alt="language"></li>
-								</ul>
-
-								<!--구분선-->
-								<div class="studyItem_border__2zAjs"></div>
-
-								<!-- user, 조회수 댓글-->
-								<div class="studyItem_userInfo__1KkGa">
-									<div class="avatar_user__1Pgut">
-										<img class="avatar_userImg__hogPI" width="30px" height="30px"
-											src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-											alt="avatar">
-									</div>
-									<div>닉네임</div>
-								</div>
-								<!--관심등록 이미지 영역-->
-								<img class="studyItem_bookmark__2YtKX"
-									src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG"
-									alt="marker" />
+								</section>
 
 
 							</div>
@@ -689,101 +837,140 @@ ul {
 	<!-- 전체 바디 태그 root 끝 -->
 
 
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-	crossorigin="anonymous">		
-</script>
-<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-<script>
-	let isFirst = true;
-	let count = 0;
-	var selectedClass = 'LanguageBar_full__3qQet';
-	var otherClasses = '.LanguageBar_languageIcon__Um7GQ:not(.' + selectedClass + ')';
-	
-	$('#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child').click(function() {
-		location.reload();
-	});
-	
-	$('#root > section > ul.LanguageBar_languages__2Ilqf > li').click(function() {
-		if(isFirst) {
-			isFirst = false;
-			$('.LanguageBar_languageIcon__Um7GQ').removeClass(selectedClass).addClass('LanguageBar_transparent__3wlZf');
-		}
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+		crossorigin="anonymous">
 		
-		let $this = $(this);
-		let language = $this.text();
-		
-		if($this.hasClass(selectedClass)) {
-			count--;
-			toogleLanguageBar($this, "inactive");
-			removeLanguageFilter(language);
-		} else {
-			count++;
-			toogleLanguageBar($this, "active");
-			addLanguageFilter(language);
-			
-			$('#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child').css("display", "flex"); 
+	</script>
+	<script src="https://code.jquery.com/jquery-3.6.4.js"
+		integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+		crossorigin="anonymous"></script>
+	<script>
+		let isFirst = true;
+		let count = 0;
+		var selectedClass = 'LanguageBar_full__3qQet';
+		var otherClasses = '.LanguageBar_languageIcon__Um7GQ:not(.'
+				+ selectedClass + ')';
+
+		$(
+				'#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child')
+				.click(function() {
+					location.reload();
+				});
+
+		$('#root > section > ul.LanguageBar_languages__2Ilqf > li')
+				.click(
+						function() {
+							if (isFirst) {
+								isFirst = false;
+								$('.LanguageBar_languageIcon__Um7GQ')
+										.removeClass(selectedClass)
+										.addClass(
+												'LanguageBar_transparent__3wlZf');
+							}
+
+							let $this = $(this);
+							let language = $this.text();
+
+							if ($this.hasClass(selectedClass)) {
+								count--;
+								toogleLanguageBar($this, "inactive");
+								removeLanguageFilter(language);
+							} else {
+								count++;
+								toogleLanguageBar($this, "active");
+								addLanguageFilter(language);
+
+								$(
+										'#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child')
+										.css("display", "flex");
+							}
+
+							if (!isFirst && count == 0) {
+								isFirst = true;
+								$('.LanguageBar_languageIcon__Um7GQ')
+										.removeClass(
+												'LanguageBar_transparent__3wlZf')
+										.addClass(selectedClass);
+								$(
+										'#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child')
+										.css("display", "none");
+							}
+						});
+
+		function toogleLanguageBar($languageBar, status) {
+			if (status === "active") {
+				$languageBar.addClass(selectedClass).removeClass(
+						'LanguageBar_transparent__3wlZf');
+			} else {
+				$languageBar.removeClass(selectedClass).addClass(
+						'LanguageBar_transparent__3wlZf');
+			}
 		}
-		
-		if(!isFirst && count == 0) {
-			isFirst = true;
-			$('.LanguageBar_languageIcon__Um7GQ').removeClass('LanguageBar_transparent__3wlZf').addClass(selectedClass);
-			$('#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child').css("display", "none"); 
+
+		function addLanguageFilter(language) {
+			var newLi = $('<li>').attr('class',
+					'SelectedLanguage_selectedLanguage__3AUIy');
+			var newDi = $('<div>').text(language);
+			var newImg = $('<img>').attr('src',
+					'https://holaworld.io/images/info/delete.svg').attr('alt',
+					'deleteButton');
+
+			$(newLi).append(newDi);
+			$(newLi).append(newImg);
+			$('.SelectedLanguage_selectedLanguages__DYJjl').prepend(newLi);
+
+			// 추가된 <li> 태그에 클릭 이벤트 핸들러 추가
+			$(newLi)
+					.click(
+							function() {
+								$(this).remove();
+								var language = $(this).text();
+
+								$('li.LanguageBar_languageIcon__Um7GQ')
+										.each(
+												function() {
+													let nthLanguage = $(this)
+															.text();
+
+													if (nthLanguage === language) {
+														count--;
+														$(this)
+																.removeClass(
+																		selectedClass)
+																.addClass(
+																		'LanguageBar_transparent__3wlZf');
+														if (count == 0) {
+															isFirst = true;
+															$(
+																	'.LanguageBar_languageIcon__Um7GQ')
+																	.removeClass(
+																			'LanguageBar_transparent__3wlZf')
+																	.addClass(
+																			selectedClass);
+															$(
+																	'#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child')
+																	.css(
+																			"display",
+																			"none");
+														}
+													}
+												});
+							});
 		}
-	});
-	
-	function toogleLanguageBar($languageBar, status) {
-		if(status === "active") {
-			$languageBar.addClass(selectedClass).removeClass('LanguageBar_transparent__3wlZf');
-		} else {
-			$languageBar.removeClass(selectedClass).addClass('LanguageBar_transparent__3wlZf');
-		}
-	}
-	
-	function addLanguageFilter(language) {
-		var newLi = $('<li>').attr('class', 'SelectedLanguage_selectedLanguage__3AUIy');
-		var newDi = $('<div>').text(language);
-		var newImg = $('<img>').attr('src', 'https://holaworld.io/images/info/delete.svg').attr('alt', 'deleteButton');
-		
-		$(newLi).append(newDi);
-		$(newLi).append(newImg);
-		$('.SelectedLanguage_selectedLanguages__DYJjl').prepend(newLi);
-			
-		// 추가된 <li> 태그에 클릭 이벤트 핸들러 추가
-		$(newLi).click(function() {
-			$(this).remove();
-			
-			var language = $(this).text();
-			
-			$('li.LanguageBar_languageIcon__Um7GQ').each(function() {
+
+		function removeLanguageFilter(language) {
+			let $languageFilters = $('.SelectedLanguage_selectedLanguages__DYJjl > li');
+
+			$languageFilters.each(function() {
 				let nthLanguage = $(this).text();
-				
-				if(nthLanguage === language) {
-					count--;
-					$(this).removeClass(selectedClass).addClass('LanguageBar_transparent__3wlZf');
-					
-					if(count == 0) {
-						isFirst = true;
-						$('.LanguageBar_languageIcon__Um7GQ').removeClass('LanguageBar_transparent__3wlZf').addClass(selectedClass);
-						$('#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child').css("display", "none"); 
-					}
+				if (nthLanguage === language) {
+					$(this).remove();
 				}
 			});
-		});
-	}
-	
-	function removeLanguageFilter(language) {
-		let $languageFilters = $('.SelectedLanguage_selectedLanguages__DYJjl > li');
-		
-		$languageFilters.each(function() {
-			let nthLanguage = $(this).text();
-			if(nthLanguage === language) {
-				$(this).remove();
-			}
-		});
-	}
-</script>
+		}
+	</script>
 
 </body>
 </html>
