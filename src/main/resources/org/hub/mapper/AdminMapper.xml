@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.hub.mapper.AdminMapper">
+  
+ 	<!-- 회원가입 -->
+ 	<insert id="adminJoin">
+		insert into admintbl (adminId, adminPw, aname, email, ano)
+		values( #{adminId}, #{adminPw}, #{aname}, #{email}, seq_admin.nextval)
+ 	</insert>
+
+</mapper>
