@@ -17,4 +17,11 @@ public class BoardController {
 		
 		return "main";
 	}
+	@GetMapping("/register")
+	public String getRegister() {
+		System.out.println("새 글쓰기로 이동");
+		log.info("새 글쓰기로 이동");
+		
+		return "register";
+	}
 }
