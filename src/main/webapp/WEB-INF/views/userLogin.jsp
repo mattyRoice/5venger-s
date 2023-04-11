@@ -48,7 +48,7 @@
 						<a href ="#"><img width=150 style="border: 1px" src="/resources/Images/btn_google.png" alt="Google Login"></a>
 					</div>
 				    <div class="col mt-2">
-						<a href = "#"><img width=130 src="/resources/Images/btn_naver.png" alt="Naver Login"></a>
+						<a href = "${ naver_url }"><img width=130 src="/resources/Images/btn_naver.png" alt="Naver Login"></a>
 					</div>
 					<div class="col mt-2">
 						<a href ="#"><img style="border-radius:10px" width=130 src="/resources/Images/btn_kakao.png" alt="Kakao Login"></a>

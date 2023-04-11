@@ -168,7 +168,7 @@
 	-webkit-tap-highlight-color: transparent;
 	color: inherit;
 	box-sizing: inherit;
-	background-color: #edfaf7;
+	background-color: #ff914d;
 	margin-bottom: 16px;
 }
 
@@ -272,7 +272,7 @@
 	-webkit-tap-highlight-color: transparent;
 	color: inherit;
 	box-sizing: inherit;
-	background-color: #fff088;
+	background-color: #e06034;
 }
 
 .secondBanner_container__1Nu6b {
@@ -585,7 +585,7 @@
 }
 
 .css-7pg0cj-a11yText{
-	font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     box-sizing: inherit;
     z-index: 9999;
     border: 0px;
@@ -598,8 +598,8 @@
     white-space: nowrap;
 }
 
-. css-1n44zxc-control {
-	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+.css-1n44zxc-control {
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     -webkit-box-align: center;
     align-items: center;
     border-radius: 36px;
@@ -638,7 +638,7 @@
     letter-spacing: 0.03em;
 }
 . css-1wa3eu0-placeholder {
-	font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     cursor: default;
     font-weight: 600;
     font-size: 18px;
@@ -652,7 +652,7 @@
     box-sizing: border-box;
 }
 .css-62g3xt-dummyInput {
-	box-sizing: inherit;
+    box-sizing: inherit;
     height: 2.5rem;
     border-radius: .5rem;
     margin-right: .5rem;
@@ -670,7 +670,7 @@
 }
 
 .css-1wy0on6{
-	font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     cursor: default;
     -webkit-box-align: center;
     align-items: center;
@@ -681,7 +681,7 @@
 }
 
 .css-43ykx9-indicatorSeparator {	
-	font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     cursor: default;
     align-self: stretch;
     background-color: rgb(204, 204, 204);
@@ -693,7 +693,7 @@
 }
 
 .css-tlfecz-indicatorContainer {
-	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     cursor: default;
     color: rgb(204, 204, 204);
     display: flex;
@@ -702,7 +702,7 @@
     box-sizing: border-box;
 }
 .css-8mmkcg{
-	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     cursor: default;
     color: rgb(204, 204, 204);
     height: 20;
@@ -716,7 +716,7 @@
 }
 
 .toggleSwitch_switch__hglrb {
-	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     box-sizing: inherit;
     display: flex;
     align-items: center;
@@ -724,7 +724,7 @@
     right: 0;
 }
 .toggleSwitch_switchTitle__1g_TJ{
-	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     box-sizing: inherit;
     color: #444;
     font-size: 24px;
@@ -732,8 +732,8 @@
     letter-spacing: -.03em;
     margin-right: 20px;
 }
-.toggleSwitch_switchLabel__2oz0J toggleSwitch_switchChecked__SrqJl {
-	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+.toggleSwitch_switchLabel__2oz0J.toggleSwitch_switchChecked__SrqJl {
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     box-sizing: inherit;
     position: relative;
     display: inline-block;
@@ -741,11 +741,25 @@
     width: 50px;
     border-radius: 50px;
     cursor: pointer;
-    background-color: #ffcd00;
+    background-color: #ff914d;
+}
+
+.toggleSwitch_switchCheckbox__3lrfj{
+    box-sizing: inherit;
+    outline: none;
+    font-size: 1rem;
+    border-radius: .5rem;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
 }
 
 .toggleSwitch_ball__3F55h{
-	    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     cursor: pointer;
     box-sizing: inherit;
     position: absolute;
@@ -755,6 +769,53 @@
     top: 2px;
     left: 2px;
     transition: transform .2s linear,-webkit-transform .2s linear;
-    background-color: #fff;
+    background-color: #e06034;
     transform: translateX(24px);
+}
+
+.SelectedLanguage_selectedLanguage__3AUIy {
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    list-style: none;
+    box-sizing: inherit;
+    margin: 0;
+    display: flex;
+    grid-gap: 10px;
+    gap: 10px;
+    background: #f2f2f2;
+    padding: 8px 15px;
+    height: 41px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    color: #313131;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .1s ease-in;
+}
+
+.LanguageBar_languageIcon__Um7GQ.LanguageBar_transparent__3wlZf{
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    list-style: none;
+    box-sizing: inherit;
+    margin: 0;
+    display: flex;
+    grid-gap: 10px;
+    gap: 10px;
+    align-items: center;
+    border: 1px solid #d0d0d0;
+    border-radius: 100px;
+    padding: 12px 20px 12px 15px;
+    transition: all .1s ease-in;
+    cursor: pointer;
+    opacity: .3;
+}
+
+.SelectedLanguage_resetFilter__2EZuH {
+	font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    list-style: none;
+    box-sizing: inherit;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
 }

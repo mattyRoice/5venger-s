@@ -11,8 +11,8 @@
 	<properties>
 		<java-version>11</java-version>
 		<org.springframework-version>5.0.7.RELEASE</org.springframework-version>
-		<org.aspectj-version>1.6.10</org.aspectj-version>
-		<org.slf4j-version>1.6.6</org.slf4j-version>
+		<org.aspectj-version>1.9.0</org.aspectj-version>
+		<org.slf4j-version>1.7.25</org.slf4j-version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -114,7 +114,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.7</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -232,7 +232,19 @@
 			<artifactId>thumbnailator</artifactId>
 			<version>0.4.8</version>
 		</dependency>
-
+		<!-- spring에서 oauth2를 사용하기 편리하게 해주는 라이브러리1 -->
+		<dependency>		
+			<groupId>com.github.scribejava</groupId>		
+			<artifactId>scribejava-apis</artifactId>		
+			<version>5.6.0</version>		
+		</dependency>
+		
+		<!-- spring에서 oauth2를 사용하기 편리하게 해주는 라이브러리2 -->						
+		<dependency>		
+			<groupId>com.github.scribejava</groupId>		
+			<artifactId>scribejava-core</artifactId>		
+			<version>5.6.0</version>		
+		</dependency>
 
 	</dependencies>
 	<build>

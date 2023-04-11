@@ -247,8 +247,9 @@ ul {
 			</button>
 		</div>
 
-		<!--  필터 아이콘 보기  -->
+		<!--  필터  -->
 		<section class="desktopFilter_filterWrapper__1gwsT">
+			<!--  인기, 프론트엔드, 백엔드, 모바일, 기타 필터 -->
 			<ul class="Category_categories__3bwPA">
 				<li class="Category_categoryItem__1ko8V ">인기</li>
 				<li class="Category_categoryItem__1ko8V ">프론트엔드</li>
@@ -334,7 +335,7 @@ ul {
 					src="https://holaworld.io/images/languages/swift.svg" alt="Swift"><span>Swift</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
 					class="LanguageBar_logo__332tN"
-					src="/images/languages/reactnative.svg" alt="ReactNative"><span>ReactNative</span></li>
+					src="https://holaworld.io/images/languages/reactnative.svg" alt="ReactNative"><span>ReactNative</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
 					class="LanguageBar_logo__332tN"
 					src="https://holaworld.io/images/languages/unity.svg" alt="Unity"><span>Unity</span></li>
@@ -343,7 +344,7 @@ ul {
 					src="https://holaworld.io/images/languages/aws.svg" alt="AWS"><span>AWS</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
 					class="LanguageBar_logo__332tN"
-					src="/images/languages/kubernetes.svg" alt="Kubernetes"><span>Kubernetes</span></li>
+					src="https://holaworld.io/images/languages/kubernetes.svg" alt="Kubernetes"><span>Kubernetes</span></li>
 				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
 					class="LanguageBar_logo__332tN"
 					src="https://holaworld.io/images/languages/docker.svg" alt="Docker"><span>Docker</span></li>
@@ -369,7 +370,9 @@ ul {
 					placeholder="제목, 게시글 검색" class="search_searchInput__1BF6g" value="">
 			</div>
 		</section>
+		<!--  메인 게시글 -->
 		<main class="mainContent_main_F2EU9">
+			<!--  게시글 카테고리 -->
 			<div class="mainContent_categoryWrapper__1n063">
 				<div class="findMyPosition_selectWrapper__23xHq">
 					<div class=" css-2b097c-container">
@@ -377,8 +380,8 @@ ul {
 							aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
 						<div class=" css-1n44zxc-control">
 							<div class=" css-1wfrg0q">
-								<div class=" css-1wa3eu0-placeholder">내 포지션 찾기</div>
-								<input id="react-select-2-input" readonly="" tabindex="0"
+								<div class=" css-1uccc91-singleValue">전체</div>
+								<input id="react-select-3-input" readonly="" tabindex="0"
 									aria-autocomplete="list" class="css-62g3xt-dummyInput" value="">
 							</div>
 							<div class=" css-1wy0on6">
@@ -386,7 +389,7 @@ ul {
 								<div class=" css-tlfecz-indicatorContainer" aria-hidden="true">
 									<svg height="20" width="20" viewBox="0 0 20 20"
 										aria-hidden="true" focusable="false" class="css-8mmkcg">
-									<path
+										<path
 											d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path></svg>
 								</div>
 							</div>
@@ -394,12 +397,12 @@ ul {
 					</div>
 				</div>
 				<div class="toggleSwitch_switch__hglrb">
-					<span class="toggleSwitch_switchTitle__1g_TJ">모집 중만 보기</span>
-					<label	class="toggleSwitch_switchLabel__2oz0J toggleSwitch_switchChecked__SrqJl"
-						for="switchInput">
-							<input type="checkbox"	class="toggleSwitch_switchCheckbox__3lrfj" id="switchInput" checked>
-							<div class="toggleSwitch_ball__3F55h"></div>
-					</label>
+					<span class="toggleSwitch_switchTitle__1g_TJ">모집 중만 보기</span><label
+						class="toggleSwitch_switchLabel__2oz0J toggleSwitch_switchChecked__SrqJl"
+						for="switchInput"><input type="checkbox"
+						class="toggleSwitch_switchCheckbox__3lrfj" id="switchInput"
+						checked="">
+					<div class="toggleSwitch_ball__3F55h"></div></label>
 				</div>
 			</div>
 
@@ -515,10 +518,10 @@ ul {
 										src="https://pngimg.com/uploads/letter_c/letter_c_PNG22.png"
 										alt="language"></li>
 								</ul>
-
+ 
 								<!--구분선-->
 								<div class="studyItem_border__2zAjs"></div>
-
+ 
 								<!-- user, 조회수 댓글-->
 								<div class="studyItem_userInfo__1KkGa">
 									<div class="avatar_user__1Pgut">
@@ -687,10 +690,74 @@ ul {
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-		crossorigin="anonymous">
-		
+		crossorigin="anonymous">		
 	</script>
+	<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 	<script>
+// 		const searchContainer = document.querySelector('.search-container');
+// 		const searchBox = document.querySelector('.search-box');
+	
+// 		searchContainer.addEventListener('click', () => {
+// 		  searchBox.style.right = '0';
+// 		});
+		
+		$(document).ready(function() {
+		  // 선택한 <li> 태그를 클릭할 때마다 실행되는 함수
+		  $('.LanguageBar_languageIcon__Um7GQ').click(function() {
+		    // 선택한 <li> 태그의 텍스트를 가져옴
+		    var text = $(this).text();
+
+		 // 이미 선택된 언어 리스트에 같은 언어가 있는지 체크
+		    var isExist = false;
+		    $('.SelectedLanguage_selectedLanguages__DYJjl li').each(function() {
+		      if ($(this).text() === text) {
+		        isExist = true;
+		        return false; // 반복문 탈출
+		      }
+		    });
+
+		    if (!isExist) { // 같은 언어가 없으면 새로운 <li> 태그 추가
+		      var newLi = $('<li>').attr('class', 'SelectedLanguage_selectedLanguage__3AUIy');
+		      var newDi = $('<div>').text(text);
+		      var newImg = $('<img>').attr('src', 'https://holaworld.io/images/info/delete.svg').attr('alt', 'deleteButton');
+
+		      $(newLi).append(newDi);
+		      $(newLi).append(newImg);
+		      $('.SelectedLanguage_selectedLanguages__DYJjl').append(newLi);
+		    };
+		 	
+		  });
+		  
+		  var selectedClass = 'LanguageBar_selected__1R9Jv';
+		  var otherClasses = '.LanguageBar_languageIcon__Um7GQ:not(.' + selectedClass + ')';
+
+		  $('li').click(function() {
+		    // 이전에 선택된 <li> 요소의 클래스를 삭제
+		    $('.' + selectedClass).removeClass(selectedClass);
+
+		    // 현재 선택된 <li> 요소에 클래스 추가
+		    $(this).addClass(selectedClass);
+
+		    // 다른 <li> 요소의 클래스를 변경
+		    $(otherClasses).removeClass('LanguageBar_full__3qQet').addClass('LanguageBar_transparent__3wlZf');
+		    $(this).removeClass('LanguageBar_transparent__3wlZf').addClass('LanguageBar_full__3qQet');
+		  });
+		  
+		 	  
+		  // <li> 태그 클릭 시 클래스 변경
+		  $('ul.LanguageBar_languages__2Ilqf > li').click(function() {
+		    // 현재 선택된 <li> 태그의 클래스를 변경
+		    $(this).removeClass('LanguageBar_languageIcon__Um7GQ LanguageBar_transparent__3wlZf').addClass('LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet');
+
+		    // 다른 <li> 태그의 클래스를 변경
+		    $(this).siblings().removeClass('LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet').addClass('LanguageBar_languageIcon__Um7GQ LanguageBar_transparent__3wlZf');
+		  });
+		  
+		});
+		  
+		
+		  
+		 
 		
 	</script>
 

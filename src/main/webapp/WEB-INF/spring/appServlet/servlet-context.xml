@@ -23,6 +23,31 @@
 	
 	<context:component-scan base-package="org.hub.controller" />
 	
+	<beans:bean id="multipartResolver" 
+	class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	</beans:bean>
 	
+	<!-- 네이버 로그인 -->
+	<context:component-scan base-package="org.hub.auth" />		
 	
+	<beans:bean id="naverClientID" class="java.lang.String">
+		<beans:constructor-arg value="xsm5O_NQGk6PM_LPpj75" />
+	</beans:bean>
+	
+	<beans:bean id="naverClientSecret" class="java.lang.String">
+		<beans:constructor-arg value="RzAe5ROoPc" />
+	</beans:bean>
+	
+	<beans:bean id="naverRedirectUrl" class="java.lang.String">
+		<beans:constructor-arg value="http://localhost:8080/user/auth/naver/callback" />
+	</beans:bean>
+	
+	<!-- 클라이언트 아이디, 클라이언트 시크릿 등이 바뀌면 일일이 바꾸기 귀찮으니까 이렇게 묶는다 -->
+	<!-- arg가 4개죠. 이 4개의 arg를 받는 생성자를 SnsValue 클래스에 만듦 -->
+	<beans:bean id="naverSns" class="org.hub.auth.SnsValue">
+		<beans:constructor-arg value="naver" />
+		<beans:constructor-arg ref="naverClientID" />
+		<beans:constructor-arg ref="naverClientSecret" />
+		<beans:constructor-arg ref="naverRedirectUrl" />
+	</beans:bean>
 </beans:beans>
