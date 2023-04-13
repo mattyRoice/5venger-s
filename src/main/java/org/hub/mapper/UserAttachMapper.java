@@ -12,4 +12,6 @@ public interface UserAttachMapper {
 	public void delete(String uuid);
 	
 	public List<UserAttachVO> findByUidKey(String uidKey); // uidKey로 해당 user의 이미지파일 찾는다
+	
+	public void deleteAll(String uidKey);
 }

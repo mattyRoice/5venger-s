@@ -84,10 +84,15 @@ public class UserServiceImpl implements UserSerivce {
 		log.info("modify . . . . . ." + user);
 		return mapper.update(user) == 1;
 	}
-
+	
+	@Transactional
 	@Override
 	public boolean remove(String uidKey) {
+		// 트랜잭션 하에서 유저가 회원탈퇴 시 이미지 파일 함께 삭제되도록 @Transactional 어노테이션 사용
 		log.info("remove . . . . . ." + uidKey);
+		
+		attachMapper.deleteAll(uidKey);
+		
 		return mapper.delete(uidKey) == 1;
 	}
 
