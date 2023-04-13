@@ -92,8 +92,8 @@
     <![CDATA[
         AND rownum <= #{pageNum} * #{amount}
     ) b
-    INNER JOIN board_stacktbl bs ON b.bno = bs.board_num
-    INNER JOIN stacktbl s ON bs.stack_num = s.stack_num
+    INNER JOIN board_stacktbl bs ON b.bno = bs.bno
+    INNER JOIN stacktbl s ON bs.sno = s.sno
     WHERE rn > (#{pageNum} - 1) * #{amount}
   ]]>
 </select>
