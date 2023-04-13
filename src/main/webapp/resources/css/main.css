@@ -944,27 +944,6 @@
     gap: 5px;
 }
 
-.studyItem_studyItem__1Iipn studyItem_open__1PGn-{
-    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
-    list-style: none;
-    box-sizing: inherit;
-    color: inherit;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px 25px 0;
-    width: 300px;
-    height: 340px;
-    background: #fff;
-    border: 2px solid #d1d1d1;
-    border-radius: 30px;
-    position: relative;
-    cursor: pointer;
-    transition: .2s ease-in;
-    opacity: 1;
-}
-
 li {
 	padding: 0;
 }
@@ -985,6 +964,7 @@ li {
 }
 
 .badge_study__39LDm {
+	margin-top: 15px;
 	border-radius: 20px;
 	padding: 4px 12px;
 	background: #efefef;
@@ -1047,15 +1027,15 @@ p {
 
 .studyItem_position__2sRRD {
 	padding: 3px 10px;
-	grid-gap: 5px;
-	gap: 5px;
-	height: 22px;
-	background: #f2f4f8;
-	border-radius: 15px;
-	font-weight: 700;
-	font-size: 13px;
-	line-height: 16px;
-	color: #3e86f5;
+    grid-gap: 5px;
+    gap: 5px;
+    height: 22px;
+    background: #f2f4f8;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
+    color: #3e86f5;
 }
 
 ul {
@@ -1128,5 +1108,99 @@ ul {
 }
 
 .card {
-	 margin-bottom: 25px;
+	font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    list-style: none;
+    box-sizing: inherit;
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 10px 0;
+    width: 300px;
+    height: 340px;
+    background: #fff;
+    border: 2px solid #d1d1d1;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: .2s ease-in;
+    opacity: 1;
+    margin-bottom: 30px;
 }
+
+/* .studyItem_schedule__3oAnA{ */
+/*     font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; */
+/*     list-style: none; */
+/*     cursor: pointer; */
+/*     box-sizing: inherit; */
+/*     display: flex; */
+/*     font-size: 14px; */
+/*     grid-gap: 8px; */
+/*     gap: 8px; */
+/*     color: #999; */
+/*     font-weight: 500; */
+/*     margin-top: 20px; */
+/* } */
+
+/* .studyItem_scheduleTitle__1KN_9{ */
+/*     font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; */
+/*     list-style: none; */
+/*     cursor: pointer; */
+/*     font-size: 14px; */
+/*     color: #999; */
+/*     font-weight: 500; */
+/*     box-sizing: inherit; */
+/*     margin: 0; */
+/* } */
+
+/* .studyItem_title__2B_2o{ */
+/*     font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; */
+/*     list-style: none; */
+/*     color: inherit; */
+/*     cursor: pointer; */
+/*     box-sizing: inherit; */
+/*     font-size: 17px; */
+/*     min-height: 50px; */
+/*     line-height: 28px; */
+/*     font-weight: 500; */
+/*     letter-spacing: -.05em; */
+/*     margin: 7px 0 10px; */
+/*     display: -webkit-box; */
+/*     -webkit-box-orient: vertical; */
+/*     -webkit-line-clamp: 2; */
+/*     word-break: break-all; */
+/*     overflow: hidden; */
+/* } */
+
+/* .studyItem_positionList__1jzi_{ */
+/*     font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; */
+/*     color: inherit; */
+/*     cursor: pointer; */
+/*     box-sizing: inherit; */
+/*     list-style: none; */
+/*     margin: 0; */
+/*     padding: 0; */
+/*     height: 22px; */
+/*     display: flex; */
+/*     margin-bottom: 20px; */
+/*     grid-gap: 3px; */
+/*     gap: 3px; */
+/* } */
+/* .class="studyItem_position__2sRRD"{ */
+/*     font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; */
+/*     cursor: pointer; */
+/*     list-style: none; */
+/*     box-sizing: inherit; */
+/*     margin: 0; */
+/*     padding: 3px 10px; */
+/*     grid-gap: 5px; */
+/*     gap: 5px; */
+/*     height: 22px; */
+/*     background: #f2f4f8; */
+/*     border-radius: 15px; */
+/*     font-weight: 700; */
+/*     font-size: 13px; */
+/*     line-height: 16px; */
+/*     color: #3e86f5; */
+/* } */

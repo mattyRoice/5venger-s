@@ -1,4 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -208,9 +211,22 @@
 				</ul>
 			</div>
 			<div class="search_container__2ExFE">
-				<img class="search_searchImg__2ia6h"
-					src="https://holaworld.io/images/info/search.png" alt="sub logo"><input
-					placeholder="제목, 게시글 검색" class="search_searchInput__1BF6g" value="">
+				<div class='row'>
+                  	<div class="col-lg-12">
+                  		<form id='searchForm' action="/board/list" method='get'>
+                  			<select name='type'>
+                  				<option value=""<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
+                  				<option value="T"<c:out value="${pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
+                  				<option value="C"<c:out value="${pageMaker.cri.type eq 'C'?'selected':''}"/>>내용</option>
+                  				<option value="TC"<c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}"/>>제목 or 내용</option>
+                  			</select>
+                  			<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword }"/>'>
+                  			<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum }"/>'>
+                  			<input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount }"/>'>
+                  			<button class='btn btn-default'>Search</button>
+                  		</form>
+                  	</div>
+			</div>
 			</div>
 		</section>
 		<!--  메인 게시글 -->
@@ -272,7 +288,7 @@
 								<ul class="studyItem_positionList__1jzi_">
 									<li class="studyItem_position__2sRRD">디자이너</li>
 									<li class="studyItem_position__2sRRD">디자이너</li>
-									<li class="studyItem_position__2sRRD">디자이너</li>
+									<li class="studyItem_position__2sRRD">프론트엔드</li>
 								</ul>
 
 
