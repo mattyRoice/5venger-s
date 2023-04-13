@@ -23,7 +23,7 @@
 			</a>
 			<div class="navbar_loginElementWrapper__11CeH">
 				<button class="navbar_postRegister__FJnRS">새 글 쓰기</button>
-				<button class="navbar_login__3Ui--">로그인</button>
+				<button class="navbar_login__3Ui--" onclick="location.href='/user/login'" >로그인</button>
 			</div>
 		</nav>
 
