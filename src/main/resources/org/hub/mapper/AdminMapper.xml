@@ -9,5 +9,10 @@
 		insert into admintbl (adminId, adminPw, aname, email, ano)
 		values( #{adminId}, #{adminPw}, #{aname}, #{email}, seq_admin.nextval)
  	</insert>
+ 	
+ 	<!-- 아이디 중복검사 -->
+  	<select id="idCheck" resultType="int">
+  		select count(*) from admintbl where adminId = #{adminId}
+  	</select>
 
 </mapper>
