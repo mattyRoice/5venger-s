@@ -1,5 +1,8 @@
 package org.hub.controller;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -70,10 +73,9 @@ public class UserController {
 		SNSLogin snsLogin = new SNSLogin(naverSns); 		
 		model.addAttribute("naver_url", snsLogin.getAuthURL());
 		
-		// 카카오 테스트 
+		// 카카오 
 		SNSLogin kakaoLogin = new SNSLogin(kakaoSns);
-		model.addAttribute("kakao_url", kakaoLogin.getAuthURL());
-		// 카카오 테스트 
+		model.addAttribute("kakao_url", kakaoLogin.getAuthURL()); 
 		
 		/* 구글code 발행을 위한 URL 생성 */	
 		  OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations(); 
@@ -193,6 +195,54 @@ public class UserController {
 		return "userMypage";
 	}
 	// = = = = 마무리
+	// = = = = 또시작
+	private void deleteFiles(List<UserAttachVO> attachList) {
+			
+		if (attachList == null || attachList.size() == 0) {
+			return;
+		}
+
+		log.info("delete attach files...................");
+		log.info(attachList);
+
+		attachList.forEach(attach -> {
+			try {
+				Path file = Paths.get(
+						"C:\\upload\\" + attach.getUploadPath() + "\\" + attach.getUuid() + "_" + attach.getFileName());
+
+				Files.deleteIfExists(file);
+
+				if (Files.probeContentType(file).startsWith("image")) {
+
+					Path thumbNail = Paths.get("C:\\upload\\" + attach.getUploadPath() + "\\s_" + attach.getUuid() + "_"
+							+ attach.getFileName());
+
+					Files.delete(thumbNail);
+				}
+
+			} catch (Exception e) {
+				log.error("delete file error" + e.getMessage());
+			} // end catch
+		});// end foreachd
+	}
+		
+	@PostMapping("/remove")
+	public String remove(@RequestParam("uidKey") String uidKey, RedirectAttributes rttr) {
+			//회원탈퇴
+			log.info("remove..." + uidKey);
+			// 회원 탈퇴 전 회원의 이미지 파일 확보
+			List<UserAttachVO> attachList = userService.getAttachList(uidKey);
+			 
+			if (userService.remove(uidKey)) { //회원 정보 삭제
+				 
+				//delete Attach Files
+				 deleteFiles(attachList); //c:upload 밑 복사본 삭제
+				 
+				 rttr.addFlashAttribute("result", "success");
+			 }		 
+			
+			 return "redirect:/main";
+	}
 	
 	@GetMapping(value="/interest")
 	public String interest() {

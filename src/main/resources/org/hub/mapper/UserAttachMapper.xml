@@ -18,6 +18,8 @@
 		select*from attach_tbl where uidkey = #{uidkey}
 	</select>
 
-
+	<delete id="deleteAll">
+		delete attach_tbl where uidkey = #{uidkey}
+	</delete>
 
 </mapper>
