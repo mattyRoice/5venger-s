@@ -291,10 +291,10 @@
 								</div>
 								<!--게시글 제목-->
 
-								<h6 class="studyItem_title__2B_2o"><c:out value=${board.title } /></h6>
+								<h6 class="studyItem_title__2B_2o">제목란</h6>
 								<!--분야-->
 								<ul class="studyItem_positionList__1jzi_">
-									<li class="studyItem_position__2sRRD"><c:out value=${board. }/></li>
+									<li class="studyItem_position__2sRRD">IOS/></li>
 									<li class="studyItem_position__2sRRD">디자이너</li>
 									<li class="studyItem_position__2sRRD">프론트엔드</li>
 								</ul>
