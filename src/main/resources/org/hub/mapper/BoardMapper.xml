@@ -24,7 +24,7 @@
 			</foreach>
 		</trim>
 	</sql>
-
+ 
 	<!--  게시글 목록  -->
 	<select id="getList" resultType="org.hub.domain.BoardVO">
 	<![CDATA[
