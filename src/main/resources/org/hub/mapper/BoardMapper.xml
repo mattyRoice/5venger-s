@@ -27,18 +27,24 @@
  
 	<!--  게시글 목록  -->
 	<select id="getList" resultType="org.hub.domain.BoardVO">
-	<![CDATA[
-		SELECT b.bno, b.regdate, b.title, b.uidkey, b.deadline, b.cnt, b.replycnt,
-		s.sname, s.icon, bs.sno
+		SELECT b.bno, deadline, title, u.unickname as uname , a.uploadPath as profileImage, 
+		(SELECT LISTAGG(f.fname, ',') WITHIN GROUP (ORDER BY f.fname) AS combined_fname
+		FROM boardfield_tbl bf 
+		JOIN field_tbl f ON bf.fno = f.fno 
+		WHERE bf.bno = b.bno) as fnames, 
+		(SELECT LISTAGG(s.sname, ',') WITHIN GROUP (ORDER BY s.sname) AS combined_sname
+		FROM boardstack_tbl bs 
+		JOIN stack_tbl s ON bs.sno = s.sno 
+		WHERE bs.bno = b.bno) as snames, cnt, replycnt
 		FROM board_tbl b
-		INNER JOIN boardstack_tbl bs ON b.bno = bs.bno
-		INNER JOIN stack_tbl s ON bs.sno = s.sno
-		WHERE b.uidkey = #{uidkey}
-	]]>
+		JOIN user_tbl u
+		ON b.uidkey = u.uidkey
+			JOIN attach_tbl a
+			ON u.uidkey = a.uidkey
 	</select>
 
 	<insert id="insert">
-<!-- 		insert into board_tbl (bno,title,content,uidkey) -->
+<!-- 		insert into boardtbl (bno,title,content,uidkey) -->
 <!-- 		values (seq_board.nextval, #{title}, #{content}, #{writer}) -->
 	</insert>
 
@@ -49,25 +55,25 @@
 <!-- 			select seq_board.nextval from dual -->
 <!-- 		</selectKey> -->
 
-<!-- 		insert into board_tbl (bno,title,content, writer) -->
+<!-- 		insert into boardtbl (bno,title,content, writer) -->
 <!-- 		values (#{bno}, -->
 <!-- 		#{title}, #{content}, #{writer}) -->
 <!-- 	</insert> -->
 
 	<!-- 상세보기 -->
 	<select id="read" resultType="org.hub.domain.BoardVO">
-		select * from board_tbl where bno =
+		select * from boardtbl where bno =
 		#{bno}
 	</select>
 
 	<!--  삭제 -->
 	<delete id="delete">
-		delete board_tbl where bno = #{bno}
+		delete boardtbl where bno = #{bno}
 	</delete>
 
 	<!-- 수정 -->
 <!-- 	<update id="update"> -->
-<!-- 		update board_tbl -->
+<!-- 		update boardtbl -->
 <!-- 		set title= #{title}, -->
 <!-- 		content=#{content}, -->
 		
@@ -77,32 +83,63 @@
 <!-- 	</update> -->
 
 <!-- 메인화면 출력 / 페이징 -->
-<select id="getListWithPaging" resultType="org.hub.domain.BoardVO">
-  <![CDATA[
-    SELECT 
-      b.bno, b.regdate, b.title, b.uidkey, b.deadline, b.cnt, b.replycnt,
-      s.stack_name, s.stack_image, bs.stack_num
-    FROM (
-      SELECT /*+INDEX_DESC(board_tbl pk_board)*/
-        ROWNUM RN, bno, regdate, title, uidkey, deadline, cnt, replycnt
-      FROM board_tbl
-      WHERE
-    ]]>
-      <include refid="criteria"></include>
-    <![CDATA[
-        AND rownum <= #{pageNum} * #{amount}
-    ) b
-    INNER JOIN board_stack_tbl bs ON b.bno = bs.bno
-    INNER JOIN stack_tbl s ON bs.sno = s.sno
-    WHERE rn > (#{pageNum} - 1) * #{amount}
-  ]]>
+<!-- <select id="getListWithPaging" resultType="org.hub.domain.BoardVO"> -->
+<!--   <![CDATA[ -->
+<!--     SELECT  -->
+<!--       b.bno, b.regdate, b.title, b.uidkey, b.deadline, b.cnt, b.replycnt, -->
+<!--       s.stack_name, s.stack_image, bs.stack_num -->
+<!--     FROM ( -->
+<!--       SELECT /*+INDEX_DESC(boardtbl pk_board)*/ -->
+<!--         ROWNUM RN, bno, regdate, title, uidkey, deadline, cnt, replycnt -->
+<!--       FROM boardtbl -->
+<!--       WHERE -->
+<!--     ]]> -->
+<!--       <include refid="criteria"></include> -->
+<!--     <![CDATA[ -->
+<!--         AND rownum <= #{pageNum} * #{amount} -->
+<!--     ) b -->
+<!--     INNER JOIN board_stacktbl bs ON b.bno = bs.bno -->
+<!--     INNER JOIN stacktbl s ON bs.sno = s.sno -->
+<!--     WHERE rn > (#{pageNum} - 1) * #{amount} -->
+<!--   ]]> -->
+  
+  
+<!-- </select> -->
+
+<select id="getListWithPaging"
+	resultType="org.hub.domain.BoardVO">
+ <![CDATA[
+SELECT b.bno, deadline, title, u.unickname as uname , a.uploadPath as profileImage, 
+		(SELECT LISTAGG(f.fname, ',') WITHIN GROUP (ORDER BY f.fname) AS combined_fname
+		FROM boardfield_tbl bf 
+		JOIN field_tbl f ON bf.fno = f.fno 
+		WHERE bf.bno = b.bno) as fnames, 
+		(SELECT LISTAGG(s.sname, ',') WITHIN GROUP (ORDER BY s.sname) AS combined_sname
+		FROM boardstack_tbl bs 
+		JOIN stack_tbl s ON bs.sno = s.sno 
+		WHERE bs.bno = b.bno) as snames, cnt, replycnt
+			FROM board_tbl b
+			JOIN user_tbl u
+			ON b.uidkey = u.uidkey
+			JOIN attach_tbl a
+			ON u.uidkey = a.uidkey;
+		where
+ ]]>
+
+	<include refid="criteria"></include>
+ 	
+ <![CDATA[    
+     rownum <= #{pageNum} * #{amount}
+     )
+ where rn > (#{pageNum} -1) * #{amount}   
+ ]]>
 </select>
 
 
 
 	<!--  페이지 수 계산 -->
 	<select id="getTotalCount" resultType="int">
-		select count(*) from board_tbl where
+		select count(*) from boardtbl where
 
 		<include refid="criteria"></include>
 
@@ -111,7 +148,7 @@
 	</select>
 	
 	<update id="updateReplyCnt">
-		update board_tbl set replycnt = replycnt + #{amount} where bno = #{bno}
+		update boardtbl set replycnt = replycnt + #{amount} where bno = #{bno}
 	</update>
 
 </mapper>

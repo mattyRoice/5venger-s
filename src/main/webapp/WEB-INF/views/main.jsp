@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -26,7 +26,8 @@
 			</a>
 			<div class="navbar_loginElementWrapper__11CeH">
 				<button class="navbar_postRegister__FJnRS">새 글 쓰기</button>
-				<button class="navbar_login__3Ui--" onclick="location.href='/user/login'" >로그인</button>
+				<button class="navbar_login__3Ui--"
+					onclick="location.href='/user/login'">로그인</button>
 			</div>
 		</nav>
 
@@ -212,21 +213,28 @@
 			</div>
 			<div class="search_container__2ExFE">
 				<div class='row'>
-                  	<div class="col-lg-12">
-                  		<form id='searchForm' action="/board/list" method='get'>
-                  			<select name='type'>
-                  				<option value=""<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
-                  				<option value="T"<c:out value="${pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
-                  				<option value="C"<c:out value="${pageMaker.cri.type eq 'C'?'selected':''}"/>>내용</option>
-                  				<option value="TC"<c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}"/>>제목 or 내용</option>
-                  			</select>
-                  			<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword }"/>'>
-                  			<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum }"/>'>
-                  			<input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount }"/>'>
-                  			<button class='btn btn-default'>Search</button>
-                  		</form>
-                  	</div>
-			</div>
+					<div class="col-lg-12">
+						<form id='searchForm' action="/board/list" method='get'>
+							<select name='type'>
+								<option value=""
+									<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
+								<option value="T"
+									<c:out value="${pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
+								<option value="C"
+									<c:out value="${pageMaker.cri.type eq 'C'?'selected':''}"/>>내용</option>
+								<option value="TC"
+									<c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}"/>>제목
+									or 내용</option>
+							</select> <input type='text' name='keyword'
+								value='<c:out value="${pageMaker.cri.keyword }"/>'> <input
+								type='hidden' name='pageNum'
+								value='<c:out value="${pageMaker.cri.pageNum }"/>'> <input
+								type='hidden' name='amount'
+								value='<c:out value="${pageMaker.cri.amount }"/>'>
+							<button class='btn btn-default'>Search</button>
+						</form>
+					</div>
+				</div>
 			</div>
 		</section>
 		<!--  메인 게시글 -->
@@ -261,7 +269,7 @@
 					</label>
 				</div>
 			</div>
-			
+
 			<div class="container">
 				<div class="row">
 					<%
@@ -283,10 +291,10 @@
 								</div>
 								<!--게시글 제목-->
 
-								<h6 class="studyItem_title__2B_2o">웹 제작 스터디 같이할 비전공자 모집합니다</h6>
+								<h6 class="studyItem_title__2B_2o"><c:out value=${board.title } /></h6>
 								<!--분야-->
 								<ul class="studyItem_positionList__1jzi_">
-									<li class="studyItem_position__2sRRD">디자이너</li>
+									<li class="studyItem_position__2sRRD"><c:out value=${board. }/></li>
 									<li class="studyItem_position__2sRRD">디자이너</li>
 									<li class="studyItem_position__2sRRD">프론트엔드</li>
 								</ul>
@@ -317,12 +325,11 @@
 									<div class="studyItem_userInfo__1KkGa">
 										<div class="avatar_user__1Pgut">
 											<img class="avatar_userImg__hogPI" width="30px" height="30px"
-												src="/resources/Images/profileLogo.png"
-												alt="avatar">
+												src="/resources/Images/profileLogo.png" alt="avatar">
 										</div>
 										<div>냠냠</div>
 									</div>
-									
+
 									<!--  조회수,댓글 -->
 									<div class="studyItem_viewsAndComment__1Bxpj">
 										<!--  조회수 -->
@@ -335,7 +342,7 @@
 													d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"></path></svg>
 											<p>173</p>
 										</div>
-										
+
 										<!--  댓글 -->
 										<div class="studyItem_infoItem__3vxSf">
 											<svg stroke="currentColor" fill="currentColor"
@@ -355,7 +362,7 @@
 					</div>
 					<!-- col-md4 끝-->
 					<%
-					} 
+					}
 					%>
 				</div>
 				<!--row 끝-->
@@ -365,6 +372,38 @@
 		</main>
 		<!--  main 끝 -->
 	</div>
+	<!--  pageNation -->
+	<div class='pull-right'>
+		<ul class="pagination">
+			<c:if test="${pageMaker.prev }">
+				<li class="paginate_button previous"><a
+					href="${pageMaker.startPage-1 }">Previous</a></li>
+			</c:if>
+
+			<c:forEach var="num" begin="${pageMaker.startPage }"
+				end="${pageMaker.endPage }">
+				<li class="paginate_button ${pageMaker.cri.pageNum==num ? "active":"" } ">
+					<a href="${num }">${num }</a>
+				</li>
+			</c:forEach>
+
+			<c:if test="${pageMaker.next }">
+				<li class="paginate_button next"><a
+					href="${pageMaker.endPage+1 }">Next</a></li>
+			</c:if>
+		</ul>
+		<form id='actionForm' action="/" method='get'>
+			<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
+			<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>
+			<input type='hidden' name='type'
+				value='<c:out value="${ pageMaker.cri.type }"/>'> <input
+				type='hidden' name='keyword'
+				value='<c:out value="${ pageMaker.cri.keyword }"/>'>
+		</form>
+	</div>
+
 	<!-- 전체 바디 태그 root 끝 -->
 
-	<%@ include file="/WEB-INF/includes/footer.jsp" %>
+
+
+	<%@ include file="/WEB-INF/includes/footer.jsp"%>

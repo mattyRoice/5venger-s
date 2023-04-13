@@ -12,6 +12,51 @@
 	integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
 	crossorigin="anonymous"></script>
 <script>
+	$(document).ready(function() {
+		
+		var result = '<c:out value="${result}"/>';
+		
+		checkModea(result);
+		
+		history.replaceState({}, null, null);
+		
+		function checkModal(result) {
+			
+			if(result === '' || history.state) {
+				return;
+			}
+			
+			if(parseInt(result) > 0) {
+				$(".modal-body").html()
+				"게시글 " + parseInt(result) + " 번이 등록되었습니다.");
+			}
+			
+			$("#myModal").modal("show");
+		}
+		
+		$("#regBtn").on("click", function() {
+			self.location ="/board/register";
+		})
+		
+		var actionForm = $("#actionFrom");
+		
+		$(".parginate_button a").on("click", function(e) {
+			
+			e.preventDefault();
+			
+			console.log('click');
+			
+			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+		});
+	});
+	
+	$(".paginate_button a").on("click", function(e) {
+		e.preventDefault();
+		console.log('click');
+		
+		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+	});
+	
 	
 	let isFirst = true;
 	let count = 0;
@@ -117,6 +162,28 @@
 			}
 		});
 	}
+	
+	//list.jsp의 검색 버튼의 이벤트 처리
+	var searchForm = $("#searchForm");
+            		
+	$("#searchForm button").on("click", function(e) {
+		if(!searchForm.find("option:selected").val()) {
+			alert("검색 종류를 선택하세요");
+			return false;
+		}
+		
+		if(!searchForm.find("input[name='keyword']").val()) {
+			alert("키워드를 입력하세요");
+			return false;
+		}
+		
+		searchForm.find("input[name='pageNum']").val("1");
+		e.preventDefault();
+		
+		searchForm.submit();
+	});
+	
+	
 </script>
 
 </body>
