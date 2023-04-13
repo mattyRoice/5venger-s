@@ -22,10 +22,15 @@
 		
 		/* 중복아이디 존재하는 경우 */
 		.id_input_re {
-			color : #284da1;
 			display : none;
 			font-weight : bold;
-			font-size:13px;
+			font-size:14px;
+		}
+		
+		.pwck_input_re {
+			display : none;
+			font-weight : bold;
+			font-size: 14px;
 		}
 	</style>
 	<!-- jquery -->
@@ -57,11 +62,14 @@
 			  <input type="password" class="form-control pw_input" name="adminPw" id="floatingPassword" placeholder="비밀번호">
 			  <label for="floatingPassword">비밀번호</label>
 			</div>
-			<div class="form-floating mb-3">
+			<div class="form-floating">
 			  <input type="password" class="form-control pwck_input" id="floatingPassword" placeholder="비밀번호">
 			  <label for="floatingPassword">비밀번호 확인</label>
 			</div>
-			<div class="form-floating mb-3">
+			
+			<span class="pwck_input_re mt-1">비밀번호가 일치하지 않아요!</span>
+			
+			<div class="form-floating mt-3 mb-3">
 			  <input type="text" class="form-control name_input" name="aname" id="floatingName" placeholder="이룸">
 			  <label for="floatingPassword">이름</label>
 			</div>
@@ -97,37 +105,53 @@
 	<!-- 회원가입 기능 작동을 위한 jquery -->
 	<script>
 	
-		$(document).ready(function(){
-			//회원가입 버튼(회원가입 기능 작동)
-			$(".btn-primary").click(function(){
-				$("#form-join").attr("action", "/admin/createAccount");
-				$("#form-join").submit();
-			});
+	$(document).ready(function(){
+		//회원가입 버튼(회원가입 기능 작동)
+		$(".btn-primary").click(function(){
+			$("#form-join").attr("action", "/admin/createAccount");
+			$("#form-join").submit();
 		});
+	});
+	
+	/* 아이디 중복검사 */
+	$('.id_input').on("propertychange change keyup paste input", function(){  // input 변화 실시간 감지
+		console.log("keyup 테스트");
 		
-		//아이디 중복검사
-		$('.id_input').on("propertychange change keyup paste input", function(){
-			console.log("keyup 테스트");
-			
-			var adminId = $('.id_input').val();	// .id_input에 입력되는 값
-			var data = {adminId : adminId}		// '컨트롤에 넘길 데이터 이름':'데이터(.id_input에 입력되는 값)'
-			
-			$.ajax({
-				type : "post",
-				url : "/admin/adminIdChk",
-				data : data,
-				success : function(result){
-					console.log("성공 여부" + result);
-					if(result != 'fail'){
-						$('.id_input_re').css("display", "none");				
-					} else {
-						$('.id_input_re').css("display","inline-block");			
-					}
+		var adminId = $('.id_input').val();	// .id_input에 입력되는 값
+		var data = {adminId : adminId};		// '컨트롤에 넘길 데이터 이름':'데이터(.id_input에 입력되는 값)'
+		
+		$.ajax({
+			type : "post",
+			url : "/admin/adminIdChk",
+			data : data,
+			success : function(result){
+				console.log("성공 여부" + result);
+				if(result != 'fail'){
+					$('.id_input_re').css("display", "none");				
+				} else {
+					$('.id_input_re').css("display","inline-block");			
 				}
-			});
+			}
 		});
+	});
+	
+
+	/* 비밀번호 확인 일치 검사 */
+	$('.pwck_input').focusout(function(){  // 해당 엘리먼트를 벗어나는 경우 이벤트 발생
 		
+		var pw = $('.pw_input').val();
+		var pwck = $('.pwck_input').val();
+		
+		if(pw == pwck){
+			$('.pwck_input_re').css('display','none');
+		}else{
+			$('.pwck_input_re').css('display','block');
+		}
+		
+	});
+	
 	</script>
+	
 
 </body>
 </html>
