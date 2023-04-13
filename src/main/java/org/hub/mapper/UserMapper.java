@@ -14,6 +14,8 @@ public interface UserMapper {
 	
 	public UserVO read(String uidKey);
 	
+	public UserVO readByNickname(String unickName);
+	
 	public int delete(String uidKey);
 	// 삭제된 행의 개수를 받환 받아, if(1==1)이 true이면 회원탈퇴되었다는 모달창 띄우기 
 	

@@ -2,18 +2,18 @@ package org.hub.auth;
 
 import com.github.scribejava.core.builder.api.DefaultApi20;
 
-public class NaverAPI20 extends DefaultApi20 implements SnsUrls{
+public class KakaoAPI20 extends DefaultApi20 implements SnsUrls{
 	// 항상 싱글톤으로 만들어야 한다. 왜냐하면 jvm에 object가 1개만 생기게 하는 것
 	
-	private NaverAPI20() {}
+	private KakaoAPI20() {}
 	
 	private static class InstanceHolder {
 		// final이니까 INSTANCE는 1번밖에 안만들어진다. 상수는 한번 값 정하면 못바꾸니까
-		// 그리고 InstanceHolder는 private 클래스니까 여기(NaverAPI20)에서밖에 호출 못한다
-		private static final NaverAPI20 INSTANCE = new NaverAPI20();
+		// 그리고 InstanceHolder는 private 클래스니까 여기(KakaoAPI20)에서밖에 호출 못한다
+		private static final KakaoAPI20 INSTANCE = new KakaoAPI20();
 	}
 	
-	public static NaverAPI20 instance() {
+	public static KakaoAPI20 instance() {
 		return InstanceHolder.INSTANCE;
 	}
 	
@@ -24,11 +24,11 @@ public class NaverAPI20 extends DefaultApi20 implements SnsUrls{
 	public String getAccessTokenEndpoint() {
 		//네이버 api의 endpoint이다
 		
-		return NAVER_ACCESS_TOKEN;
+		return KAKAO_ACCESS_TOKEN;
 	}
 
 	@Override
 	protected String getAuthorizationBaseUrl() {		
-		return NAVER_AUTH;
+		return KAKAO_AUTH;
 	}
 }

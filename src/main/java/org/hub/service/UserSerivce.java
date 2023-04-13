@@ -2,6 +2,7 @@ package org.hub.service;
 
 import java.util.List;
 
+import org.hub.domain.UserAttachVO;
 import org.hub.domain.UserVO;
 
 public interface UserSerivce {
@@ -13,6 +14,10 @@ public interface UserSerivce {
 	public void register(UserVO user);
 	
 	public UserVO get(String uidKey);
+	
+	public UserVO getByNickname(String unickName);
+	
+	public List<UserAttachVO> getAttachList(String uidKey);
 	
 	public boolean modify(UserVO user);
 	

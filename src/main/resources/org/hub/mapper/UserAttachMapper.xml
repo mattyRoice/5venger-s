@@ -6,7 +6,7 @@
 <mapper namespace="org.hub.mapper.UserAttachMapper">
 
 	<insert id="insert">
-		insert into attach_tbl (uuid, uploadpath, filename, filename, filetype, uidkey)
+		insert into attach_tbl (uuid, uploadpath, filename, filetype, uidkey)
 		values (#{uuid},#{uploadPath},#{fileName},#{fileType},#{uidkey})
 	</insert>
 	

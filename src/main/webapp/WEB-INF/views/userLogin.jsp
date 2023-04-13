@@ -40,22 +40,25 @@
 		<!-- 부트스트랩 -->
 		<main class="form-signin">
 	  		<form action="/loginPost" role="form" method="post">
-	    		<img class="mb-3 rounded mx-auto d-block" src="/resources/Images/SHLogo.png" alt="StudyHybLogo" width="400" height="150">
+	    		<img class="mb-3 rounded mx-auto d-block" src="/resources/Images/SHLogo.png" alt="StudyHubLogo" width="400" height="150">
 	    		<h1 class="h3 mb-4 text-center fw-bold">StudyHub에 오신 것을 환영합니다!</h1>
 			<div class="container text-center">
 				<div class="row">
 		   			<div class="col">
-						<a href ="#"><img width=150 style="border: 1px" src="/resources/Images/btn_google.png" alt="Google Login"></a>
+						<a href ="${ google_url }"><img width=150 style="border: 1px" src="/resources/Images/btn_google.png" alt="Google Login"></a>
+						<p class="fw-semibold">구글 로그인</p>
 					</div>
 				    <div class="col mt-2">
 						<a href = "${ naver_url }"><img width=130 src="/resources/Images/btn_naver.png" alt="Naver Login"></a>
+						<p class="fw-semibold" style="margin-top:12px">네이버 로그인</p>
 					</div>
 					<div class="col mt-2">
-						<a href ="#"><img style="border-radius:10px" width=130 src="/resources/Images/btn_kakao.png" alt="Kakao Login"></a>
+						<a href ="${ kakao_url }"><img style="border-radius:10px" width=130 src="/resources/Images/btn_kakao.png" alt="Kakao Login"></a>
+						<p class="fw-semibold" style="margin-top:12px">카카오 로그인</p>
 					</div>
 				</div>
 				<div>
-					<p class="mt-5 mb-3 text-muted text-end">&copy; 2023</p>
+					<p class="mt-4 mb-3 me-3 text-muted text-end">&copy; 2023</p>
 				</div>
 			</div>				    			    
 	  		</form>
