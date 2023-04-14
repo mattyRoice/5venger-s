@@ -1,6 +1,9 @@
 package org.hub.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.hub.domain.AdminVO;
 import org.hub.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.log4j.Log4j;
 
@@ -28,6 +32,24 @@ public class AdminController {
 		return "/adminLogin";
 	}
 	
+	// 로그인
+	@PostMapping("/login")
+    public String loginPOST(HttpServletRequest request, AdminVO admin, RedirectAttributes rttr) throws Exception{
+        System.out.println("login 메서드 진입");
+        System.out.println("전달된 데이터: " + admin);
+        
+        HttpSession session = request.getSession();
+        AdminVO avo = adminservice.adminLogin(admin);
+        
+        if(avo == null) {					  // 일치하지 않는 아이디,비밀번호 입력
+            int result = 0;
+            rttr.addFlashAttribute("result", result);
+            return "redirect:/admin/login";
+        }
+        
+        session.setAttribute("admin", avo);  // 일치하는 아이디,비밀번호 (로그인 성공)
+        return "redirect:/main";
+    }
 	
 	// 회원가입 화면
 	@GetMapping("/createAccount")
@@ -54,7 +76,7 @@ public class AdminController {
 		int result = adminservice.idCheck(adminId);
 		log.info("결과값 = " + result);
 		if(result != 0) {
-			return "fail";	// 중복 아이디가 존재
+			return "fail";		// 중복 아이디가 존재
 		} else {
 			return "success";	// 중복 아이디 x
 		}
