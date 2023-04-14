@@ -26,22 +26,22 @@
 	</sql>
  
 	<!--  게시글 목록  -->
-	<select id="getList" resultType="org.hub.domain.BoardVO">
-		SELECT b.bno, deadline, title, u.unickname as uname , a.uploadPath as profileImage, 
-		(SELECT LISTAGG(f.fname, ',') WITHIN GROUP (ORDER BY f.fname) AS combined_fname
-		FROM boardfield_tbl bf 
-		JOIN field_tbl f ON bf.fno = f.fno 
-		WHERE bf.bno = b.bno) as fnames, 
-		(SELECT LISTAGG(s.sname, ',') WITHIN GROUP (ORDER BY s.sname) AS combined_sname
-		FROM boardstack_tbl bs 
-		JOIN stack_tbl s ON bs.sno = s.sno 
-		WHERE bs.bno = b.bno) as snames, cnt, replycnt
-		FROM board_tbl b
-		JOIN user_tbl u
-		ON b.uidkey = u.uidkey
-			JOIN attach_tbl a
-			ON u.uidkey = a.uidkey
-	</select>
+<!-- 	<select id="getList" resultType="org.hub.domain.BoardVO"> -->
+<!-- 		SELECT b.bno, deadline, title, u.unickname as uname , a.uploadPath as profileImage,  -->
+<!-- 		(SELECT LISTAGG(f.fname, ',') WITHIN GROUP (ORDER BY f.fname) AS combined_fname -->
+<!-- 		FROM boardfield_tbl bf  -->
+<!-- 		JOIN field_tbl f ON bf.fno = f.fno  -->
+<!-- 		WHERE bf.bno = b.bno) as fnames,  -->
+<!-- 		(SELECT LISTAGG(s.sname, ',') WITHIN GROUP (ORDER BY s.sname) AS combined_sname -->
+<!-- 		FROM boardstack_tbl bs  -->
+<!-- 		JOIN stack_tbl s ON bs.sno = s.sno  -->
+<!-- 		WHERE bs.bno = b.bno) as snames, cnt, replycnt -->
+<!-- 		FROM board_tbl b -->
+<!-- 		JOIN user_tbl u -->
+<!-- 		ON b.uidkey = u.uidkey -->
+<!-- 			JOIN attach_tbl a -->
+<!-- 			ON u.uidkey = a.uidkey -->
+<!-- 	</select> -->
 
 	<insert id="insert">
 <!-- 		insert into boardtbl (bno,title,content,uidkey) -->
@@ -62,13 +62,13 @@
 
 	<!-- 상세보기 -->
 	<select id="read" resultType="org.hub.domain.BoardVO">
-		select * from boardtbl where bno =
+		select * from board_tbl where bno =
 		#{bno}
 	</select>
 
 	<!--  삭제 -->
 	<delete id="delete">
-		delete boardtbl where bno = #{bno}
+		delete board_tbl where bno = #{bno}
 	</delete>
 
 	<!-- 수정 -->
@@ -106,40 +106,40 @@
   
 <!-- </select> -->
 
-<select id="getListWithPaging"
-	resultType="org.hub.domain.BoardVO">
- <![CDATA[
-SELECT b.bno, deadline, title, u.unickname as uname , a.uploadPath as profileImage, 
-		(SELECT LISTAGG(f.fname, ',') WITHIN GROUP (ORDER BY f.fname) AS combined_fname
-		FROM boardfield_tbl bf 
-		JOIN field_tbl f ON bf.fno = f.fno 
-		WHERE bf.bno = b.bno) as fnames, 
-		(SELECT LISTAGG(s.sname, ',') WITHIN GROUP (ORDER BY s.sname) AS combined_sname
-		FROM boardstack_tbl bs 
-		JOIN stack_tbl s ON bs.sno = s.sno 
-		WHERE bs.bno = b.bno) as snames, cnt, replycnt
-			FROM board_tbl b
-			JOIN user_tbl u
-			ON b.uidkey = u.uidkey
-			JOIN attach_tbl a
-			ON u.uidkey = a.uidkey;
-		where
- ]]>
-
-	<include refid="criteria"></include>
- 	
- <![CDATA[    
-     rownum <= #{pageNum} * #{amount}
-     )
- where rn > (#{pageNum} -1) * #{amount}   
- ]]>
+<select id="getListWithPaging" resultType="org.hub.domain.BoardVO">
+   <![CDATA[
+SELECT bno, deadline, title, uname, fnames, snames, cnt, replycnt, profileImage
+FROM (
+SELECT /*+INDEX_DESC(board_tbl pk_board) */
+rownum rn, b.bno, b.deadline, b.title, u.unickname AS uname, a.uploadPath  AS profileImage,
+   (
+    SELECT LISTAGG(f.fname, ',') WITHIN GROUP (ORDER BY f.fname) AS combined_fname 
+    FROM boardfield_tbl bf 
+    JOIN field_tbl f ON bf.fno = f.fno
+    WHERE bf.bno = b.bno
+  	) AS fnames,
+   (
+    SELECT LISTAGG(s.sname, ',') WITHIN GROUP (ORDER BY s.sname) AS combined_sname
+    FROM boardstack_tbl bs
+    JOIN stack_tbl s ON bs.sno = s.sno 
+    WHERE bs.bno = b.bno
+   ) AS snames, cnt, replycnt
+FROM board_tbl b
+JOIN user_tbl u
+ON b.uidkey = u.uidkey
+JOIN attach_tbl a
+ON u.uidkey = a.uidkey
+WHERE rownum <= ${pageNum} * ${amount}
+) 
+WHERE rn > (${pageNum} - 1) * ${amount}
+]]>
 </select>
 
 
 
 	<!--  페이지 수 계산 -->
 	<select id="getTotalCount" resultType="int">
-		select count(*) from boardtbl where
+		select count(*) from board_tbl where
 
 		<include refid="criteria"></include>
 
@@ -148,7 +148,7 @@ SELECT b.bno, deadline, title, u.unickname as uname , a.uploadPath as profileIma
 	</select>
 	
 	<update id="updateReplyCnt">
-		update boardtbl set replycnt = replycnt + #{amount} where bno = #{bno}
+		update board_tbl set replycnt = replycnt + #{amount} where bno = #{bno}
 	</update>
 
 </mapper>

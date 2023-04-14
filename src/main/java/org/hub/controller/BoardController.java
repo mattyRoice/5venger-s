@@ -26,15 +26,6 @@ public class BoardController {
 	
 	private BoardService service;
 	
-	@GetMapping("/main")
-	public String getMain() {
-		System.out.println("main으로 이동");
-		log.info("main 이동");
-		
-		
-		
-		return "main";
-	}
 	@GetMapping("/register")
 	public String getRegister() {
 		System.out.println("새 글쓰기로 이동");
