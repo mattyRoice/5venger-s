@@ -24,42 +24,38 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
-	@Controller
-	@Log4j
-	@RequestMapping("/board/*")
-	@AllArgsConstructor
-	public class MainController {
-		
-		@Autowired
-		private BoardService service;
-		
-		@GetMapping("/main")
-		public String getMain(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, Model model) {
-			System.out.println("main으로 이동");
-			log.info("main 이동");
-			
-			List<BoardVO> boardList = service.getList(cri);
-			model.addAttribute("board", boardList);
+@Controller
+@Log4j
+@RequestMapping("/board/*")
+@AllArgsConstructor
+public class MainController {
 
-			int total = service.getTotal(cri);
-			
-			log.info("total: " + total);
-			
-			model.addAttribute("pageMaker", new PageDTO(cri, total));
-			
-			return "main";
-		}
-		
-		@GetMapping("/register")
-		public String getRegister() {
-			System.out.println("새 글쓰기로 이동");
-			log.info("새 글쓰기로 이동");
-			
-			return "register";
-		}
-		
-		
+	@Autowired
+	private BoardService service;
+
+	@GetMapping("/main")
+	public String getMain(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, Model model) {
+		System.out.println("main으로 이동");
+		log.info("main 이동");
+
+		List<BoardVO> boardList = service.getList(cri);
+		model.addAttribute("board", boardList);
+
+		int total = service.getTotal(cri);
+
+		log.info("total: " + total);
+
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+
+		return "main";
 	}
 
+//	@GetMapping("/register")
+//	public String getRegister() {
+//		System.out.println("새 글쓰기로 이동");
+//		log.info("새 글쓰기로 이동");
+//
+//		return "register";
+//	}
 
-
+}

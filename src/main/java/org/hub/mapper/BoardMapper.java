@@ -6,7 +6,7 @@ import org.hub.domain.BoardVO;
 import org.hub.domain.Criteria;
 
 public interface BoardMapper {
-	public List<BoardVO> getList();
+//	public List<BoardVO> getList();
 
 	public List<BoardVO> getListWithPaging(Criteria cri);
 
