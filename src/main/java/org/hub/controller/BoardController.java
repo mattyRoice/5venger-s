@@ -89,5 +89,13 @@ public class BoardController {
 		model.addAttribute("stack", service.get(sno));
 		model.addAttribute("field", service.get(fno));
 	}
+	
+	@GetMapping("/reply")
+	public String getboard() {
+		System.out.println("reply으로 이동");
+		log.info("reply 이동");
+
+		return "reply";
+	}
 }
 
