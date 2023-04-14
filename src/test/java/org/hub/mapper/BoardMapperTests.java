@@ -49,12 +49,4 @@ public class BoardMapperTests {
 	    list.forEach(board -> log.info(board));
 	  }
 	  
-	  // 게시글 목록 보기 테스트 
-	  @Test
-	  public void testgetList() {
-		  List<BoardVO> list = mapper.getList();
-		  list.forEach(board-> log.info(board));
-	  }
-
-
 }
