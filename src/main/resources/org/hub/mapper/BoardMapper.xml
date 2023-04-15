@@ -25,23 +25,6 @@
 		</trim>
 	</sql>
  
-	<!--  게시글 목록  -->
-<!-- 	<select id="getList" resultType="org.hub.domain.BoardVO"> -->
-<!-- 		SELECT b.bno, deadline, title, u.unickname as uname , a.uploadPath as profileImage,  -->
-<!-- 		(SELECT LISTAGG(f.fname, ',') WITHIN GROUP (ORDER BY f.fname) AS combined_fname -->
-<!-- 		FROM boardfield_tbl bf  -->
-<!-- 		JOIN field_tbl f ON bf.fno = f.fno  -->
-<!-- 		WHERE bf.bno = b.bno) as fnames,  -->
-<!-- 		(SELECT LISTAGG(s.sname, ',') WITHIN GROUP (ORDER BY s.sname) AS combined_sname -->
-<!-- 		FROM boardstack_tbl bs  -->
-<!-- 		JOIN stack_tbl s ON bs.sno = s.sno  -->
-<!-- 		WHERE bs.bno = b.bno) as snames, cnt, replycnt -->
-<!-- 		FROM board_tbl b -->
-<!-- 		JOIN user_tbl u -->
-<!-- 		ON b.uidkey = u.uidkey -->
-<!-- 			JOIN attach_tbl a -->
-<!-- 			ON u.uidkey = a.uidkey -->
-<!-- 	</select> -->
 
 	<insert id="insert">
 <!-- 		insert into boardtbl (bno,title,content,uidkey) -->
@@ -129,9 +112,15 @@ JOIN user_tbl u
 ON b.uidkey = u.uidkey
 JOIN attach_tbl a
 ON u.uidkey = a.uidkey
-WHERE rownum <= ${pageNum} * ${amount}
+WHERE
+]]>
+
+<include refid="criteria"></include>
+
+<![CDATA[
+ rownum <= #{pageNum} * #{amount}
 ) 
-WHERE rn > (${pageNum} - 1) * ${amount}
+WHERE rn > (#{pageNum} - 1) * #{amount}
 ]]>
 </select>
 
@@ -139,7 +128,8 @@ WHERE rn > (${pageNum} - 1) * ${amount}
 
 	<!--  페이지 수 계산 -->
 	<select id="getTotalCount" resultType="int">
-		select count(*) from board_tbl where
+		select count(*) from board_tbl 
+		where
 
 		<include refid="criteria"></include>
 

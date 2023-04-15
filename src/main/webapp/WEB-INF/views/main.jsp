@@ -213,10 +213,12 @@
 						class="SelectedLanguage_resetFilter__2EZuH">필터 초기화</span></li>
 				</ul>
 			</div>
+			
+			<!--  검색 화면 -->
 			<div class="search_container__2ExFE">
 				<div class='row'>
 					<div class="col-lg-12">
-						<form id='searchForm' action="/board/list" method='get'>
+						<form id='searchForm' action="/board/main" method='get'>
 							<select name='type'>
 								<option value=""
 									<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
@@ -387,8 +389,8 @@
 		</main>
 		<!--  main 끝 -->
 	</div>
+	
 	<!--  pageNation -->
-
 	<nav aria-label="Page navigation">
 		<ul class="pagination  justify-content-center">
 			<c:if test="${pageMaker.prev }">
@@ -415,8 +417,8 @@
 			<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
 			<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>
 			<input type='hidden' name='type'
-				value='<c:out value="${ pageMaker.cri.type }"/>'> <input
-				type='hidden' name='keyword'
+				value='<c:out value="${ pageMaker.cri.type }"/>'> 
+			<input	type='hidden' name='keyword'
 				value='<c:out value="${ pageMaker.cri.keyword }"/>'>
 		</form>
 	</nav>
