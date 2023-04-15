@@ -11,4 +11,6 @@ public interface UserStackMapper {
 		public void delete(UserStackVO vo);
 		
 		public List<UserStackVO> findByUidKey(String uidKey); // uidKey로 해당 user의 관심 스택 리스트 찾는다
+
+		public void deleteAll(String uidKey);
 }
