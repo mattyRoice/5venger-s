@@ -78,10 +78,10 @@ $(function() {
 	$(window).scroll(function () {
 		if($(window).scrollTop() > 700) {
 			// 스크롤을 300포인트 이상하면 버튼 보여줌
-			btn.addClass('show');
+			btn.show();
 		} else {
 			// 스크롤을 300포인트 이하면 버튼을 숨김
-			btn.removeClass('show');
+			btn.hide();
 		}
 	});
 	// 버튼을 클릭하면 화면 상단으로 이동
