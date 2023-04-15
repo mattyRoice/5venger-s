@@ -106,8 +106,12 @@ rownum rn, b.bno, b.deadline, b.title, u.unickname AS uname, a.uploadPath  AS pr
     FROM boardstack_tbl bs
     JOIN stack_tbl s ON bs.sno = s.sno 
     WHERE bs.bno = b.bno
-   ) AS snames, cnt, replycnt
-FROM board_tbl b
+   ) AS snames, cnt, replycnt  
+FROM (
+	SELECT bno, deadline, title, uidkey, cnt, replycnt
+	FROM board_tbl
+	ORDER BY bno desc
+) b
 JOIN user_tbl u
 ON b.uidkey = u.uidkey
 JOIN attach_tbl a
