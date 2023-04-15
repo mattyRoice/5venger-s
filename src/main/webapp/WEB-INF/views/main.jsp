@@ -279,7 +279,7 @@
 
 						<div class="col-lg-3">
 							<div class="card" style="width: 100%">
-								<div class="card-body" >
+								<div class="card-body move" >
 									<!-- 스터디-->
 									<div class="studyItem_badgeWrapper__3AW7k">
 										<div class="badge_badge__ZfNyB">
@@ -375,6 +375,7 @@
 						</div>
 						<!-- col-md4 끝-->
 					</c:forEach>
+					<!--  메인 게시글 반복문 끝 -->
 				</div>
 				<!--row 끝-->
 				<br>
@@ -384,25 +385,28 @@
 		<!--  main 끝 -->
 	</div>
 	<!--  pageNation -->
-	<div class='pull-right'>
-		<ul class="pagination">
-			<c:if test="${pageMaker.prev }">
-				<li class="paginate_button previous"><a
-					href="${pageMaker.startPage-1 }">Previous</a></li>
-			</c:if>
+	
+	<nav aria-label="Page navigation">
+	  <ul class="pagination  justify-content-center">
+	    <c:if test="${pageMaker.prev }">
+			<li class="page-item"><a class="page-link"
+			href="${pageMaker.startPage-1 }">Previous</a></li>
+		</c:if>
+	
+		<c:forEach var="num" begin="${pageMaker.startPage}"
+			end="${pageMaker.endPage}">
+			<li class="page-item  ${pageMaker.cri.pageNum == num ? 'active':''} ">  
+				<a class="page-link" href="${num}">${num}</a>
+			</li>
+		</c:forEach>
+		
+		
+		<c:if test="${pageMaker.next }">
+			<li class="page-item"><a class="page-link"
+				href="${pageMaker.endPage+1 }">Next</a></li>
+		</c:if>
+	  </ul>
 
-			<c:forEach var="num" begin="${pageMaker.startPage}"
-				end="${pageMaker.endPage}">
-				<li class="paginate_button  ${pageMaker.cri.pageNum == num ? 'active':''} ">  
-					<a href="${num}">${num}</a>
-				</li>
-			</c:forEach>
-
-			<c:if test="${pageMaker.next }">
-				<li class="paginate_button next"><a
-					href="${pageMaker.endPage+1 }">Next</a></li>
-			</c:if>
-		</ul>
 		<form id='actionForm' action="/board/main" method='get'>
 			<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
 			<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>
@@ -411,10 +415,11 @@
 				type='hidden' name='keyword'
 				value='<c:out value="${ pageMaker.cri.keyword }"/>'>
 		</form>
-	</div>
+	</nav>
+	
+
+		
 
 	<!-- 전체 바디 태그 root 끝 -->
-
-
 
 	<%@ include file="/WEB-INF/includes/footer.jsp"%>
