@@ -21,8 +21,5 @@
 	<delete id="deleteAll">
 		delete attach_tbl where uidkey = #{uidkey}
 	</delete>
-	
-	<select id="getOldFiles" resultType="org.hub.domain.UserAttachVO">
-		select*from attach_tbl where uploadpath = to_char(sysdate -1, 'yyyy\mm\dd')
-	</select>
+
 </mapper>

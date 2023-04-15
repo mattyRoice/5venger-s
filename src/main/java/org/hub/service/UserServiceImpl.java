@@ -5,7 +5,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.hub.domain.UserAttachVO;
-import org.hub.domain.UserStackVO;
 import org.hub.domain.UserVO;
 import org.hub.mapper.UserAttachMapper;
 import org.hub.mapper.UserMapper;
@@ -79,33 +78,11 @@ public class UserServiceImpl implements UserSerivce {
 		log.info("register . . . . . ." + uidKey);
 		return mapper.read(uidKey);
 	}
-	
-	@Transactional
+
 	@Override
 	public boolean modify(UserVO user) {
-		// 회원 수정은 우선 기존 첨부파일/스택 데이터 삭제 후 다시 첨부파일 데이터를 추가하는 방식으로 동작
 		log.info("modify . . . . . ." + user);
-		
-		attachMapper.deleteAll(user.getUidKey());
-		stackMapper.deleteAll(user.getUidKey());
-		
-		boolean modifyResult = mapper.update(user) == 1;
-		
-		if(modifyResult && user.getAttachList() !=null && user.getAttachList().size() > 0) {
-			user.getAttachList().forEach(attach -> {
-				attach.setUidkey(user.getUidKey());
-				attachMapper.insert(attach);
-			});
-		}
-		
-		if(modifyResult && user.getSnoList() !=null && user.getSnoList().size() > 0) {
-			user.getSnoList().forEach(stack -> {
-				stack.setUidKey(user.getUidKey());
-				stackMapper.insert(stack);
-			});
-		}
-		
-		return modifyResult;
+		return mapper.update(user) == 1;
 	}
 	
 	@Transactional
@@ -132,14 +109,6 @@ public class UserServiceImpl implements UserSerivce {
 		log.info("get Attach list by uidKey" + uidKey);
 		
 		return attachMapper.findByUidKey(uidKey);
-	}
-
-	@Override
-	public List<UserStackVO> getStackList(String uidKey) {
-		
-		log.info("get Stack list by uidKey" + uidKey);
-		
-		return stackMapper.findByUidKey(uidKey);
 	}
 
 }

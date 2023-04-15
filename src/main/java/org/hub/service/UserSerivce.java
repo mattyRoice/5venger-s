@@ -3,7 +3,6 @@ package org.hub.service;
 import java.util.List;
 
 import org.hub.domain.UserAttachVO;
-import org.hub.domain.UserStackVO;
 import org.hub.domain.UserVO;
 
 public interface UserSerivce {
@@ -23,7 +22,5 @@ public interface UserSerivce {
 	public boolean modify(UserVO user);
 	
 	public boolean remove(String uidKey);
-	
-	public List<UserStackVO> getStackList(String uidKey);
 	
 }

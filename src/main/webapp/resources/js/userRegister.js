@@ -17,15 +17,13 @@
     		
     		var result = checkNickNull();
     		
-    		if(result == false){   			
-    			//alert('닉네임을 입력해주세요.');
+    		if(result == false){
+    			alert('닉네임을 입력해주세요.');
     			$('#unickName').val('');
     			return;
-    		} else {    		
+    		} else {
     		
     	    console.log("to2step"); 
-			var unickName = $('#unickName').val();
-			$("#pills-profile-div").html(""+unickName+"님, 반가워요.<br>어떤 언어, 프레임워크에 관심이 있는지 알려주세요!");
 			
     	    secondTab.removeClass("disabled");
     	    secondTab.addClass("active");
@@ -40,8 +38,6 @@
     	});
     	
     	$("#to3step").click(function(){
-    		var unickName = $('#unickName').val();
-			$("#pills-contact-div").html(""+unickName+"님만의 특별한 이미지를 설정해 보세요.<br>물론, 언제든지 변경할 수 있어요!");
     		
     		thirdTab.removeClass("disabled");
     		thirdTab.addClass("active");    		 
@@ -114,8 +110,9 @@
     				$('#checkNickname').html('사용 가능한 닉네임입니다.'); 			   				
     			} else { // 이미 존재하는 닉네임
     				$('#checkNickname').css('color','red');
-    				$('#checkNickname').html('이미 존재하는 닉네임입니다.');  				
+    				$('#checkNickname').html('이미 존재하는 닉네임입니다.');
     				
+    				// alert("닉네임을 다시 입력해주세요");
     				$('#unickName').val('');
     			} 
     		},
@@ -272,7 +269,7 @@
       dataType:'text',
       type: 'POST',
         success: function(result){
-           //alert("선택이 취소되었습니다.");
+           alert("선택이 취소되었습니다.");
            /* 업로드된 파일이 삭제되면 기본 이미지로 바꾸기 */
            targetLi.attr("src", "/resources/Images/profileLogo.png");
          }

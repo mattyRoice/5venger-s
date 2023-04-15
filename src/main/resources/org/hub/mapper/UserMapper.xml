@@ -32,8 +32,8 @@
 	</delete>
 	
 	<update id="update">
-		update user_tbl
-		set unickname = #{unickName}
+		update user_tbl 
+		set unickname = #{unickName} 
 		where uidkey = #{uidKey}
 	</update>
 </mapper>

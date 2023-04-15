@@ -17,10 +17,7 @@
 	<select id="findByUidKey" resultType="org.hub.domain.UserStackVO">
 		select*from userstack_tbl where uidkey = #{uidkey}
 	</select>
-	
-	<delete id="deleteAll">
-		delete userstack_tbl where uidkey = #{uidKey} 
-	</delete>
+
 
 
 </mapper>

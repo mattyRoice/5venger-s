@@ -57,7 +57,7 @@
 				  </div>
 				  
 				  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-				  	<div class="text-center fs-4 fw-bolder mt-5 mb-3" id="pills-profile-div"></div>
+				  	<div class="text-center fs-4 fw-bolder mt-5 mb-3">닉네임님, 반가워요.<br>어떤 언어, 프레임워크에 관심이 있는지 알려주세요!</div>
 				  	<div class="text-center fs-6 fw-bolder mb-5">관심 태그를 기반으로 소식을 추천해드려요.</div>
 				  	<select name="sno" id="sno" multiple>
 					    <option value="1">JavaScript</option>
@@ -98,7 +98,7 @@
 				  </div>
 				  
 				  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-				  	<div class="text-center fs-4 fw-bolder mt-5 mb-3" id="pills-contact-div"></div>
+				  	<div class="text-center fs-4 fw-bolder mt-5 mb-3">닉네임님만의 특별한 이미지를 설정해 보세요.<br>물론, 언제든지 변경할 수 있어요!</div>
 				  	<div class="text-center fs-6 fw-bolder mb-4">미 업로드시 기본 이미지로 자동 설정됩니다.</div>
 					<!-- 프로필 이미지 선택 -->
 		  			<div class="container text-center">
@@ -132,7 +132,6 @@
 				  
 				</div>									
 			</div>
-			
 			
 		</form>	
 			
