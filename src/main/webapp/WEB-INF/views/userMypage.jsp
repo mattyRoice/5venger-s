@@ -26,7 +26,7 @@
 		  <div class="container-fluid">
 		    <!-- 로고 -->
 		    <div>				
-				<a href="#"><img class="mb-3 rounded" src="/resources/Images/SHLogo.png" alt="StudyHybLogo" width="150"></a>
+				<a href="/board/main"><img class="mb-3 rounded" src="/resources/Images/SHLogo.png" alt="StudyHybLogo" width="150"></a>
 			</div>
 			
 			<!-- 새글쓰기, 드롭다운 묶음 -->				
@@ -52,7 +52,7 @@
 								
 		<div class="form-mypage">															
 			<div class="text-start"><h3>내 정보 수정</h3></div>
-	  		<form action="/user/mypage" role="form" method="post">
+	  		<form action="/user/modify" role="form" method="post">
 	  			<!-- 이미지 수정 -->
 	  			<div class="container text-center mt-5">
 		  			<div class="row">
@@ -84,11 +84,13 @@
 			   			<div class="col-5 text-start">
 							<p class="fs-5 fw-bolder mt-2">닉네임</p>
 						</div>
-					    <div class="col-7 text-start">
-							<input class="form-control" type="text" aria-label="default input example">
+					    <div class="col-7 text-start">					    	
+							<input class="form-control" type="text" id="unickName" name="unickName" onchange="checkNickname()" aria-label="default input example" value="<c:out value="${user.unickName}"/>">
+							<!-- nickName ajax 체크 -->
+				  			<p id="checkNickname" class="fw-bold fs-5" style="color:#ff914d; margin:4px 0px 0px 0px;"></p>
 						</div>					
 					</div>
-					<div class="mt-2">
+					<div>
 						<p class="text-start fw-semibold text-muted">StudyHub에서 사용되는 이름입니다.</p><hr>
 					</div>						
 				</div>
@@ -99,7 +101,7 @@
 							<p class="fs-5 fw-bolder mt-2">관심 기술 태그</p>
 						</div>
 					    <div class="col-8 mt-2">
-							<select name="stacks" id="stacks" multiple>
+							<select name="sno" id="sno" multiple>
 							    <option value="1">JavaScript</option>
 							    <option value="2">TypeScript</option>
 							    <option value="3">React</option>
@@ -149,18 +151,60 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>	
 		<!-- 관심 기술 태그용 -->
 		<script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
-		
-		
-		
-		 <!-- 아래에 두면 css가 없는 select 영역이 대서 위로올림  -->
-		<script>   
-		    new MultiSelectTag('stacks', {
-		        rounded: true,    // default true		       
-		    })
-	    </script> 		
+	
 	
 	</body>
 <script>
+//수정 전 닉네임 저장해두기
+var pre= $('#unickName').val();
+//닉네임 빈칸 확인 함수
+function checkNickNull(){
+		var unickName = $('#unickName').val();
+		console.log(unickName);
+		
+		if(unickName == null || unickName.trim() == ''){
+ 		$('#checkNickname').css('color','#ff914d');	
+ 		$('#checkNickname').html('닉네임을 입력해주세요.');
+ 		return false;
+ 	} else {
+ 		$('#checkNickname').html('');
+ 	} 	
+} 
+
+// 닉네임 중복 확인
+function checkNickname(){
+	
+	var unickName = $('#unickName').val();  
+	// 원래 닉네임이랑 같으면 중복 체크 XXX return
+	if(pre == unickName){
+		return;
+	}
+	console.log(pre);
+	console.log(unickName);
+	
+	$.ajax({    		
+		url: '/user/unickNameCheck',
+		data: {unickName : unickName},
+		type: 'POST',
+		dataType:'text',
+		success : function(result){
+						
+			if(result == 'success'){ // 사용 가능한 아이디
+				$('#checkNickname').css('color','#ff914d');				
+				$('#checkNickname').html('사용 가능한 닉네임입니다.'); 			   				
+			} else { // 이미 존재하는 닉네임
+				$('#checkNickname').css('color','red');
+				$('#checkNickname').html('이미 존재하는 닉네임입니다.');
+				
+				// alert("닉네임을 다시 입력해주세요");
+				$('#unickName').val('');
+			} 
+		},
+		error:function(request,error){
+			alert("message:" + request.responseText);
+		}
+	}); //$.ajax
+};
 
 $(document).ready(function(){
 	// 이미지 파일 데이터 가져오는 부분을 즉시 실행 함수를 이용해 처리
@@ -170,12 +214,16 @@ $(document).ready(function(){
 		
 		$.getJSON("/user/getAttachList", {uidKey:uidKey}, function(arr){
 			console.log(arr);
-			
+			if(arr.length == 0){
+				var targetLi = $(".uploadResult ul li img");
+				 targetLi.attr("src", "/resources/Images/profileLogo.png");
+				 return;
+			}
 			 var str = "";
 			 
 			 var deleteBtn = $("#photoDeleteBtn");  
 		       $(arr).each(function(i, attach){
-		       
+		       		
 		         //image type
 		         if(attach.fileType){
 		           var fileCallPath =  encodeURIComponent( attach.uploadPath+ "/s_"+attach.uuid +"_"+attach.fileName);
@@ -189,13 +237,41 @@ $(document).ready(function(){
 		       });
 		       
 		       $(".uploadResult ul").html(str);
-		}); //end getjson
-	})();//end function
-
+		}); //end getjson						
+		// 관심 스택 가져오기		
+		$.getJSON("/user/getStackList", {uidKey:uidKey}, function(arr){
+					
+				console.log(arr);
+					
+				$(arr).each(function(i, stack){
+					var n = stack.sno;
+					
+					console.log(n);
+					
+					var label = $("#sno option[value='"+stack.sno+"']").text();
+					
+					console.log(label);
+					
+					var target = $("#sno");
+					
+					$("#sno option[value='"+stack.sno+"']").remove();
+					
+					target.children().eq(n-1).before("<option value='"+stack.sno+"' selected>"+label+"</option>");
+				
+				});
+				
+				new MultiSelectTag('sno', {
+			        rounded: true,    // default true		       
+			    }); 
+				
+		});//end getjson				
+		
+	})();//end function	
+	
 });
 
 $(document).ready(function(e){
-  
+		
   var formObj = $("form[role='form']");
   
   $("button[type='submit']").on("click", function(e){ //submit 버튼 눌렸을 때
@@ -212,19 +288,20 @@ $(document).ready(function(e){
     
     if(operation === 'remove'){ //삭제버튼일때    	
 	    formObj.attr("action", "/user/remove");
-    	formObj.append("<input type='hidden' name='uidKey' value='"+uidKey+"'>");
+    	
 	} else if(operation === 'modify') { //수정하는 완료 버튼일때
     
-	    var str = "";
-	    
+	    var str = "";	    
+
 	    $(".uploadResult ul li").each(function(i, obj){
+	      	
+	    	var jobj = $(obj);
+	    	
+	    	 if (jobj.find("img").attr("src") === "/resources/Images/profileLogo.png") {
+		    	  return;
+		     }	      	      	      
 	      
-	      var jobj = $(obj);
-	      
-	      console.dir(jobj);
-	      console.log("-------------------------");
-	      console.log(jobj.data("filename"));
-	      
+	      console.dir(jobj);	      	      
 	      
 	      str += "<input type='hidden' name='attachList["+i+"].fileName' value='"+jobj.data("filename")+"'>";
 	      str += "<input type='hidden' name='attachList["+i+"].uuid' value='"+jobj.data("uuid")+"'>";
@@ -233,14 +310,30 @@ $(document).ready(function(e){
 	      
 	    });
 	    
-	    console.log(str);
+	    $("#sno option").filter(":selected").each(function(index) {
+	    	str += "<input type='hidden' name='snoList["+index+"].sno' value='"+$(this).val()+"'>";
 	    
-	    formObj.append(str).submit();
-	}
-    formObj.submit();
-  });
+	    });	 
+	    
+	    formObj.append(str);	        
+	    
+	    var result = checkNickNull();
+		
+		if(result == false){
+			alert('닉네임을 입력해주세요.');
+			$('#unickName').val('');
+			return;
+		}
+	    
+	} // else if 끝
+	
+	
+    formObj.append("<input type='hidden' name='uidKey' value='"+uidKey+"'>");
 
-  
+    formObj.submit();
+  }); //submit 버튼 눌렸을 때
+
+  // 여기부터 = = = 
   var regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
   var maxSize = 5242880; //5MB
   
@@ -327,36 +420,24 @@ $(document).ready(function(e){
 	
 	
   }
+  // = = = 여기까지는 기존과 똑같이
   
-/* x 아이콘을 클릭하면 서버에서 삭제 */
+  /* 이미지 제거 버튼을 클릭하면 화면에서만 삭제 (서버 및 복사본은 완료를 눌렀을 때 적용할것임) */
   $(".photoDelete").on("click", "button", function(e){
 	/* photoDelete 클래스를 가진 요소 내부에서 button 요소를 클릭할 때 이벤트 핸들러 등록 */
 	
     console.log("delete file");
-    
-	/* 클릭된 삭제 버튼에 설정된 data-file, data-type 속성 값을 읽어 변수에 저장	 */
-    var targetFile = $(this).data("file"); 
-    var type = $(this).data("type");
-    
-    /* img 요소를 찾아 변수에 저장    */ 
-    var targetLi = $(".uploadResult ul li img");
-    
-    /* 제이쿼리의 함수를 호출해 ajax 요청을 전송 */
-    $.ajax({
-      url: '/deleteFile',
-      data: {fileName: targetFile, type:type},
-      dataType:'text',
-      type: 'POST',
-        success: function(result){
-           alert("선택이 취소되었습니다.");
-           /* 업로드된 파일이 삭제되면 기본 이미지로 바꾸기 */
-           targetLi.attr("src", "/resources/Images/profileLogo.png");
-         }
-    }); //$.ajax
+	
+	if(confirm("Remove this file? ")){
+		 var targetLi = $(".uploadResult ul li img");
+		 targetLi.attr("src", "/resources/Images/profileLogo.png");
+	}
     
    });
 
-
+ 
+   
+  
   
 });
 
