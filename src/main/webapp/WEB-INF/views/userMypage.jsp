@@ -26,7 +26,7 @@
 		  <div class="container-fluid">
 		    <!-- 로고 -->
 		    <div>				
-				<a href="/main"><img class="mb-3 rounded" src="/resources/Images/SHLogo.png" alt="StudyHybLogo" width="150"></a>
+				<a href="/board/main"><img class="mb-3 rounded" src="/resources/Images/SHLogo.png" alt="StudyHybLogo" width="150"></a>
 			</div>
 			
 			<!-- 새글쓰기, 드롭다운 묶음 -->				

@@ -138,7 +138,7 @@ public class UserController {
 		}  			
 		
 		//존재하면 로그인 처리 후 메인페이지로 이동
-		return "redirect:/main";
+		return "redirect:/board/main";
 		
 	}		
 	
@@ -164,7 +164,7 @@ public class UserController {
 		userService.register(user);
 		
 		// 회원가입 완료 후 메인 페이지로 이동
-		return "redirect:/main";
+		return "redirect:/board/main";
 	}
 	
 	@PostMapping(value= "/unickNameCheck")
@@ -243,7 +243,7 @@ public class UserController {
 			 rttr.addFlashAttribute("result", "success");
 		 }		 
 		
-		 return "redirect:/main";
+		 return "redirect:/board/main";
 	}
 	
 	// ==금요일 시작==
@@ -263,7 +263,7 @@ public class UserController {
 			rttr.addFlashAttribute("result", "변경이 완료되었어요");
 		}
 
-		return "redirect:/main";
+		return "redirect:/board/main";
 	}
 	
 	@GetMapping(value = "/getStackList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
