@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html>
@@ -279,7 +279,7 @@
 
 						<div class="col-lg-3">
 							<div class="card" style="width: 100%">
-								<div class="card-body move" >
+								<div class="card-body move">
 									<!-- 스터디-->
 									<div class="studyItem_badgeWrapper__3AW7k">
 										<div class="badge_badge__ZfNyB">
@@ -289,17 +289,19 @@
 									<!--마감일-->
 									<div class="studyItem_schedule__3oAnA">
 										<p class="studyItem_scheduleTitle__1KN_9">마감일 |</p>
-										<p> 
+										<p>
 											<c:choose>
 												<c:when test="${board.deadline ne null }">
-													<p><c:out value="${board.deadline }" /></p>
+													<p>
+														<c:out value="${board.deadline }" />
+													</p>
 												</c:when>
-												
+
 												<c:when test="${board.deadline eq null }">
 													<p>기간 미정</p>
 												</c:when>
 											</c:choose>
-											
+
 										</p>
 									</div>
 									<!--게시글 제목-->
@@ -320,12 +322,11 @@
 									<ul class="studyItem_content__1mJ9M">
 										<c:set var="snamesArr" value="${fn:split(board.snames, ',') }" />
 										<c:forEach items="${snamesArr }" var="sname">
-										<li class="studyItem_language__20yqw"><img
-											class="studyItem_languageImage__1AfGa" title="${sname }"
-											src="https://holaworld.io/images/languages/${sname }.svg"
-											alt="language">
-										</li>
-										</c:forEach>										
+											<li class="studyItem_language__20yqw"><img
+												class="studyItem_languageImage__1AfGa" title="${sname }"
+												src="https://holaworld.io/images/languages/${sname }.svg"
+												alt="language"></li>
+										</c:forEach>
 									</ul>
 
 									<!--구분선-->
@@ -340,7 +341,9 @@
 													height="30px" src="/resources/Images/profileLogo.png"
 													alt="avatar">
 											</div>
-											<div><c:out value="${board.uname }"/></div>
+											<div>
+												<c:out value="${board.uname }" />
+											</div>
 										</div>
 
 										<!--  조회수,댓글 -->
@@ -385,27 +388,28 @@
 		<!--  main 끝 -->
 	</div>
 	<!--  pageNation -->
-	
+
 	<nav aria-label="Page navigation">
-	  <ul class="pagination  justify-content-center">
-	    <c:if test="${pageMaker.prev }">
-			<li class="page-item"><a class="page-link"
-			href="${pageMaker.startPage-1 }">Previous</a></li>
-		</c:if>
-	
-		<c:forEach var="num" begin="${pageMaker.startPage}"
-			end="${pageMaker.endPage}">
-			<li class="page-item  ${pageMaker.cri.pageNum == num ? 'active':''} ">  
-				<a class="page-link" href="${num}">${num}</a>
-			</li>
-		</c:forEach>
-		
-		
-		<c:if test="${pageMaker.next }">
-			<li class="page-item"><a class="page-link"
-				href="${pageMaker.endPage+1 }">Next</a></li>
-		</c:if>
-	  </ul>
+		<ul class="pagination  justify-content-center">
+			<c:if test="${pageMaker.prev }">
+				<li class="page-item"><a class="page-link"
+					href="${pageMaker.startPage-1 }">Previous</a></li>
+			</c:if>
+
+			<c:forEach var="num" begin="${pageMaker.startPage}"
+				end="${pageMaker.endPage}">
+				<li
+					class="page-item  ${pageMaker.cri.pageNum == num ? 'active':''} ">
+					<a class="page-link" href="${num}">${num}</a>
+				</li>
+			</c:forEach>
+
+
+			<c:if test="${pageMaker.next }">
+				<li class="page-item"><a class="page-link"
+					href="${pageMaker.endPage+1 }">Next</a></li>
+			</c:if>
+		</ul>
 
 		<form id='actionForm' action="/board/main" method='get'>
 			<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
@@ -416,10 +420,37 @@
 				value='<c:out value="${ pageMaker.cri.keyword }"/>'>
 		</form>
 	</nav>
-	
-
-		
 
 	<!-- 전체 바디 태그 root 끝 -->
+
+	<!-- 맨 위로 올라가기 버튼 -->
+	<div class="Topbutton_topButton__35AKX">
+		<img class="Topbutton_topButtonImage__2Klzb"
+			src="/resources/Images/TOP.png" alt="default">
+	</div>
+
+	<!--  하단 footer -->
+	<footer class="footer_footer__31o2n">
+		<div class="footer_leftCover__2lNes">
+			<img class="footer_footerImg__1iADK"
+				src="/resources/Images/SHLogo.png" alt="footer logo">
+			<div class="footer_contactInfo__LUbVV">
+				<div class="footer_title__3M399">Contact</div>
+				<div class="footer_mail__3bYNn">team.studyhub.official@gmail.com</div>
+			</div>
+			<div class="footer_copyright__CqZaX">Copyright Studyhub. All
+				rights reserved</div>
+		</div>
+		<div class="footer_rightCover__1Lgjb">
+			<a
+				href="https://temporal-weather-18e.notion.site/95f676cba1a245bf843ffa6a6f7933dd"
+				target="_blank" rel="noreferrer">이용약관</a> <a
+				href="https://temporal-weather-18e.notion.site/f8bced09dea34b6caa11251eb8b8f1ef"
+				target="_blank" rel="noreferrer">개인정보처리방침</a> <a
+				href="https://temporal-weather-18e.notion.site/Hola-_______-613200b663ab47b2b59c8c5cf0011b2f"
+				target="_blank" rel="noreferrer">서비스소개</a>
+		</div>
+	</footer>
+
 
 	<%@ include file="/WEB-INF/includes/footer.jsp"%>

@@ -13,6 +13,8 @@
 	crossorigin="anonymous"></script>
 <script>
 $(document).ready(function() {
+	
+	
 	var result='<c:out value="${result}"/>';
 	checkModal(result);
 	
@@ -69,6 +71,28 @@ $(document).ready(function() {
 		searchForm.submit();
 	});
 });
+// 화면 상단으로 올리기 버튼
+$(function() {
+	var btn = $('.Topbutton_topButton__35AKX');
+	
+	$(window).scroll(function () {
+		if($(window).scrollTop() > 700) {
+			// 스크롤을 300포인트 이상하면 버튼 보여줌
+			btn.addClass('show');
+		} else {
+			// 스크롤을 300포인트 이하면 버튼을 숨김
+			btn.removeClass('show');
+		}
+	});
+	// 버튼을 클릭하면 화면 상단으로 이동
+	// 이동하는 속도는 300(0.3초)
+	btn.on('click', function(e) {
+		e.preventDefault();
+		$('html, body').animate({scrollTop:500}, '1000');
+	});
+});
+
+
 
 	let isFirst = true;
 	let count = 0;
