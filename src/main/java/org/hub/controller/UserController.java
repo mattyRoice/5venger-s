@@ -182,9 +182,10 @@ public class UserController {
 	@GetMapping(value = "/getAttachList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<List<UserAttachVO>> getAttachList(String uidKey){
+		// uidkey를 이용해 이미지파일과 관련된 데이터를 json으로 반환하도록 처리 - @ResponseBody 어노테이션 적용
 		log.info("getAttachList" + uidKey);
 		return new ResponseEntity<>(userService.getAttachList(uidKey), HttpStatus.OK);
-	}
+	}		
 
 	
 	@GetMapping(value= "/mypage")
@@ -196,9 +197,9 @@ public class UserController {
 		return "userMypage";
 	}
 	// = = = = 마무리
-	// = = = = 또시작
+	// = = = = 
 	private void deleteFiles(List<UserAttachVO> attachList) {
-
+		
 		if (attachList == null || attachList.size() == 0) {
 			return;
 		}
@@ -226,24 +227,54 @@ public class UserController {
 			} // end catch
 		});// end foreachd
 	}
-
+	
 	@PostMapping("/remove")
 	public String remove(@RequestParam("uidKey") String uidKey, RedirectAttributes rttr) {
-		// 회원탈퇴
-		log.info("remove..." + uidKey);
-		// 회원 탈퇴 전 회원의 이미지 파일 확보
-		List<UserAttachVO> attachList = userService.getAttachList(uidKey);
-
-		if (userService.remove(uidKey)) { // 회원 정보 삭제
-
-			// delete Attach Files
-			deleteFiles(attachList); // c:upload 밑 복사본 삭제
-
-			rttr.addFlashAttribute("result", "success");
+		 //회원탈퇴
+		 log.info("remove..." + uidKey);
+		 // 회원 탈퇴 전 회원의 이미지 파일 확보
+		 List<UserAttachVO> attachList = userService.getAttachList(uidKey);
+		 
+		 if (userService.remove(uidKey)) { //회원 정보 삭제
+			 
+			 //delete Attach Files
+			 deleteFiles(attachList); //c:upload 밑 복사본 삭제
+			 
+			 rttr.addFlashAttribute("result", "success");
+		 }		 
+		
+		 return "redirect:/main";
+	}
+	
+	// ==금요일 시작==
+	@PostMapping("/modify")
+	public String modify(UserVO user, RedirectAttributes rttr) {
+		log.info(" = = = = = modify:" + user);
+		
+		if (user.getAttachList() != null) {
+			user.getAttachList().forEach(attach->log.info(attach));
+		}
+		
+		if (user.getSnoList() != null) {
+			user.getSnoList().forEach(sno->log.info(sno));
+		}
+		
+		if (userService.modify(user)) {
+			rttr.addFlashAttribute("result", "변경이 완료되었어요");
 		}
 
 		return "redirect:/main";
 	}
+	
+	@GetMapping(value = "/getStackList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseEntity<List<UserStackVO>> getStackList(String uidKey){
+		// uidkey를 이용해 관심 스택을 json으로 반환하도록 처리 - @ResponseBody 어노테이션 적용
+		log.info("getStackList" + uidKey);
+		return new ResponseEntity<>(userService.getStackList(uidKey), HttpStatus.OK);
+	}
+	
+	
 	@GetMapping(value="/interest")
 	public String interest() {
 		log.info("====== ");
