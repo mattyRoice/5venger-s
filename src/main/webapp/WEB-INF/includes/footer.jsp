@@ -14,6 +14,83 @@
 <script>
 $(document).ready(function() {
 	
+// 	// 카테고리 밑줄 치는 제이쿼리
+// 	$('.Category_categories__3bwPA li').click(function() {
+//     	// 모든 li에서 Category_selectedCategory__1J7es 클래스 제거
+//     	$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
+//     	// 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
+//     	$(this).addClass('Category_selectedCategory__1J7es');
+//   	});
+
+	// 카테고리 변수
+	let $languageBarArray = $('ul.LanguageBar_languages__2Ilqf li');
+	$languageBarArray.hide();
+	category(1, 11);
+
+
+	// 인기 카테고리를 클릭할 경우
+	$('li.Category_categoryItem__1ko8V:eq(0)').click(function() {
+		$languageBarArray.hide(); // 모든 li 숨기기
+		category(1, 11); // 인기 카테고리의 li만 보이기
+		
+	 // 모든 li에서 Category_selectedCategory__1J7es 클래스 제거
+    	$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
+    	// 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
+    	$(this).addClass('Category_selectedCategory__1J7es');
+	});
+
+	// 프론트엔드 카테고리를 클릭할 경우
+	$('li.Category_categoryItem__1ko8V:eq(1)').click(function() {
+		$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
+	    	// 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
+	    $(this).addClass('Category_selectedCategory__1J7es');
+	    $languageBarArray.hide(); // 모든 li 숨기기
+	  	category(1, 7) // 프론트엔드 카테고리의 li만 보이기
+	});
+
+	// 백엔드 카테고리를 클릭할 경우
+	$('li.Category_categoryItem__1ko8V:eq(2)').click(function() {
+		$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
+	    // 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
+		$(this).addClass('Category_selectedCategory__1J7es');
+	    $languageBarArray.hide(); // 모든 li 숨기기
+	 	// 백엔드 카테고리의 li만 보이기
+	    category(7,20)
+	});
+
+	// 모바일 카테고리를 클릭할 경우
+	$('li.Category_categoryItem__1ko8V:eq(3)').click(function() {
+		$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
+	   	// 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
+	   	$(this).addClass('Category_selectedCategory__1J7es');
+	   	$languageBarArray.hide(); // 모든 li 숨기기
+	   	$('ul.LanguageBar_languages__2Ilqf li:eq(11)').show();
+		// 모바일 카테고리의 li만 보이기
+		category(20, 24)
+	});
+
+	  // 기타 카테고리를 클릭할 경우
+	$('li.Category_categoryItem__1ko8V:eq(4)').click(function() {
+		$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
+		// 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
+		$(this).addClass('Category_selectedCategory__1J7es');
+		$languageBarArray.hide();
+		category(24,32);
+	});
+	  
+	  // 모두보기 카테고리를 클릭할 경우
+	$('li.Category_categoryItem__1ko8V:eq(5)').click(function() {
+		$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
+	    // 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
+		$(this).addClass('Category_selectedCategory__1J7es');
+	    $languageBarArray.show(); // 모든 li 보이기
+	});
+	  
+	function category(a, b) {
+		for(let i=a; i<b; i++) {
+			$languageBarArray.eq(i).show();
+		}
+	}
 	
 	var result='<c:out value="${result}"/>';
 	checkModal(result);
