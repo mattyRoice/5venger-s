@@ -91,10 +91,10 @@
 
 <select id="getListWithPaging" resultType="org.hub.domain.BoardVO">
    <![CDATA[
-SELECT bno, deadline, title, uname, fnames, snames, cnt, replycnt, profileImage
+SELECT bno, deadline, uidkey ,title, uname, fnames, snames, cnt, replycnt, profileImage
 FROM (
 SELECT /*+INDEX_DESC(board_tbl pk_board) */
-rownum rn, b.bno, b.deadline, b.title, u.unickname AS uname, a.uploadPath  AS profileImage,
+rownum rn, b.bno, b.uidkey, b.deadline, b.title, u.unickname AS uname, a.uploadPath  AS profileImage,
    (
     SELECT LISTAGG(f.fname, ',') WITHIN GROUP (ORDER BY f.fname) AS combined_fname 
     FROM boardfield_tbl bf 

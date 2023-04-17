@@ -15,6 +15,9 @@
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="/resources/css/main.css" type="text/css" />
+<script>
+	var uidkeys = [];
+</script>
 <title>스터디허브</title>
 </head>
 <link rel="icon" href="/resources/Images/profileLogo.png">
@@ -314,7 +317,6 @@
 				<div class="row">
 
 					<c:forEach items="${board}" var="board">
-
 						<div class="col-lg-3">
 							<div class="card" style="width: 100%">
 								<div class="card-body move">
@@ -375,9 +377,17 @@
 										<!--  user이미지, user 닉네임 -->
 										<div class="studyItem_userInfo__1KkGa">
 											<div class="avatar_user__1Pgut">
-												<img class="avatar_userImg__hogPI" width="30px"
-													height="30px" src="/resources/Images/profileLogo.png"
-													alt="avatar">
+												<div id="uploadResult">
+													<div class='uploadResult'>
+														<ul>
+															<li><img id="photo" class="avatar_userImg__hogPI" width="30px"
+														height="30px" src="/resources/Images/profileLogo.png"
+														alt="Profile Image"></li>
+														</ul>
+														
+													</div>
+												</div>
+												
 											</div>
 											<div>
 												<c:out value="${board.uname }" />
@@ -415,6 +425,10 @@
 							<!--class="card-->
 						</div>
 						<!-- col-md4 끝-->
+						
+						<script>
+							uidkeys.push('${board.uidkey}');
+						</script>
 					</c:forEach>
 					<!--  메인 게시글 반복문 끝 -->
 				</div>
@@ -489,6 +503,5 @@
 				target="_blank" rel="noreferrer">서비스소개</a>
 		</div>
 	</footer>
-
 
 	<%@ include file="/WEB-INF/includes/footer.jsp"%>

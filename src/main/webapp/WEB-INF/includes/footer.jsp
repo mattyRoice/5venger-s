@@ -11,8 +11,42 @@
 <script src="https://code.jquery.com/jquery-3.6.4.js"
 	integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
 	crossorigin="anonymous"></script>
+	
 <script>
 $(document).ready(function() {
+	(function() { // 즉시 실행 함수
+		// 각자 글마다 uidkey를 이용해서 이미지 가져오는 제이쿼리
+		// uidkey는 글마다 다르므로 배열로 저장해서 반복문으로 처리 
+		uidkeys.forEach(function(uidKey, index) {
+			$.getJSON("/user/getAttachList", {uidKey:uidKey}, function(arr) {
+				
+				var str = "";
+				$(arr).each(function(i, attach){
+					
+					//image type
+					if(attach.fileType) {
+						var fileCallPath = encodeURIComponent( attach.uploadPath+ "/s_" + attach.uuid +"_"+attach.fileName);
+						
+						str += "<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+
+						"' data-filename='"+attach.fileName+"' data-type='"+attach.fileType+"' ><div>";
+						str += "<img width='30px' height='30px' aspect-ratio='auto 30/30' display='block' border-radius='50%' object-fit='cover'  src='/display?fileName="+fileCallPath+"'>";
+						str += "</div>";
+						str += "</li>";
+					} else {
+						str += "<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.fileName+
+						"' data-type='"+attach.fileType+"' ><div>";
+						str += "<span> "+ attach.fileName+"</span><br/>";
+						str += "<img src='/resources/Images/profileLogo.png'>";
+						str += "</div>";
+						str +"</li>";
+					}
+				});
+				
+				$(".uploadResult ul").eq(index).html(str);
+			}); // end getjson
+		});
+	})();// end function
+	
 	
 // 	// 카테고리 밑줄 치는 제이쿼리
 // 	$('.Category_categories__3bwPA li').click(function() {
@@ -25,13 +59,13 @@ $(document).ready(function() {
 	// 카테고리 변수
 	let $languageBarArray = $('ul.LanguageBar_languages__2Ilqf li');
 	$languageBarArray.hide();
-	category(1, 11);
+	category(0, 11);
 
 
 	// 인기 카테고리를 클릭할 경우
 	$('li.Category_categoryItem__1ko8V:eq(0)').click(function() {
 		$languageBarArray.hide(); // 모든 li 숨기기
-		category(1, 11); // 인기 카테고리의 li만 보이기
+		category(0, 11); // 인기 카테고리의 li만 보이기
 		
 	 // 모든 li에서 Category_selectedCategory__1J7es 클래스 제거
     	$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
@@ -45,7 +79,7 @@ $(document).ready(function() {
 	    	// 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
 	    $(this).addClass('Category_selectedCategory__1J7es');
 	    $languageBarArray.hide(); // 모든 li 숨기기
-	  	category(1, 7) // 프론트엔드 카테고리의 li만 보이기
+	  	category(0, 7) // 프론트엔드 카테고리의 li만 보이기
 	});
 
 	// 백엔드 카테고리를 클릭할 경우
