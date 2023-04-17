@@ -46,7 +46,7 @@ $(document).ready(function() {
 			}); // end getjson
 		});
 	})();// end function
-	
+	 
 	
 // 	// 카테고리 밑줄 치는 제이쿼리
 // 	$('.Category_categories__3bwPA li').click(function() {
