@@ -48,7 +48,7 @@ public class AdminController {
         }
         
         session.setAttribute("admin", avo);  // 일치하는 아이디,비밀번호 (로그인 성공)
-        return "redirect:/main";
+        return "redirect:/board/main";
     }
 	
 	// 회원가입 화면
