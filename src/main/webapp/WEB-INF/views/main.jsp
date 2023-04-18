@@ -25,17 +25,7 @@
 	<!--  전체 바디 태그 root -->
 	<div id="root">
 		<!--  nav 태그 -->
-		<nav class="navbar_navbar__O41pd">
-			<a href="/"> <img class="navbar_logo__a5PmC"
-				src="/resources/Images/SHLogo.png" alt="logo">
-			</a>
-			<div class="navbar_loginElementWrapper__11CeH">
-				<button class="navbar_postRegister__FJnRS"
-					onclick="location.href=/board/register">새 글 쓰기</button>
-				<button class="navbar_login__3Ui--"
-					onclick="location.href='/user/login'">로그인</button>
-			</div>
-		</nav>
+		<%@include file="../includes/header.jsp"%>
 
 		<!--  상단 배너 태그 -->
 		<div id="carouselExampleControls" class="carousel slide"
