@@ -20,7 +20,7 @@
     		var result = checkNickNull();
     		
     		if(result == false){   			
-    			//alert('닉네임을 입력해주세요.');
+    			
     			$('#unickName').val('');
     			return;
     		} else {    		
@@ -276,7 +276,7 @@
       dataType:'text',
       type: 'POST',
         success: function(result){
-           //alert("선택이 취소되었습니다.");
+           
            /* 업로드된 파일이 삭제되면 기본 이미지로 바꾸기 */
            targetLi.attr("src", "/resources/Images/profileLogo.png");
          }
