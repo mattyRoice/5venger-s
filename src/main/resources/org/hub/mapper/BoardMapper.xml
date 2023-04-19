@@ -25,23 +25,15 @@
 		</trim>
 	</sql>
  
-
-	<insert id="insert">
-<!-- 		insert into boardtbl (bno,title,content,uidkey) -->
-<!-- 		values (seq_board.nextval, #{title}, #{content}, #{writer}) -->
+	<insert id="insert" parameterType="org.hub.domain.BoardVO">
+		<selectKey keyProperty="bno" resultType="int" order="BEFORE">
+			select bno_seq.nextval FROM dual
+		</selectKey>
+		
+ 		insert into board_tbl  (bno, meet, membernum, contact, period, title, uidkey, content, regdate, deadline) 
+		values (#{bno},#{meet}, #{memberNum}, #{contact}, #{period}, #{title}, #{uidkey}, #{content}, sysdate, #{deadline})
 	</insert>
 
-<!-- 	<insert id="insertSelectKey"> -->
-
-<!-- 		<selectKey keyProperty="bno" order="BEFORE" -->
-<!-- 			resultType="long"> -->
-<!-- 			select seq_board.nextval from dual -->
-<!-- 		</selectKey> -->
-
-<!-- 		insert into boardtbl (bno,title,content, writer) -->
-<!-- 		values (#{bno}, -->
-<!-- 		#{title}, #{content}, #{writer}) -->
-<!-- 	</insert> -->
 
 	<!-- 상세보기 -->
 	<select id="read" resultType="org.hub.domain.BoardVO">
@@ -127,6 +119,54 @@ WHERE
 WHERE rn > (#{pageNum} - 1) * #{amount}
 ]]>
 </select>
+
+<select id="getListWithPagingWithFilter" resultType="org.hub.domain.BoardVO">
+   <![CDATA[
+SELECT bno, deadline, uidkey ,title,content, uname, fnames, snames, cnt, replycnt, profileImage
+FROM (
+SELECT /*+INDEX_DESC(board_tbl pk_board) */
+rownum rn, b.bno, b.uidkey, b.deadline, b.title, b.content, u.unickname AS uname, a.uploadPath  AS profileImage,
+   (
+    SELECT LISTAGG(f.fname, ',') WITHIN GROUP (ORDER BY f.fname) AS combined_fname 
+    FROM boardfield_tbl bf 
+    JOIN field_tbl f ON bf.fno = f.fno
+    WHERE bf.bno = b.bno
+  	) AS fnames,
+   (
+    SELECT LISTAGG(s.sname, ',') WITHIN GROUP (ORDER BY s.sname) AS combined_sname
+    FROM boardstack_tbl bs
+    JOIN stack_tbl s ON bs.sno = s.sno 
+    WHERE bs.bno = b.bno
+   ) AS snames, cnt, replycnt  
+FROM (
+	SELECT bno, deadline, title, content,uidkey, cnt, replycnt
+	FROM board_tbl
+	ORDER BY bno desc
+) b
+JOIN user_tbl u
+ON b.uidkey = u.uidkey
+JOIN attach_tbl a
+ON u.uidkey = a.uidkey
+WHERE
+]]>
+
+<include refid="criteria"></include>
+
+<![CDATA[
+ rownum <= #{pageNum} * #{amount}
+)
+WHERE rn > (#{pageNum} - 1) * #{amount}
+]]>
+<!--  <if test="filters != null and filters.length > 0"> -->
+<!--         AND snames IN ( -->
+<!--                <foreach collection="filters" item="filter" separator=","> -->
+<!--                     '%'||#{filter}||'%' -->
+<!--                </foreach> -->
+<!--             ) -->
+        
+<!--  </if> -->
+</select>
+
 
 
 

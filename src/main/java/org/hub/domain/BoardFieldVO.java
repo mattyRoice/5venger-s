@@ -4,9 +4,9 @@ import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
-@Component
 @Data
-public class FieldVO {
+@Component
+public class BoardFieldVO {
+	private int bno;
 	private int fno;
-	private String fname;
 }

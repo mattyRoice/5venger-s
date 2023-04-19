@@ -29,7 +29,7 @@
 	
 	<mybatis-spring:scan base-package="org.hub.mapper"/>
 	
-
+	<context:component-scan base-package="org.hub.domain"></context:component-scan>
 	<context:component-scan base-package="org.hub.service"></context:component-scan>
 
 	<!-- Quartz에 대한 설정을 어노테이션으로 하기 위함 -->
