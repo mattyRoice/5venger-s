@@ -34,7 +34,7 @@
 							<img class="rounded-circle" src="/resources/Images/adminProfileLogo.png" width=60 alt="Profile Image" >
 						</a>						
 						<ul class="dropdown-menu">
-						  <li><a class="dropdown-item fs-6 fw-bold mb-2">${ loginAdmin.aname }</a></li>
+						  <li><a class="dropdown-item fs-6 fw-bold mb-2">관리자 ${ loginAdmin.aname } 님</a></li>
 						  <li><a class="dropdown-item fs-6 fw-bold" href="/admin/logout">로그아웃</a></li>
 						</ul>			  
 					</div>
