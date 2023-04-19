@@ -126,7 +126,7 @@
 			var pw = $('.pw_input').val();                // 비밀번호 입력란
 			var pwck = $('.pwck_input').val();            // 비밀번호 확인 입력란
 			var name = $('.name_input').val();            // 이름 입력란
-			var email = $('.email_input').val();           // 이메일 입력란
+			var email = $('.email_input').val();          // 이메일 입력란
 			
 			/* 이메일 유효성 검사 */
 	        if(email == ""){
@@ -193,10 +193,15 @@
 	            idCheck = true;
 	        }
  
+	        
 	        /* 최종 유효성 검사 */
-			$("#form-join").attr("action", "/admin/createAccount");
-			$("#form-join").submit();
-
+	        if (idCheck && idckCheck && pwCheck && pwckCheck && pwckcorCheck && nameCheck && emailCheck) {
+	            $("#form-join").attr("action", "/admin/createAccount");
+	            $("#form-join").submit();
+	        } else {
+	        	return false;
+	        }
+	        
 		});
 	});
 	
