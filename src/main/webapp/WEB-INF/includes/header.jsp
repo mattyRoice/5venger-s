@@ -9,7 +9,7 @@
 				</a>
 				<div class="navbar_loginElementWrapper__11CeH">
 					<button class="navbar_postRegister__FJnRS"
-						onclick="location.href='/board/register'">새 글 쓰기</button>
+						onclick="location.href=/board/register">새 글 쓰기</button>
 				
 			<% if (session.getAttribute("loginUser") != null) { %>
 				<!-- 사용자용 드롭다운 메뉴 -->
