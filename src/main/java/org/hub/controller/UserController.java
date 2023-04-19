@@ -63,17 +63,6 @@ public class UserController {
 	
 	private UserVO user;
 	
-	public static final String LOGIN = "loginUser"; //이름이 loginUser인 세션
-	
-	@GetMapping(value="/logout")
-	public String logout(HttpSession session) throws Exception {
-		log.info("logout GET");
-		session.removeAttribute(LOGIN);
-		session.invalidate(); // 세션에 담아둔 모든 것을 비워 버리겠다
-		
-		return "redirect:/board/main";
-	}
-	
 	// login() = => 로그인에서 네이버 로그인의 링크를 내려보내줘야 한다.		
 	@GetMapping(value= "/login")
 	public String login(Model model) throws Exception {
@@ -144,18 +133,23 @@ public class UserController {
 			
 			model.addAttribute("newbie", snsUser);			
 			
-			 // 4.1. 존재하지 않으면 회원가입 페이지로
+		    //존재하지 않으면 회원가입 페이지로
 			return "userRegister";
-		} else {
-			// 4.2. 존재시 유저정보 세션에 담기 및 메인페이지 이동
-			session.setAttribute(LOGIN, user);
-			return "redirect:/board/main";
-		}
+		}  			
+		
+		//존재하면 로그인 처리 후 메인페이지로 이동
+		return "redirect:/board/main";
 		
 	}		
 	
+	@GetMapping(value= "/register")
+	public String register() {		
+		log.info("= = Get user Register = = ");
+		return "userRegister";
+	}	
+	
 	@PostMapping(value= "/register")
-	public String register(UserVO user, HttpSession session) throws Exception {
+	public String register(UserVO user, RedirectAttributes rttr) {
 		log.info("= = Post user Register = = ");
 		log.info("register: " + user);
 		
@@ -168,10 +162,9 @@ public class UserController {
 		}
 		
 		userService.register(user);
-		// 세션에 가입한 user 객체 담기
-		session.setAttribute(LOGIN, user);
-		return "redirect:/board/main";
 		
+		// 회원가입 완료 후 메인 페이지로 이동
+		return "redirect:/board/main";
 	}
 	
 	@PostMapping(value= "/unickNameCheck")
@@ -203,7 +196,8 @@ public class UserController {
 		
 		return "userMypage";
 	}
-
+	// = = = = 마무리
+	// = = = = 
 	private void deleteFiles(List<UserAttachVO> attachList) {
 		
 		if (attachList == null || attachList.size() == 0) {
@@ -235,7 +229,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("uidKey") String uidKey, RedirectAttributes rttr, HttpSession session) {
+	public String remove(@RequestParam("uidKey") String uidKey, RedirectAttributes rttr) {
 		 //회원탈퇴
 		 log.info("remove..." + uidKey);
 		 // 회원 탈퇴 전 회원의 이미지 파일 확보
@@ -248,8 +242,7 @@ public class UserController {
 			 
 			 rttr.addFlashAttribute("result", "success");
 		 }		 
-		 session.removeAttribute(LOGIN);
-		 session.invalidate(); // 세션에 담아둔 모든 것을 비워 버리겠다
+		
 		 return "redirect:/board/main";
 	}
 	

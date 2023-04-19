@@ -1,15 +1,11 @@
 package org.hub.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.hub.domain.BoardVO;
 import org.hub.domain.Criteria;
-import org.hub.domain.FieldVO;
 import org.hub.domain.PageDTO;
 import org.hub.domain.StackVO;
-import org.hub.domain.UserVO;
+import org.hub.domain.FieldVO;
 import org.hub.service.BoardService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,47 +24,14 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class BoardController {
 	
-	public static final String LOGIN = "loginUser"; //이름이 loginUser인 세션
-	
-	@Autowired
 	private BoardService service;
 	
 	@GetMapping("/register")
-	public String registerView(HttpSession session) throws Exception {
-		UserVO user = (UserVO)session.getAttribute(LOGIN);
-		
+	public String getRegister() {
+		System.out.println("새 글쓰기로 이동");
 		log.info("새 글쓰기로 이동");
+		
 		return "register";
-	}
-	
-	@PostMapping("/register")
-	public String registerProc(BoardVO board, HttpSession session) {
-		System.out.println("글 등록 컨트롤러");
-		System.out.println();
-		System.out.println(session.getId());
-		
-		UserVO user = (UserVO)session.getAttribute(LOGIN);
-		
-		String uidkey = user.getUidKey();
-		System.out.println(uidkey);
-		board.setUidkey(uidkey);
-		
-		if(board.getFnames() != null) {
-			String[] fnameList = board.getFnames().split(",");
-			for(String fname : fnameList) {
-				log.info(fname);
-			}
-		}
-		
-		if(board.getSnames() != null) {
-			String[] snameList = board.getSnames().split(",");
-			for(String sname : snameList) {
-				log.info(sname);
-			}
-		}
-		
-		service.register(board);
-		return "main";
 	}
 	
 	@PostMapping("/modify")
@@ -90,7 +53,7 @@ public class BoardController {
 	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") int bno, Criteria cri, RedirectAttributes rttr) {
+	public String remove(@RequestParam("bno") Long bno, Criteria cri, RedirectAttributes rttr) {
 		log.info("remove..." + bno);
 		if(service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
@@ -111,7 +74,7 @@ public class BoardController {
 	}
 	
 	@GetMapping({ "/get", "/modify"})
-	public void get(@RequestParam("bno") int bno, @RequestParam("sno") int sno, @RequestParam("fno") int fno ,@ModelAttribute("cri") Criteria cri, Model model) {
+	public void get(@RequestParam("bno") Long bno, @RequestParam("sno") Long sno, @RequestParam("fno") Long fno ,@ModelAttribute("cri") Criteria cri, Model model) {
 		log.info("/get or modify");
 		model.addAttribute("board", service.get(bno));
 		model.addAttribute("stack", service.get(sno));

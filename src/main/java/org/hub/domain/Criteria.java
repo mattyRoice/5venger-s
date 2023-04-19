@@ -8,12 +8,13 @@ import lombok.ToString;
 @Setter
 @Getter
 public class Criteria {
-	
 	private int pageNum;
 	private int amount;
 	
 	private String type;
 	private String keyword;
+	
+	private String filters[];
 	
 	public Criteria() {
 		this(1, 20);
@@ -27,4 +28,5 @@ public class Criteria {
 	public String[] getTypeArr() {
 		return type == null? new String[] {}: type.split("");
 	}
+
 }

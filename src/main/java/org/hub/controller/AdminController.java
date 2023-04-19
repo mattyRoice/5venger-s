@@ -25,8 +25,6 @@ public class AdminController {
 	@Autowired
 	private AdminService adminservice;
 	
-	public static final String LOGINADMIN = "loginAdmin";
-	
 	// 로그인 화면
 	@GetMapping("/login")
 	public String loginView() {
@@ -37,8 +35,8 @@ public class AdminController {
 	// 로그인
 	@PostMapping("/login")
     public String loginPOST(HttpServletRequest request, AdminVO admin, RedirectAttributes rttr) throws Exception{
-        log.info("login 메서드 진입");
-        log.info("전달된 데이터: " + admin);
+        System.out.println("login 메서드 진입");
+        System.out.println("전달된 데이터: " + admin);
         
         HttpSession session = request.getSession();
         AdminVO avo = adminservice.adminLogin(admin);
@@ -49,19 +47,9 @@ public class AdminController {
             return "redirect:/admin/login";
         }
         
-        session.setAttribute(LOGINADMIN, avo);  // 일치하는 아이디,비밀번호 (로그인 성공)
-        return "redirect:/board/main";
+        session.setAttribute("admin", avo);  // 일치하는 아이디,비밀번호 (로그인 성공)
+        return "redirect:/main";
     }
-	
-	// 로그아웃
-	@GetMapping("/logout")
-    public String logout(HttpSession session) throws Exception{
-	 	log.info("logout 메서드 진입");
-	 	session.removeAttribute(LOGINADMIN);
-        session.invalidate();
-        
-        return "redirect:/board/main";
-    }	
 	
 	// 회원가입 화면
 	@GetMapping("/createAccount")

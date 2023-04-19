@@ -15,9 +15,6 @@
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="/resources/css/main.css" type="text/css" />
-<script>
-	var uidkeys = [];
-</script>
 <title>스터디허브</title>
 </head>
 <link rel="icon" href="/resources/Images/profileLogo.png">
@@ -25,7 +22,17 @@
 	<!--  전체 바디 태그 root -->
 	<div id="root">
 		<!--  nav 태그 -->
-		<%@include file="../includes/header.jsp"%>
+		<nav class="navbar_navbar__O41pd">
+			<a href="/"> <img class="navbar_logo__a5PmC"
+				src="/resources/Images/SHLogo.png" alt="logo">
+			</a>
+			<div class="navbar_loginElementWrapper__11CeH">
+				<button class="navbar_postRegister__FJnRS"
+					onclick="location.href=/board/register">새 글 쓰기</button>
+				<button class="navbar_login__3Ui--"
+					onclick="location.href='/user/login'">로그인</button>
+			</div>
+		</nav>
 
 		<!--  상단 배너 태그 -->
 		<div id="carouselExampleControls" class="carousel slide"
@@ -307,6 +314,7 @@
 				<div class="row">
 
 					<c:forEach items="${board}" var="board">
+
 						<div class="col-lg-3">
 							<div class="card" style="width: 100%">
 								<div class="card-body move">
@@ -367,17 +375,9 @@
 										<!--  user이미지, user 닉네임 -->
 										<div class="studyItem_userInfo__1KkGa">
 											<div class="avatar_user__1Pgut">
-												<div id="uploadResult">
-													<div class='uploadResult'>
-														<ul>
-															<li><img id="photo" class="avatar_userImg__hogPI" width="30px"
-														height="30px" src="/resources/Images/profileLogo.png"
-														alt="Profile Image"></li>
-														</ul>
-														
-													</div>
-												</div>
-												
+												<img class="avatar_userImg__hogPI" width="30px"
+													height="30px" src="/resources/Images/profileLogo.png"
+													alt="avatar">
 											</div>
 											<div>
 												<c:out value="${board.uname }" />
@@ -415,10 +415,6 @@
 							<!--class="card-->
 						</div>
 						<!-- col-md4 끝-->
-						
-						<script>
-							uidkeys.push('${board.uidkey}');
-						</script>
 					</c:forEach>
 					<!--  메인 게시글 반복문 끝 -->
 				</div>
@@ -493,5 +489,6 @@
 				target="_blank" rel="noreferrer">서비스소개</a>
 		</div>
 	</footer>
+
 
 	<%@ include file="/WEB-INF/includes/footer.jsp"%>

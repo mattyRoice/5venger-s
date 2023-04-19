@@ -2,18 +2,11 @@ package org.hub.service;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
-import org.hub.domain.BoardFieldVO;
-import org.hub.domain.BoardStackVO;
-import org.hub.domain.BoardVO;
-import org.hub.domain.Criteria;
-import org.hub.mapper.BoardFieldMapper;
-import org.hub.mapper.BoardMapper;
-import org.hub.mapper.BoardStackMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.hub.domain.BoardVO;
+import org.hub.domain.Criteria;
+import org.hub.mapper.BoardMapper;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
@@ -26,53 +19,17 @@ public class BoardServiceImpl implements BoardService {
 
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
-	
-	@Setter(onMethod_ = @Autowired)
-	private BoardFieldMapper fieldMapper;
-	
-	@Setter(onMethod_ = @Autowired)
-	private BoardStackMapper stackMapper;
-	
-	@Setter(onMethod_ = @Autowired)
-	private BoardFieldVO field;
-	
-	@Setter(onMethod_ = @Autowired)
-	private BoardStackVO stack;
-	
-	@Transactional
+
 	@Override
 	public void register(BoardVO board) {
-		log.info("register......" + board);
-		
-		mapper.insert(board);
 
-		if(board.getFnames() == null || board.getFnames().length() <=0) {
-			return;
-		}
-		
-		if(board.getSnames() == null || board.getSnames().length() <=0) {
-			return;
-		}
-		
-		String[] fnameList = board.getFnames().split(",");
-		for(String fname : fnameList) {
-			field.setBno(board.getBno()); // 보드의 bno를 BoardFieldVO의 bno에 등록
-			int fno = fieldMapper.getFno(fname); // fname를 이용해 mapper에서 fno를 찾고 변수 fno에 저장
-			field.setFno(fno); // fieldVO 의 fno에 변수 fno를 저장
-			fieldMapper.insertBoardField(field); // 그리고 sql에 등록
-		}
-		
-		String[] snameList = board.getSnames().split(",");
-		for(String sname : snameList) {
-			stack.setBno(board.getBno()); // 보드의 bno를 BoardStackVO의 bno에 등록
-			int sno = stackMapper.getSno(sname); // sname을 이용해 mapper에서 sno를 찾고 변수 sno에 저장
-			stack.setSno(sno); // StackVO의 sno에 변수 sno를 저장
-			stackMapper.insertBoardStack(stack); // 그리고 sql에 등록
-		}
+		log.info("register......" + board);
+
+		mapper.insertSelectKey(board);
 	}
 
 	@Override
-	public BoardVO get(int bno) {
+	public BoardVO get(Long bno) {
 
 		log.info("get......" + bno);
 
@@ -89,7 +46,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public boolean remove(int bno) {
+	public boolean remove(Long bno) {
 
 		log.info("remove...." + bno);
 
@@ -111,14 +68,6 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.getListWithPaging(cri);
 	}
 
-	@Override
-	public List<BoardVO> getListWithFilter(Criteria cri) {
-
-		log.info("get List with criteria: " + cri);
-
-		return mapper.getListWithPagingWithFilter(cri);
-	}
-	
 	@Override
 	public int getTotal(Criteria cri) {
 
