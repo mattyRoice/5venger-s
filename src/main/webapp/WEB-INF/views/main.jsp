@@ -475,7 +475,7 @@
 	<footer class="footer_footer__31o2n">
 		<div class="footer_leftCover__2lNes">
 			<img class="footer_footerImg__1iADK"
-				src="/resources/Images/SHLogo.png" alt="footer logo">
+				src="/resources/Images/norabbitlogo.png" alt="footer logo">
 			<div class="footer_contactInfo__LUbVV">
 				<div class="footer_title__3M399">Contact</div>
 				<div class="footer_mail__3bYNn">team.studyhub.official@gmail.com</div>
