@@ -6,17 +6,17 @@ import org.hub.domain.BoardVO;
 import org.hub.domain.Criteria;
 
 public interface BoardMapper {
-//	public List<BoardVO> getList();
 
 	public List<BoardVO> getListWithPaging(Criteria cri);
-
+	public List<BoardVO> getListWithPagingWithFilter(Criteria cri);
+	
 	public void insert(BoardVO board);
 
 	public Integer insertSelectKey(BoardVO board);
 
-	public BoardVO read(Long bno);
+	public BoardVO read(int bno);
 
-	public int delete(Long bno);
+	public int delete(int bno);
 
 	public int update(BoardVO board);
 

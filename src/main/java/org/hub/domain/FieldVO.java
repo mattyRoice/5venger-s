@@ -1,6 +1,12 @@
 package org.hub.domain;
 
+import org.springframework.stereotype.Component;
+
+import lombok.Data;
+
+@Component
+@Data
 public class FieldVO {
-	private Long fno;
+	private int fno;
 	private String fname;
 }
