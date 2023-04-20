@@ -308,7 +308,7 @@ a:-webkit-any-link {
 
 
  <!--게시글 기본 정보 영역-->    
- <c:forEach items="${board}" var="board">
+<%--  <c:forEach items="${board}" var="board"> --%>
 <section class="studyContent_postHeader__2Qu_y">
     <!--뒤로가기버튼-->
     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" color="808080" cursor="pointer" height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="color: rgb(128, 128, 128);">
@@ -331,7 +331,7 @@ a:-webkit-any-link {
 	</div>
 	</div>        
             <img class="studyContent_userImg__3gyI-"">
-            <div class="studyContent_userName__1GBr8" ><c:out value="${board.uname }" /></div>></div>
+            <div class="studyContent_userName__1GBr8" ><c:out value="${board.uidkey }" /></div></div>
         </div><div class="studyContent_registeredDate__3lybC" ><c:out value="${board.regdate}"/></div>
     </div>
     
@@ -392,7 +392,7 @@ a:-webkit-any-link {
 <div class="studyContent_postContentWrapper__187Zh">
     <h2 class="studyContent_postInfo__3zpYu">프로젝트 소개</h2>
     <div class="studyContent_postContent__2c-FO">
-        <c:out value="${board.cintent}" />
+        <c:out value="${board.content}" />
     </div>
 </div><!--본문영역 끝-->
 
@@ -409,7 +409,7 @@ a:-webkit-any-link {
         <ul class="commentList_CommentList__30HUh"></ul>
     </div>
 </section><!--댓글영역 끝-->
-</c:forEach>
+<%-- </c:forEach> --%>
 <script>
 (function(){
 		

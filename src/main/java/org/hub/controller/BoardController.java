@@ -68,7 +68,7 @@ public class BoardController {
 		}
 		
 		service.register(board);
-		return "redirect:/board/main";
+		return "main";
 	}
 	
 	@PostMapping("/modify")
@@ -111,11 +111,13 @@ public class BoardController {
 	}
 	
 	@GetMapping({ "/get", "/modify"})
-	public void get(@RequestParam("bno") int bno, @RequestParam("sno") int sno, @RequestParam("fno") int fno ,@ModelAttribute("cri") Criteria cri, Model model) {
+	public String get(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) {
 		log.info("/get or modify");
 		model.addAttribute("board", service.get(bno));
-		model.addAttribute("stack", service.get(sno));
-		model.addAttribute("field", service.get(fno));
+		return "get";
+		
+//		model.addAttribute("", service.
+		
 	}
 	
 	@GetMapping("/reply")
