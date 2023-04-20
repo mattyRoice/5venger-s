@@ -19,5 +19,5 @@
   	<select id="adminLogin" resultType="org.hub.domain.AdminVO">
     	select adminId, aname, email from admin_tbl where adminId = #{adminId} and adminPw = #{adminPw}
     </select>
-
+ 
 </mapper>
