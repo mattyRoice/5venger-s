@@ -1,3 +1,5 @@
+ var flag = false;
+ 
  // 다음, 돌아가기, 가입완료 버튼 관련 함수   
     const firstTab = $("#pills-home-tab"); 
     const secondTab = $("#pills-profile-tab");
@@ -18,7 +20,7 @@
     		var result = checkNickNull();
     		
     		if(result == false){   			
-    			//alert('닉네임을 입력해주세요.');
+    			
     			$('#unickName').val('');
     			return;
     		} else {    		
@@ -137,22 +139,23 @@
 	 	console.log("submit clicked");	    	 		 	
 	 	
 	    var str = "";
-	     
-	     $(".uploadResult ul li").each(function(i, obj){
-	      
-	      	var jobj = $(obj);
-	      
-		      console.dir(jobj);
-		      console.log("-------------------------");
-		      console.log(jobj.data("filename"));
+	     if(flag) {
+		     $(".uploadResult ul li").each(function(i, obj){
 		      
+		      	var jobj = $(obj);
 		      
-		      str += "<input type='hidden' name='attachList["+i+"].fileName' value='"+jobj.data("filename")+"'>";
-		      str += "<input type='hidden' name='attachList["+i+"].uuid' value='"+jobj.data("uuid")+"'>";
-		      str += "<input type='hidden' name='attachList["+i+"].uploadPath' value='"+jobj.data("path")+"'>";
-		      str += "<input type='hidden' name='attachList["+i+"].fileType' value='"+ jobj.data("type")+"'>";
-	      
-	    });
+			      console.dir(jobj);
+			      console.log("-------------------------");
+			      console.log(jobj.data("filename"));
+			      
+			      
+			      str += "<input type='hidden' name='attachList["+i+"].fileName' value='"+jobj.data("filename")+"'>";
+			      str += "<input type='hidden' name='attachList["+i+"].uuid' value='"+jobj.data("uuid")+"'>";
+			      str += "<input type='hidden' name='attachList["+i+"].uploadPath' value='"+jobj.data("path")+"'>";
+			      str += "<input type='hidden' name='attachList["+i+"].fileType' value='"+ jobj.data("type")+"'>";
+		      
+		    });
+		 }
 	    
 	    console.log(str);      		   
 	  
@@ -213,7 +216,7 @@
 
       }
     }); //$.ajax
-    
+    flag=true;
   });  
   
   function showUploadResult(uploadResultArr){
@@ -255,6 +258,7 @@
 /* x 아이콘을 클릭하면 서버에서 삭제 */
   $(".photoDelete").on("click", "button", function(e){
 	/* photoDelete 클래스를 가진 요소 내부에서 button 요소를 클릭할 때 이벤트 핸들러 등록 */
+	flag=false;
 	
     console.log("delete file");
     
@@ -272,7 +276,7 @@
       dataType:'text',
       type: 'POST',
         success: function(result){
-           //alert("선택이 취소되었습니다.");
+           
            /* 업로드된 파일이 삭제되면 기본 이미지로 바꾸기 */
            targetLi.attr("src", "/resources/Images/profileLogo.png");
          }
