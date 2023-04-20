@@ -128,8 +128,6 @@ WHERE rn > (#{pageNum} - 1) * #{amount}
 ]]>
 </select>
 
-<<<<<<< HEAD
-=======
 <select id="getListWithPagingWithFilter" resultType="org.hub.domain.BoardVO">
    <![CDATA[
 SELECT bno, deadline, uidkey ,title,content, uname, fnames, snames, cnt, replycnt, profileImage
@@ -177,8 +175,6 @@ WHERE rn > (#{pageNum} - 1) * #{amount}
 <!--  </if> -->
 </select>
 
-  
->>>>>>> dong1
 
 
 	<!--  페이지 수 계산 -->
