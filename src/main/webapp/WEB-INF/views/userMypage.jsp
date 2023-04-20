@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="utf-8">
 		 <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>StudyHub</title>
+		<title>스터디허브</title>
 		
 		<!-- BootStrap -->
     	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">	          
@@ -32,17 +32,17 @@
 			<!-- 새글쓰기, 드롭다운 묶음 -->				
 			<div>
 				<div style="display: inline-block">
-					<a href="#" id="newBoard" class="fs-5 fw-bolder me-2">새 글 쓰기</a>
+					<a href="/board/register" id="newBoard" class="fs-5 fw-bolder me-2">새 글 쓰기</a>
 				</div>
 				<div class="dropdown" style="display: inline-block">
-		  			<a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						   <img class="rounded-circle" src="/resources/Images/profileLogo.png" width=60 alt="Profile Image" >
+		  			<a class="btn dropdown-toggle" id="dropImage" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						   
 					</a>						
 					   <ul class="dropdown-menu">
-						  <li><a class="dropdown-item fs-6 fw-bold mb-2" href="#">내 작성글</a></li>
-						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="#">내 관심글</a></li>
-						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="#">설정</a></li>
-						   <li><a class="dropdown-item fs-6 fw-bold" href="#">로그아웃</a></li>
+						  <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/board/register">내 작성글</a></li>
+						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/interest">내 관심글</a></li>
+						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/user/mypage">설정</a></li>
+						   <li><a class="dropdown-item fs-6 fw-bold" href="/user/logout">로그아웃</a></li>
 						</ul>						  
 				</div>
 			</div>				
@@ -211,12 +211,14 @@ $(document).ready(function(){
 	(function(){
 		
 		var uidKey = '<c:out value="${user.uidKey}"/>';
+		var targetA = $("#dropImage");
 		
 		$.getJSON("/user/getAttachList", {uidKey:uidKey}, function(arr){
 			console.log(arr);
 			if(arr.length == 0){
 				var targetLi = $(".uploadResult ul li img");
 				 targetLi.attr("src", "/resources/Images/profileLogo.png");
+				 targetA.html("<img width='30px' height='30px' style='border-radius: 50%' src='/resources/Images/profileLogo.png'>");
 				 return;
 			}
 			 var str = "";
@@ -233,6 +235,7 @@ $(document).ready(function(){
 		           str += "</div>";
 		           str +"</li>";
 		           deleteBtn.attr("data-file",fileCallPath);
+		           targetA.html("<img width='40px' height='40px' style='border-radius: 50%' width='40px' src='/display?fileName="+fileCallPath+"'>");
 		         }
 		       });
 		       

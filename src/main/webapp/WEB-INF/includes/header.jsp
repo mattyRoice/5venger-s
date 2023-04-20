@@ -9,19 +9,19 @@
 			</a>
 			<div class="navbar_loginElementWrapper__11CeH">
 				<button class="navbar_postRegister__FJnRS"
-					onclick="location.href=/board/register">새 글 쓰기</button>
+					onclick="location.href='/board/register'">새 글 쓰기</button>
 			
 			
 			<% if (session.getAttribute("loginUser") != null) { %>
 				<!-- 사용자용 드롭다운 메뉴 -->
 					<div class="dropdown" style="display: inline-block">
-			  			<a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							   <img class="rounded-circle" src="/resources/Images/profileLogo.png" width=60 alt="Profile Image" >
+			  			<a class="btn dropdown-toggle" id="dropImage" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			  			
 						</a>						
 					   <ul class="dropdown-menu">
-						  <li><a class="dropdown-item fs-6 fw-bold mb-2" href="#">내 작성글</a></li>
-						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="#">내 관심글</a></li>
-						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="#">설정</a></li>
+						  <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/board/register">내 작성글</a></li>
+						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/interest">내 관심글</a></li>
+						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/user/mypage">설정</a></li>
 						   <li><a class="dropdown-item fs-6 fw-bold" href="/user/logout">로그아웃</a></li>
 						</ul>			  
 					</div>

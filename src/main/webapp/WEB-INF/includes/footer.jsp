@@ -45,6 +45,28 @@ $(document).ready(function() {
 		});
 	})();// end function
 	
+	// jsh <nav> 태그 사용자 이미지 불러오기
+	(function(){
+		
+		var uidKey = '<c:out value="${ loginUser.uidKey }"/>';
+		console.log(uidKey);
+		var targetA = $("#dropImage");
+		
+		$.getJSON("/user/getAttachList", {uidKey:uidKey}, function(arr){
+			console.log(arr);
+			if(arr.length == 0){				
+				 targetA.html("<img width='30px' height='30px' style='border-radius: 50%' src='/resources/Images/profileLogo.png'>");
+			} else {
+				$(arr).each(function(i, attach){
+					var fileCallPath =  encodeURIComponent( attach.uploadPath+ "/s_"+attach.uuid +"_"+attach.fileName);
+					targetA.html("<img width='40px' height='40px' style='border-radius: 50%' width='40px' src='/display?fileName="+fileCallPath+"'>");
+				});
+			}			 
+		}); //end getjson						
+						
+		
+	})();//end function	
+	
 	
 // 	// 카테고리 밑줄 치는 제이쿼리
 // 	$('.Category_categories__3bwPA li').click(function() {
