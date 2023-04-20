@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 */src/main/resources/META-INF/MANIFEST.MF
 
 pom.properties
@@ -180,3 +180,5 @@ MANIFEST.MF
 .springBeans
 .gitignore
 >>>>>>> refs/remotes/origin/main
+
+target/
