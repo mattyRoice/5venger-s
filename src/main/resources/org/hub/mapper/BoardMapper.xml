@@ -83,7 +83,7 @@
 
 <select id="getListWithPaging" resultType="org.hub.domain.BoardVO">
    <![CDATA[
-SELECT bno, deadline, uidkey ,title, uname, fnames, snames, cnt, replycnt, profileImage
+SELECT bno, deadline, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
 FROM (
 SELECT /*+INDEX_DESC(board_tbl pk_board) */
 rownum rn, b.bno, b.uidkey, b.deadline, b.title, u.unickname AS uname, a.uploadPath  AS profileImage,
@@ -106,7 +106,7 @@ FROM (
 ) b
 JOIN user_tbl u
 ON b.uidkey = u.uidkey
-JOIN attach_tbl a
+LEFT JOIN attach_tbl a
 ON u.uidkey = a.uidkey
 WHERE
 ]]>
@@ -122,7 +122,7 @@ WHERE rn > (#{pageNum} - 1) * #{amount}
 
 <select id="getListWithPagingWithFilter" resultType="org.hub.domain.BoardVO">
    <![CDATA[
-SELECT bno, deadline, uidkey ,title,content, uname, fnames, snames, cnt, replycnt, profileImage
+SELECT bno, deadline, uidkey ,title,content, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
 FROM (
 SELECT /*+INDEX_DESC(board_tbl pk_board) */
 rownum rn, b.bno, b.uidkey, b.deadline, b.title, b.content, u.unickname AS uname, a.uploadPath  AS profileImage,
@@ -145,7 +145,7 @@ FROM (
 ) b
 JOIN user_tbl u
 ON b.uidkey = u.uidkey
-JOIN attach_tbl a
+LEFT JOIN attach_tbl a
 ON u.uidkey = a.uidkey
 WHERE
 ]]>
