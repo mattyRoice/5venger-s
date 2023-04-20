@@ -309,7 +309,7 @@
 					<c:forEach items="${board}" var="board">
 						<div class="col-lg-3">
 							<div class="card" style="width: 100%">
-								<div class="card-body move">
+								<div class="card-body move" href='<c:out value="${board.bno }"/>'>
 									<!-- 스터디-->
 									<div class="studyItem_badgeWrapper__3AW7k">
 										<div class="badge_badge__ZfNyB">
