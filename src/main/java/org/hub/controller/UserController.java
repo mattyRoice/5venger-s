@@ -196,11 +196,8 @@ public class UserController {
 
 	
 	@GetMapping(value= "/mypage")
-	public String mypageSet(HttpSession session,Model model) {		
+	public String mypageSet(String uidKey, Model model) {		
 		log.info("= = user mypage = = ");
-		
-		UserVO user = (UserVO)session.getAttribute(LOGIN);
-		String uidKey = user.getUidKey();
 		
 		model.addAttribute("user", userService.get(uidKey));
 		
