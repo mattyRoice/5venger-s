@@ -167,7 +167,7 @@ WHERE rn > (#{pageNum} - 1) * #{amount}
 <!--  </if> -->
 </select>
 
-
+  
 
 
 	<!--  페이지 수 계산 -->
