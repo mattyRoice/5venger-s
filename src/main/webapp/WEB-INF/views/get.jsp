@@ -1,7 +1,10 @@
+<%@page import="org.springframework.ui.Model"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ page import ="org.hub.domain.BoardVO" %>
 
 <!DOCTYPE html>
 <html>
@@ -307,8 +310,11 @@ a:-webkit-any-link {
 	<!--헤더 끝-->
 
 
- <!--게시글 기본 정보 영역-->    
+ <!--게시글 기본 정보 영역-->
 <%--  <c:forEach items="${board}" var="board"> --%>
+<input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno }"/>'>
+<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum }"/>'>
+<input type='hidden' name='amount' value='<c:out value="${cri.amount }"/>'>
 <section class="studyContent_postHeader__2Qu_y">
     <!--뒤로가기버튼-->
     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" color="808080" cursor="pointer" height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="color: rgb(128, 128, 128);">
@@ -329,8 +335,14 @@ a:-webkit-any-link {
 	</ul>
 														
 	</div>
+<%-- 	<% --%>
+<!--   	   SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+ 	   BoardVO board = (BoardVO) Model.getAttribute("board");
+ 	   String formattedDate = dateFormat.format(board.getRegdate()); -->
+<%-- 	%> --%>
+	
 	</div>        
-            <img class="studyContent_userImg__3gyI-"">
+            <img class="studyContent_userImg__3gyI-">
             <div class="studyContent_userName__1GBr8" ><c:out value="${board.uidkey }" /></div></div>
         </div><div class="studyContent_registeredDate__3lybC" ><c:out value="${board.regdate}"/></div>
     </div>
@@ -409,6 +421,12 @@ a:-webkit-any-link {
         <ul class="commentList_CommentList__30HUh"></ul>
     </div>
 </section><!--댓글영역 끝-->
+
+<button data-oper='main'
+	class="btn btn-info" style="color: #ff9149"
+	onclick="location.href='/board/main'">
+	Main으로 이동
+</button>
 <%-- </c:forEach> --%>
 <script>
 (function(){
