@@ -179,6 +179,5 @@ MANIFEST.MF
 .project
 .springBeans
 .gitignore
->>>>>>> refs/remotes/origin/main
 
 target/
