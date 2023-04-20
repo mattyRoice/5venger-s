@@ -23,7 +23,7 @@
 <link rel="icon" href="/resources/Images/profileLogo.png">
 <body>
 	<!--  전체 바디 태그 root -->
-	<div id="root">
+	<div id="root">z
 		<!--  nav 태그 -->
 		<%@include file="../includes/header.jsp"%>
 
@@ -250,13 +250,13 @@
 						<form id='searchForm' action="/board/main" method='get'>
 							<select name='type'>
 								<option value=""
-									<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
+									<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>검색타입</option>
 								<option value="T"
 									<c:out value="${pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
 								<option value="C"
 									<c:out value="${pageMaker.cri.type eq 'C'?'selected':''}"/>>내용</option>
 								<option value="TC"
-									<c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}"/>>제목
+									<c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}"/> selected>제목
 									or 내용</option>
 							</select> <input type='text' name='keyword'
 								value='<c:out value="${pageMaker.cri.keyword }"/>'> <input
@@ -485,12 +485,13 @@
 		</div>
 		<div class="footer_rightCover__1Lgjb">
 			<a
-				href="https://temporal-weather-18e.notion.site/95f676cba1a245bf843ffa6a6f7933dd"
-				target="_blank" rel="noreferrer">이용약관</a> <a
-				href="https://temporal-weather-18e.notion.site/f8bced09dea34b6caa11251eb8b8f1ef"
-				target="_blank" rel="noreferrer">개인정보처리방침</a> <a
-				href="https://temporal-weather-18e.notion.site/Hola-_______-613200b663ab47b2b59c8c5cf0011b2f"
-				target="_blank" rel="noreferrer">서비스소개</a>
+				href="https://www.notion.so/5venger-s-Project-2f126e2c4d6f4f46b4c273a31802fbf1"
+				target="_blank" rel="noreferrer">프로젝트 노션</a> <a
+				href="https://www.notion.so/8304498cf0d04f6899c6cc9d048691d7"
+				target="_blank" rel="noreferrer">만든 사람들</a> <a 
+				href="https://www.notion.so/StudyHub-1599dc0e2aea42ccab197b49c6651c0b"
+				target="_blank" rel="noreferrer">서비스 소개	</a> 
+				
 		</div>
 	</footer>
 
