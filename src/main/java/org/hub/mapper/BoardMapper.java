@@ -22,7 +22,9 @@ public interface BoardMapper {
 
 	public int getTotalCount(Criteria cri);
 
-	public List<Integer> getInterest();
+	// 추천목록 가져오기
+	public List<Integer> getRecommend(String uidkey);
 	
-	public List<Integer> getLike();   
+	// 관심목록 가져오기
+	public List<Integer> getInterest(String uidkey);   
 }

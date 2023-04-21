@@ -126,16 +126,18 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.getTotalCount(cri);
 	}
 	
+	// 추천목록 가져오기
 	@Override
-	public List<Integer> getInterest() {
-		log.info("get interest");
-		return mapper.getInterest();
+	public List<Integer> getRecommend(String uidkey) {
+		log.info("get Recommend");
+		return mapper.getRecommend(uidkey);
 	}
 	
+	// 관심목록 가져오기
 	@Override
-	public List<Integer> getLike() {
-		log.info("get like");
-		return mapper.getLike();
+	public List<Integer> getInterest(String uidkey) {
+		log.info("get Interest");
+		return mapper.getInterest(uidkey);
 	}
 
 }

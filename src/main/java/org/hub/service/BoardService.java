@@ -22,8 +22,10 @@ public interface BoardService {
 	public int getTotal(Criteria cri);
 
 	List<BoardVO> getListWithFilter(Criteria cri);
-
-	public List<Integer> getInterest();
 	
-	public List<Integer> getLike();     
+	//추천목록 가져오기
+	public List<Integer> getRecommend(String uidkey);
+	
+	//관심목록 가져오기
+	public List<Integer> getInterest(String uidkey);     
 }
