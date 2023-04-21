@@ -125,5 +125,17 @@ public class BoardServiceImpl implements BoardService {
 		log.info("get total count");
 		return mapper.getTotalCount(cri);
 	}
+	
+	@Override
+	public List<Integer> getInterest() {
+		log.info("get interest");
+		return mapper.getInterest();
+	}
+	
+	@Override
+	public List<Integer> getLike() {
+		log.info("get like");
+		return mapper.getLike();
+	}
 
 }

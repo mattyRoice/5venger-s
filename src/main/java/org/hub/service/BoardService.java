@@ -22,4 +22,8 @@ public interface BoardService {
 	public int getTotal(Criteria cri);
 
 	List<BoardVO> getListWithFilter(Criteria cri);
+
+	public List<Integer> getInterest();
+	
+	public List<Integer> getLike();
 }

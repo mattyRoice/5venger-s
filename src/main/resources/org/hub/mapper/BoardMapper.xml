@@ -4,6 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.hub.mapper.BoardMapper">
 
+<select resultType="int" id="getInterest">
+	SELECT b.bno FROM boardstack_tbl b
+	INNER JOIN userstack_tbl u
+	ON b.sno = u.sno 
+</select>
+
+<!-- 관심글 기능 -->
+<select resultType="int" id="getLike">
+SELECT * FROM BOARD_TBL WHERE bno IN
+(SELECT bno
+FROM INTEREST_TBL
+WHERE uidkey = '#{uidkey}');
+</select>
+
 <!--  검색 기능 -->
 	<sql id="criteria">
 		<trim prefix="(" suffix=") AND " prefixOverrides="OR">

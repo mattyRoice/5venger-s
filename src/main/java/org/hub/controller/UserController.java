@@ -11,11 +11,15 @@ import javax.servlet.http.HttpSession;
 
 import org.hub.auth.SNSLogin;
 import org.hub.auth.SnsValue;
-import org.hub.domain.AdminVO;
+import org.hub.domain.BoardVO;
+import org.hub.domain.Criteria;
+import org.hub.domain.PageDTO;
 import org.hub.domain.UserAttachVO;
 import org.hub.domain.UserStackVO;
 import org.hub.domain.UserVO;
+import org.hub.service.BoardService;
 import org.hub.service.UserSerivce;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +31,7 @@ import org.springframework.social.oauth2.OAuth2Parameters;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +40,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @Controller
@@ -339,9 +345,29 @@ public class UserController {
 	
 	
 	
-	@GetMapping(value="/interest")
-	public String interest() {
-		log.info("====== ");
+	@Setter(onMethod_ = @Autowired)
+	private BoardService service;
+	
+	@GetMapping("/interest")
+	public String getMain(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, Model model, HttpSession session, UserVO vo) {
+		System.out.println("interest로 이동");
+		log.info("intereset 이동");
+
+		List<BoardVO> boardList = service.getList(cri);
+		model.addAttribute("board", boardList);
+
+		session.setAttribute(LOGIN, user);
+		/* String uidKey = (String) session.getAttribute("uidKey"); */
+		int total = service.getTotal(cri);
+
+		log.info("total: " + total);
+
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		
+		UserVO user = (UserVO)session.getAttribute(LOGIN);
+		String uidKey = user.getUidKey();
+		model.addAttribute("user", userService.get(uidKey));
+
 		return "interest";
 	}
 

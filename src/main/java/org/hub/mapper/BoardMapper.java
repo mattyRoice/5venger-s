@@ -21,4 +21,8 @@ public interface BoardMapper {
 	public int update(BoardVO board);
 
 	public int getTotalCount(Criteria cri);
+
+	public List<Integer> getInterest();
+	
+	public List<Integer> getLike();   
 }
