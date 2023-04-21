@@ -327,24 +327,19 @@ a:-webkit-any-link {
     <!--사용자 닉네임영역-->
     <div class="studyContent_userAndDate__1iYDv">
         <div class="studyContent_user__1XYmH">
-	<div id="uploadResult">
-	<div class='uploadResult'>
+		<div id="uploadResult">
+		<div class='uploadResult'>
 		<ul>
-	<li><img id="photo" class="avatar_userImg__hogPI" width="30px"
-	height="30px" src="/resources/Images/profileLogo.png" alt="Profile Image"></li>
-	</ul>
-														
+		<li><img id="photo" class="avatar_userImg__hogPI" width="30px"
+		height="30px" src="/resources/Images/profileLogo.png" alt="Profile Image"></li>
+		</ul>													
 	</div>
-<%-- 	<% --%>
-<!--   	   SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
- 	   BoardVO board = (BoardVO) Model.getAttribute("board");
- 	   String formattedDate = dateFormat.format(board.getRegdate()); -->
-<%-- 	%> --%>
 	
 	</div>        
            
-            <div class="studyContent_userName__1GBr8" ><c:out value="${board.uidkey }" /></div>
-        </div><div class="studyContent_registeredDate__3lybC" >2023-04-21<%-- <c:out value="${board.regdate}"/> --%></div></div>
+            <div class="studyContent_userName__1GBr8" ><c:out value="${board.uname }" /></div>
+        </div>
+        <div class="studyContent_registeredDate__3lybC" ><c:out value="${board.regdate}"/></div></div>
    
     
 
@@ -376,50 +371,25 @@ a:-webkit-any-link {
             <li class="studyInfo_contentWrapper__KkSUP">
             <span class="studyInfo_title__3jXRE">사용 언어</span>
             <ul class="studyInfo_languageList__1usTa">
-                <li class="studyInfo_language__3A3Vi">
-                    <img class="studyInfo_languageImage__2b-u9" src="https://holaworld.io/images/languages/react.svg" alt="language">
-                </li>
-                <li class="studyInfo_language__3A3Vi">
-                    <img class="studyInfo_languageImage__2b-u9" src="https://holaworld.io/images/languages/typescript.svg" alt="language">
-                </li>
-                <li class="studyInfo_language__3A3Vi">
-                    <img class="studyInfo_languageImage__2b-u9" src="https://holaworld.io/images/languages/java.svg" alt="language">
-                </li>
-            </ul>
-        </li>
-        <li class="studyInfo_contentWrapper__KkSUP">
-            <span class="studyInfo_title__3jXRE">모집 분야</span>
-            <ul class="studyInfo_languageList__1usTa"><li class="studyInfo_positions__3JIxy">디자이너</li>
-            <li class="studyInfo_positions__3JIxy">백엔드</li>
-            </ul>
-        </li>
-    </ul>
-</section>
-    <%--     <li class="studyInfo_contentWrapper__KkSUP">
-            <span class="studyInfo_title__3jXRE">사용 언어</span>
-            <ul class="studyItem_content__1mJ9M">
-										<c:set var="snamesArr" value="${fn:split(board.snames, ',') }" />
+                <c:set var="snamesArr" value="${fn:split(board.snames, ',') }" />
 										<c:forEach items="${snamesArr }" var="sname">
 											<li class="studyItem_language__20yqw"><img
 												class="studyItem_languageImage__1AfGa" title="${sname }"
 												src="https://holaworld.io/images/languages/${sname }.svg"
 												alt="language"></li>
 										</c:forEach>
-									</ul>
+            </ul>
         </li>
         <li class="studyInfo_contentWrapper__KkSUP">
             <span class="studyInfo_title__3jXRE">모집 분야</span>
-            <ul class="studyInfo_languageList__1usTa"><li class="studyInfo_positions__3JIxy">
-            	
+            <ul class="studyInfo_languageList__1usTa">
             <c:set var="fnamesArr" value="${fn:split(board.fnames, ',') }" />
 										<c:forEach items="${fnamesArr}" var="fname">
 											<li class="studyItem_position__2sRRD">${fname }</li>
 										</c:forEach>
-            
-            </li></ul>
+            </ul>
         </li>
-         <li class="studyInfo_contentWrapper__KkSUP"></li>
-    </ul> --%>
+    </ul>
 </section>  <!--게시글 기본 정보 영역 끝-->
 
 <!--본문 영역-->
@@ -472,6 +442,8 @@ a:-webkit-any-link {
 		
 	})();//end function	
 	</script>
+	
+	
 <script>
 							uidkeys.push('${board.uidkey}');
 						</script>

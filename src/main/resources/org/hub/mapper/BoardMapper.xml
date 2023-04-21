@@ -52,8 +52,13 @@ WHERE uidkey = #{uidkey})
 
 	<!-- 상세보기 -->
 	<select id="read" resultType="org.hub.domain.BoardVO">
-		select * from board_tbl where bno =
-		#{bno}
+	<![CDATA[
+	SELECT bno, deadline,meet, memberNum,regdate, period, contact,content, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
+	FROM (select * from board_view_01)
+	WHERE bno=#{bno}
+	]]>
+	
+	
 	</select>
 
 	<!--  삭제 -->
