@@ -64,8 +64,8 @@
 
 							<div class="secondBanner_rightCover__3Xm1n">
 								<img class="secondBanner_coverImage__1psJQ"
-									src="https://holaworld.io/images/banner/22.png"
-									alt="second banner">
+									src="/resources/Images/startup.png" 
+									alt="second banner">	
 							</div>
 						</div>
 					</div>

@@ -5,7 +5,7 @@
 
 	<nav class="navbar_navbar__O41pd">
 			<a href="/"> <img class="navbar_logo"
-				src="/resources/Images/SHLogo.png" alt="logo" width=200 height=50>
+				src="/resources/Images/SHLogo.png" alt="logo" width=200 height=59>
 			</a>
 			<div class="navbar_loginElementWrapper__11CeH">
 				<button class="navbar_postRegister__FJnRS"

@@ -196,7 +196,6 @@
 	color: inherit;
 	box-sizing: inherit;
 	background-color: antiquewhite;
-	margin-bottom: 16px;
 }
 
 .firstBanner_container__1M3Ft {
@@ -1255,8 +1254,8 @@ Topbutton_topButton__35AKX.show {
 
 .footer_footerImg__1iADK {
 	display: block;
-	width: 200px;
-	height: 50px;
+	width: 150px;
+	height: auto;
 	margin-bottom: 32px;
 }
 
