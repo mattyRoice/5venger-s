@@ -52,7 +52,7 @@ public class UserController {
 	
 	@NonNull
 	@Inject
-	private UserSerivce userService;		
+	private UserSerivce userService;	        	
 	 	
 	@Inject
 	private SnsValue naverSns;	
@@ -359,7 +359,7 @@ public class UserController {
 		session.setAttribute(LOGIN, user);
 		/* String uidKey = (String) session.getAttribute("uidKey"); */
 		int total = service.getTotal(cri);
-
+   
 		log.info("total: " + total);
 
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
@@ -371,6 +371,6 @@ public class UserController {
 		return "interest";
 	}
 
-	
+	         
 	
 }

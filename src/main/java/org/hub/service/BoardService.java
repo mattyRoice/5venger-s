@@ -25,5 +25,5 @@ public interface BoardService {
 
 	public List<Integer> getInterest();
 	
-	public List<Integer> getLike();
+	public List<Integer> getLike();     
 }

@@ -91,10 +91,10 @@ WHERE uidkey = '#{uidkey}');
 <!--     INNER JOIN stacktbl s ON bs.sno = s.sno -->
 <!--     WHERE rn > (#{pageNum} - 1) * #{amount} -->
 <!--   ]]> -->
-  
+          
   
 <!-- </select> -->
-
+     
 <select id="getListWithPaging" resultType="org.hub.domain.BoardVO">
    <![CDATA[
 SELECT bno, deadline, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
@@ -107,7 +107,7 @@ rownum rn, b.bno, b.uidkey, b.deadline, b.title, u.unickname AS uname, a.uploadP
     JOIN field_tbl f ON bf.fno = f.fno
     WHERE bf.bno = b.bno
   	) AS fnames,
-   (
+   (     
     SELECT LISTAGG(s.sname, ',') WITHIN GROUP (ORDER BY s.sname) AS combined_sname
     FROM boardstack_tbl bs
     JOIN stack_tbl s ON bs.sno = s.sno 
