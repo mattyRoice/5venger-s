@@ -420,6 +420,7 @@
 								<option value="안드로이드">안드로이드</option>
 								<option value="데브옵스">데브옵스</option>
 								<option value="PM">PM</option>
+								
 							</select>
 						</div>
 					</li>
