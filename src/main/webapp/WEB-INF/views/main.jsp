@@ -23,7 +23,7 @@
 <link rel="icon" href="/resources/Images/profileLogo.png">
 <body>
 	<!--  전체 바디 태그 root -->
-	<div id="root">z
+	<div id="root">
 		<!--  nav 태그 -->
 		<%@include file="../includes/header.jsp"%>
 
