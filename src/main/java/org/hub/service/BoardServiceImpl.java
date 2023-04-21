@@ -75,7 +75,9 @@ public class BoardServiceImpl implements BoardService {
 	public BoardVO get(int bno) {
 
 		log.info("get......" + bno);
-
+		
+		// kdh 04-21 추가 조회수 증가
+		mapper.updateViewCnt(bno);
 		return mapper.read(bno);
 
 	}
@@ -138,6 +140,13 @@ public class BoardServiceImpl implements BoardService {
 	public List<Integer> getInterest(String uidkey) {
 		log.info("get Interest");
 		return mapper.getInterest(uidkey);
+	}
+	
+	//kdh 04-21 추가 스택 가져오기
+	@Override
+	public String[] getStack(int bno) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

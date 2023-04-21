@@ -61,6 +61,13 @@ WHERE uidkey = #{uidkey})
 		delete board_tbl where bno = #{bno}
 	</delete>
 
+	<!-- 조회수  --> 
+	<update id="updateViewCnt">
+		update board_tbl
+		set cnt = COALESCE(cnt, 0) +1
+		where bno = #{bno}
+	</update>
+
 	<!-- 수정 -->
 <!-- 	<update id="update"> -->
 <!-- 		update boardtbl -->

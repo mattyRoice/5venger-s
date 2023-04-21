@@ -27,5 +27,8 @@ public interface BoardService {
 	public List<Integer> getRecommend(String uidkey);
 	
 	//관심목록 가져오기
-	public List<Integer> getInterest(String uidkey);     
+	public List<Integer> getInterest(String uidkey);
+	
+	// 스택 가져오기
+	public String[] getStack(int bno);
 }
