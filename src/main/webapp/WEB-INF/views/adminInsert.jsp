@@ -200,7 +200,6 @@
 	        } else {
 	        	return false;
 	        }
-
 		});
 	});
 	
