@@ -371,6 +371,29 @@ public class UserController {
 		return "interest";
 	}
 
-	         
+	// 사용자 작성 글 목록
+	@GetMapping("/write")
+	public String getWrite(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, Model model, HttpSession session, UserVO vo) {
+		System.out.println("작성 글 목록으로 이동 YJ");
+		log.info("작성 글 목록으로 이동 YJ");
+
+		List<BoardVO> boardList = service.getList(cri);
+		model.addAttribute("board", boardList);
+
+		session.setAttribute(LOGIN, user);
+		/* String uidKey = (String) session.getAttribute("uidKey"); */
+		int total = service.getTotal(cri);
+
+		log.info("total: " + total);
+
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		
+		UserVO user = (UserVO)session.getAttribute(LOGIN);
+		String uidKey = user.getUidKey();
+		model.addAttribute("user", userService.get(uidKey));
+
+		return "userWrite";
+	}      
+	
 	
 }

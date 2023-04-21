@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 	<nav class="navbar_navbar__O41pd">
-			<a href="/"> <img class="navbar_logo"
+			<a href="/board/main"> <img class="navbar_logo"
 				src="/resources/Images/SHLogo.png" alt="logo" width=200 height=56>
 			</a>
 			<div class="navbar_loginElementWrapper__11CeH">
@@ -14,7 +14,7 @@
 			
 			<% if (session.getAttribute("loginUser") != null) { %>
 				<!-- 사용자용 드롭다운 메뉴 -->
-						<button class="navbar_login__3Ui--" onclick="location.href='/board/register'">내 작성글</button>
+						<button class="navbar_login__3Ui--" onclick="location.href='/user/write'">내 작성글</button>
 						<button class="navbar_login__3Ui--" onclick="location.href='/user/interest'">내 관심글</button>
 				
 					<div class="dropdown" style="display: inline-block">
