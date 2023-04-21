@@ -194,9 +194,12 @@
 	        }
  
 	        /* 최종 유효성 검사 */
-			$("#form-join").attr("action", "/admin/createAccount");
-			$("#form-join").submit();
-
+	        if (idCheck && idckCheck && pwCheck && pwckCheck && pwckcorCheck && nameCheck && emailCheck) {
+	            $("#form-join").attr("action", "/admin/createAccount");
+	            $("#form-join").submit();
+	        } else {
+	        	return false;
+	        }
 		});
 	});
 	
