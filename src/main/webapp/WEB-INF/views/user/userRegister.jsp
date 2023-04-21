@@ -30,35 +30,18 @@
 
 			<img class="mb-3 rounded mx-auto d-block" src="/resources/Images/SHLogo.png" alt="StudyHybLogo" width="400" height="150">
 			
+			<!-- 입력시작 -->
 			<div class="form-group">
 			
-				<ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
-				  <li class="nav-item" role="presentation">
-				    <button class="btn nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">1단계</button>
-				  </li>
-				  <li class="nav-item" role="presentation">
-				    <button class="btn nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">2단계</button>
-				  </li>
-				  <li class="nav-item" role="presentation">
-				    <button class="btn nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">3단계</button>
-				  </li>	  
-				</ul>
-				
-				<div class="tab-content" id="pills-tabContent">
-				  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">				  	
-				  	<div class="text-center fs-4 fw-bolder mt-5 mb-5">StudyHub에 처음 오셨군요!<br>우선, 사용하실 닉네임을 설정해 볼까요?</div>
-				  	<input class="form-control form-control-lg mb-1" type="text" id="unickName" onchange="checkNickname()" name="unickName" placeholder="닉네임을 입력하세요." aria-label=".form-control-lg example">
-				  	<!-- nickName ajax 체크 -->
-				  	<p id="checkNickname" class="fw-bold fs-5" style="color:#ff914d"></p>
-				  	<div class="text-center mt-5">	
-					  	<button type="button" id="to2step" class="btn me-2" style="border-color:#ff914d; color:#ff914d">다음</button>
-						<button type="button" id="backuserLogin"class="btn btn-outline-secondary">돌아가기</button>
-					</div>				  				  											
-				  </div>
-				  
-				  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-				  	<div class="text-center fs-4 fw-bolder mt-5 mb-3" id="pills-profile-div"></div>
-				  	<div class="text-center fs-6 fw-bolder mb-5">관심 태그를 기반으로 소식을 추천해드려요.</div>
+				<div class="form-floating mt-3">
+				  <input class="form-control form-control-lg mb-1" type="text" id="unickName" onchange="checkNickname()" name="unickName" placeholder="닉네임" aria-label=".form-control-lg example">
+				  <label for="floatingPassword">닉네임</label>
+				  <!-- nickName ajax 체크 -->
+				  <p id="checkNickname" class="fw-bold fs-5" style="color:#ff914d"></p>
+				</div>												  						  	
+
+				<!-- 관심 스택 선택 -->
+				 <div class="text-center fs-6 fw-bolder mb-5"></div>
 				  	<select name="sno" id="sno" multiple>
 					    <option value="1">JavaScript</option>
 					    <option value="2">TypeScript</option>
@@ -90,16 +73,8 @@
 					    <option value="28">Git</option>
 					    <option value="29">Figma</option>
 					    <option value="30">Zeplin</option>					    
-					</select>
-					<div class="text-center mt-5">		
-					  	<button type="button" id="to3step" class="btn me-2" style="border-color:#ff914d; color:#ff914d">다음</button>
-						<button type="button" id="back1step" class="btn btn-outline-secondary">돌아가기</button>
-					</div>				  					  	
-				  </div>
-				  
-				  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-				  	<div class="text-center fs-4 fw-bolder mt-5 mb-3" id="pills-contact-div"></div>
-				  	<div class="text-center fs-6 fw-bolder mb-4">미 업로드시 기본 이미지로 자동 설정됩니다.</div>
+					</select>								  					  	
+
 					<!-- 프로필 이미지 선택 -->
 		  			<div class="container text-center">
 			  			<div class="row">
@@ -125,14 +100,10 @@
 						</div>
 					</div>
 				  	<div class="text-center">		
-					  	<button type="submit" class="btn mt-5 me-2" style="border-color:#ff914d; color:#ff914d">가입완료</button>
-						<button type="button" id="back2step" class="btn btn-outline-secondary mt-5">돌아가기</button>
+					  	<button type="submit" class="btn mt-5 me-2" style="border-color:#ff914d; color:#ff914d">회원가입 하기</button>
+						<button type="button" id="backuserLogin"class="btn btn-outline-secondary">돌아가기</button>
 					</div>				 
-				  </div>
-				  
-				</div>									
-			</div>
-			
+				  </div>			  							
 			
 		</form>	
 			
