@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 <html>
-<head>
+<head>   
 <%@ page import="javax.servlet.http.HttpSession" %>
 <%@ page import="java.util.Enumeration" %>                
 

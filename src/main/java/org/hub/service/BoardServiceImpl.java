@@ -110,7 +110,7 @@ public class BoardServiceImpl implements BoardService {
 
 		return mapper.getListWithPaging(cri);
 	}
-
+     
 	@Override
 	public List<BoardVO> getListWithFilter(Criteria cri) {
 
