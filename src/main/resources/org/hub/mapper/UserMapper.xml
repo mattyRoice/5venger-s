@@ -7,7 +7,7 @@
 	
 		
 	<select id="login" resultType ="org.hub.domain.UserVO">
-		select*from user_tbl where uidkey = #{uidKey}
+		select*from user_tbl where uidkey = #{uidKey} and userPw = #{userPw}
 	</select>
 	
 	<select id="getList" resultType ="org.hub.domain.UserVO">
@@ -15,6 +15,11 @@
 	</select>
 	
 	<insert id="insert">
+		insert into user_tbl (uidkey, userPw, unickname, uemail)
+		values (#{uidKey}, #{userPw}, #{unickName}, #{uemail})
+	</insert>
+	
+	<insert id="insertBySns">
 		insert into user_tbl (uidkey, usnsType, unickname)
 		values (#{uidKey}, #{usnsType}, #{unickName})
 	</insert>

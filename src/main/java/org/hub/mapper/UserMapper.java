@@ -6,18 +6,27 @@ import org.hub.domain.UserVO;
 
 public interface UserMapper {
 	
-	public UserVO login(String uidKey);
-	
-	public List<UserVO> getList();
-	
-	public void insert(UserVO user);
-	
-	public UserVO read(String uidKey);
-	
-	public UserVO readByNickname(String unickName);
-	
-	public int delete(String uidKey);
-	// 삭제된 행의 개수를 받환 받아, if(1==1)이 true이면 회원탈퇴되었다는 모달창 띄우기 
-	
-	public int update(UserVO user);
+	// 일반 로그인 - 세션 구워야 하니 유저VO 리턴
+		public UserVO login(UserVO user);
+		
+		// 전체 회원 목록
+		public List<UserVO> getList();
+		
+		// 일반 회원가입
+		public void insert(UserVO user);
+		
+		// 소셜 회원가입
+		public void insertBySns(UserVO user);
+		
+		// SNS로그인 - 세션 구워야 하니 유저VO 리턴 
+		public UserVO read(String uidKey);
+		
+		// 닉네임 중복 검사 시 사용
+		public UserVO readByNickname(String unickName);		
+		
+		// 회원정보 수정
+		public int update(UserVO user);
+		
+		// 회원탈퇴 -  삭제된 행의 개수를 받환 받아, if(1==1)이 true이면 회원탈퇴되었다는 모달창 띄우기
+		public int delete(String uidKey); 
 }

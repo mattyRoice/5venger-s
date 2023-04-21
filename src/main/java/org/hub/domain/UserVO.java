@@ -8,12 +8,28 @@ import lombok.Data;
 @Data
 public class UserVO {
 	
+	// 식별키 또는 아이디
+	private String uidKey;
 	
-	private String uidKey; // 식별키
-	private String usnsType; // 네이버, 카카오, 구글 
-	private String unickName; // 이름 -> 추후에 닉네임 입력 받아서 닉네임으로 바꿀 것
-	private List<UserStackVO> snoList; // 관심 스택
-	private List<UserAttachVO> attachList; // 프로필 이미지 (추후에 List가 아닌 타입으로 바꿔보겠음)	
-	private Date regDate; //회원가입 일자
+	// 비밀번호
+	private String userPw;	
+	
+	// 닉네임
+	private String unickName;
+	
+	// 이메일
+	private String uemail;
+	
+	// 관심 스택
+	private List<UserStackVO> snoList;
+	
+	// 프로필 이미지
+	private List<UserAttachVO> attachList;
+
+	// 네이버, 카카오, 구글
+	private String usnsType;
+	
+	//회원가입 일자
+	private Date regDate; 
 
 }

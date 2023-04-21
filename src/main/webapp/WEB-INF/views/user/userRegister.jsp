@@ -20,7 +20,7 @@
     	
 	</head>
 	<!-- end head -->
-	
+<link rel="icon" href="/resources/Images/profileLogo.png">	
 	<body>									
 		
 		<!-- 네비게이션&탭  -->
@@ -28,20 +28,20 @@
 			<input type='hidden' name='uidKey' value='<c:out value="${newbie.uidKey}"/>'>
 			<input type='hidden' name='usnsType' value='<c:out value="${newbie.usnsType}"/>'>
 
-			<img class="mb-3 rounded mx-auto d-block" src="/resources/Images/SHLogo.png" alt="StudyHybLogo" width="400" height="150">
+			<img class="mb-3 rounded mx-auto d-block" src="/resources/Images/norabbitlogo.png" alt="StudyHubLogo" width="320" height=auto>
+	    	<h1 class="h4 mb-3 text-center fw-bold">StudyHub에 오신 것을 환영합니다!</h1>
 			
 			<!-- 입력시작 -->
 			<div class="form-group">
 			
-				<div class="form-floating mt-3">
-				  <input class="form-control form-control-lg mb-1" type="text" id="unickName" onchange="checkNickname()" name="unickName" placeholder="닉네임" aria-label=".form-control-lg example">
-				  <label for="floatingPassword">닉네임</label>
+				<div class="mt-3">
+				  <input class="form-control form-control-lg p-3 mb-1" type="text" id="unickName" onchange="checkNickname()" name="unickName" placeholder="닉네임" aria-label=".form-control-lg example">
 				  <!-- nickName ajax 체크 -->
 				  <p id="checkNickname" class="fw-bold fs-5" style="color:#ff914d"></p>
 				</div>												  						  	
 
 				<!-- 관심 스택 선택 -->
-				 <div class="text-center fs-6 fw-bolder mb-5"></div>
+				 
 				  	<select name="sno" id="sno" multiple>
 					    <option value="1">JavaScript</option>
 					    <option value="2">TypeScript</option>
@@ -73,7 +73,10 @@
 					    <option value="28">Git</option>
 					    <option value="29">Figma</option>
 					    <option value="30">Zeplin</option>					    
-					</select>								  					  	
+					</select>
+					<div>
+						<p class="text-start fw-semibold text-muted mt-2">관심 태그를 기반으로 소식을 추천해드려요.</p>
+					</div>									  					  	
 
 					<!-- 프로필 이미지 선택 -->
 		  			<div class="container text-center">
@@ -100,8 +103,8 @@
 						</div>
 					</div>
 				  	<div class="text-center">		
-					  	<button type="submit" class="btn mt-5 me-2" style="border-color:#ff914d; color:#ff914d">회원가입 하기</button>
-						<button type="button" id="backuserLogin"class="btn btn-outline-secondary">돌아가기</button>
+					  	<button type="submit" class="btn me-2 mt-4" style="background-color:#ff914d; color:#fff">가입완료</button>
+						<button type="button" id="back2step" class="btn btn-outline-secondary mt-4">돌아가기</button>
 					</div>				 
 				  </div>			  							
 			

@@ -71,12 +71,13 @@
 		
 	    </style>
 	    </head>
+<link rel="icon" href="/resources/Images/profileLogo.png">	    
 <body>
 		<!-- 부트스트랩 -->
 		<main class="form-signin">  		
 	    	<img class="mb-3 rounded mx-auto d-block" src="/resources/Images/SHLogo.png" alt="StudyHubLogo" width="350" height="100">
 			<div class="container text-center">				
-				<form action="/loginPost" role="form" method="post">
+				<form action="/user/loginPost" role="form" method="post">
 					<input type="text" id="inputId" class="form-control p-3 mt-3" name="uidKey" placeholder="사용자아이디"> 
 					<input type="password" id="inputPassword" class="form-control p-3 mt-1" name="userPw" placeholder="비밀번호">
 					
