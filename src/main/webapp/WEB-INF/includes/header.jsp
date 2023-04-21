@@ -5,7 +5,7 @@
 
 	<nav class="navbar_navbar__O41pd">
 			<a href="/"> <img class="navbar_logo"
-				src="/resources/Images/SHLogo.png" alt="logo" width="200" height=auto>
+				src="/resources/Images/SHLogo.png" alt="logo" width=200 height=56>
 			</a>
 			<div class="navbar_loginElementWrapper__11CeH">
 				<button class="navbar_postRegister__FJnRS"
@@ -14,14 +14,15 @@
 			
 			<% if (session.getAttribute("loginUser") != null) { %>
 				<!-- 사용자용 드롭다운 메뉴 -->
+						<button class="navbar_login__3Ui--" onclick="location.href='/board/register'">내 작성글</button>
+						<button class="navbar_login__3Ui--" onclick="location.href='/interest'">내 관심글</button>
+						
 					<div class="dropdown" style="display: inline-block">
 			  			<a class="btn dropdown-toggle" id="dropImage" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			  			
 						</a>						
-					   <ul class="dropdown-menu">
-						  <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/board/register">내 작성글</a></li>
-						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/interest">내 관심글</a></li>
-						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/user/mypage">설정</a></li>
+					   <ul class="dropdown-menu">						  
+						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/user/mypage">마이페이지</a></li>
 						   <li><a class="dropdown-item fs-6 fw-bold" href="/user/logout">로그아웃</a></li>
 						</ul>			  
 					</div>
@@ -43,6 +44,8 @@
 				<!-- 로그인 버튼 -->
 				<button class="navbar_login__3Ui--"
 							onclick="location.href='/user/login'">로그인</button>
+				<button class="navbar_login__3Ui--"
+							onclick="location.href='/user/join'">회원가입</button>
 			<% } %>
 			
 					</div>

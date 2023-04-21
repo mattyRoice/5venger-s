@@ -23,7 +23,7 @@
 <link rel="icon" href="/resources/Images/profileLogo.png">
 <body>
 	<!--  전체 바디 태그 root -->
-	<div id="root">z
+	<div id="root">
 		<!--  nav 태그 -->
 		<%@include file="../includes/header.jsp"%>
 
@@ -64,8 +64,8 @@
 
 							<div class="secondBanner_rightCover__3Xm1n">
 								<img class="secondBanner_coverImage__1psJQ"
-									src="https://holaworld.io/images/banner/22.png"
-									alt="second banner">
+									src="/resources/Images/startup.png" 
+									alt="second banner">	
 							</div>
 						</div>
 					</div>
