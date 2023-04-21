@@ -66,9 +66,9 @@ public class BoardController {
 				log.info(sname);
 			}
 		}
-		
+		 
 		service.register(board);
-		return "main";
+		return "redirect:/board/main";
 	}
 	
 	@PostMapping("/modify")
