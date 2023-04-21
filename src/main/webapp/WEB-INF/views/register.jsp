@@ -403,22 +403,26 @@
 						</div></li>
 				</ul>
 				<ul class="postinfo_inputList__3SKF-">
+				
+				
+				
 					<li class="postinfo_listItem__OFhXr"><label
-						class="selectbox_labelText__3Q9iz" for="onoffline">진행 기간</label>
+						class="selectbox_labelText__3Q9iz" for="onoffline">모집 포지션</label>
 						<div class=" css-2b097c-container">
 							<span aria-live="polite" aria-atomic="false"
 								aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
-							<select class="css-1iewm1a-control" name="period" id="period">
-								<option value="기간미정">기간미정</option>
-								<option value="1개월">1개월</option>
-								<option value="2개월">2개월</option>
-								<option value="3명">3명</option>
-								<option value="4명">4명</option>
-								<option value="5명">5명</option>
-								<option value="6명">6명</option>
-								<option value="장기">장기</option>
+							<select name="fnames" id="fnames" multiple>
+								<option value="전체">전체</option>
+								<option value="디자이너">디자이너</option>
+								<option value="프론트엔드">프론트엔드</option>
+								<option value="백엔드">백엔드</option>
+								<option value="ios">IOS</option>
+								<option value="안드로이드">안드로이드</option>
+								<option value="데브옵스">데브옵스</option>
+								<option value="PM">PM</option>
 							</select>
-						</div></li>
+						</div>
+					</li>
 
 					<li class="postinfo_listItem__OFhXr"><label
 						class="selectbox_labelText__3Q9iz" for="onoffline">기술 스택</label>
@@ -470,24 +474,23 @@
 								id="deadline">
 						</div>
 					</li>
-
+					
 					<li class="postinfo_listItem__OFhXr"><label
-						class="selectbox_labelText__3Q9iz" for="onoffline">모집 포지션</label>
+						class="selectbox_labelText__3Q9iz" for="onoffline">진행 기간</label>
 						<div class=" css-2b097c-container">
 							<span aria-live="polite" aria-atomic="false"
 								aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
-							<select name="fnames" id="fnames" multiple>
-								<option value="전체">전체</option>
-								<option value="디자이너">디자이너</option>
-								<option value="프론트엔드">프론트엔드</option>
-								<option value="백엔드">백엔드</option>
-								<option value="ios">IOS</option>
-								<option value="안드로이드">안드로이드</option>
-								<option value="데브옵스">데브옵스</option>
-								<option value="PM">PM</option>
+							<select class="css-1iewm1a-control" name="period" id="period">
+								<option value="기간미정">기간미정</option>
+								<option value="1개월">1개월</option>
+								<option value="2개월">2개월</option>
+								<option value="3개월">3개월</option>
+								<option value="4개월">4개월</option>
+								<option value="5개월">5개월</option>
+								<option value="6개월">6개월</option>
+								<option value="장기">장기</option>
 							</select>
-						</div>
-					</li>
+						</div></li>
 				</ul>
 
 				<ul class="postinfo_inputList__3SKF-">

@@ -342,10 +342,10 @@ a:-webkit-any-link {
 <%-- 	%> --%>
 	
 	</div>        
-            <img class="studyContent_userImg__3gyI-">
-            <div class="studyContent_userName__1GBr8" ><c:out value="${board.uidkey }" /></div></div>
-        </div><div class="studyContent_registeredDate__3lybC" ><c:out value="${board.regdate}"/></div>
-    </div>
+           
+            <div class="studyContent_userName__1GBr8" ><c:out value="${board.uidkey }" /></div>
+        </div><div class="studyContent_registeredDate__3lybC" >2023-04-21<%-- <c:out value="${board.regdate}"/> --%></div></div>
+   
     
 
     <!--게시글 기본 정보 영역-->
@@ -356,24 +356,46 @@ a:-webkit-any-link {
         </li>
         <li class="studyInfo_contentWrapper__KkSUP">
             <span class="studyInfo_title__3jXRE">모집 인원</span>
-            <span class="studyInfo_content__eqtqC" <c:out value="${board.memberNum}"/> readonly="readonly"></span>
+            <span class="studyInfo_content__eqtqC"> <c:out value="${board.memberNum}"/> </span>
         </li>
         <li class="studyInfo_contentWrapper__KkSUP">
-            <span class="studyInfo_title__3jXRE">시작 예정</span>
-            <span class="studyInfo_content__eqtqC" > <c:out value="${board.regdate}"/></span>
+            <span class="studyInfo_title__3jXRE">마감 날짜</span>
+            <span class="studyInfo_content__eqtqC" > <c:out value="${board.deadline}"/></span>
         </li>
         <li class="studyInfo_contentWrapper__KkSUP">
             <span class="studyInfo_title__3jXRE">연락 방법</span>
             <div class="contactPoint_contactWrapper__2T_GC">
                 <a class="contactPoint_link__2MqRR" href="https://open.kakao.com/o/sirqtbdf" target="_blank" rel="noreferrer">
-                    <span>카카오톡 오픈채팅</span><img class="contactPoint_linkImg__2_927" src="https://holaworld.io/images/info/link.svg" alt=""></a>
+                    <span>${board.contact}</span><img class="contactPoint_linkImg__2_927" src="https://holaworld.io/images/info/link.svg" alt=""></a>
                 </div>
         </li>
         <li class="studyInfo_contentWrapper__KkSUP">
             <span class="studyInfo_title__3jXRE">예상 기간</span>
             <span class="studyInfo_content__eqtqC"><c:out value="${board.period}" /></span>
         </li>
+            <li class="studyInfo_contentWrapper__KkSUP">
+            <span class="studyInfo_title__3jXRE">사용 언어</span>
+            <ul class="studyInfo_languageList__1usTa">
+                <li class="studyInfo_language__3A3Vi">
+                    <img class="studyInfo_languageImage__2b-u9" src="https://holaworld.io/images/languages/react.svg" alt="language">
+                </li>
+                <li class="studyInfo_language__3A3Vi">
+                    <img class="studyInfo_languageImage__2b-u9" src="https://holaworld.io/images/languages/typescript.svg" alt="language">
+                </li>
+                <li class="studyInfo_language__3A3Vi">
+                    <img class="studyInfo_languageImage__2b-u9" src="https://holaworld.io/images/languages/java.svg" alt="language">
+                </li>
+            </ul>
+        </li>
         <li class="studyInfo_contentWrapper__KkSUP">
+            <span class="studyInfo_title__3jXRE">모집 분야</span>
+            <ul class="studyInfo_languageList__1usTa"><li class="studyInfo_positions__3JIxy">디자이너</li>
+            <li class="studyInfo_positions__3JIxy">백엔드</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+    <%--     <li class="studyInfo_contentWrapper__KkSUP">
             <span class="studyInfo_title__3jXRE">사용 언어</span>
             <ul class="studyItem_content__1mJ9M">
 										<c:set var="snamesArr" value="${fn:split(board.snames, ',') }" />
@@ -397,7 +419,7 @@ a:-webkit-any-link {
             </li></ul>
         </li>
          <li class="studyInfo_contentWrapper__KkSUP"></li>
-    </ul>
+    </ul> --%>
 </section>  <!--게시글 기본 정보 영역 끝-->
 
 <!--본문 영역-->
