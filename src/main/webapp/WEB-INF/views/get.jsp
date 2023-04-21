@@ -367,7 +367,7 @@ a:-webkit-any-link {
             <div class="contactPoint_contactWrapper__2T_GC">
                 <a class="contactPoint_link__2MqRR" href="https://open.kakao.com/o/sirqtbdf" target="_blank" rel="noreferrer">
                     <span>${board.contact}</span><img class="contactPoint_linkImg__2_927" src="https://holaworld.io/images/info/link.svg" alt=""></a>
-                </div>
+                 </div>
         </li>
         <li class="studyInfo_contentWrapper__KkSUP">
             <span class="studyInfo_title__3jXRE">예상 기간</span>
