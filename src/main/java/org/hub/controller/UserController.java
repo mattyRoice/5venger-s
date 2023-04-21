@@ -6,10 +6,12 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.hub.auth.SNSLogin;
 import org.hub.auth.SnsValue;
+import org.hub.domain.AdminVO;
 import org.hub.domain.UserAttachVO;
 import org.hub.domain.UserStackVO;
 import org.hub.domain.UserVO;
@@ -95,8 +97,44 @@ public class UserController {
 		  
 		  model.addAttribute("google_url", url);		 
 		
-		return "userLogin";
+		return "/user/userLogin";
 	}
+	
+	// 4.20 여기부터 시작
+	@PostMapping(value="/loginPost")
+	public String loginPOST(HttpServletRequest request, UserVO user, RedirectAttributes rttr) throws Exception {
+		log.info("loginPost 메서드 진입");
+		log.info("전달된 데이터: " + user);
+
+		HttpSession session = request.getSession();
+		
+		String uidKey = user.getUidKey();
+		
+		UserVO uvo = userService.login(uidKey);
+		
+		if (uvo == null) { // 일치하지 않는 아이디,비밀번호 입력
+			int result = 0;
+			rttr.addFlashAttribute("result", result);
+			return "redirect:/user/login";
+		}
+
+		session.setAttribute(LOGIN, uvo); // 일치하는 아이디,비밀번호 (로그인 성공)
+		return "redirect:/board/main";
+	}
+	
+	@GetMapping(value="/join")
+	public String join() {
+		log.info("join 회원가입 선택 진입");
+		return "/user/join";
+	}
+	
+	@GetMapping(value="/signin")
+	public String signin() {
+		log.info("signin 회원가입 화면 진입");
+		return "/user/signin";
+	}
+	
+	// 4.20 여기부터 시작
 	
 	@RequestMapping(value = "/auth/{snsService}/callback")
 	public String snsLoginCallback(@PathVariable String snsService, Model model, @RequestParam String code, HttpSession session) throws Exception{
@@ -145,7 +183,7 @@ public class UserController {
 			model.addAttribute("newbie", snsUser);			
 			
 			 // 4.1. 존재하지 않으면 회원가입 페이지로
-			return "userRegister";
+			return "/user/userRegister";
 		} else {
 			// 4.2. 존재시 유저정보 세션에 담기 및 메인페이지 이동
 			session.setAttribute(LOGIN, user);
@@ -204,7 +242,7 @@ public class UserController {
 		
 		model.addAttribute("user", userService.get(uidKey));
 		
-		return "userMypage";
+		return "/user/userMypage";
 	}
 
 	private void deleteFiles(List<UserAttachVO> attachList) {
@@ -283,6 +321,7 @@ public class UserController {
 		log.info("getStackList" + uidKey);
 		return new ResponseEntity<>(userService.getStackList(uidKey), HttpStatus.OK);
 	}
+	
 	
 	
 	@GetMapping(value="/interest")
