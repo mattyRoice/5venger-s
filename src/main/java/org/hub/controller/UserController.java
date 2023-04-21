@@ -123,8 +123,23 @@ public class UserController {
 	}
 	
 	@GetMapping(value="/join")
-	public String join() {
+	public String join(Model model) {
 		log.info("join 회원가입 선택 진입");
+		
+		// = => servlet-context.xml에서 설정한 빈 naverSns를 SNSLogin이 주입 받아야, 어디로 가고 어떻게 access token 받야야하고 등을 로그인이 알 수 있음 
+		// 네이버
+		SNSLogin snsLogin = new SNSLogin(naverSns); 		
+		model.addAttribute("naver_url", snsLogin.getAuthURL());
+				
+		// 카카오 테스트 
+		SNSLogin kakaoLogin = new SNSLogin(kakaoSns);
+		model.addAttribute("kakao_url", kakaoLogin.getAuthURL());		
+				
+		/* 구글code 발행을 위한 URL 생성 */	
+		OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations(); 
+		String url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE,googleOAuth2Parameters);				  
+		model.addAttribute("google_url", url);
+				  
 		return "/user/join";
 	}
 	
