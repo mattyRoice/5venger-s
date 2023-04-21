@@ -169,7 +169,7 @@
     position: absolute;
     height: 5px;
     width: calc(100% + 26px);
-    background: #ffe579;
+    background: #ff9149;
     left: -13px;
     bottom: -22px;
 }
@@ -195,8 +195,8 @@
 	-webkit-tap-highlight-color: transparent;
 	color: inherit;
 	box-sizing: inherit;
-	background-color: #ff914d;
-	/* margin-bottom: 16px; */
+	background-color: antiquewhite;
+	margin-bottom: 16px;
 }
 
 .firstBanner_container__1M3Ft {
@@ -299,7 +299,7 @@
 	-webkit-tap-highlight-color: transparent;
 	color: inherit;
 	box-sizing: inherit;
-	background-color: #e06034;
+	background-color: lightyellow;
 }
 
 .secondBanner_container__1Nu6b {
@@ -339,7 +339,7 @@
 	font-weight: 700;
 	padding: 5px 30px;
 	color: #fff;
-	background: #b291dd;
+	background: antiquewhite;
 	border-radius: 50px;
 	margin-bottom: 24px;
 }
@@ -1255,8 +1255,8 @@ Topbutton_topButton__35AKX.show {
 
 .footer_footerImg__1iADK {
 	display: block;
-	width: 170px;
-	height: auto;
+	width: 200px;
+	height: 50px;
 	margin-bottom: 32px;
 }
 
