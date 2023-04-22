@@ -149,4 +149,12 @@ public class BoardServiceImpl implements BoardService {
 		return null;
 	}
 
+	// 작성글 목록 가져오기 YJ 04-22
+	@Override
+	public List<BoardVO> getListUserWrite(String uidkey) {
+		log.info("get List User Write : " + uidkey);
+		return mapper.getListUserWrite(uidkey);
+	}
+	
+	
 }

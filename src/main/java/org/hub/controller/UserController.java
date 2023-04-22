@@ -392,26 +392,22 @@ public class UserController {
 
 	// 사용자 작성 글 목록
 	@GetMapping("/write")
-	public String getWrite(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, Model model, HttpSession session, UserVO vo) {
+	public String getWrite(Model model, HttpSession session) {
 		System.out.println("작성 글 목록으로 이동 YJ");
 		log.info("작성 글 목록으로 이동 YJ");
 
-		List<BoardVO> boardList = service.getList(cri);
-		model.addAttribute("board", boardList);
+		// 로그인한 사용자 정보 가져오기
+	    UserVO user = (UserVO)session.getAttribute(LOGIN);
+	    String uidkey = user.getUidKey();
 
-		session.setAttribute(LOGIN, user);
-		/* String uidKey = (String) session.getAttribute("uidKey"); */
-		int total = service.getTotal(cri);
+	    List<BoardVO> userWriteList = service.getListUserWrite(uidkey); // uidKey 파라미터 전달
+	    model.addAttribute("board", userWriteList);
 
-		log.info("total: " + total);
+	    session.setAttribute(LOGIN, user);
 
-		model.addAttribute("pageMaker", new PageDTO(cri, total));
-		
-		UserVO user = (UserVO)session.getAttribute(LOGIN);
-		String uidKey = user.getUidKey();
-		model.addAttribute("user", userService.get(uidKey));
+	    model.addAttribute("user", userService.get(uidkey));
 
-		return "userWrite";
+	    return "userWrite";
 	}      
 	
 	

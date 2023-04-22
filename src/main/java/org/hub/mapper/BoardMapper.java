@@ -30,4 +30,7 @@ public interface BoardMapper {
 	
 	// 조회수 증가시키기
 	public void updateViewCnt(int bno);
+	
+	// 작성글 목록 가져오기
+	public List<BoardVO> getListUserWrite(String uidkey);
 }

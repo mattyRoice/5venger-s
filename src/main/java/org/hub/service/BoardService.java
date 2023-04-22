@@ -31,4 +31,7 @@ public interface BoardService {
 	
 	// 스택 가져오기
 	public String[] getStack(int bno);
+	
+	// 작성글 목록 가져오기
+	public List<BoardVO> getListUserWrite(String uidkey);
 }

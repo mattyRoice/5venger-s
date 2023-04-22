@@ -212,4 +212,11 @@ WHERE rn > (#{pageNum} - 1) * #{amount}
 		update board_tbl set replycnt = replycnt + #{amount} where bno = #{bno}
 	</update>
 
+<!-- 사용자 작성 글 목록 0422 YJ -->
+<select id="getListUserWrite" resultType="org.hub.domain.BoardVO">	
+	SELECT * from board_tbl where uidkey=#{uidkey}
+</select>
+
+
+
 </mapper>
