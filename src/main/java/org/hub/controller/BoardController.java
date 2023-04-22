@@ -103,21 +103,21 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	 
-	@GetMapping("/list")
-	public void list(Criteria cri, Model model) {
-		log.info("list: " + cri);
-		model.addAttribute("list", service.getList(cri));
-		model.addAttribute("pageMaker", new PageDTO(cri, 123));
-	}
-	
-	@GetMapping({ "/get", "/modify"})
+	// 글 상세보기
+	@GetMapping(value="/get")
 	public String get(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) {
-		log.info("/get or modify");
+		log.info("/get");
 		model.addAttribute("board", service.get(bno));
-		return "get";
+		return "get";	
 		
-//		model.addAttribute("", service.
+	}
 		
+	// 글 수정
+	@GetMapping(value= "/modify")
+	public String modify(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) {
+		log.info("/ modify");
+		model.addAttribute("board", service.get(bno));
+		return "modify";			
 	}
 	
 	@GetMapping("/reply")
