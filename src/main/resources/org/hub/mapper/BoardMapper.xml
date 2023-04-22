@@ -4,22 +4,22 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.hub.mapper.BoardMapper">
 
-<!-- 추천목록 가져오기 -->
-<select resultType="int" id="getRecommend">
-	SELECT b.bno FROM boardstack_tbl b
-	INNER JOIN userstack_tbl u
-	ON b.sno = u.sno 
-</select>
+	<!-- 추천목록 가져오기 -->
+	<select resultType="int" id="getRecommend">
+		SELECT b.bno FROM boardstack_tbl b
+		INNER JOIN userstack_tbl u
+		ON b.sno = u.sno
+	</select>
 
-<!-- 관심목록 가져오기-->
-<select resultType="int" id="getInterest">
-	SELECT * FROM BOARD_TBL WHERE bno IN
-(SELECT bno
-FROM INTEREST_TBL
-WHERE uidkey = #{uidkey})
-</select>
+	<!-- 관심목록 가져오기 -->
+	<select resultType="int" id="getInterest">
+		SELECT * FROM BOARD_TBL WHERE bno IN
+		(SELECT bno
+		FROM INTEREST_TBL
+		WHERE uidkey = #{uidkey})
+	</select>
 
-<!--  검색 기능 -->
+	<!-- 검색 기능 -->
 	<sql id="criteria">
 		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
 			<foreach item='type' collection="typeArr">
@@ -39,14 +39,17 @@ WHERE uidkey = #{uidkey})
 			</foreach>
 		</trim>
 	</sql>
- 
+
 	<insert id="insert" parameterType="org.hub.domain.BoardVO">
 		<selectKey keyProperty="bno" resultType="int" order="BEFORE">
-			select bno_seq.nextval FROM dual
+			select
+			bno_seq.nextval FROM dual
 		</selectKey>
-		
- 		insert into board_tbl  (bno, meet, membernum, contact, period, title, uidkey, content, regdate, deadline) 
-		values (#{bno},#{meet}, #{memberNum}, #{contact}, #{period}, #{title}, #{uidkey}, #{content}, sysdate, #{deadline})
+
+		insert into board_tbl (bno, meet, membernum, contact, period, title,
+		uidkey, content, regdate, deadline)
+		values (#{bno},#{meet}, #{memberNum}, #{contact}, #{period}, #{title},
+		#{uidkey}, #{content}, sysdate, #{deadline})
 	</insert>
 
 
@@ -57,149 +60,64 @@ WHERE uidkey = #{uidkey})
 	FROM (select * from board_view_01)
 	WHERE bno=#{bno}
 	]]>
-	
-	
 	</select>
 
-	<!--  삭제 -->
+	<!-- 삭제 -->
 	<delete id="delete">
 		delete board_tbl where bno = #{bno}
 	</delete>
-
-	<!-- 조회수  --> 
+	
+	<!--  kdh 0421 댓글 조회수 -->
 	<update id="updateViewCnt">
 		update board_tbl
 		set cnt = COALESCE(cnt, 0) +1
-		where bno = #{bno}
+		where
+		bno = #{bno}
 	</update>
+	
+	<!-- kdh 0422 게시글 페이징처리 하면서 가져오기 -->
+	<select id="getListWithPaging"
+		resultType="org.hub.domain.BoardVO">
+	<![CDATA[
+	SELECT bno, deadline, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
+	FROM (select * from board_view 
+	WHERE 
+	]]>
+		<include refid="criteria"></include>
+	<![CDATA[
+	 rownum <= #{pageNum} * #{amount}
+	 )
+	WHERE rn > (#{pageNum} - 1) * #{amount}
+	]]>
+	</select>
 
-	<!-- 수정 -->
-<!-- 	<update id="update"> -->
-<!-- 		update boardtbl -->
-<!-- 		set title= #{title}, -->
-<!-- 		content=#{content}, -->
-		
-		
-<!-- 		where bno = -->
-<!-- 		#{bno} -->
-<!-- 	</update> -->
+	<!--  kdh0422 게시글 페이징처리+필터 처리해서 가져오기(수정중) -->
+	<select id="getListWithPagingWithFilter"
+		resultType="org.hub.domain.BoardVO">
+	   <![CDATA[
+	SELECT bno, deadline, uidkey ,title,content, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
+	FROM (
+		select * from board_view 
+		WHERE
+	]]>
+		<include refid="criteria"></include>
+	<![CDATA[
+		 rownum <= #{pageNum} * #{amount}
+	)
+	WHERE rn > (#{pageNum} - 1) * #{amount}
+	]]>
+		<if test="filters != null and filters.length > 0">
+			AND snames IN (
+			<foreach collection="filters" item="filter" separator=",">
+				'%'||#{filter}||'%'
+			</foreach>
+			)
+		</if>
+	</select>
 
-<!-- 메인화면 출력 / 페이징 -->
-<!-- <select id="getListWithPaging" resultType="org.hub.domain.BoardVO"> -->
-<!--   <![CDATA[ -->
-<!--     SELECT  -->
-<!--       b.bno, b.regdate, b.title, b.uidkey, b.deadline, b.cnt, b.replycnt, -->
-<!--       s.stack_name, s.stack_image, bs.stack_num -->
-<!--     FROM ( -->
-<!--       SELECT /*+INDEX_DESC(boardtbl pk_board)*/ -->
-<!--         ROWNUM RN, bno, regdate, title, uidkey, deadline, cnt, replycnt -->
-<!--       FROM boardtbl -->
-<!--       WHERE -->
-<!--     ]]> -->
-<!--       <include refid="criteria"></include> -->
-<!--     <![CDATA[ -->
-<!--         AND rownum <= #{pageNum} * #{amount} -->
-<!--     ) b -->
-<!--     INNER JOIN board_stacktbl bs ON b.bno = bs.bno -->
-<!--     INNER JOIN stacktbl s ON bs.sno = s.sno -->
-<!--     WHERE rn > (#{pageNum} - 1) * #{amount} -->
-<!--   ]]> -->
-          
-  
-<!-- </select> -->
-     
-<select id="getListWithPaging" resultType="org.hub.domain.BoardVO">
-   <![CDATA[
-SELECT bno, deadline, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
-FROM (
-SELECT /*+INDEX_DESC(board_tbl pk_board) */
-rownum rn, b.bno, b.uidkey, b.deadline, b.title, u.unickname AS uname, a.uploadPath  AS profileImage,
-   (
-    SELECT LISTAGG(f.fname, ',') WITHIN GROUP (ORDER BY f.fname) AS combined_fname 
-    FROM boardfield_tbl bf 
-    JOIN field_tbl f ON bf.fno = f.fno
-    WHERE bf.bno = b.bno
-  	) AS fnames,
-   (     
-    SELECT LISTAGG(s.sname, ',') WITHIN GROUP (ORDER BY s.sname) AS combined_sname
-    FROM boardstack_tbl bs
-    JOIN stack_tbl s ON bs.sno = s.sno 
-    WHERE bs.bno = b.bno
-   ) AS snames, cnt, replycnt  
-FROM (
-	SELECT bno, deadline, title, uidkey, cnt, replycnt
-	FROM board_tbl
-	ORDER BY bno desc
-) b
-JOIN user_tbl u
-ON b.uidkey = u.uidkey
-LEFT JOIN attach_tbl a
-ON u.uidkey = a.uidkey
-WHERE
-]]>
-
-<include refid="criteria"></include>
-
-<![CDATA[
- rownum <= #{pageNum} * #{amount}
-) 
-WHERE rn > (#{pageNum} - 1) * #{amount}
-]]>
-</select>
-
-<select id="getListWithPagingWithFilter" resultType="org.hub.domain.BoardVO">
-   <![CDATA[
-SELECT bno, deadline, uidkey ,title,content, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
-FROM (
-SELECT /*+INDEX_DESC(board_tbl pk_board) */
-rownum rn, b.bno, b.uidkey, b.deadline, b.title, b.content, u.unickname AS uname, a.uploadPath  AS profileImage,
-   (
-    SELECT LISTAGG(f.fname, ',') WITHIN GROUP (ORDER BY f.fname) AS combined_fname 
-    FROM boardfield_tbl bf 
-    JOIN field_tbl f ON bf.fno = f.fno
-    WHERE bf.bno = b.bno
-  	) AS fnames,
-   (
-    SELECT LISTAGG(s.sname, ',') WITHIN GROUP (ORDER BY s.sname) AS combined_sname
-    FROM boardstack_tbl bs
-    JOIN stack_tbl s ON bs.sno = s.sno 
-    WHERE bs.bno = b.bno
-   ) AS snames, cnt, replycnt  
-FROM (
-	SELECT bno, deadline, title, content,uidkey, cnt, replycnt
-	FROM board_tbl
-	ORDER BY bno desc
-) b
-JOIN user_tbl u
-ON b.uidkey = u.uidkey
-LEFT JOIN attach_tbl a
-ON u.uidkey = a.uidkey
-WHERE
-]]>
-
-<include refid="criteria"></include>
-
-<![CDATA[
- rownum <= #{pageNum} * #{amount}
-)
-WHERE rn > (#{pageNum} - 1) * #{amount}
-]]>
-<!--  <if test="filters != null and filters.length > 0"> -->
-<!--         AND snames IN ( -->
-<!--                <foreach collection="filters" item="filter" separator=","> -->
-<!--                     '%'||#{filter}||'%' -->
-<!--                </foreach> -->
-<!--             ) -->
-        
-<!--  </if> -->
-</select>
-
-
-
-
-	<!--  페이지 수 계산 -->
+	<!-- 페이지 수 계산 -->
 	<select id="getTotalCount" resultType="int">
-		select count(*) from board_tbl 
+		select count(*) from board_tbl
 		where
 
 		<include refid="criteria"></include>
@@ -207,15 +125,17 @@ WHERE rn > (#{pageNum} - 1) * #{amount}
 		bno > 0
 
 	</select>
-	
+
 	<update id="updateReplyCnt">
-		update board_tbl set replycnt = replycnt + #{amount} where bno = #{bno}
+		update board_tbl set replycnt = replycnt + #{amount}
+		where bno = #{bno}
 	</update>
 
-<!-- 사용자 작성 글 목록 0422 YJ -->
-<select id="getListUserWrite" resultType="org.hub.domain.BoardVO">	
-	SELECT * from board_tbl where uidkey=#{uidkey}
-</select>
+	<!-- 사용자 작성 글 목록 0422 YJ -->
+	<select id="getListUserWrite"
+		resultType="org.hub.domain.BoardVO">
+		SELECT * from board_tbl where uidkey=#{uidkey}
+	</select>
 
 
 
