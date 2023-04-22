@@ -503,7 +503,7 @@
 							<select class="css-1iewm1a-control" id="contact" name="contact">
 								<option value="call choice">선택하세요</option>
 								<option value="kakao">카카오톡 오픈채팅</option>
-								<option value="Gogle">구글폼</option>
+								<option value="Google">구글폼</option>
 								<option value="email">이메일</option>
 							</select> <input type="text" class="css-1iewm1a-control"
 								name="contactAddress" id="calladr" placeholder="링크 주소를 입력해주세요">
