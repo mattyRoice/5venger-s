@@ -74,7 +74,8 @@
     cursor: pointer;
     font-size: 18px;
     font-weight: 700;
-    padding-right: 15px;
+    padding-left : 15px;
+    padding-right: 15px; 
     border-right: 2px solid #e1e1e1;
 }
 .studyContent_registeredDate__3lybC {
@@ -319,9 +320,10 @@ a:-webkit-any-link {
 <input type='hidden' name='amount' value='<c:out value="${cri.amount }"/>'>
 <section class="studyContent_postHeader__2Qu_y">
     <!--뒤로가기버튼-->
-    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" color="808080" cursor="pointer" height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="color: rgb(128, 128, 128);">
-    <path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path>
-    </svg>
+    <svg button onclick="goBack()" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" color="808080" cursor="pointer" height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="color: rgb(128, 128, 128);" margin-left="0px">
+    	<path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path>
+    	</svg>
+
 
 
     <!--게시글 제목-->
@@ -472,6 +474,12 @@ $(document).ready(function() {
 		
 	
 	</script>
+	
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 	
 	
 <script>
