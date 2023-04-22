@@ -21,7 +21,7 @@
 			  			<a class="btn dropdown-toggle" id="dropImage" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			  			
 						</a>						
-					   <ul class="dropdown-menu">						  
+					   <ul class="dropdown-menu dropdown-menu-end">						  
 						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/user/mypage">마이페이지</a></li>
 						   <li><a class="dropdown-item fs-6 fw-bold" href="/user/logout">로그아웃</a></li>
 						</ul>			  
@@ -40,7 +40,7 @@
 			  			<a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<img class="rounded-circle" src="/resources/Images/adminProfileLogo.png" width=60 alt="Profile Image" >
 						</a>						
-						<ul class="dropdown-menu">
+						<ul class="dropdown-menu dropdown-menu-end">
 						  <li><span class="dropdown-item fs-6 fw-bold mb-2">관리자페이지</span></li>
 						  <li><a class="dropdown-item fs-6 fw-bold" href="/admin/logout">로그아웃</a></li>
 						</ul>			  
