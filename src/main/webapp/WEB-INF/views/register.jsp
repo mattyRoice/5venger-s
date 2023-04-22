@@ -110,7 +110,7 @@
 			justify-content: center;
 			align-items: center;
 			border-radius: 50%;
-			background: #ffcd00;
+			background: #ff914d;
 			font-size: 16px;
 			font-weight: 700;
 			line-height: 19px;
@@ -312,7 +312,7 @@
 		}
 		
 		.writebutton_cancelButton__2W7b_ {
-			background: #e9ecef;
+			background: #ff914d;
 			color: #495057;
 			margin-right: 1rem;
 		}
