@@ -13,10 +13,11 @@
 			
 			
 			<% if (session.getAttribute("loginUser") != null) { %>
-				<!-- 사용자용 드롭다운 메뉴 -->
+				<!-- 사용자 navbar -->
 						<button class="navbar_login__3Ui--" onclick="location.href='/user/write'">내 작성글</button>
 						<button class="navbar_login__3Ui--" onclick="location.href='/user/interest'">내 관심글</button>
 				
+				<!-- 사용자 드롭다운 메뉴 -->
 					<div class="dropdown" style="display: inline-block">
 			  			<a class="btn dropdown-toggle" id="dropImage" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			  			
