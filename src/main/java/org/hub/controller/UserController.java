@@ -367,6 +367,7 @@ public class UserController {
 	@Setter(onMethod_ = @Autowired)
 	private BoardService service;
 	
+	// 관심글 페이지
 	@GetMapping("/interest")
 	public String getMain(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, Model model, HttpSession session, UserVO vo) {
 		System.out.println("interest로 이동");
@@ -389,6 +390,20 @@ public class UserController {
 
 		return "interest";
 	}
+	
+    @Autowired
+    private BoardService boardService;
+    // 관심글 for문으로 받아오기
+    @GetMapping("/interest/{uid}")
+    public String getInterest(@PathVariable String uid, Model model) {
+        List<Integer> interestList = boardService.getInterest(uid);
+        for (Integer interest : interestList) {
+            System.out.println(interest);
+            // 또는 다른 로직 처리
+        }
+        model.addAttribute("interestList", interestList);
+        return "interestPage";
+    }
 
 	// 사용자 작성 글 목록
 	@GetMapping("/write")
