@@ -365,7 +365,7 @@
 		<section>
 			<div class="postRegister_postContentWrapper__3BXZ6">
 				<span class="postRegister_sequence__nC1Px">1</span>
-				<h2 class="postRegister_text__17jg3">프로젝트 기본 정보를 입력해주세요.</h2>
+				<h2 class="postRegister_text__17jg3">스터디 기본 정보를 입력해주세요.</h2>
 			</div>
 
 			<form role="form" action="/board/register" method="post">
@@ -516,7 +516,7 @@
 				<br>
 				<div class="postRegister_postContentWrapper__3BXZ6">
 					<span class="postRegister_sequence__nC1Px">2</span>
-					<h2 class="postRegister_text__17jg3">프로젝트에 대해 소개해주세요.</h2>
+					<h2 class="postRegister_text__17jg3">스터디에 대해 소개해주세요.</h2>
 				</div>
 
 				<!-- /.row -->
@@ -533,7 +533,7 @@
 								</div>
 								<br>
 								<div class="form-group">
-									<label>프로젝트 내용</label>
+									<label>스터디 모집 내용</label>
 									<textarea class="form-control" rows="15" name='content'></textarea>
 								</div>
 								<section class="writebutton_buttons__2qW83">
