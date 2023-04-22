@@ -401,7 +401,7 @@
 		    			"progressBar": true,
 		    			"timeOut": 4000
 		    			};
-	        	toastr.warning('관리자아이디를 입력해 주세요!');
+	        	toastr.warning('사용자아이디를 입력해 주세요!');
 	            idCheck = false;
 	        }else{
 	            idCheck = true;
