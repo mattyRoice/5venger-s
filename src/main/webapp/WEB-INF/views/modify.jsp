@@ -652,8 +652,8 @@
 				
 		})(); // end 기술 스택 function
 		
-		// 마감일 초기화
-		$("#deadline").val(meet);
+		
+		$("#deadline").val(deadline); // 마감일 초기화
 		$("#period").val(period); // 진행기간 초기화
 		$("#contact").val(contact);// 연락방법 초기화
 		$("#title").val(title);// 제목 초기화
