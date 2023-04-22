@@ -112,7 +112,7 @@ public class BoardController {
 		
 	}
 		
-	// 글 수정
+	// 글 수정화면
 	@GetMapping(value= "/modify")
 	public String modify(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) {
 		log.info("/ modify");

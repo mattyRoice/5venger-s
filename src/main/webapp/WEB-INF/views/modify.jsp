@@ -364,7 +364,7 @@
 	<%@include file="../includes/header.jsp"%>
 	<!--헤더 끝-->
 
-	<!--본문 바디시작-->
+	<!-- 본문 바디시작 -->
 	<div class="postRegister_postWrapper__1s7mv">
 		<section>
 			<div class="postRegister_postContentWrapper__3BXZ6">
