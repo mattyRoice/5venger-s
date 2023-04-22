@@ -28,20 +28,14 @@
 <link rel="icon" href="/resources/Images/profileLogo.png">
 <body>
 <!-- 사용자 좋아요 목록(관심목록) 필터구현중 -->
-<%-- <c:forEach var="item" items="${like}" varStatus="status">
-  <c:if test="${status.index lt 5}">
-    <p>${item}</p>
-  </c:if>
-</c:forEach> --%>
-<h1>${user.uidKey}</h1>
 
-<%-- <h2>${ loginUser.sno }></h2> --%>
+
 	<!--  전체 바디 태그 root -->
 	<div id="root">
 		<!--  nav 태그 -->
 		<nav class="navbar_navbar__O41pd">
-			<a href="/board/main"> <img class="navbar_logo__a5PmC"
-				src="/resources/Images/SHLogo.png" alt="logo">
+			<a href="/board/main"> <img class="navbar_logo"
+				src="/resources/Images/SHLogo.png" alt="logo" width=200 height=56>
 			</a>
 			<div class="navbar_loginElementWrapper__11CeH">
 				<button class="navbar_postRegister__FJnRS"
@@ -88,28 +82,18 @@
 				</div>
 			</div>
 		</section>
-
-
-			
-		</section>
+		
+		
 		<!--  메인 게시글 -->
 		<main class="mainContent_main_F2EU9">
-			<!--  게시글 카테고리 -->
-			<div class="mainContent_categoryWrapper__1n063">
-				<div class="findMyPosition_selectWrapper__23xHq">
-					<div class=" css-2b097c-container">
-						<span aria-live="polite" aria-atomic="false"
-							aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
-					</div>
-				</div>
-			</div>
-
+			
 			<div class="container">
 				<div class="row">
+
 					<c:forEach items="${board}" var="board">
 						<div class="col-lg-3">
 							<div class="card" style="width: 100%">
-								<div class="card-body move">
+								<div class="card-body move" href='<c:out value="${board.bno }"/>'>
 									<!-- 스터디-->
 									<div class="studyItem_badgeWrapper__3AW7k">
 										<div class="badge_badge__ZfNyB">
@@ -135,7 +119,6 @@
 										</p>
 									</div>
 									<!--게시글 제목-->
-
 									<h6 class="studyItem_title__2B_2o">
 										<c:out value="${board.title }" />
 									</h6>
@@ -233,7 +216,38 @@
 	
 
 	<!-- 전체 바디 태그 root 끝 -->
+	<!--  pageNation -->
+	<nav aria-label="Page navigation">
+		<ul class="pagination  justify-content-center">
+			<c:if test="${pageMaker.prev }">
+				<li class="page-item"><a class="page-link"
+					href="${pageMaker.startPage-1 }">Previous</a></li>
+			</c:if>
 
+			<c:forEach var="num" begin="${pageMaker.startPage}"
+				end="${pageMaker.endPage}">
+				<li
+					class="page-item  ${pageMaker.cri.pageNum == num ? 'active':''} ">
+					<a class="page-link" href="${num}">${num}</a>
+				</li>
+			</c:forEach>
+
+
+			<c:if test="${pageMaker.next }">
+				<li class="page-item"><a class="page-link"
+					href="${pageMaker.endPage+1 }">Next</a></li>
+			</c:if>
+		</ul>
+
+		<form id='actionForm' action="/board/main" method='get'>
+			<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
+			<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>
+			<input type='hidden' name='type'
+				value='<c:out value="${ pageMaker.cri.type }"/>'> <input
+				type='hidden' name='keyword'
+				value='<c:out value="${ pageMaker.cri.keyword }"/>'>
+		</form>
+	</nav>
 	<!-- 맨 위로 올라가기 버튼 -->
 	<div class="Topbutton_topButton__35AKX">
 		<img class="Topbutton_topButtonImage__2Klzb"

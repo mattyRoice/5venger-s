@@ -393,7 +393,7 @@ public class UserController {
 	
     @Autowired
     private BoardService boardService;
-    // 관심글 for문으로 받아오기
+    // 관심글bno for문으로 받아오기
     @GetMapping("/interest/{uid}")
     public String getInterest(@PathVariable String uid, Model model) {
         List<Integer> interestList = boardService.getInterest(uid);
@@ -403,7 +403,7 @@ public class UserController {
         }
         model.addAttribute("interestList", interestList);
         return "interestPage";
-    }
+    } 
 
 	// 사용자 작성 글 목록
 	@GetMapping("/write")
