@@ -17,6 +17,8 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
+	 <!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/css/main.css" type="text/css" />
 <script>
 	var uidkeys = [];
@@ -330,10 +332,10 @@ a:-webkit-any-link {
 		<div id="uploadResult">
 		<div class='uploadResult'>
 		<ul>
-		<li><img id="photo" class="avatar_userImg__hogPI" width="30px"
-		height="30px" src="/resources/Images/profileLogo.png" alt="Profile Image"></li>
+			<li id="photo"></li>
 		</ul>													
 	</div>
+	
 	
 	</div>        
            
@@ -421,7 +423,10 @@ a:-webkit-any-link {
 </button>
 <%-- </c:forEach> --%>
 <script>
-(function(){
+$(document).ready(function() {
+	
+	// jsh <nav> 태그 사용자 이미지 불러오기
+	(function(){
 		
 		var uidKey = '<c:out value="${ loginUser.uidKey }"/>';
 		console.log(uidKey);
@@ -441,6 +446,31 @@ a:-webkit-any-link {
 						
 		
 	})();//end function	
+	
+	// jsh 글 작성자 이미지 불러오기
+	(function(){
+		
+		var uidKey = '<c:out value="${ board.uidkey }"/>';
+		console.log(uidKey);
+		var targetB = $("#photo");
+		
+		$.getJSON("/user/getAttachList", {uidKey:uidKey}, function(arr){
+			console.log(arr);
+			if(arr.length == 0){				
+				targetB.html("<img width='30px' height='30px' style='border-radius: 50%' src='/resources/Images/profileLogo.png'>");
+			} else {
+				$(arr).each(function(i, attach){
+					var fileCallPath =  encodeURIComponent( attach.uploadPath+ "/s_"+attach.uuid +"_"+attach.fileName);
+					targetB.html("<img width='40px' height='40px' style='border-radius: 50%' width='40px' src='/display?fileName="+fileCallPath+"'>");
+				});
+			}			 
+		}); //end getjson						
+						
+		
+	})();//end function	
+}); // end ready	
+		
+	
 	</script>
 	
 	
