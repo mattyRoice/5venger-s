@@ -74,19 +74,17 @@ public class BoardController {
 	@PostMapping("/modify")
 	public String modify(BoardVO board, StackVO stack, FieldVO field, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		log.info("modify:" + board);
-		log.info("modify:" + stack);
-		log.info("modify:" + field);
 		
 		if(service.modify(board)) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		
-		rttr.addAttribute("pageNum", cri.getPageNum());
-		rttr.addAttribute("amount", cri.getAmount());
-		rttr.addAttribute("type", cri.getType());
-		rttr.addAttribute("keyword", cri.getKeyword());
+//		rttr.addAttribute("pageNum", cri.getPageNum());
+//		rttr.addAttribute("amount", cri.getAmount());
+//		rttr.addAttribute("type", cri.getType());
+//		rttr.addAttribute("keyword", cri.getKeyword());
 		
-		return "redirect:/board/main";
+		return "redirect:/board/main" + cri.getListLink();
 	}
 	
 	@PostMapping("/remove")
@@ -95,12 +93,12 @@ public class BoardController {
 		if(service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		rttr.addAttribute("pageNum", cri.getPageNum());
-		rttr.addAttribute("amount", cri.getAmount());
-		rttr.addAttribute("type", cri.getType());
-		rttr.addAttribute("keyword", cri.getKeyword());
-		
-		return "redirect:/board/list";
+//		rttr.addAttribute("pageNum", cri.getPageNum());
+//		rttr.addAttribute("amount", cri.getAmount());
+//		rttr.addAttribute("type", cri.getType());
+//		rttr.addAttribute("keyword", cri.getKeyword());
+//		
+		return "redirect:/board/main" + cri.getListLink();
 	}
 	 
 	// 글 상세보기

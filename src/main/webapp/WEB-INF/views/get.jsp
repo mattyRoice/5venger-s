@@ -318,6 +318,8 @@ a:-webkit-any-link {
 <input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno }"/>'>
 <input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum }"/>'>
 <input type='hidden' name='amount' value='<c:out value="${cri.amount }"/>'>
+<input type='hidden' name='keyword' value='<c:out value="${cri.keyword }"/>'>
+<input type='hidden' name='type' value='<c:out value="${cri.type }"/>'>
 <section class="studyContent_postHeader__2Qu_y">
     <!--뒤로가기버튼-->
     <svg button onclick="goBack()" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" color="808080" cursor="pointer" height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="color: rgb(128, 128, 128);" margin-left="0px">
@@ -408,7 +410,7 @@ a:-webkit-any-link {
 <section class="studyContent_commentAndViews__LrV6X">
     <div class="studyContent_postComment__2lpJV">
         <div class="commentInput_commentInput__39H41">
-            <h1 class="commentInput_commentCount__2dHvH">${board.cnt }개의 댓글이 있습니다.</h1>
+            <h1 class="commentInput_commentCount__2dHvH">${board.replycnt }개의 댓글이 있습니다.</h1>
             <textarea class="commentInput_commentText__2er8t" placeholder="댓글을 입력하세요."></textarea>
             <div class="commentInput_buttonWrapper__2f_l9">
                 <button class="commentInput_buttonComplete__24z4R" id="addReplyBtn" name="register">댓글 등록</button>

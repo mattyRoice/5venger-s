@@ -546,8 +546,20 @@
 								</section>
 							</div>
 							<!-- /.panel-body -->
+							<!-- kdh 0422 화면이동시 url에 정보 담게끔 추가 -->
+							<form role="form" action="/board/modify" method="post">
+							<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
+							<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>
+							<input type='hidden' name='type'
+								value='<c:out value="${ pageMaker.cri.type }"/>'>
+							<input	type='hidden' name='keyword'
+								value='<c:out value="${ pageMaker.cri.keyword }"/>'>
+							</form>
+							
 						</div>
 						<!-- /.panel -->
+						
+						
 					</div>
 				</div>
 			</form>
@@ -563,6 +575,37 @@
 	<script src="../../../resources/js/userRegister.js"></script>	
 <script>
 	$(document).ready(function() {
+		
+		//kdh 화면이동 시 정보 담아서 화면이동하게끔 추가하기
+		var formObj = $("form");
+		
+		$('button').on("click", function(e) {
+			e.preventDefault();
+			
+			var operation = $(this).data("oper");
+			
+			console.log(operation);
+			
+			if(operation === 'remove') {
+				formObj.attr("action", "/board/remove");
+			} else if(operation === 'main') {
+				//move to main
+				formObj.attr("action", "/board/main").attr("method", "get");
+				
+				var pageNumTag = $("input[name='pageNum']").clone();
+				var amountTag = $("input[name='amount']").clone();
+				var keywordTag = $("input[name='keyword']").clone();
+				var typeTag = $("input[name='type']").clone();
+				
+				formObj.empty();
+				
+				formObj.appen(pageNumTag);
+				formObj.append(amountTag);
+				formObj.append(keywordTag);
+				formObj.append(typeTag);
+			}
+			formObj.submit();
+		});
 		
 		// jsh <nav> 태그 사용자 이미지 불러오기
 		(function(){			
