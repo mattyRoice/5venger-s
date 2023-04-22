@@ -69,6 +69,9 @@ public class UserController {
 	@Inject
 	private OAuth2Parameters googleOAuth2Parameters;
 	
+    @Autowired
+    private BoardService boardService;
+	
 	private UserVO user;
 	
 	public static final String LOGIN = "loginUser"; //이름이 loginUser인 세션
@@ -390,9 +393,7 @@ public class UserController {
 
 		return "interest";
 	}
-	
-    @Autowired
-    private BoardService boardService;
+
     // 관심글bno for문으로 받아오기
     @GetMapping("/interest/{uid}")
     public String getInterest(@PathVariable String uid, Model model) {
