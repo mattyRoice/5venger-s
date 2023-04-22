@@ -30,13 +30,18 @@
 					<%-- <h1>${ loginUser.unickName }</h1> --%>
 					
 			<% } else if (session.getAttribute("loginAdmin") != null) { %>
+				<!-- 관리자 navbar -->
+				<div class="navbar_login__3Ui--" style="pointer-events : none;">
+					<span class="fs-6">관리자</span><span class="fs-5">${ loginAdmin.aname }</span><span class="fs-6">님</span>
+				</div>
+				
 				<!-- 관리자용 드롭다운 메뉴 -->
 					<div class="dropdown" style="display: inline-block">
 			  			<a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<img class="rounded-circle" src="/resources/Images/adminProfileLogo.png" width=60 alt="Profile Image" >
 						</a>						
 						<ul class="dropdown-menu">
-						  <li><span class="dropdown-item fs-6 fw-bold mb-2">관리자 ${ loginAdmin.aname }님</span></li>
+						  <li><span class="dropdown-item fs-6 fw-bold mb-2">관리자페이지</span></li>
 						  <li><a class="dropdown-item fs-6 fw-bold" href="/admin/logout">로그아웃</a></li>
 						</ul>			  
 					</div>
