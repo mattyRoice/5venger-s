@@ -433,11 +433,11 @@ a:-webkit-any-link {
     </div>
 </section><!--댓글영역 끝-->
 
-<button data-oper='main'
+<!-- <button data-oper='main'
 	class="btn btn-info" style="color: #ff9149"
 	onclick="location.href='/board/main'">
 	Main으로 이동
-</button>
+</button> -->
 	<!-- kdh Modal -->
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
         aria-labelledby="myModalLabel" aria-hidden="true">
