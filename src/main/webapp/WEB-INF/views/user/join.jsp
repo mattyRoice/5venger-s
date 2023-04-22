@@ -40,7 +40,7 @@
 		  background-color: #ffffff;
 		}
 		
-		.form-join {
+		.join {
 		  width: 100%;
 		  max-width: 500px;
 		  padding: 15px;
@@ -206,7 +206,7 @@
 <!-- end for head -->
 <link rel="icon" href="/resources/Images/profileLogo.png">
 <body>
-	
+	<div class="container text-center join">
 	<!-- 부트스트랩 https://getbootstrap.kr/docs/5.2/forms/floating-labels/ -->
 	<form class="form-join" action="/user/register" method="post">
 	
@@ -302,8 +302,7 @@
 						</div>
 						<div class="photoDelete">
 							<button type="button" data-type="image" class="btn d-block"
-								id="photoDeleteBtn" style="background-color: #ff914d; color: #fff">이미지
-제거</button>
+								id="photoDeleteBtn" style="background-color: #ff914d; color: #fff">이미지 제거</button>
 							<i class='fa fa-times'></i>
 						</div>
 					</div>
@@ -314,8 +313,32 @@
 			</div>
 			
 		</form> <!-- form 태그 끝 -->
-	
-
+		<hr><!-- 소셜 회원가입 링크 -->					
+		   	<div id="google-login">
+				<a class="fw-semibold" href ="${ google_url }">
+				<span class="gicon">
+				<img src="/resources/Images/googleIcon.png" alt="Google Login">
+				</span>
+				구글 아이디로 회원가입						
+				</a>						
+			</div>
+			<div class="mt-2" id="naver-login">
+				<a class="fw-semibold" style="color:#fff" href = "${ naver_url }">
+				<span class="icon">
+				<img width= 60px height=60px src="/resources/Images/naverIcon.png" alt="Naver Login">
+				</span>
+				네이버 아이디로 회원가입
+				</a>
+			</div>
+			<div class="mt-2" id="kakao-login">
+				<a class="fw-semibold" href ="${ kakao_url }">
+				<span class="icon">
+				<img src="/resources/Images/kakaoIcon.png" alt="Kakao Login">
+				</span>
+				카카오 아이디로 회원가입
+				</a>
+			</div>
+		</div>
 	<!-- 회원가입 기능 작동을 위한 jquery -->
 	<script>
 	
