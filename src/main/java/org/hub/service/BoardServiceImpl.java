@@ -82,12 +82,41 @@ public class BoardServiceImpl implements BoardService {
 
 	}
 
+	// 글 수정하기
+	@Transactional
 	@Override
 	public boolean modify(BoardVO board) {
-
-		log.info("modify......" + board);
-
-		return mapper.update(board) == 1;
+	// 글 수정은 우선 기존 모집분야/관련스택 데이터 삭제 후 다시 데이터를 삽입하는 방식으로 동작
+		log.info("modify BoardServiceImpl ......" + board);
+		
+		fieldMapper.delete(board.getBno());
+		stackMapper.delete(board.getBno());
+		
+		// 1. board_tbl 수정
+		boolean modifyResult = mapper.update(board) == 1;
+		
+		// 2. board_tbl 수정이 되고, 모집분야가 null이 아니라면 boardfield_tbl에 데이터 삽입 진행
+		if(modifyResult && board.getFnames() != null && board.getFnames().length() > 0) {
+			String[] fnameList = board.getFnames().split(",");
+			for(String fname : fnameList) {
+				field.setBno(board.getBno()); // 보드의 bno를 BoardFieldVO의 bno에 등록
+				int fno = fieldMapper.getFno(fname); // fname를 이용해 mapper에서 fno를 찾고 변수 fno에 저장
+				field.setFno(fno); // fieldVO 의 fno에 변수 fno를 저장
+				fieldMapper.insertBoardField(field); // 그리고 sql에 등록
+			}
+		}
+		
+		// 3. board_tbl 수정이 되고, 관련스택이 null이 아니라면 boardstack_tbl에 데이터 삽입 진행
+		if(modifyResult && board.getSnames() != null && board.getSnames().length() > 0) {
+			String[] snameList = board.getSnames().split(",");
+			for(String sname : snameList) {
+				stack.setBno(board.getBno()); // 보드의 bno를 BoardStackVO의 bno에 등록
+				int sno = stackMapper.getSno(sname); // sname을 이용해 mapper에서 sno를 찾고 변수 sno에 저장
+				stack.setSno(sno); // StackVO의 sno에 변수 sno를 저장
+				stackMapper.insertBoardStack(stack); // 그리고 sql에 등록
+			}
+		}		
+		return modifyResult;
 	}
 
 	@Override

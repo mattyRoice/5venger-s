@@ -372,7 +372,11 @@
 				<h2 class="postRegister_text__17jg3">프로젝트 기본 정보를 입력해주세요.</h2>
 			</div>
 
-			<form role="form" action="/board/register" method="post">
+			<form role="form" action="/board/modify" method="post">		
+			<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>			
+			<input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
+			<input type='hidden' name='type' value='<c:out value="${cri.type}"/>'>
+			<input	type='hidden' name='keyword' value='<c:out value="${cri.keyword}"/>'>
 				<ul class="postinfo_inputList__3SKF-">
 					<li class="postinfo_listItem__OFhXr"><label
 						class="selectbox_labelText__3Q9iz" for="onoffline">모집 인원</label>
@@ -423,7 +427,7 @@
 								<option id="5" value="ios">IOS</option>
 								<option id="6" value="안드로이드">안드로이드</option>
 								<option id="7" value="데브옵스">데브옵스</option>
-								<option id="8" value="PM">PM</option>
+								<option id="8" value="pm">PM</option>
 								
 							</select>
 						</div>
@@ -449,11 +453,11 @@
 								<option id="12" value="python">Python</option>
 								<option id="13" value="django">Django</option>
 								<option id="14" value="swift">Swift</option>
-								<option id="15" value="mySQL">MySQL</option>
+								<option id="15" value="mysql">MySQL</option>
 								<option id="16" value="kotlin">Kotlin</option>
-								<option id="17" value="mongoDB">MongoDB</option>
+								<option id="17" value="mongodb">MongoDB</option>
 								<option id="18" value="php">php</option>
-								<option id="19" value="graphQL">GraphQL</option>
+								<option id="19" value="graphql">GraphQL</option>
 								<option id="20" value="firebase">Firebase</option>
 								<option id="21" value="reactNative">ReactNative</option>
 								<option id="22" value="unity">Unity</option>
@@ -541,25 +545,13 @@
 									<textarea class="form-control" rows="15" id="content" name='content'></textarea>
 								</div>
 								<section class="writebutton_buttons__2qW83">
-									<button class="writebutton_cancelButton__2W7b_">취소</button>
-									<button class="writebutton_registerButton__n_O2M">수정</button>
+									<button type="submit" data-oper='reset' class="writebutton_cancelButton__2W7b_">취소</button>
+									<button type="submit" data-oper='modify' class="writebutton_registerButton__n_O2M">수정완료</button>
 								</section>
 							</div>
 							<!-- /.panel-body -->
-							<!-- kdh 0422 화면이동시 url에 정보 담게끔 추가 -->
-							<form role="form" action="/board/modify" method="post">
-							<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
-							<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>
-							<input type='hidden' name='type'
-								value='<c:out value="${ pageMaker.cri.type }"/>'>
-							<input	type='hidden' name='keyword'
-								value='<c:out value="${ pageMaker.cri.keyword }"/>'>
-							</form>
-							
 						</div>
 						<!-- /.panel -->
-						
-						
 					</div>
 				</div>
 			</form>
@@ -575,37 +567,6 @@
 	<script src="../../../resources/js/userRegister.js"></script>	
 <script>
 	$(document).ready(function() {
-		
-		//kdh 화면이동 시 정보 담아서 화면이동하게끔 추가하기
-		var formObj = $("form");
-		
-		$('button').on("click", function(e) {
-			e.preventDefault();
-			
-			var operation = $(this).data("oper");
-			
-			console.log(operation);
-			
-			if(operation === 'remove') {
-				formObj.attr("action", "/board/remove");
-			} else if(operation === 'main') {
-				//move to main
-				formObj.attr("action", "/board/main").attr("method", "get");
-				
-				var pageNumTag = $("input[name='pageNum']").clone();
-				var amountTag = $("input[name='amount']").clone();
-				var keywordTag = $("input[name='keyword']").clone();
-				var typeTag = $("input[name='type']").clone();
-				
-				formObj.empty();
-				
-				formObj.appen(pageNumTag);
-				formObj.append(amountTag);
-				formObj.append(keywordTag);
-				formObj.append(typeTag);
-			}
-			formObj.submit();
-		});
 		
 		// jsh <nav> 태그 사용자 이미지 불러오기
 		(function(){			
@@ -693,8 +654,7 @@
 
 				})
 				
-		})(); // end 기술 스택 function
-		
+		})(); // end 기술 스택 function	
 		
 		$("#deadline").val(deadline); // 마감일 초기화
 		$("#period").val(period); // 진행기간 초기화
@@ -702,7 +662,54 @@
 		$("#title").val(title);// 제목 초기화
 		$("#content").val(content);// 프로젝트 내용 초기화
 		
+		/* (페이징 정보 넘어오는지 cri 확인) */
+		var pn = '<c:out value="${cri.pageNum}"/>';
+		console.log(pn);
+		
+		/* 글 수정한 것 form 보내기 */
+		var formObj = $("form[role='form']");
+		var bno = "<c:out value="${board.bno}" />";  //게시물 BNO
+		
+		$("button[type='submit']").on("click", function(e){ //submit 버튼 눌렸을 때
+			    
+			e.preventDefault();
+			
+			var operation = $(this).data("oper");
+			
+			console.log("submit clicked");       
+			console.log(operation);
+			if(operation === 'reset'){
+				formObj.attr("action", "/board/get").attr("method", "get");
+			} else if(operation === 'modify'){
+				// 제목 빈칸인지 확인
+				var titleck = $('#title').val();
+				if(titleck == null || titleck.trim() == ''){
+					alert('제목을 입력해주세요.');
+					return;
+				}
+			}
+			
+		
+		/* 페이징 정보 */
+		var pageNumTag = $("input[name='pageNum']").clone();
+		var amountTag = $("input[name='amount']").clone();
+		var keywordTag = $("input[name='keyword']").clone();
+		var typeTag = $("input[name='type']").clone();
+		
+		formObj.append(pageNumTag);
+		formObj.append(amountTag);
+		formObj.append(keywordTag);
+		formObj.append(typeTag);
+		/* 페이징 정보 담기 끝 */
+		
+		formObj.append("<input type='hidden' name='bno' value='"+bno+"'>");
+		formObj.submit();
+		
+		}); //submit 버튼 눌렸을 때	
+		
 	}); // end ready
+	
+	
 </script>
 <script>
 	//uidkey.push('${board.uidkey}');

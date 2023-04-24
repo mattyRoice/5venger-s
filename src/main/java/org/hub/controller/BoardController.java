@@ -71,19 +71,45 @@ public class BoardController {
 		return "redirect:/board/main";
 	}
 	
+	// 글 수정화면
+	@GetMapping(value= "/modify")
+	public String modifyView(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) {
+		log.info("/ modify");
+		model.addAttribute("board", service.get(bno));
+		model.addAttribute("cri", cri);
+		log.info("cri 확인(0)[화면갈때] :" + cri);
+		return "modify";			
+	}
+	
+	// 글 수정 POST
 	@PostMapping("/modify")
-	public String modify(BoardVO board, StackVO stack, FieldVO field, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
-		log.info("modify:" + board);
-		
-		if(service.modify(board)) {
-			rttr.addFlashAttribute("result", "success");
+	public String modify(BoardVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
+		log.info("글 수정 POST 컨트롤러 = = = = = ");
+		log.info("수정 내용 반영된 board : " + board);
+		log.info("cri 확인(1) :" + cri);
+		// field 선택된 것 log로 확인
+		if(board.getFnames() != null) {
+			String[] fnameList = board.getFnames().split(",");
+			for(String fname : fnameList) {
+				log.info(fname);
+			}
 		}
 		
-//		rttr.addAttribute("pageNum", cri.getPageNum());
-//		rttr.addAttribute("amount", cri.getAmount());
-//		rttr.addAttribute("type", cri.getType());
-//		rttr.addAttribute("keyword", cri.getKeyword());
+		// stack 선택된 것 log로 확인
+		if(board.getSnames() != null) {
+			String[] snameList = board.getSnames().split(",");
+			for(String sname : snameList) {
+				log.info(sname);
+			}
+		}
 		
+		// service.modify() 호출
+		boolean result = service.modify(board);
+		if(result == true) {
+			rttr.addFlashAttribute("result", "글 수정이 되었습니다.");
+		}
+		// 페이징 정보 URL이 붙여서 페이징 정보 유지하며 화면 이동
+		log.info("cri 확인(2) :" + cri);
 		return "redirect:/board/main" + cri.getListLink();
 	}
 	
@@ -105,18 +131,12 @@ public class BoardController {
 	@GetMapping(value="/get")
 	public String get(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) {
 		log.info("/get");
+		log.info("cri 확인(get화면)) :" + cri);
 		model.addAttribute("board", service.get(bno));
 		return "get";	
 		
-	}
-		
-	// 글 수정화면
-	@GetMapping(value= "/modify")
-	public String modify(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) {
-		log.info("/ modify");
-		model.addAttribute("board", service.get(bno));
-		return "modify";			
-	}
+	}		
+
 	
 	@GetMapping("/reply")
 	public String getboard() {

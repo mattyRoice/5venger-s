@@ -52,7 +52,13 @@
 		#{uidkey}, #{content}, sysdate, #{deadline})
 	</insert>
 
-
+	<!-- jsh 수정하기 -->
+	<update id="update" parameterType="org.hub.domain.BoardVO">
+		update  board_tbl
+		set meet = #{meet}, membernum=#{memberNum}, contact=#{contact}, period=#{period}, title=#{title}, content=#{content}, deadline=#{deadline}
+		where bno = #{bno}
+	</update>
+	
 	<!-- 상세보기 -->
 	<select id="read" resultType="org.hub.domain.BoardVO">
 	<![CDATA[

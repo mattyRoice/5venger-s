@@ -8,6 +8,7 @@ import org.hub.domain.Criteria;
 public interface BoardMapper {
 
 	public List<BoardVO> getListWithPaging(Criteria cri);
+	
 	public List<BoardVO> getListWithPagingWithFilter(Criteria cri);
 	
 	public void insert(BoardVO board);
@@ -17,7 +18,8 @@ public interface BoardMapper {
 	public BoardVO read(int bno);
 
 	public int delete(int bno);
-
+	
+	// 게시글 수정하기 - 수정한 행 수 반환
 	public int update(BoardVO board);
 
 	public int getTotalCount(Criteria cri);
