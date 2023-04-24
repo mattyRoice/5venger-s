@@ -28,7 +28,11 @@
 <link rel="icon" href="/resources/Images/profileLogo.png">
 <body>
 <!-- 사용자 좋아요 목록(관심목록) 필터구현중 -->
-
+    <ul>
+        <c:forEach items="${interestList}" var="interest">
+            <li>${interest}</li>
+        </c:forEach>
+    </ul>
 
 	<!--  전체 바디 태그 root -->
 	<div id="root">
@@ -49,10 +53,8 @@
 		<section class="desktopFilter_filterWrapper__1gwsT">
 			<!--  인기, 프론트엔드, 백엔드, 모바일, 기타 필터 -->
 			<ul class="Category_categories__3bwPA">
-				<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es"><button id="searchBtn" class="Category_categoryItem__1ko8V ">추천글 목록</button></li>
+				<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es"><button id="searchBtn" class="Category_categoryItem__1ko8V ">관심글 목록</button></li>
 				<li class="Category_categoryItem__1ko8V "><button id="searchBtn" class="Category_categoryItem__1ko8V ">읽은글 목록</button></li>
-				<li class="Category_categoryItem__1ko8V "><button id="searchBtn" class="Category_categoryItem__1ko8V ">관심글 목록</button></li>
-				
 			</ul>
 			
 			<!--  검색 화면 -->

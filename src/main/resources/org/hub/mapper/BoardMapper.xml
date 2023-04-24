@@ -13,7 +13,7 @@
 
 	<!-- 관심목록 가져오기 -->
 	<select resultType="int" id="getInterest">
-		SELECT * FROM BOARD_TBL WHERE bno IN
+		SELECT bno FROM BOARD_TBL WHERE bno IN
 		(SELECT bno
 		FROM INTEREST_TBL
 		WHERE uidkey = #{uidkey})

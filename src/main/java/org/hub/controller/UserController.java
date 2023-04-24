@@ -37,6 +37,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.RequiredArgsConstructor;
@@ -380,31 +381,21 @@ public class UserController {
 		model.addAttribute("board", boardList);
 
 		session.setAttribute(LOGIN, user);
-		/* String uidKey = (String) session.getAttribute("uidKey"); */
 		int total = service.getTotal(cri);
-   
+
 		log.info("total: " + total);
 
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
-		
-		UserVO user = (UserVO)session.getAttribute(LOGIN);
-		String uidKey = user.getUidKey();
-		model.addAttribute("user", userService.get(uidKey));
 
+		UserVO user = (UserVO)session.getAttribute(LOGIN);
+		String uidKey = user.getUidKey(); 
+		model.addAttribute("user", userService.get(uidKey));
+		
+		List<Integer> interestList = service.getInterest(uidKey);
+		model.addAttribute("interestList", interestList);
+		
 		return "interest";
 	}
-
-    // 관심글bno for문으로 받아오기
-    @GetMapping("/interest/{uid}")
-    public String getInterest(@PathVariable String uid, Model model) {
-        List<Integer> interestList = boardService.getInterest(uid);
-        for (Integer interest : interestList) {
-            System.out.println(interest);
-            // 또는 다른 로직 처리
-        }
-        model.addAttribute("interestList", interestList);
-        return "interestPage";
-    } 
 
 	// 사용자 작성 글 목록
 	@GetMapping("/write")
