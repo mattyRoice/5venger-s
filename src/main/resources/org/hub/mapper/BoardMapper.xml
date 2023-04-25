@@ -137,10 +137,12 @@
 		where bno = #{bno}
 	</update>
 
-	<!-- 사용자 작성 글 목록 0422 YJ -->
+	<!-- 0422 YJ 사용자 작성 글 목록 -->
 	<select id="getListUserWrite"
 		resultType="org.hub.domain.BoardVO">
-		SELECT * from board_tbl where uidkey=#{uidkey}
+		SELECT bno, deadline, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
+		FROM (select * from board_view)
+		where uidkey=#{uidkey}
 	</select>
 
 
