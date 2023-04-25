@@ -15,42 +15,19 @@
 	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
 	     <!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		
+		<!-- custom css -->
+		<link rel="stylesheet" href="../../../resources/css/main.css" type="text/css" />
 	    <link rel="stylesheet" href="../../../resources/css/usermypage.css" type="text/css"/>
 	</head> 	    
 	<!-- end for head -->
 	
 	<body>
-		<!-- 상단에 고정시키기 -->
-		<nav class="navbar fixed-top"> 
-		  <div class="container-fluid">
-		    <!-- 로고 -->
-		    <div>				
-				<a href="/board/main"><img class="mb-3 rounded" src="/resources/Images/SHLogo.png" alt="StudyHybLogo" width="150"></a>
-			</div>
-			
-			<!-- 새글쓰기, 드롭다운 묶음 -->				
-			<div>
-				<div style="display: inline-block">
-					<a href="/board/register" id="newBoard" class="fs-5 fw-bolder me-2">새 글 쓰기</a>
-				</div>
-				<div class="dropdown" style="display: inline-block">
-		  			<a class="btn dropdown-toggle" id="dropImage" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						   
-					</a>						
-					   <ul class="dropdown-menu">
-						  <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/board/register">내 작성글</a></li>
-						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/interest">내 관심글</a></li>
-						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/user/mypage">설정</a></li>
-						   <li><a class="dropdown-item fs-6 fw-bold" href="/user/logout">로그아웃</a></li>
-						</ul>						  
-				</div>
-			</div>				
-			</div>									
-		</nav>
-		
-								
-		<div class="form-mypage">															
+	<!--  전체 바디 태그 root -->
+	<div id="root">
+		<!-- <nav> 태그 -->
+		<%@include file="../../includes/header.jsp"%>		
+										
+		<div class="form-mypage mt-5">															
 			<div class="text-start"><h3>내 정보 수정</h3></div>
 	  		<form action="/user/modify" role="form" method="post">
 	  			<!-- 이미지 수정 -->
@@ -147,7 +124,7 @@
 	  		</form>
 		
 	</div>	
-		
+	</div> <!-- root 끝 -->	
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>	
 		<!-- 관심 기술 태그용 -->
 		<script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>

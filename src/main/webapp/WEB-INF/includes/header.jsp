@@ -12,17 +12,15 @@
 					onclick="location.href='/board/register'">글쓰기</button>
 			
 			
-			<% if (session.getAttribute("loginUser") != null) { %>
-				<!-- 사용자 navbar -->
-						<button class="navbar_login__3Ui--" onclick="location.href='/user/write'">내 작성글</button>
-						<button class="navbar_login__3Ui--" onclick="location.href='/user/interest'">내 관심글</button>
-				
+			<% if (session.getAttribute("loginUser") != null) { %>				
 				<!-- 사용자 드롭다운 메뉴 -->
 					<div class="dropdown" style="display: inline-block">
 			  			<a class="btn dropdown-toggle" id="dropImage" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			  			
 						</a>						
-					   <ul class="dropdown-menu dropdown-menu-end">						  
+					   <ul class="dropdown-menu dropdown-menu-end">
+					   	   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/user/write">내 작성글</a></li>
+					   	   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/user/interest">내 관심글</a></li>						  
 						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/user/mypage">마이페이지</a></li>
 						   <li><a class="dropdown-item fs-6 fw-bold" href="/user/logout">로그아웃</a></li>
 						</ul>			  
