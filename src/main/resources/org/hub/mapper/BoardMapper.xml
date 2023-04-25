@@ -13,7 +13,7 @@
 
 	<!-- 관심목록 가져오기 -->
 	<select resultType="int" id="getInterest">
-		SELECT bno FROM BOARD_TBL WHERE bno IN
+		SELECT * FROM BOARD_TBL WHERE bno IN
 		(SELECT bno
 		FROM INTEREST_TBL
 		WHERE uidkey = #{uidkey})
@@ -33,6 +33,10 @@
 						</when>
 						<when test="type == 'W'.toString()">
 							writer like '%'||#{keyword}||'%'
+						</when>
+						<!-- 손준서 수정중 -->
+						<when test = "type == 'B'.toString()">
+							bno like '%'||#{keyword}||'%'
 						</when>
 					</choose>
 				</trim>

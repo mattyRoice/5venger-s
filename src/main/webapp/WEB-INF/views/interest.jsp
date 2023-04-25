@@ -61,18 +61,12 @@
 			<div class="search_container__2ExFE">
 				<div class='row'>
 					<div class="col-lg-12">
-						<form id='searchForm' action="/board/interest" method='get'>
+						<form id='searchForm' action="/board/main" method='get'>
 							<select name='type'>
-								<option value=""
-									<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
-								<option value="T"
-									<c:out value="${pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
-								<option value="C"
-									<c:out value="${pageMaker.cri.type eq 'C'?'selected':''}"/>>내용</option>
-								<option value="TC"
-									<c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}"/>>제목
-									or 내용</option>
-							</select> <input type='text' name='keyword'
+								<option value="B"
+									<c:out value="${pageMaker.cri.type eq 'B'?'selected':''}"/>>bno검색</option>
+							</select>
+							 <input type='text' name='keyword'
 								value='<c:out value="${pageMaker.cri.keyword }"/>'> <input
 								type='hidden' name='pageNum'
 								value='<c:out value="${pageMaker.cri.pageNum }"/>'> <input
@@ -85,14 +79,13 @@
 			</div>
 		</section>
 		
-		
 		<!--  메인 게시글 -->
 		<main class="mainContent_main_F2EU9">
-			
 			<div class="container">
 				<div class="row">
 
 					<c:forEach items="${board}" var="board">
+						<c:if test="${interestList.contains(board.bno)}"> <!-- only extract the ones with bno in interestList -->
 						<div class="col-lg-3">
 							<div class="card" style="width: 100%">
 								<div class="card-body move" href='<c:out value="${board.bno }"/>'>
@@ -121,6 +114,7 @@
 										</p>
 									</div>
 									<!--게시글 제목-->
+
 									<h6 class="studyItem_title__2B_2o">
 										<c:out value="${board.title }" />
 									</h6>
@@ -204,6 +198,7 @@
 						<script>
 							uidkeys.push('${board.uidkey}');
 						</script>
+						</c:if>
 					</c:forEach>
 					<!--  메인 게시글 반복문 끝 -->
 				</div>
@@ -218,6 +213,7 @@
 	
 
 	<!-- 전체 바디 태그 root 끝 -->
+
 	<!--  pageNation -->
 	<nav aria-label="Page navigation">
 		<ul class="pagination  justify-content-center">
@@ -250,6 +246,7 @@
 				value='<c:out value="${ pageMaker.cri.keyword }"/>'>
 		</form>
 	</nav>
+
 	<!-- 맨 위로 올라가기 버튼 -->
 	<div class="Topbutton_topButton__35AKX">
 		<img class="Topbutton_topButtonImage__2Klzb"
