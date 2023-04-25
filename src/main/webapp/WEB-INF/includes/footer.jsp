@@ -64,6 +64,17 @@ $(document).ready(function() {
 		
 	})();//end function	
 	
+	//kdh 0425 관심버튼 클릭 이벤트
+	var intBtn = $('.studyItem_bookmark__2YtKX');
+	intBtn.on('click', function() {
+		event.preventDefault();
+		if ($(this).attr('src') === '/resources/Images/nonfilledheart.png') {
+	    	$(this).attr('src', '/resources/Images/filledheart.png');
+	  	} else {
+	    	$(this).attr('src', '/resources/Images/nonfilledheart.png');
+	  	}
+	});
+	
 	
 // 	// 카테고리 밑줄 치는 제이쿼리
 // 	$('.Category_categories__3bwPA li').click(function() {
@@ -173,11 +184,25 @@ $(document).ready(function() {
 		actionForm.submit();
 	});
 	
+	//kdh 0425 글 누를 시 상세 페이지 이동
 	$(".move").on("click", function(e) {
 		e.preventDefault();
 		actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>");
 		actionForm.attr("action", "/board/get");
 		actionForm.submit();
+	});
+	
+	// 관심버튼 클릭 이벤트
+	var intBtn = $('.move > .studyItem_bookmark__2YtKX');
+	intBtn.on('click', function(e) {
+		e.preventDefault(); // 기본 동작 취소
+		
+	  	if ($(this).attr('src') === '/resources/Images/nonfilledheart.png') {
+			$(this).attr('src', '/resources/Images/filledheart.png');
+		} else {
+	    	$(this).attr('src', '/resources/Images/nonfilledheart.png');
+	  	}
+		return false;
 	});
 	
 	var searchForm = $("#searchForm");
