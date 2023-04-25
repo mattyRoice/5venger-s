@@ -51,22 +51,22 @@
 		</selectKey>
 
 		insert into board_tbl (bno, meet, membernum, contact, period, title,
-		uidkey, content, regdate, deadline)
+		uidkey, content, regdate, deadline,contactaddress)
 		values (#{bno},#{meet}, #{memberNum}, #{contact}, #{period}, #{title},
-		#{uidkey}, #{content}, sysdate, #{deadline})
+		#{uidkey}, #{content}, sysdate, #{deadline},#{contactaddress})
 	</insert>
 
 	<!-- jsh 수정하기 -->
 	<update id="update" parameterType="org.hub.domain.BoardVO">
 		update  board_tbl
-		set meet = #{meet}, membernum=#{memberNum}, contact=#{contact}, period=#{period}, title=#{title}, content=#{content}, deadline=#{deadline}
+		set meet = #{meet}, membernum=#{memberNum}, contactaddress= #{contactaddress}, contact=#{contact}, period=#{period}, title=#{title}, content=#{content}, deadline=#{deadline}
 		where bno = #{bno}
 	</update>
 	
 	<!-- 상세보기 -->
 	<select id="read" resultType="org.hub.domain.BoardVO">
 	<![CDATA[
-	SELECT bno, deadline,meet, memberNum,regdate, period, contact,content, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
+	SELECT bno, deadline,meet, memberNum,regdate, period, contact,contactaddress,content, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
 	FROM (select * from board_view_01)
 	WHERE bno=#{bno}
 	]]>

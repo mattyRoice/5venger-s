@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import ="org.hub.domain.BoardVO" %>
 
 <!DOCTYPE html>
@@ -25,6 +26,15 @@
 </script>
 <title>스터디허브</title>
 <style>
+.studyButtons_buttonWrapper__3tcIE {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+.studyButtons_buttons__12bG1 {
+    font-size: 16px;
+    color: #444;
+	}
 .studyContent_wrapper__VVyNH {
     max-width: 900px;
     width: 100%;
@@ -345,8 +355,54 @@ a:-webkit-any-link {
            
             <div class="studyContent_userName__1GBr8" ><c:out value="${board.uname }" /></div>
         </div>
-        <div class="studyContent_registeredDate__3lybC" ><c:out value="${board.regdate}"/></div></div>
+        <div class="studyContent_registeredDate__3lybC" ><fmt:formatDate value="${board.regdate}" pattern="YYYY-MM-dd"/></div></div>
    
+   
+   <!-- 사용자 수정,마감,삭제  -->
+    <c:if test="${loginUser.uidKey==board.uidkey}">
+    <section class="studyButtons_buttonWrapper__3tcIE">
+        <button class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#deadlineModal">마감</button>
+        
+ <!-- 마감 Modal -->
+<div class="modal fade" id="deadlineModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        마감 처리 하시겠어요?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='remove?bno=<c:out value="${board.bno}" />'" >네, 마감할게요</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <button onclick="location.href='modify?bno=<c:out value="${board.bno}" />'" class="studyButtons_buttons__12bG1">수정</button>
+        <button class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#removeModal">삭제</button>
+ 
+
+<!-- 삭제 Modal -->
+<div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        작성하신 글을 삭제 하시겠어요?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='remove?bno=<c:out value="${board.bno}" />'" >네, 삭제할래요</button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</c:if>
     
 
     <!--게시글 기본 정보 영역-->
@@ -366,7 +422,7 @@ a:-webkit-any-link {
         <li class="studyInfo_contentWrapper__KkSUP">
             <span class="studyInfo_title__3jXRE">연락 방법</span>
             <div class="contactPoint_contactWrapper__2T_GC">
-                <a class="contactPoint_link__2MqRR" href="https://open.kakao.com/o/sirqtbdf" target="_blank" rel="noreferrer">
+                <a class="contactPoint_link__2MqRR" href='https://<c:out value="${board.contactaddress}"/>' target="_blank" rel="noreferrer">
                     <span>${board.contact}</span><img class="contactPoint_linkImg__2_927" src="https://holaworld.io/images/info/link.svg" alt=""></a>
                  </div>
         </li>

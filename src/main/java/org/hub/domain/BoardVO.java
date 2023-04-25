@@ -10,6 +10,7 @@ public class BoardVO {
 	private String meet; // 온,오프라인 
 	private String memberNum; // 모집인원
 	private String contact; // 연락방법
+	private String contactaddress;//연락방법주소입력
 	private String period; // 스터디 진행 기간
 	private String title; // 글 제목
 	private String uidkey; // 유저 식별키

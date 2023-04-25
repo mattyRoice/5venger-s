@@ -42,7 +42,7 @@ public class BoardController {
 	}
 	
 	@PostMapping("/register")
-	public String registerProc(BoardVO board, HttpSession session) {
+	public String registerProc(BoardVO board, HttpSession session, RedirectAttributes rttr) {
 		System.out.println("글 등록 컨트롤러");
 		System.out.println();
 		System.out.println(session.getId());
@@ -66,7 +66,7 @@ public class BoardController {
 				log.info(sname);
 			}
 		}
-		 
+		rttr.addFlashAttribute("registerResult", "글 등록완료");
 		service.register(board);
 		return "redirect:/board/main";
 	}
@@ -106,18 +106,36 @@ public class BoardController {
 		// service.modify() 호출
 		boolean result = service.modify(board);
 		if(result == true) {
-			rttr.addFlashAttribute("result", "글 수정이 되었습니다.");
+			rttr.addFlashAttribute("modifyResult", "글 수정이 되었습니다.");
 		}
 		// 페이징 정보 URL이 붙여서 페이징 정보 유지하며 화면 이동
 		log.info("cri 확인(2) :" + cri);
 		return "redirect:/board/main" + cri.getListLink();
 	}
 	
+	
+	
+	@GetMapping("/remove")
+	public String remove(@RequestParam("bno") int bno, RedirectAttributes rttr) {
+		log.info("remove..." + bno);
+		if(service.remove(bno)) {
+			rttr.addFlashAttribute("removeResult", "삭제완료");
+		}
+
+		
+//		rttr.addAttribute("pageNum", cri.getPageNum());
+//		rttr.addAttribute("amount", cri.getAmount());
+//		rttr.addAttribute("type", cri.getType());
+//		rttr.addAttribute("keyword", cri.getKeyword());
+//		
+		return "redirect:/board/main";
+	}
+	
 	@PostMapping("/remove")
 	public String remove(@RequestParam("bno") int bno, Criteria cri, RedirectAttributes rttr) {
 		log.info("remove..." + bno);
 		if(service.remove(bno)) {
-			rttr.addFlashAttribute("result", "success");
+			rttr.addFlashAttribute("removeResult", "삭제완료");
 		}
 //		rttr.addAttribute("pageNum", cri.getPageNum());
 //		rttr.addAttribute("amount", cri.getAmount());
@@ -146,4 +164,3 @@ public class BoardController {
 		return "reply";
 	}
 }
-

@@ -514,7 +514,7 @@
 								<option value="Gogle">구글폼</option>
 								<option value="email">이메일</option>
 							</select> <input type="text" class="css-1iewm1a-control"
-								name="contactAddress" id="calladr" placeholder="링크 주소를 입력해주세요">
+								name="contactaddress" id="calladr" placeholder="링크 주소를 입력해주세요">
 						</div>
 					</li>
 					<li class="postinfo_listItem__OFhXr"></li>
@@ -593,6 +593,7 @@
 		var deadline = "<c:out value="${board.deadline}"/>"; //마감일
 		var period = "<c:out value="${board.period}" />"; //진행(예상)기간
 		var contact = "<c:out value="${board.contact}"/>"; //연락 방법
+		var contactaddress ="<c:out value="${board.contactaddress}"/>"; //연락 방법주소
 		var title = "<c:out value="${board.title}" />"; //제목
 		var content = "<c:out value="${board.content}" />";  //프로젝트내용
 		// 사용 언어
@@ -659,6 +660,7 @@
 		$("#deadline").val(deadline); // 마감일 초기화
 		$("#period").val(period); // 진행기간 초기화
 		$("#contact").val(contact);// 연락방법 초기화
+		$("#contactaddress").val(contactaddress); // 연락방법 주소초기화
 		$("#title").val(title);// 제목 초기화
 		$("#content").val(content);// 프로젝트 내용 초기화
 		
