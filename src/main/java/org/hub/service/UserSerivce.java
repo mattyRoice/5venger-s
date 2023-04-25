@@ -34,5 +34,8 @@ public interface UserSerivce {
 
 		// 회원 관심스택 불러오기
 		public List<UserStackVO> getStackList(String uidKey);
+		
+		// 비밀번호 변경
+		public boolean modify(String uidKey, String userPw);
 	
 }

@@ -540,7 +540,7 @@
 	    $(".form-join").append(istr);
 	    
 	    /* 회원가입 최종 유효성 검사 후 전송 */
-	    if((idCheck==true) && (idckCheck==true) && (pwCheck==true) && (pwckCheck==true) && (pwckcorCheck==true) && (nameCheck==true) && (nameckCheck==true) && (emailCheck==true)){
+	    if(idCheck && idckCheck && pwCheck && pwckCheck && pwckcorCheck && nameCheck && nameckCheck && emailCheck){
 	    	$(".form-join").submit();
 	    }
   });

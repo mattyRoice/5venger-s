@@ -41,4 +41,10 @@
 		set unickname = #{unickName} 
 		where uidkey = #{uidKey}
 	</update>
+	
+	<update id="modifyByAuth">
+		update user_tbl 
+		set userPw = #{userPw} 
+		where uidkey = #{uidKey}
+	</update>
 </mapper>

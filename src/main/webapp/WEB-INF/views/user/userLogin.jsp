@@ -45,6 +45,7 @@
 		
 		a:hover{
 			color:black;
+			cursor: pointer;
 		}
 		
 		#google-login{		
@@ -69,6 +70,10 @@
 			margin-right: 40px;
 		}
 		
+		.cookie-div{
+			margin-right: 180px;
+		}
+		
 	    </style>
 	    </head>
 <link rel="icon" href="/resources/Images/profileLogo.png">	    
@@ -81,13 +86,14 @@
 					<input type="text" id="inputId" class="form-control p-3 mt-3" name="uidKey" placeholder="사용자아이디"> 
 					<input type="password" id="inputPassword" class="form-control p-3 mt-1" name="userPw" placeholder="비밀번호">
 					
-					<div>
-						<div class="form-check mt-3 mb-2 me-4 text-start">
-						  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+					<div class="mt-2">
+						<div class="text-start cookie-div" style="display:inline">
+						  <input type="checkbox" value="" >
 						  로그인 상태 유지
-						</div>						
-						<!-- <a id="find">계정찾기</a> -->
-						
+						</div>
+						  <div class="text-end" style="display:inline">
+						  	<a href="/user/findpw">비밀번호 찾기</a>
+						  </div>																						
 					</div>
 					
 					

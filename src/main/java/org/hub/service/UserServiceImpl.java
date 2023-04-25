@@ -155,5 +155,16 @@ public class UserServiceImpl implements UserSerivce {
 		
 		return stackMapper.findByUidKey(uidKey);
 	}
+	
+	// 비밀번호 찾기 인증 후 비밀번호 변경
+	@Override
+	public boolean modify(String uidKey, String userPw) {
+		
+		log.info("pwd reset = " + uidKey + ":" + userPw);
+		
+		boolean modifyResult = mapper.modifyByAuth(uidKey, userPw)==1;
+
+		return modifyResult;
+	}
 
 }
