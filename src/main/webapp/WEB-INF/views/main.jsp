@@ -409,6 +409,8 @@
 											</div>
 										</div>
 									</section>
+									<!-- kdh 0425 관심버튼 추가 -->
+									<img class="studyItem_bookmark__2YtKX" src="https://holaworld.io/images/info/bookmark.png" alt="bookmark">
 								</div>
 								<!-- card-body 끝-->
 							</div>
