@@ -27,12 +27,6 @@
 </head>
 <link rel="icon" href="/resources/Images/profileLogo.png">
 <body>
-<!-- 사용자 좋아요 목록(관심목록) 필터구현중 -->
-    <ul>
-        <c:forEach items="${interestList}" var="interest">
-            <li>${interest}</li>
-        </c:forEach>
-    </ul>
 
 	<!--  전체 바디 태그 root -->
 	<div id="root">
@@ -56,36 +50,46 @@
 				<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es"><button id="searchBtn" class="Category_categoryItem__1ko8V ">관심글 목록</button></li>
 				<li class="Category_categoryItem__1ko8V "><button id="searchBtn" class="Category_categoryItem__1ko8V ">읽은글 목록</button></li>
 			</ul>
-			
-			<!--  검색 화면 -->
-			<div class="search_container__2ExFE">
-				<div class='row'>
-					<div class="col-lg-12">
-						<form id='searchForm' action="/board/main" method='get'>
-							<select name='type'>
-								<option value="B"
-									<c:out value="${pageMaker.cri.type eq 'B'?'selected':''}"/>>bno검색</option>
-							</select>
-							 <input type='text' name='keyword'
-								value='<c:out value="${pageMaker.cri.keyword }"/>'> <input
-								type='hidden' name='pageNum'
-								value='<c:out value="${pageMaker.cri.pageNum }"/>'> <input
-								type='hidden' name='amount'
-								value='<c:out value="${pageMaker.cri.amount }"/>'>
-							<button class='btn btn-default'>Search</button>
-						</form>
-					</div>
-				</div>
-			</div>
 		</section>
 		
 		<!--  메인 게시글 -->
 		<main class="mainContent_main_F2EU9">
+			<!--  게시글 카테고리 -->
+			<div class="mainContent_categoryWrapper__1n063">
+				<div class="findMyPosition_selectWrapper__23xHq">
+					<div class=" css-2b097c-container">
+						<span aria-live="polite" aria-atomic="false"
+							aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
+
+						<select class="form-select form-select-lg mb-3"
+							aria-label=".form-select-lg example">
+							<option selected>내 포지션 찾기</option>
+							<option value="all">전체</option>
+							<option value="front">프론트엔드</option>
+							<option value="back">백엔드</option>
+							<option value="ios">IOS</option>
+							<option value="android">안드로이드</option>
+							<option value="devops">DevOps</option>
+							<option value="designer">디자이너</option>
+							<option value="pm">PM</option>
+						</select>
+					</div>
+				</div>
+				<div class="toggleSwitch_switch__hglrb">
+					<span class="toggleSwitch_switchTitle__1g_TJ">모집 중만 보기</span>
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" role="switch"
+							id="flexSwitchCheckChecked" checked>
+					</div>
+					</label>
+				</div>
+			</div>
+
 			<div class="container">
 				<div class="row">
 
 					<c:forEach items="${board}" var="board">
-						<c:if test="${interestList.contains(board.bno)}"> <!-- only extract the ones with bno in interestList -->
+					<c:if test="${interestList.contains(board.bno)}"> <!-- only extract the ones with bno in interestList -->
 						<div class="col-lg-3">
 							<div class="card" style="width: 100%">
 								<div class="card-body move" href='<c:out value="${board.bno }"/>'>
@@ -114,7 +118,7 @@
 										</p>
 									</div>
 									<!--게시글 제목-->
-
+ 
 									<h6 class="studyItem_title__2B_2o">
 										<c:out value="${board.title }" />
 									</h6>
@@ -188,6 +192,8 @@
 											</div>
 										</div>
 									</section>
+									<!-- kdh 0425 관심버튼 추가 -->
+									<img class="studyItem_bookmark__2YtKX" src="/resources/Images/nonfilledheart.png" alt="bookmark">
 								</div>
 								<!-- card-body 끝-->
 							</div>
