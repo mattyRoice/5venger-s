@@ -14,6 +14,8 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/css/main.css" type="text/css" />
 <script>
 	var uidkeys = [];
@@ -307,7 +309,7 @@
 				<div class="row">
 
 					<c:forEach items="${board}" var="board">
-						<div class="col-lg-3">
+						<div id="card_${board.bno}" class="col-lg-3">
 							<div class="card" style="width: 100%">
 								<div class="card-body move" href='<c:out value="${board.bno }"/>'>
 									<!-- 스터디-->
@@ -420,6 +422,18 @@
 						
 						<script>
 							uidkeys.push('${board.uidkey}');
+						</script>
+						<script>
+							/* 마감일자 지난 카드 흐리게 만들기 */
+							var deadlineStr = '<c:out value="${board.deadline}"/>';
+						  	console.log(deadlineStr); // 콘솔창으로 값 확인
+						  	var deadlineDate = new Date(deadlineStr); // deadlineStr값을 Date 타입으로 변환
+						  	var today = new Date(); // 오늘날짜
+						  	var diffDays = Math.floor((deadlineDate - today) / (1000 * 60 * 60 * 24)); // 날짜 차이 계산
+						  	console.log(diffDays); // 콘솔창으로 날짜 차이 값 확인
+						  	if (diffDays < 0) {
+							    $("#card_${board.bno}").css("opacity", "0.5"); // 흐리게만들기
+							}
 						</script>
 					</c:forEach>
 					<!--  메인 게시글 반복문 끝 -->
