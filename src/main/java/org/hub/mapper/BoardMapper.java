@@ -39,4 +39,7 @@ public interface BoardMapper {
 	
 	//kdh 0426 댓글수 업데이트
 	public void updateReplyCnt(@Param("bno") int bno, @Param("amount") int amount);
+
+	// YJ 0426 읽은글 목록 가져오기
+	public List<BoardVO> getUserRead(String uidkey);
 }

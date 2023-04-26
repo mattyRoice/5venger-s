@@ -149,6 +149,14 @@
 		where uidkey=#{uidkey}
 	</select>
 
+	<!-- 0426 YJ 읽은글 목록 조회 -->
+	<select id="getUserRead" resultType="org.hub.domain.BoardVO">	
+		select userread_tbl.bno, bv.deadline, bv.uidkey ,bv.title, bv.uname, bv.fnames, bv.snames, bv.cnt, bv.replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
+		from (select * from board_view) bv left outer join userread_tbl
+		on bv.bno = userread_tbl.bno
+		where userread_tbl.uidkey=#{uidkey}
+	</select>
+
 
 
 </mapper>

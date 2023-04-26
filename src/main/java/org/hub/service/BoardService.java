@@ -34,4 +34,7 @@ public interface BoardService {
 	
 	// 작성글 목록 가져오기
 	public List<BoardVO> getListUserWrite(String uidkey);
+	
+	// 읽은글 목록 가져오기
+	public List<BoardVO> getUserRead(String uidkey);
 }

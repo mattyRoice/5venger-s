@@ -485,7 +485,26 @@ public class UserController {
 	    model.addAttribute("user", userService.get(uidkey));
 
 	    return "userWrite";
-	}      
+	}   
 	
+	// 사용자 읽은 글 목록
+	@GetMapping("/read")
+	public String getRead(Model model, HttpSession session) {
+		System.out.println("읽은 글 목록으로 이동 YJ");
+		log.info("읽은 글 목록으로 이동 YJ");
+
+		// 로그인한 사용자 정보 가져오기
+	    UserVO user = (UserVO)session.getAttribute(LOGIN);
+	    String uidkey = user.getUidKey();
+
+	    List<BoardVO> userReadList = service.getUserRead(uidkey); // uidKey 파라미터 전달
+	    model.addAttribute("board", userReadList);
+
+	    session.setAttribute(LOGIN, user);
+
+	    model.addAttribute("user", userService.get(uidkey));
+
+	    return "userRead";
+	}  
 	
 }
