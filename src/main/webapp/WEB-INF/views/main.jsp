@@ -426,13 +426,26 @@
 						<script>
 							/* 마감일자 지난 카드 흐리게 만들기 */
 							var deadlineStr = '<c:out value="${board.deadline}"/>';
-						  	console.log(deadlineStr); // 콘솔창으로 값 확인
-						  	var deadlineDate = new Date(deadlineStr); // deadlineStr값을 Date 타입으로 변환
-						  	var today = new Date(); // 오늘날짜
-						  	var diffDays = Math.floor((deadlineDate - today) / (1000 * 60 * 60 * 24)); // 날짜 차이 계산
-						  	console.log(diffDays); // 콘솔창으로 날짜 차이 값 확인
+						  	console.log(deadlineStr);
+						  	var deadlineDate = new Date(deadlineStr);
+						  	var today = new Date(); 
+						  	var diffDays = Math.floor((deadlineDate - today) / (1000 * 60 * 60 * 24));
+						  	console.log(diffDays);
 						  	if (diffDays < 0) {
-							    $("#card_${board.bno}").css("opacity", "0.5"); // 흐리게만들기
+						  		 var expireDiv = $("<div>", { id: "expire", class: "move w-50 p-3 text-center fw-semibold rounded-4", href:"<c:out value="${board.bno }"/>", text: "모집마감" });
+						  		 expireDiv.css({
+						  		    position: "absolute",
+						  		    top: "40%",
+						  		    left: "25%",
+						  		    background: "black",
+						  		    color: "white",
+						  		  	"z-index": 9999,
+						  		  	cursor: "pointer"
+						  		  });
+						  		$("#card_${board.bno}").css("position", "relative");  
+						  		$("#card_${board.bno}").prepend(expireDiv);
+							    $("#card_${board.bno}").css("opacity", "0.5");
+							    
 							}
 						</script>
 					</c:forEach>
