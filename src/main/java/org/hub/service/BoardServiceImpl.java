@@ -8,6 +8,7 @@ import org.hub.domain.BoardFieldVO;
 import org.hub.domain.BoardStackVO;
 import org.hub.domain.BoardVO;
 import org.hub.domain.Criteria;
+import org.hub.domain.UserReadVO;
 import org.hub.mapper.BoardFieldMapper;
 import org.hub.mapper.BoardMapper;
 import org.hub.mapper.BoardStackMapper;
@@ -191,6 +192,12 @@ public class BoardServiceImpl implements BoardService {
 		log.info("get List User Read : " + uidkey);
 		return mapper.getUserRead(uidkey);
 	}
+	
+	// YJ 04-26 읽은 글 DB 등록
+		public void saveUserRead(UserReadVO userread) {
+			log.info("saveUserRead......" + userread);
+			mapper.saveUserRead(userread);
+		}
 	
 	
 }

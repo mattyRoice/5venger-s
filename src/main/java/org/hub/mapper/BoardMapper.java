@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.hub.domain.BoardVO;
 import org.hub.domain.Criteria;
+import org.hub.domain.UserReadVO;
 
 public interface BoardMapper {
 
@@ -40,6 +41,9 @@ public interface BoardMapper {
 	//kdh 0426 댓글수 업데이트
 	public void updateReplyCnt(@Param("bno") int bno, @Param("amount") int amount);
 
-	// YJ 0426 읽은글 목록 가져오기
+	// 읽은글 목록 가져오기
 	public List<BoardVO> getUserRead(String uidkey);
+	
+	// 읽은 글 DB 등록
+	public void saveUserRead(UserReadVO userread);
 }

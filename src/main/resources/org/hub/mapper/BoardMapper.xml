@@ -149,6 +149,7 @@
 		where uidkey=#{uidkey}
 	</select>
 
+	<!-- 읽은 글 목록 -->
 	<!-- 0426 YJ 읽은글 목록 조회 -->
 	<select id="getUserRead" resultType="org.hub.domain.BoardVO">	
 		select userread_tbl.bno, bv.deadline, bv.uidkey ,bv.title, bv.uname, bv.fnames, bv.snames, bv.cnt, bv.replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
@@ -157,6 +158,11 @@
 		where userread_tbl.uidkey=#{uidkey}
 	</select>
 
+	<!-- 0426 YJ 읽은글 목록 DB 등록 -->
+	<insert id="saveUserRead" parameterType="org.hub.domain.UserReadVO">
+		insert into userread_tbl (urno, uidkey, bno, readtime) 
+		values (seq_userread.nextval, #{uidkey}, #{bno}, sysdate)
+	</insert>
 
 
 </mapper>

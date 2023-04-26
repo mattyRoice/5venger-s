@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hub.domain.BoardVO;
 import org.hub.domain.Criteria;
+import org.hub.domain.UserReadVO;
 
 public interface BoardService {
 	
@@ -37,4 +38,7 @@ public interface BoardService {
 	
 	// 읽은글 목록 가져오기
 	public List<BoardVO> getUserRead(String uidkey);
+	
+	// 읽은 글 DB 등록
+	public void saveUserRead(UserReadVO userread);
 }

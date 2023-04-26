@@ -7,6 +7,7 @@ import org.hub.domain.Criteria;
 import org.hub.domain.FieldVO;
 import org.hub.domain.PageDTO;
 import org.hub.domain.StackVO;
+import org.hub.domain.UserReadVO;
 import org.hub.domain.UserVO;
 import org.hub.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -147,10 +148,22 @@ public class BoardController {
 	 
 	// 글 상세보기
 	@GetMapping(value="/get")
-	public String get(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) {
+	public String get(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model,
+			HttpSession session, UserReadVO userread) {
 		log.info("/get");
 		log.info("cri 확인(get화면)) :" + cri);
 		model.addAttribute("board", service.get(bno));
+		
+		//userread_tbl 에 데이터 넣기 위함
+		// 로그인한 사용자 정보 가져오기
+	    UserVO user = (UserVO)session.getAttribute(LOGIN);
+		if(user!=null){
+			String uidKey = user.getUidKey();
+			userread.setUidkey(uidKey);
+			userread.setBno(bno);
+			service.saveUserRead(userread);
+		}				
+		
 		return "get";	
 		
 	}		
