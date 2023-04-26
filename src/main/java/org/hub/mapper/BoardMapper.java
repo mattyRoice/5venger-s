@@ -1,7 +1,8 @@
 package org.hub.mapper;
      
 import java.util.List;
-     
+
+import org.apache.ibatis.annotations.Param;
 import org.hub.domain.BoardVO;
 import org.hub.domain.Criteria;
 
@@ -35,4 +36,7 @@ public interface BoardMapper {
 	
 	// 작성글 목록 가져오기
 	public List<BoardVO> getListUserWrite(String uidkey);
+	
+	//kdh 0426 댓글수 업데이트
+	public void updateReplyCnt(@Param("bno") int bno, @Param("amount") int amount);
 }

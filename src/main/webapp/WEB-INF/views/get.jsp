@@ -313,6 +313,66 @@ a:-webkit-any-link {
     cursor: pointer;
     text-decoration: underline;
 }
+.page-link {
+  color: #000; 
+  background-color: #ff9149;
+  border: 1px solid #ccc; 
+}
+
+.page-item.active .page-link {
+ z-index: 1;
+ color: #FFF;
+ font-weight:bold;
+ background-color: #ff9149;
+ border-color: #ff9149;
+ text-decoration-line: none;
+ 
+}
+
+.page-link:focus, .page-link:hover {
+  color: #000;
+  background-color: #ff9149; 
+  border-color: #ff9149;
+}
+
+.chat {
+	width:100%
+}
+.commentItem_commentContainer__3eMR4{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #e1e1e1;
+}
+.commentItem_commentHeader__3-Wux{
+	display: flex;
+    justify-content: space-between;
+}
+.commentItem_avatarWrapper__2J4nR{
+	display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+.commentItem_userImg__jWpVc{
+    display: block;
+    width: 52px;
+    height: 52px;
+    margin-right: 16px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.commentItem_commentInfo__5KL0S, .commentItem_title__36t1w{
+    display: flex;
+    flex-direction: column;
+}
+.commentItem_commentContent__1yK7o{
+    font-size: 1.125rem;
+    line-height: 1.7;
+    letter-spacing: -.004em;
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
 </style>
 </head>
 <link rel="icon" href="/resources/Images/profileLogo.png">
@@ -467,16 +527,18 @@ a:-webkit-any-link {
     <div class="studyContent_postComment__2lpJV">
         <div class="commentInput_commentInput__39H41">
             <h1 class="commentInput_commentCount__2dHvH">${board.replycnt }개의 댓글이 있습니다.</h1>
-            <form >
-	            <textarea class="commentInput_commentText__2er8t" placeholder="댓글을 입력하세요."></textarea>
-	            <div class="commentInput_buttonWrapper__2f_l9">
-	            <button class="commentInput_buttonComplete__24z4R" id="addReplyBtn" name="register">댓글 등록</button>
-            </div>
-            </form>
+            <c:if test="${loginUser.uidKey ne null}">
+	            <form >
+		            <textarea class="commentInput_commentText__2er8t" placeholder="댓글을 입력하세요."></textarea>
+		            <div class="commentInput_buttonWrapper__2f_l9">
+		            <button class="commentInput_buttonComplete__24z4R" id="addReplyBtn" name="register">댓글 등록</button>
+	            </div>
+	            </form>
+            </c:if>
             <!--  /.panel-heading -->
 			<div class="panel-body"> 
 			<!--  댓글 시작 -->
-				<ul class="chat">
+				<ul class="chat" id="commentList">
 				
 				</ul>
 				<!--  댓글 끝 -->
@@ -493,49 +555,7 @@ a:-webkit-any-link {
     </div>
 </section><!--댓글영역 끝-->
 
-<!-- <button data-oper='main'
-	class="btn btn-info" style="color: #ff9149"
-	onclick="location.href='/board/main'">
-	Main으로 이동
-</button> -->
-	<!-- kdh Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-        aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"
-                aria-hidden="true">&times;</button>
-              <h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label>Reply</label> 
-                <input class="form-control" name='reply' value='New Reply!!!!'>
-              </div>      
-              <div class="form-group">
-                <label>Replyer</label> 
-                <input class="form-control" name='replyer' value='${board.uname }' readonly >
-               
-              </div>
-              <div class="form-group">
-                <label>Reply Date</label> 
-                <input class="form-control" name='replyDate' value='2018-01-01 13:13'>
-              </div>
-      
-				</div>
-				<div class="modal-footer">
-					<button id='modalModBtn' type="button" class="btn btn-warning">Modify</button>
-					<button id='modalRemoveBtn' type="button" class="btn btn-danger">Remove</button>
-					<button id='modalRegisterBtn' type="button" class="btn btn-primary">Register</button>
-					<button id='modalCloseBtn' type="button" class="btn btn-default">Close</button>
-				</div>         
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal-dialog -->
-	</div>
-	<!-- /.modal -->
+
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.js"
 	integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
@@ -606,7 +626,8 @@ function goBack() {
 <script>
 	uidkeys.push('${board.uidkey}');
 	
-	var bnoValue = '<c:out value="${board.bno}"/>';
+	var bnoValue = '<c:out value="${board.bno}"/>'; // bno값 불러오기
+	var nameValue = '<c:out value="${board.uname}" />'; // uname 값 불러오기
 	
 	$(document).ready(function() {
 		
@@ -615,10 +636,14 @@ function goBack() {
 		  
 		    showList(1);
 		    
+		// 목록 보여주는 함수  
 		function showList(page){
 			
-			  console.log("show list " + page);
-		    
+			var userImage = "";
+			
+			console.log("show list " + page);
+			
+			// reply.js에 추가되어있는 replyService함수 호출
 		    replyService.getList({bno:bnoValue,page: page|| 1 }, function(replyCnt, list) {
 		      
 		    console.log("replyCnt: "+ replyCnt );
@@ -638,13 +663,16 @@ function goBack() {
 		     }
 		     
 		     for (var i = 0, len = list.length || 0; i < len; i++) {
-		       str +="<li class='left clearfix' data-rno='"+list[i].rno+"'>";
-		       str +="  <div><div class='header'><strong class='primary-font'>["
-		    	   +list[i].rno+"] "+list[i].replyer+"</strong>"; 
-		       str +="    <small class='pull-right text-muted'>"
-		           +replyService.displayTime(list[i].replyDate)+"</small></div>";
-		       str +="    <p>"+list[i].reply+"</p></div></li>";
-		     }
+			       str +="<li class='commentItem_commentContainer__3eMR4' data-rno='"+list[i].rno+"'>";
+			       str +="<section class='commentItem_commentHeader__3-Wux'>";
+			       str +="  <div class='commentItem_avatarWrapper__2J4nR'>"
+//	 		       str +="		<img class='commentItem_userImg__jWpVc' src='"+userImage+"' alt='사용자 이미지'>";
+			       str +="		<div class='commentItem_commentInfo__5KL0S'><div class='commentItem_title__36t1w'>"
+			       str +="			<div class='commentItem_userNickname__PQ8kV'>"+list[i].replyer+"</div>"
+			       str +="			<div class='commentItem_registeredDate__2TPJZ'>"+replyService.displayTime(list[i].replyDate)+"</div>"
+			       str +="		</div></div></div></section>"
+			       str +="<section class='commentItem_commentContent__1yK7o'><p class='commentItem_commentContent__1yK7o'>"+list[i].reply+"</p></section></li>"
+			 }
 		     
 		     replyUL.html(str);
 		     
@@ -658,6 +686,8 @@ function goBack() {
 		    var pageNum = 1;
 		    var replyPageFooter = $(".panel-footer");
 		    
+		    
+		    // 댓글 페이지 네이션
 		    function showReplyPage(replyCnt){
 		      
 		      var endNum = Math.ceil(pageNum / 10.0) * 10;  
@@ -711,78 +741,27 @@ function goBack() {
 		       showList(pageNum);
 		     });     
 
-		   
-		    var modal = $(".modal");
-		    var modalInputReply = modal.find("input[name='reply']");
-		    var modalInputReplyer = modal.find("input[name='replyer']");
-		    var modalInputReplyDate = modal.find("input[name='replyDate']");
-		    
-		    var modalModBtn = $("#modalModBtn");
-		    var modalRemoveBtn = $("#modalRemoveBtn");
-		    var modalRegisterBtn = $("#modalRegisterBtn");
-		    
-		    $("#modalCloseBtn").on("click", function(e){
-		    	
-		    	modal.modal('hide');
-		    });
-		    
-		    $("#addReplyBtn").on("click", function(e){
-		      
-		      modal.find("input").val("");
-		      modalInputReplyDate.closest("div").hide();
-		      modal.find("button[id !='modalCloseBtn']").hide();
-		      
-		      modalRegisterBtn.show();
-		      
-		      $(".modal").modal("show");
-		      
-		    });
+		 // 4-25 추가
+		    var comment = $('#comment');
 
-		    modalRegisterBtn.on("click",function(e){
+		    $("#addReplyBtn").on("click",function(e){
 		      
 		      var reply = {
-		            reply: modalInputReply.val(),
-		            replyer:modalInputReplyer.val(),
+		            reply: comment.val(),
+		            replyer:nameValue,
 		            bno:bnoValue
 		          };
 		      replyService.add(reply, function(result){
 		        
 		        alert(result);
-		        
-		        modal.find("input").val("");
-		        modal.modal("hide");
-		        
-		        //showList(1);
+		        		        
+		        showList(1);
 		        showList(-1);
 		        
 		      });
-		      
 		    });
 
-
-		  //댓글 조회 클릭 이벤트 처리 
-		    $(".chat").on("click", "li", function(e){
-		      
-		      var rno = $(this).data("rno");
-		      
-		      replyService.get(rno, function(reply){
-		      
-		        modalInputReply.val(reply.reply);
-		        modalInputReplyer.val(reply.replyer);
-		        modalInputReplyDate.val(replyService.displayTime( reply.replyDate))
-		        .attr("readonly","readonly");
-		        modal.data("rno", reply.rno);
-		        
-		        modal.find("button[id !='modalCloseBtn']").hide();
-		        modalModBtn.show();
-		        modalRemoveBtn.show();
-		        
-		        $(".modal").modal("show");
-		            
-		      });
-		    });
-		  
-
+ 			// kdh  댓글 수정
 		    modalModBtn.on("click", function(e){
 		    	  
 		   	  var reply = {rno:modal.data("rno"), reply: modalInputReply.val()};
@@ -797,7 +776,7 @@ function goBack() {
 		   	  
 		   	});
 
-
+			// kdh 댓글 삭제 
 		   	modalRemoveBtn.on("click", function (e){
 		   	  
 		   	  var rno = modal.data("rno");

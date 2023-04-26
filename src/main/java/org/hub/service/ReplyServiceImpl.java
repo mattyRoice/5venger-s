@@ -5,9 +5,11 @@ import java.util.List;
 import org.hub.domain.Criteria;
 import org.hub.domain.ReplyPageDTO;
 import org.hub.domain.ReplyVO;
+import org.hub.mapper.BoardMapper;
 import org.hub.mapper.ReplyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -19,9 +21,15 @@ public class ReplyServiceImpl implements ReplyService {
 	@Setter(onMethod_ = @Autowired)
 	private ReplyMapper mapper;
 	
+	@Setter(onMethod_ = @Autowired)
+	private BoardMapper boardMapper;
+	
+	// kdh 0425 추가
+	@Transactional
 	@Override
 	public int register(ReplyVO vo) {
 		log.info("register................." + vo);
+		boardMapper.updateReplyCnt(vo.getBno(), 1);
 		return mapper.insert(vo);
 	}
 
@@ -36,10 +44,15 @@ public class ReplyServiceImpl implements ReplyService {
 		log.info("modify...................." + vo);
 		return mapper.update(vo);
 	}
-
+	
+	@Transactional
 	@Override
 	public int remove(int rno) {
 		log.info("remove........................"+rno);
+		
+		ReplyVO vo = mapper.read(rno);
+		
+		boardMapper.updateReplyCnt(vo.getBno(), -1);
 		return mapper.delete(rno);
 	}
 
