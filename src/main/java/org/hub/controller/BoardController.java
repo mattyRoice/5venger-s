@@ -9,6 +9,7 @@ import org.hub.domain.PageDTO;
 import org.hub.domain.StackVO;
 import org.hub.domain.UserReadVO;
 import org.hub.domain.UserVO;
+import org.hub.interceptor.SessionNames;
 import org.hub.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,14 +30,14 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class BoardController {
 	
-	public static final String LOGIN = "loginUser"; //이름이 loginUser인 세션
+	//public static final String LOGIN = "loginUser"; //이름이 loginUser인 세션
 	
 	@Autowired
 	private BoardService service;
 	
 	@GetMapping("/register")
 	public String registerView(HttpSession session) throws Exception {
-		UserVO user = (UserVO)session.getAttribute(LOGIN);
+		UserVO user = (UserVO)session.getAttribute(SessionNames.LOGIN);
 		
 		log.info("새 글쓰기로 이동");
 		return "register";
@@ -48,7 +49,7 @@ public class BoardController {
 		System.out.println();
 		System.out.println(session.getId());
 		
-		UserVO user = (UserVO)session.getAttribute(LOGIN);
+		UserVO user = (UserVO)session.getAttribute(SessionNames.LOGIN);
 		
 		String uidkey = user.getUidKey();
 		System.out.println(uidkey);
@@ -156,7 +157,7 @@ public class BoardController {
 		
 		//userread_tbl 에 데이터 넣기 위함
 		// 로그인한 사용자 정보 가져오기
-	    UserVO user = (UserVO)session.getAttribute(LOGIN);
+	    UserVO user = (UserVO)session.getAttribute(SessionNames.LOGIN);
 		if(user!=null){
 			String uidKey = user.getUidKey();
 			userread.setUidkey(uidKey);

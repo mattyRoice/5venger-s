@@ -6,7 +6,9 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.hub.auth.SNSLogin;
@@ -17,6 +19,7 @@ import org.hub.domain.PageDTO;
 import org.hub.domain.UserAttachVO;
 import org.hub.domain.UserStackVO;
 import org.hub.domain.UserVO;
+import org.hub.interceptor.SessionNames;
 import org.hub.service.BoardService;
 import org.hub.service.MailCheckService;
 import org.hub.service.UserSerivce;
@@ -40,6 +43,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.util.WebUtils;
 
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -78,9 +82,10 @@ public class UserController {
     private BoardService boardService;
 	
 	private UserVO user;
+
 	
-	public static final String LOGIN = "loginUser"; //이름이 loginUser인 세션
-	
+	// public static final String LOGIN = "loginUser"; //이름이 loginUser인 세션
+	 
 	// 비밀번호 찾기 화면으로 이동
 	@GetMapping(value="/findpw")
 	public String findid() {
@@ -144,11 +149,19 @@ public class UserController {
 	}
 	// 로그아웃 그리고 메인화면으로
 	@GetMapping(value = "/logout")
-	public String logout(HttpSession session) throws Exception {
+	public String logout(HttpSession session, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		log.info("logout GET");
-		session.removeAttribute(LOGIN);
+		session.removeAttribute(SessionNames.LOGIN);
 		session.invalidate(); // 세션에 담아둔 모든 것을 비워 버리겠다
-
+		
+		Cookie loginCookie = WebUtils.getCookie(request, SessionNames.LOGIN);
+		if(loginCookie !=null ) {
+			// 쿠키 유효기간을 7일로 지정했는데, 없애려면 지금 시간으로 바꾸면 된다
+			loginCookie.setPath("/");
+			loginCookie.setMaxAge(0);
+			
+			response.addCookie(loginCookie);
+		}
 		return "redirect:/board/main";
 	}
 
@@ -180,26 +193,20 @@ public class UserController {
 
 	// 로그인 POST
 	@PostMapping(value = "/loginPost")
-	public String loginPOST(HttpServletRequest request, UserVO user, RedirectAttributes rttr) throws Exception {
+	public void loginPOST(HttpServletRequest request, UserVO user, Model model) throws Exception {
 		log.info("loginPost 메서드 진입");
 		log.info("전달된 데이터: " + user);
-
-		HttpSession session = request.getSession();
 
 		log.info("jsh 로그인 시도 유저 = = = = = " + user);
 
 		UserVO uvo = userService.login(user);
 
-		// 일치하지 않는 아이디,비밀번호 입력
-		if (uvo == null) {
-			int result = 0;
-			rttr.addFlashAttribute("result", result);
-			return "redirect:/user/login";
+		// 로그인 성공
+		if (uvo != null) {
+			model.addAttribute("user", user);			
+		} else { // 로그인 실패
+			model.addAttribute("loginResult", "아이디 또는 비밀번호가 일치하지 않습니다.");
 		}
-
-		// 일치하는 아이디,비밀번호 (로그인 성공)
-		session.setAttribute(LOGIN, uvo);
-		return "redirect:/board/main";
 	}
 
 	// 회원가입 화면 뿌리기
@@ -280,8 +287,8 @@ public class UserController {
 			// 4.1. 존재하지 않으면 회원가입 페이지로
 			return "/user/userRegister";
 		} else {
-			// 4.2. 존재시 유저정보 세션에 담기 및 메인페이지 이동
-			session.setAttribute(LOGIN, user);
+			// 4.2. 존재시 유저정보 세션에 강제로 담기 및 메인페이지 이동
+			session.setAttribute(SessionNames.LOGIN, user);
 			return "redirect:/board/main";
 		}
 
@@ -304,7 +311,7 @@ public class UserController {
 		userService.register(user);
 
 		// 세션에 가입한 user 객체 담고 메인화면으로
-		session.setAttribute(LOGIN, user);
+		session.setAttribute(SessionNames.LOGIN, user);
 		return "redirect:/board/main";
 	}
 
@@ -340,7 +347,7 @@ public class UserController {
 	public String mypageSet(HttpSession session, Model model) {
 		log.info("= = user mypage = = ");
 
-		UserVO user = (UserVO) session.getAttribute(LOGIN);
+		UserVO user = (UserVO) session.getAttribute(SessionNames.LOGIN);
 		String uidKey = user.getUidKey();
 
 		model.addAttribute("user", userService.get(uidKey));
@@ -350,7 +357,7 @@ public class UserController {
 
 	// 회원탈퇴
 	@PostMapping("/remove")
-	public String remove(@RequestParam("uidKey") String uidKey, RedirectAttributes rttr, HttpSession session) {
+	public String remove(@RequestParam("uidKey") String uidKey, RedirectAttributes rttr, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		log.info("remove..." + uidKey);
 		// 회원 탈퇴 전 회원의 이미지 파일 확보
 		List<UserAttachVO> attachList = userService.getAttachList(uidKey);
@@ -362,8 +369,17 @@ public class UserController {
 
 			rttr.addFlashAttribute("result", "success");
 		}
-		session.removeAttribute(LOGIN);
+		session.removeAttribute(SessionNames.LOGIN);
 		session.invalidate(); // 세션에 담아둔 모든 것을 비워 버리겠다
+		// 쿠키도 있으면 삭제
+		Cookie loginCookie = WebUtils.getCookie(request, SessionNames.LOGIN);
+		if(loginCookie !=null ) {
+			// 쿠키 유효기간을 7일로 지정했는데, 없애려면 지금 시간으로 바꾸면 된다
+			loginCookie.setPath("/");
+			loginCookie.setMaxAge(0);
+			
+			response.addCookie(loginCookie);
+		}
 		return "redirect:/board/main";
 	}
 
@@ -450,14 +466,14 @@ public class UserController {
 		List<BoardVO> boardList = service.getList(cri);
 		model.addAttribute("board", boardList);
 
-		session.setAttribute(LOGIN, user);
+		session.setAttribute(SessionNames.LOGIN, user);
 		int total = service.getTotal(cri);
 
 		log.info("total: " + total);
 
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 
-		UserVO user = (UserVO)session.getAttribute(LOGIN);
+		UserVO user = (UserVO)session.getAttribute(SessionNames.LOGIN);
 		String uidKey = user.getUidKey(); 
 		model.addAttribute("user", userService.get(uidKey));
 		
@@ -474,13 +490,13 @@ public class UserController {
 		log.info("작성 글 목록으로 이동 YJ");
 
 		// 로그인한 사용자 정보 가져오기
-	    UserVO user = (UserVO)session.getAttribute(LOGIN);
+	    UserVO user = (UserVO)session.getAttribute(SessionNames.LOGIN);
 	    String uidkey = user.getUidKey();
 
 	    List<BoardVO> userWriteList = service.getListUserWrite(uidkey); // uidKey 파라미터 전달
 	    model.addAttribute("board", userWriteList);
 
-	    session.setAttribute(LOGIN, user);
+	    session.setAttribute(SessionNames.LOGIN, user);
 
 	    model.addAttribute("user", userService.get(uidkey));
 
@@ -494,13 +510,13 @@ public class UserController {
 		log.info("읽은 글 목록으로 이동 YJ");
 
 		// 로그인한 사용자 정보 가져오기
-	    UserVO user = (UserVO)session.getAttribute(LOGIN);
+	    UserVO user = (UserVO)session.getAttribute(SessionNames.LOGIN);
 	    String uidkey = user.getUidKey();
 
 	    List<BoardVO> userReadList = service.getUserRead(uidkey); // uidKey 파라미터 전달
 	    model.addAttribute("board", userReadList);
 
-	    session.setAttribute(LOGIN, user);
+	    session.setAttribute(SessionNames.LOGIN, user);
 
 	    model.addAttribute("user", userService.get(uidkey));
 

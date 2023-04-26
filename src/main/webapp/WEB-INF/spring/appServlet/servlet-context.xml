@@ -96,4 +96,23 @@
 	        <!-- <beans:property name="scope" value="https://www.googleapis.com/auth/plus.login" /> -->
 	        <beans:property name="redirectUri" ref="googleRedirectUrl" />
 	</beans:bean>
+	
+	<!-- Interceptor -->
+	<beans:bean id="loginInterceptor" class="org.hub.interceptor.LoginInterceptor"/>
+	<beans:bean id="authInterceptor" class="org.hub.interceptor.AuthInterceptor"/>
+	
+	<interceptors>
+		
+		<interceptor>
+           <mapping path="/user/loginPost" />
+           <mapping path="/user/register"/>
+           <beans:ref bean="loginInterceptor" />
+       </interceptor>
+       
+		<interceptor>
+			<mapping path="/board/register"/>
+			<beans:ref bean="authInterceptor"/>
+		</interceptor>
+       
+	</interceptors>
 </beans:beans>

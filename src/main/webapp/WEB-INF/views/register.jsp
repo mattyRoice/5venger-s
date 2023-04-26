@@ -441,7 +441,7 @@
 								<option value="ios">IOS</option>
 								<option value="안드로이드">안드로이드</option>
 								<option value="데브옵스">데브옵스</option>
-								<option value="PM">PM</option>
+								<option value="pm">PM</option>
 								
 							</select>
 						</div>
@@ -467,11 +467,11 @@
 								<option value="python">Python</option>
 								<option value="django">Django</option>
 								<option value="swift">Swift</option>
-								<option value="mySQL">MySQL</option>
+								<option value="mysql">MySQL</option>
 								<option value="kotlin">Kotlin</option>
-								<option value="mongoDB">MongoDB</option>
+								<option value="mongodb">MongoDB</option>
 								<option value="php">php</option>
-								<option value="graphQL">GraphQL</option>
+								<option value="graphql">GraphQL</option>
 								<option value="firebase">Firebase</option>
 								<option value="reactnative">ReactNative</option>
 								<option value="unity">Unity</option>

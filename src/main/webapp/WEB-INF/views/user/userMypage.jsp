@@ -55,8 +55,18 @@
 					</div>
 				</div>
 								
-		    	<!-- 닉네임 수정 -->	
+		    	<!-- 이메일,닉네임 수정 -->	
 				<div class="container text-center mt-5">
+					<!-- 이메일 -->
+					<div id="emailShow" class="row">
+			   			<div class="col-5 text-start">
+							<p class="fs-5 fw-bolder mt-2">이메일</p>
+						</div>
+					    <div class="col-7 text-start">					    	
+							<input class="form-control" type="text" aria-label="default input example" value="<c:out value="${user.uemail}"/>" disabled="disabled">
+						</div>					
+					</div>
+					<!-- 닉네임 -->
 					<div class="row">
 			   			<div class="col-5 text-start">
 							<p class="fs-5 fw-bolder mt-2">닉네임</p>
@@ -246,6 +256,12 @@ $(document).ready(function(){
 				
 		});//end getjson				
 		
+ 		var uemail = null;
+		uemail = '<c:out value="${user.uemail}"/>';
+		console.log(uemail);
+		if(uemail == null || uemail.trim() === ""){
+			$('#emailShow').remove();
+		}
 	})();//end function	
 	
 });
@@ -408,16 +424,12 @@ $(document).ready(function(e){
 	
     console.log("delete file");
 	
-	if(confirm("Remove this file? ")){
+	if(confirm("이미지를 제거하시겠습니까?")){
 		 var targetLi = $(".uploadResult ul li img");
 		 targetLi.attr("src", "/resources/Images/profileLogo.png");
 	}
     
-   });
-
- 
-   
-  
+   });  
   
 });
 
