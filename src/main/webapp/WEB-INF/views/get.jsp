@@ -627,7 +627,7 @@ function goBack() {
 	uidkeys.push('${board.uidkey}');
 	
 	var bnoValue = '<c:out value="${board.bno}"/>'; // bno값 불러오기
-	var nameValue = '<c:out value="${board.uname}" />'; // uname 값 불러오기
+	var nameValue = '<c:out value="${loginUser.unickName}" />'; // uname 값 불러오기
 	
 	$(document).ready(function() {
 		
