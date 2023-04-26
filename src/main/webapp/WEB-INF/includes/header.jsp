@@ -49,7 +49,7 @@
 				<button class="navbar_login__3Ui--"
 							onclick="location.href='/user/login'">로그인</button>
 				<button class="navbar_login__3Ui--"
-							onclick="location.href='/user/join'">회원가입</button>
+							onclick="location.href='/user/join_'">회원가입</button>
 			<% } %>
 			
 					</div>    

@@ -105,7 +105,7 @@
 		
 		<interceptor>
            <mapping path="/user/loginPost" />
-           <mapping path="/user/register"/>
+           <mapping path="/user/join"/>
            <beans:ref bean="loginInterceptor" />
        </interceptor>
        

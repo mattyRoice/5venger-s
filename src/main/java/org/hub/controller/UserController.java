@@ -210,7 +210,7 @@ public class UserController {
 	}
 
 	// 회원가입 화면 뿌리기
-	@GetMapping(value = "/join")
+	@GetMapping(value = "/join_")
 	public String join(Model model) {
 		log.info("join 회원가입 선택 진입");
 
@@ -285,7 +285,7 @@ public class UserController {
 			model.addAttribute("newbie", snsUser);
 
 			// 4.1. 존재하지 않으면 회원가입 페이지로
-			return "/user/userRegister";
+			return "/user/snsJoin";
 		} else {
 			// 4.2. 존재시 유저정보 세션에 강제로 담기 및 메인페이지 이동
 			session.setAttribute(SessionNames.LOGIN, user);
@@ -295,10 +295,10 @@ public class UserController {
 	}
 
 	// 회원가입 POST
-	@PostMapping(value = "/register")
-	public String register(UserVO user, HttpSession session) throws Exception {
-		log.info("= = Post user Register = = ");
-		log.info("register: " + user);
+	@PostMapping(value = "/join")
+	public void joinPost(UserVO user, Model model) throws Exception {
+		log.info("= = Post user join = = ");
+		log.info("join: " + user);
 
 		if (user.getAttachList() != null) {
 			user.getAttachList().forEach(attach -> log.info(attach));
@@ -311,8 +311,7 @@ public class UserController {
 		userService.register(user);
 
 		// 세션에 가입한 user 객체 담고 메인화면으로
-		session.setAttribute(SessionNames.LOGIN, user);
-		return "redirect:/board/main";
+		model.addAttribute("user", user);
 	}
 
 	// 아이디 중복 검사
@@ -466,7 +465,8 @@ public class UserController {
 		List<BoardVO> boardList = service.getList(cri);
 		model.addAttribute("board", boardList);
 
-		session.setAttribute(SessionNames.LOGIN, user);
+		// jsh 0426 nullpointerError떠서 주석처리했습니다
+		//session.setAttribute(SessionNames.LOGIN, user);
 		int total = service.getTotal(cri);
 
 		log.info("total: " + total);

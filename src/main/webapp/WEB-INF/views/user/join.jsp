@@ -208,7 +208,7 @@
 <body>
 	<div class="container text-center join">
 	<!-- 부트스트랩 https://getbootstrap.kr/docs/5.2/forms/floating-labels/ -->
-	<form class="form-join" action="/user/register" method="post">
+	<form class="form-join" action="/user/join" method="post">
 	
 		
 			<!-- 로고 - 메인페이지 연결 -->
