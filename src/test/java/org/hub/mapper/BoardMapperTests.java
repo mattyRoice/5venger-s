@@ -44,7 +44,7 @@ public class BoardMapperTests {
 	public void setup() {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
 	}
-
+/*
 	@Test
 	public void testConvert() throws Exception {
 		Ticket ticket = new Ticket();
@@ -129,5 +129,24 @@ public class BoardMapperTests {
 			log.info("sjs " + list.get(i));
 		}
 	}
+	*/
+	// 관심글 등록하기
+	@Test
+	public void testInsertInterest() {
+		String uidkey = "2746970236";
+		int bno = 64;
+		mapper.insertInterest("2746970236", 64);
+		log.info("sjs insert----------" + uidkey + "bno: " + bno);
+		/* testGetInterest(); */
+	}
+
+	// 관심글 삭제하기
+		@Test
+		public void testDeleteInterest() {
+			String uidkey = "2746970236";
+			int bno = 64;
+			mapper.deleteInterest("2746970236", 64);
+			log.info("sjs delete----------" + uidkey + "bno: " + bno);  
+		}
 
 }

@@ -4,6 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.hub.mapper.BoardMapper">
 
+	<!-- 관심글 등록하기 -->
+ 	<insert id="insertInterest" parameterType="map">
+		INSERT INTO interest_tbl (uidkey, bno)
+		VALUES (#{uidkey}, #{bno})
+	</insert>
+	
+	<!-- 관심글 삭제하기 -->
+	<delete id="deleteInterest" parameterType="map">
+		DELETE FROM interest_tbl
+		WHERE uidkey = #{uidkey} AND bno = #{bno}
+	</delete> 		
+
 	<!-- 추천목록 가져오기 -->
 	<select resultType="int" id="getRecommend">
 		SELECT b.bno FROM boardstack_tbl b
