@@ -10,6 +10,7 @@ public class ReplyVO {
 	private int rno;
 	private int bno;
 	
+	private String uidKey;
 	private String reply;
 	private String replyer;
 	private Date replyDate;

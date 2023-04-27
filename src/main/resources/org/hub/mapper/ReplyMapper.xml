@@ -5,8 +5,8 @@
 <mapper namespace="org.hub.mapper.ReplyMapper">
 
 	<insert id="insert">
-		insert into reply_tbl (rno, bno, reply, replyer)
-		values(seq_reply.nextval, #{bno}, #{reply}, #{replyer})	
+		insert into reply_tbl (rno, bno, reply, replyer, uidkey)
+		values(seq_reply.nextval, #{bno}, #{reply}, #{replyer}, #{uidKey})	
 	</insert>
 	
 	<select id="read" resultType="org.hub.domain.ReplyVO">
@@ -35,11 +35,11 @@
 <select id="getListWithPaging" resultType="org.hub.domain.ReplyVO">
 
   <![CDATA[
- select  rno, bno, reply, replyer, replydate, updatedate
+ select  rno, bno, reply, replyer, replydate, updatedate, uidkey
  from 
    (
     select /*+INDEX(reply_tbl idx_reply) */ 
-      rownum rn,  rno, bno, reply, replyer, replyDate, updatedate
+      rownum rn,  rno, bno, reply, replyer, replyDate, updatedate, uidkey
     from reply_tbl
     where bno =  #{bno}
     and rno > 0
