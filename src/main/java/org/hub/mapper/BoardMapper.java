@@ -48,6 +48,9 @@ public interface BoardMapper {
 	// 읽은 글 DB 등록
 	public void saveUserRead(UserReadVO userread);
 	
-	//버튼 클릭시 모집 마감
-	public BoardVO updateClose(int bno);
+	// 버튼 클릭시 모집 마감
+	public int updateClose(int bno);
+	
+	// 마감 처리 취소하기
+	public int updateOpend(int bno);
 }

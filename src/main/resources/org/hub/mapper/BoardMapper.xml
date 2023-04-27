@@ -73,14 +73,16 @@
 	</select>
 	
 	<!-- 버튼 클릭시 모집마감 -->
-	<select id="updateClose" resultType="org.hub.domain.BoardVO">
-	<![CDATA[
-	update board_tbl
-	set status= 'closed'
-	where bno =#{bno}
-	]]>
-	</select>
+	<update id="updateClose">
+		update board_tbl set status= 'closed'
+		where bno =#{bno}
+	</update>
 	
+	<!-- 마감 처리 취소 -->
+	<update id="updateOpend">
+		update board_tbl set status ='opend'
+		where bno = #{bno}
+	</update>
 
 	<!-- 삭제 -->
 	<delete id="delete">

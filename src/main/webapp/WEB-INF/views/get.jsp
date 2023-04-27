@@ -18,8 +18,8 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
-	 <!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/css/main.css" type="text/css" />
 <script>
 	var uidkeys = [];
@@ -420,59 +420,66 @@ a:-webkit-any-link {
    
    <!-- 사용자 수정,마감,삭제  -->
     <c:if test="${loginUser.uidKey==board.uidkey}">
-    <section class="studyButtons_buttonWrapper__3tcIE">
-        <button class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#deadlineModal">마감</button>
-        
- <!-- 마감 Modal -->
-<div class="modal fade" id="deadlineModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        마감 처리 하시겠어요?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
-       
-       
-        <form method="post" action="upClose">
-         <input type="hidden" name="status" />
-          <input type="hidden" name="bno" value="${board.bno}"  />
-        <button type="submit" class="btn btn-primary"  >네, 마감할게요</button>
-		</form> 
+    	<section class="studyButtons_buttonWrapper__3tcIE">
+       		<button id="closed" class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#deadlineModal">마감</button>	
+			<button id="opend" class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#resetModal">마감취소</button>
+        	<button onclick="location.href='modify?bno=<c:out value="${board.bno}" />'" class="studyButtons_buttons__12bG1">수정</button>       
+       		<button class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#removeModal">삭제</button>
+			<!-- 마감 Modal -->
+			<div class="modal fade" id="deadlineModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			        마감 처리 하시겠어요?
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+			        <button type="button" class="btn btn-primary" data-oper='closed'>네, 마감할게요</button>						     
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			
+			<!-- 마감취소 Modal -->
+			<div class="modal fade" id="resetModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				   <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				      </div>
+				   <div class="modal-body">
+				        마감 취소 하시겠어요?
+				   </div>
+				   <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+				        <button type="button" class="btn btn-primary" data-oper='opend'>네, 취소할게요</button>
+				   </div>
+				   </div>
+				</div>
+			</div>		
 		
-		
-		     
-      </div>
-    </div>
-  </div>
-</div>
-        <button onclick="location.href='modify?bno=<c:out value="${board.bno}" />'" class="studyButtons_buttons__12bG1">수정</button>
-       
-        <button class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#removeModal">삭제</button>
-		
-
-<!-- 삭제 Modal -->
-<div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        작성하신 글을 삭제 하시겠어요?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
-        <button type="button" class="btn btn-primary" onclick="location.href='remove?bno=<c:out value="${board.bno}" />'" >네, 삭제할래요</button>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
-</c:if>
+			<!-- 삭제 Modal -->
+			<div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			        작성하신 글을 삭제 하시겠어요?
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+			        <button type="button" class="btn btn-primary" onclick="location.href='remove?bno=<c:out value="${board.bno}" />'" >네, 삭제할래요</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		</section>
+	</c:if>
     
 
     <!--게시글 기본 정보 영역-->
@@ -824,7 +831,56 @@ $(document).ready(function() {
     operForm.attr("action","/board/main")
     operForm.submit();
     
-  });  
+  });
+  
+    /* 마감 기능 */
+    // '마감' 또는 '마감취소' 버튼 display 기존값으로 초기화
+	var status = '<c:out value="${board.status}"/>'; // expireck
+	if (status == 'closed') {
+	    $("#closed").css("display", "none");
+	} else {
+		$("#opend").css("display", "none");
+	}
+	
+	// "네, 마감할게요." 버튼 눌렀을 시
+	$("button[data-oper='closed']").on("click", function(e){		
+		  	var bnoValue = '<c:out value="${board.bno}"/>'; // bno
+		  	var data = {bno : bnoValue};
+		  	
+			$.ajax({
+				type : "get",
+				url : "/board/upClose",
+				data : data,
+				success : function(result){
+					console.log("성공 여부" + result);
+					if(result != 'fail'){
+						$("#closed").css("display", "none");
+						$("#opend").css("display","inline-block");
+					}
+				}
+			});		
+			$("#deadlineModal").modal('hide');
+	});
+	
+	// "마감 취소" 버튼 눌렀을 시
+	$("button[data-oper='opend']").on("click", function(e){		
+		  	var bnoValue = '<c:out value="${board.bno}"/>'; // bno
+		  	var data = {bno : bnoValue};
+		  	
+			$.ajax({
+				type : "get",
+				url : "/board/upOpen",
+				data : data,
+				success : function(result){
+					console.log("성공 여부" + result);
+					if(result != 'fail'){
+						$("#opend").css("display", "none");
+						$("#closed").css("display","inline-block");
+					}
+				}
+			});			
+			$("#resetModal").modal('hide');
+	}); // end 버튼
 });
 </script>
 

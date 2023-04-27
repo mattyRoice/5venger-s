@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.AllArgsConstructor;
@@ -118,19 +119,30 @@ public class BoardController {
 	
 	
 	
-	//버튼 클릭 시 글 모집 마감 
-	@PostMapping("/upClose")
-	public String updateStatus(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr){
-		
+	// 버튼 클릭 시 글 모집 마감 
+	@GetMapping("/upClose")
+	@ResponseBody
+	public String updateStatus(@RequestParam("bno") int bno){			
+		log.info("upClose..." + bno);
+		boolean result = service.updateStatus(bno);
+		if(result==true) {
+			return "success";
+		} else {
+			return "fail"; 
+		}
+	}
 	
-		service.updateStatus(bno);
-		
-			rttr.addFlashAttribute("CloseResult", "글 마감 처리완료");
-		
-		// 페이징 정보 URL이 붙여서 페이징 정보 유지하며 화면 이동
-		log.info("cri 확인(2) :" + cri);
-		return "redirect:/board/main";
-		
+	// 마감 처리 취소하기
+	@GetMapping(value="/upOpen")
+	@ResponseBody
+	public String resetStatus(@RequestParam("bno") int bno) {
+		log.info("resetStatus..." + bno);
+		boolean result = service.resetStatus(bno);
+		if(result==true) {
+			return "success";
+		} else {
+			return "fail"; 
+		}	
 	}
 	
 	@GetMapping("/remove")

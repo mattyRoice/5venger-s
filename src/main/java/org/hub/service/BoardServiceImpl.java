@@ -123,18 +123,22 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	
 	// 버튼 클릭 시 모집 마감
-	public BoardVO updateStatus(int bno) {
-			
-			log.info("updateStatus BoardServiceImpl ......" +bno);
-			
-			return mapper.updateClose(bno);
-		}
-
+	public boolean updateStatus(int bno) {			
+		log.info("updateStatus BoardServiceImpl ......" +bno);		
+		return mapper.updateClose(bno) == 1;
+	}
+	
+	// 마감 처리 취소하기
+	@Override
+	public boolean resetStatus(int bno) {
+		log.info("resetStatus BoardServiceImpl ......" +bno);	
+		return mapper.updateOpend(bno) == 1;
+	}
+	
+	// 게시물 삭제
 	@Override
 	public boolean remove(int bno) {
-
 		log.info("remove...." + bno);
-
 		return mapper.delete(bno) == 1;
 	}
 
@@ -208,6 +212,7 @@ public class BoardServiceImpl implements BoardService {
 			log.info("saveUserRead......" + userread);
 			mapper.saveUserRead(userread);
 		}
+
 	
 	
 }
