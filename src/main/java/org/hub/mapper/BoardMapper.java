@@ -53,4 +53,10 @@ public interface BoardMapper {
 	
 	// 마감 처리 취소하기
 	public int updateOpend(int bno);
+	
+	// 관심글 등록하기
+	public void insertInterest(@Param("uidkey") String uidkey, @Param("bno") int bno);
+	
+	// 관심글 해제하기
+	public void deleteInterest(@Param("uidkey") String uidkey, @Param("bno") int bno);
 }
