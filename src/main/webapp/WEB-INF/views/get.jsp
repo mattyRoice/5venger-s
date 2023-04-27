@@ -637,7 +637,11 @@ $(document).ready(function() {
 	
 <script>
 function goBack() {
-  window.history.back();
+  if (document.referrer.includes("main")) {
+      window.location.href = "/board/main";
+  } else{
+	  window.history.back(); 
+  } 
 }
 </script>
 <script>
