@@ -21,6 +21,7 @@ public interface BoardMapper {
 
 	public int delete(int bno);
 	
+	
 	// 게시글 수정하기 - 수정한 행 수 반환
 	public int update(BoardVO board);
 
@@ -46,4 +47,7 @@ public interface BoardMapper {
 	
 	// 읽은 글 DB 등록
 	public void saveUserRead(UserReadVO userread);
+	
+	//버튼 클릭시 모집 마감
+	public BoardVO updateClose(int bno);
 }

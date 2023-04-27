@@ -119,6 +119,16 @@ public class BoardServiceImpl implements BoardService {
 		}		
 		return modifyResult;
 	}
+	
+	@Override
+	
+	// 버튼 클릭 시 모집 마감
+	public BoardVO updateStatus(int bno) {
+			
+			log.info("updateStatus BoardServiceImpl ......" +bno);
+			
+			return mapper.updateClose(bno);
+		}
 
 	@Override
 	public boolean remove(int bno) {

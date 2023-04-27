@@ -13,7 +13,7 @@ public interface BoardService {
 	public BoardVO get(int bno);
 
 	public boolean modify(BoardVO board);
-
+	public BoardVO updateStatus(int bno); //버튼 클릭 시 모집 마감
 	public boolean remove(int bno);
 
 	// public List<BoardVO> getList();

@@ -435,14 +435,24 @@ a:-webkit-any-link {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
-        <button type="button" class="btn btn-primary" onclick="location.href='remove?bno=<c:out value="${board.bno}" />'" >네, 마감할게요</button>
+       
+       
+        <form method="post" action="upClose">
+         <input type="hidden" name="status" />
+          <input type="hidden" name="bno" value="${board.bno}"  />
+        <button type="submit" class="btn btn-primary"  >네, 마감할게요</button>
+		</form> 
+		
+		
+		     
       </div>
     </div>
   </div>
 </div>
         <button onclick="location.href='modify?bno=<c:out value="${board.bno}" />'" class="studyButtons_buttons__12bG1">수정</button>
+       
         <button class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#removeModal">삭제</button>
- 
+		
 
 <!-- 삭제 Modal -->
 <div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

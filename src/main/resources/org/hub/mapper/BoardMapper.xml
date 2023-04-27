@@ -66,11 +66,21 @@
 	<!-- 상세보기 -->
 	<select id="read" resultType="org.hub.domain.BoardVO">
 	<![CDATA[
-	SELECT bno, deadline,meet, memberNum,regdate, period, contact,contactaddress,content, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
+	SELECT bno, deadline,meet, memberNum,regdate, period, contact,contactaddress,content, status, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
 	FROM (select * from board_view_01)
 	WHERE bno=#{bno}
 	]]>
 	</select>
+	
+	<!-- 버튼 클릭시 모집마감 -->
+	<select id="updateClose" resultType="org.hub.domain.BoardVO">
+	<![CDATA[
+	update board_tbl
+	set status= 'closed'
+	where bno =#{bno}
+	]]>
+	</select>
+	
 
 	<!-- 삭제 -->
 	<delete id="delete">
@@ -89,7 +99,7 @@
 	<select id="getListWithPaging"
 		resultType="org.hub.domain.BoardVO">
 	<![CDATA[
-	SELECT bno, deadline, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
+	SELECT bno, deadline,status, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
 	FROM (select * from board_view 
 	WHERE 
 	]]>

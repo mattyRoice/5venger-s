@@ -19,6 +19,7 @@ public class BoardVO {
 	private String deadline; // 마감기간
 	private int replycnt; // 댓글 수
 	private int cnt; // 조회수
+	public String status;// 마감 오픈,클로즈
 	
 	private String profileImage; // 사용자 프로필 이미지
 	private String uname; // 유저 이름

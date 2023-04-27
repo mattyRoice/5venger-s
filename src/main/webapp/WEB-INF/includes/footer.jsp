@@ -33,7 +33,14 @@
             alert("글 삭제가 완료되었습니다!");
     });
 </script>
-
+CloseResult
+<script type="text/javascript">
+    $(document).ready(function() {
+        var result = '<c:out value="${CloseResult}"/>';
+        if(!(result==''))
+            alert("글 마감 처리가 완료되었습니다!");
+    });
+</script>
 <script>
 $(document).ready(function() {
 	(function() { // 즉시 실행 함수
