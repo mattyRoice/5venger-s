@@ -713,6 +713,27 @@ $(document).ready(function() {
 			}			 
 		}); //end getjson						
 	})();//end function	
+	
+	// kdh 댓글 사용자 이미지 불러오기
+	// 	(function() { // 즉시 실행함수
+	// 		uidKeys.forEach(function(uidkey, index) {
+	// 			$.getJSON("/user/getAttachList", {uidkey:uidKey}, function(arr) {
+	// 				console.log(arr);
+	// 				var str = "";
+					
+	// 				if(arr.length == 0) {
+	// 					userImages[uidKey] = "/resources/Images/profileLogo.png"; // 기본 이미지 사용					
+	// 				} else {
+	// 					$(arr).each(function(i, attach){
+	// 						userImages[uidKey] = encodeURIComponent(attach.uploadPath+ "/s_" + attach.uuid +"_"+attach.fileName); // 첫 번째 이미지 사용
+	// 					});
+	// 				}
+	// // 				$("?").eq(index).html(str);
+					
+	// 			})// end getJSON
+	// 		}) // end forEach(function)
+	// 	}) // end function
+}); // end ready
 }); // end ready	
 		
 	
