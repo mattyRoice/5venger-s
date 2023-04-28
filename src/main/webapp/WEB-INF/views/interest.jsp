@@ -2,14 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@page import="java.util.*"%>
 
 <!DOCTYPE html>
 <html>
-<head>   
-<%@ page import="javax.servlet.http.HttpSession" %>
-<%@ page import="java.util.Enumeration" %>                
-
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,50 +14,20 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/css/interest.css" type="text/css" />
 <script>
 	var uidkeys = [];
 </script>
-
 <title>스터디허브</title>
 </head>
 <link rel="icon" href="/resources/Images/profileLogo.png">
 <body>
-
-<!--<img id="bookmarkImage" class="studyItem_bookmark__2YtKX" src="/resources/Images/nonfilledheart.png" alt="bookmark">
-  <button onclick="toggle()">Toggle Bookmark</button>
-  <div id="mydiv" style="display:none">
-    <p>Bookmark toggled!</p>
-  </div>
-
- <script>
-   function toggle() {
-     var mydiv = document.getElementById('mydiv');
-     var bookmarkImage = document.getElementById('bookmarkImage');
-     if (mydiv.style.display === 'none') {
-       mydiv.style.display = 'block';
-       bookmarkImage.src = '/resources/Images/filledheart.png';
-     } else {
-       mydiv.style.display = 'none';
-       bookmarkImage.src = '/resources/Images/nonfilledheart.png';
-     }
-   }
- </script> -->
-
 	<!--  전체 바디 태그 root -->
 	<div id="root">
 		<!--  nav 태그 -->
-		<nav class="navbar_navbar__O41pd">
-			<a href="/board/main"> <img class="navbar_logo"
-				src="/resources/Images/SHLogo.png" alt="logo" width=200 height=56>
-			</a>
-			<div class="navbar_loginElementWrapper__11CeH">
-				<button class="navbar_postRegister__FJnRS"
-					onclick="location.href='/board/register'">새 글 쓰기</button>
-				<button class="navbar_login__3Ui--"
-					onclick="location.href='/user/mypage'">마이 페이지</button>
-			</div>
-		</nav>
+		<%@include file="../includes/header.jsp"%>
 
 		<!--  필터  -->
 		<section class="desktopFilter_filterWrapper__1gwsT">
@@ -71,43 +37,20 @@
 				<li class="Category_categoryItem__1ko8V "><button id="searchBtn" class="Category_categoryItem__1ko8V ">읽은글 목록</button></li>
 			</ul>
 		</section>
-		
-		<!--  메인 게시글 -->
-		<main class="mainContent_main_F2EU9">
-			<!--  게시글 카테고리 -->
-			<div class="mainContent_categoryWrapper__1n063">
-				<div class="findMyPosition_selectWrapper__23xHq">
-					<div class=" css-2b097c-container">
-						<span aria-live="polite" aria-atomic="false"
-							aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
 
-						<select class="form-select form-select-lg mb-3"
-							aria-label=".form-select-lg example">
-							<option selected>내 포지션 찾기</option>
-							<option value="all">전체</option>
-							<option value="front">프론트엔드</option>
-							<option value="back">백엔드</option>
-							<option value="ios">IOS</option>
-							<option value="android">안드로이드</option>
-							<option value="devops">DevOps</option>
-							<option value="designer">디자이너</option>
-							<option value="pm">PM</option>
-						</select>
+			<!--  검색 화면 -->
+			<div class="search_container__2ExFE">
+				<div class='row'>
+					<div class="col-lg-12">
+						
 					</div>
-				</div>
-				<div class="toggleSwitch_switch__hglrb">
-					<span class="toggleSwitch_switchTitle__1g_TJ">모집 중만 보기</span>
-					<div class="form-check form-switch">
-						<input class="form-check-input" type="checkbox" role="switch"
-							id="flexSwitchCheckChecked" checked>
-					</div>
-					</label>
 				</div>
 			</div>
-
+		</section>
+		<!--  메인 게시글 -->
+		<main class="mainContent_main_F2EU9">
 			<div class="container">
 				<div class="row">
-
 					<c:forEach items="${board}" var="board">
 					<c:if test="${interestList.contains(board.bno)}">
 						<div id="card_${board.bno}" class="col-lg-3">
@@ -262,11 +205,6 @@
 		<!--  main 끝 -->
 	</div>
 
-
-	
-
-	<!-- 전체 바디 태그 root 끝 -->
-
 	<!--  pageNation -->
 	<nav aria-label="Page navigation">
 		<ul class="pagination  justify-content-center">
@@ -300,12 +238,13 @@
 		</form>
 	</nav>
 
+	<!-- 전체 바디 태그 root 끝 -->
+
 	<!-- 맨 위로 올라가기 버튼 -->
 	<div class="Topbutton_topButton__35AKX">
 		<img class="Topbutton_topButtonImage__2Klzb"
 			src="/resources/Images/TOP.png" alt="default">
 	</div>
 
-	
 
 	<%@ include file="/WEB-INF/includes/footer.jsp"%>
