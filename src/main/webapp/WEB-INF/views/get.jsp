@@ -417,6 +417,14 @@ button {
     display: flex;
     flex-direction: row;
 }
+.commentItem_buttonCancel__10CiY{
+	background: #e9ecef;
+}
+.commentItem_buttonComplete__3czy4 {
+    background: #ff914d;
+    font-weight: 700;
+    color: #fff;
+}
 .commentItem_commentInputButton__1JrQz button {
     border-radius: 4px;
     width: 70px;
@@ -456,6 +464,13 @@ button {
     display: flex;
     align-items: center;
     margin-top: 1rem;
+}
+.commentItem_modifyInput__1ounT{
+    width: 100%;
+    border-radius: 8px;
+    padding: 8px 12px;
+    border: 1px solid #e1e1e1;
+    outline: none;
 }
 
 </style>
