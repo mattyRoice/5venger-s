@@ -24,6 +24,7 @@
 </head>
 <link rel="icon" href="/resources/Images/profileLogo.png">
 <body>
+
 	<!--  전체 바디 태그 root -->
 	<div id="root">
 		<!--  nav 태그 -->
@@ -36,29 +37,12 @@
 			</ul>
 		</section>
 
-<!--   <div id="mydiv" style="display:none">
-  </div>
-
- <script>
-   function toggle() {
-     var mydiv = document.getElementById('mydiv');
-     var bookmarkImage = document.getElementById('bookmarkImage');
-     if (mydiv.style.display === 'none') {
-       mydiv.style.display = 'block';
-       bookmarkImage.src = '/resources/Images/filledheart.png';
-     } else {
-       mydiv.style.display = 'none';
-       bookmarkImage.src = '/resources/Images/nonfilledheart.png';
-     }
-   }
- </script> -->
-
 		<!--  메인 게시글 -->  
 		<main class="mainContent_main_F2EU9">
 			<div class="container">
 				<div class="row">
 					<c:forEach items="${board}" var="board">
-					<c:if test="${interestList.contains(board.bno)}">
+					<c:if test="${recommendList.contains(board.bno)}">
 						<div id="card_${board.bno}" class="col-lg-3">
 							<div class="card" style="width: 100%">
 								<div class="card-body move" href='<c:out value="${board.bno }"/>'>
