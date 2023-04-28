@@ -94,15 +94,20 @@ $(document).ready(function() {
 		
 	})();//end function	
 	
+	// kdh 0428  관심글 하트 이벤트
+	var bookmark = $('.studyItem_bookmark__2YtKX');
+	bookmark.on("click", function(e) {
+		e.preventDefault();
+		
+		var heartStatus = $(this).attr('src');
+		if(heartStatus == "/resources/Images/nonfilledheart.png"){
+			$(this).attr("src", "/resources/Images/filledheart.png");	
+		} else {
+			$(this).attr("src", "/resources/Images/nonfilledheart.png");
+		}
+		return false;
+	});
 	
-// 	// 카테고리 밑줄 치는 제이쿼리
-// 	$('.Category_categories__3bwPA li').click(function() {
-//     	// 모든 li에서 Category_selectedCategory__1J7es 클래스 제거
-//     	$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
-//     	// 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
-//     	$(this).addClass('Category_selectedCategory__1J7es');
-//   	});
-
 	// 카테고리 변수
 	let $languageBarArray = $('ul.LanguageBar_languages__2Ilqf li');
 	$languageBarArray.hide();
