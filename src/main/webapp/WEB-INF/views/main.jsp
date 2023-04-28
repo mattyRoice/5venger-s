@@ -313,10 +313,10 @@
 					</div>
 				</div>
 				<div class="toggleSwitch_switch__hglrb mb-4">
-					<span class="toggleSwitch_switchTitle__1g_TJ fs-4">모집 중만 보기</span>
+					<span class="toggleSwitch_switchTitle__1g_TJ fs-5">모집 중만 보기</span>
 					<div class="form-check form-switch" style="margin-bottom:0;">
 						<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked 
-							style="height:1.5em; width:2.45em; background-color:#ff914d; border-color:#ff914d;">
+							style="height:1.5em; width:2.45em; background-color:#ff914d; border-color:#ff914d; margin-right:15px;">
 					</div>
 					</label>
 				</div>
