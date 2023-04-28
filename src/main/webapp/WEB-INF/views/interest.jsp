@@ -31,22 +31,29 @@
 
 		<!--  필터  -->
 		<section class="desktopFilter_filterWrapper__1gwsT">
-			<!--  인기, 프론트엔드, 백엔드, 모바일, 기타 필터 -->
 			<ul class="Category_categories__3bwPA">
 				<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es"><button id="searchBtn" class="Category_categoryItem__1ko8V ">관심글 목록</button></li>
 				<li class="Category_categoryItem__1ko8V "><button id="searchBtn" class="Category_categoryItem__1ko8V ">읽은글 목록</button></li>
 			</ul>
 		</section>
 
-			<!--  검색 화면 -->
-			<div class="search_container__2ExFE">
-				<div class='row'>
-					<div class="col-lg-12">
-						
-					</div>
-				</div>
-			</div>
-		</section>
+  <div id="mydiv" style="display:none">
+  </div>
+
+ <script>
+   function toggle() {
+     var mydiv = document.getElementById('mydiv');
+     var bookmarkImage = document.getElementById('bookmarkImage');
+     if (mydiv.style.display === 'none') {
+       mydiv.style.display = 'block';
+       bookmarkImage.src = '/resources/Images/filledheart.png';
+     } else {
+       mydiv.style.display = 'none';
+       bookmarkImage.src = '/resources/Images/nonfilledheart.png';
+     }
+   }
+ </script>
+
 		<!--  메인 게시글 -->
 		<main class="mainContent_main_F2EU9">
 			<div class="container">
@@ -156,7 +163,7 @@
 										</div>
 									</section>
 									<!-- kdh 0425 관심버튼 추가 -->
-									<img class="studyItem_bookmark__2YtKX" src="/resources/Images/nonfilledheart.png" alt="bookmark">
+									<button onclick="toggle()"><img id="bookmarkImage" class="studyItem_bookmark__2YtKX" src="/resources/Images/nonfilledheart.png" alt="bookmark"></button>
 								</div>
 								<!-- card-body 끝-->
 							</div>
