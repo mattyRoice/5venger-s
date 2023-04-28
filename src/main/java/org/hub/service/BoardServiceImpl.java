@@ -2,8 +2,6 @@ package org.hub.service;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.hub.domain.BoardFieldVO;
 import org.hub.domain.BoardStackVO;
 import org.hub.domain.BoardVO;
@@ -213,6 +211,18 @@ public class BoardServiceImpl implements BoardService {
 			mapper.saveUserRead(userread);
 		}
 
-	
+		
+		@Override
+		public void insertInterest(String uidkey, int bno) {
+		    mapper.insertInterest(uidkey, bno);
+		    log.info("sts-----insertInterest" + uidkey + bno);
+		}
+
+
+	@Override
+	public void deleteInterest(String uidkey, int bno) {
+		mapper.deleteInterest(uidkey, bno);
+		log.info("sts-----deleteInterest" + uidkey + bno);
+	}
 	
 }

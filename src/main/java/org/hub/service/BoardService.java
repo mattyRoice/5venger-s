@@ -48,4 +48,10 @@ public interface BoardService {
 	
 	// 읽은 글 DB 등록
 	public void saveUserRead(UserReadVO userread);
+	
+	// 관심글 등록
+	public void insertInterest(String uidkey, int bno);
+	
+	// 관심글 삭제
+	public void deleteInterest(String uidkey, int bno);
 }

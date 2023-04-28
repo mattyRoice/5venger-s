@@ -84,6 +84,24 @@ public class BoardServiceTests {
 		List<Integer> interest = service.getInterest(uidkey);
 		log.info("Service testInterest" + interest);  
 	}  
-	//향상된 for문, list뽑아오는거 리스트 받아와서 > 하나씩 bno로 뽑아와서 향상for문으로 mapper에 넣어서 가져옴. 
+
+	// 관심글 등록하기
+		@Test
+		public void testInsertInterest() {
+			String uidkey = "2746970236";
+			int bno = 64;
+			service.insertInterest("2746970236", 64);
+			log.info("sjs insert----------" + uidkey + "bno: " + bno);
+			/* testGetInterest(); */
+		}
+
+		// 관심글 삭제하기
+			@Test
+			public void testDeleteInterest() {
+				String uidkey = "2746970236";
+				int bno = 64;
+				service.deleteInterest("2746970236", 64);
+				log.info("sjs delete----------" + uidkey + "bno: " + bno);  
+			}
 	
 }
