@@ -1234,13 +1234,12 @@ ul {
 }
 
 .Topbutton_topButton__35AKX {
-	position: fixed;
-	right: 1.5rem;
-	bottom: 1.5rem;
-	width: 4.5rem;
-	height: 4.5rem;
+    position: fixed;
+    margin-right: 4.8rem;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 1rem;
 }
-
 Topbutton_topButton__35AKX.show:active {
 	opacity: 1;
 }
@@ -1251,8 +1250,8 @@ Topbutton_topButton__35AKX.show {
 }
 
 .Topbutton_topButtonImage__2Klzb {
-	width: 100%;
-	cursor: pointer;
+    width: 10em;
+    cursor: pointer;
 }
 
 .footer_footer__31o2n {
