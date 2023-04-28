@@ -482,6 +482,33 @@ public class UserController {
 		
 		return "interest";
 	}
+	
+	// 추천글 페이지
+		@GetMapping("/recommend")
+		public String getRecommend(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, Model model, HttpSession session, UserVO vo) {
+			System.out.println("recommend로 이동");
+			log.info("recommend 이동");
+
+			List<BoardVO> boardList = service.getList(cri);
+			model.addAttribute("board", boardList);
+
+			// jsh 0426 nullpointerError떠서 주석처리했습니다
+			//session.setAttribute(SessionNames.LOGIN, user);
+			int total = service.getTotal(cri);
+
+			log.info("total: " + total);
+
+			model.addAttribute("pageMaker", new PageDTO(cri, total));
+
+			UserVO user = (UserVO)session.getAttribute(SessionNames.LOGIN);
+			String uidKey = user.getUidKey(); 
+			model.addAttribute("user", userService.get(uidKey));
+			
+			List<Integer> interestList = service.getInterest(uidKey);
+			model.addAttribute("interestList", interestList);
+			
+			return "recommend";
+		}
 
 	// 사용자 작성 글 목록
 	@GetMapping("/write")
