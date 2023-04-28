@@ -1356,7 +1356,7 @@ Topbutton_topButton__35AKX.show {
     border: var(--bs-pagination-border-width) solid var(--bs-pagination-border-color);
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-
+ 
 /* .studyItem_schedule__3oAnA{ */
 /*     font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; */
 /*     list-style: none; */
