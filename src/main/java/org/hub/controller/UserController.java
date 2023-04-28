@@ -491,7 +491,7 @@ public class UserController {
 
 			List<BoardVO> boardList = service.getList(cri);
 			model.addAttribute("board", boardList);
-
+ 
 			// jsh 0426 nullpointerError떠서 주석처리했습니다
 			//session.setAttribute(SessionNames.LOGIN, user);
 			int total = service.getTotal(cri);

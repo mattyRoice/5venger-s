@@ -53,7 +53,7 @@
    }
  </script> -->
 
-		<!--  메인 게시글 --> 
+		<!--  메인 게시글 -->  
 		<main class="mainContent_main_F2EU9">
 			<div class="container">
 				<div class="row">
