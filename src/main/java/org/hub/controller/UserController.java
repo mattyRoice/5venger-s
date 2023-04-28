@@ -507,6 +507,9 @@ public class UserController {
 			List<Integer> interestList = service.getInterest(uidKey);
 			model.addAttribute("interestList", interestList);
 			
+			List<Integer> recommendList = service.getRecommend(uidKey);
+			model.addAttribute("recommendList", recommendList);
+			
 			return "recommend";
 		}
 
