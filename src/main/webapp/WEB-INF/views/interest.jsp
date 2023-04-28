@@ -226,7 +226,7 @@
 				<li class="page-item"><a class="page-link"
 					href="${pageMaker.endPage+1 }">Next</a></li>
 			</c:if>
-		</ul>
+		</ul> 
 
 		<form id='actionForm' action="/board/main" method='get'>
 			<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
