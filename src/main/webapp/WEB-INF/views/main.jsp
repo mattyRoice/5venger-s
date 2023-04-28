@@ -299,7 +299,8 @@
 							aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
 
 						<select class="form-select form-select-lg mb-4"
-							aria-label=".form-select-lg example" style="font-size: 1.125rem;">
+							aria-label=".form-select-lg example" 
+							style="font-size: 1.125rem; padding-top: 0.4rem; padding-bottom: 0.4rem;">
 							<option selected>내 포지션 찾기</option>
 							<option value="all">전체</option>
 							<option value="front">프론트엔드</option>
