@@ -2,10 +2,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@page import="java.util.*"%>
 
 <!DOCTYPE html>
 <html>
-<head>
+<head>   
+<%@ page import="javax.servlet.http.HttpSession" %>
+<%@ page import="java.util.Enumeration" %>                
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,53 +18,40 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/css/interest.css" type="text/css" />
 <script>
 	var uidkeys = [];
 </script>
+
 <title>스터디허브</title>
 </head>
 <link rel="icon" href="/resources/Images/profileLogo.png">
 <body>
+
+	<!--헤더-->
+	<!--  nav 태그 -->
+	<%@include file="../includes/header.jsp"%>
+	
 	<!--  전체 바디 태그 root -->
 	<div id="root">
-		<!--  nav 태그 -->
-		<%@include file="../includes/header.jsp"%>
-
-		<!--  필터  -->
+	
+		<!--  관심글/읽은글 카테고리  -->
 		<section class="desktopFilter_filterWrapper__1gwsT">
 			<ul class="Category_categories__3bwPA">
-				<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es"><button id="searchBtn" class="Category_categoryItem__1ko8V ">관심글 목록</button></li>
-				<li class="Category_categoryItem__1ko8V "><button id="searchBtn" class="Category_categoryItem__1ko8V ">읽은글 목록</button></li>
+				<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">관심글 목록</li>
+				<li class="Category_categoryItem__1ko8V ">읽은글 목록</li>
 			</ul>
 		</section>
-
-  <div id="mydiv" style="display:none">
-  </div>
-
- <script>
-   function toggle() {
-     var mydiv = document.getElementById('mydiv');
-     var bookmarkImage = document.getElementById('bookmarkImage');
-     if (mydiv.style.display === 'none') {
-       mydiv.style.display = 'block';
-       bookmarkImage.src = '/resources/Images/filledheart.png';
-     } else {
-       mydiv.style.display = 'none';
-       bookmarkImage.src = '/resources/Images/nonfilledheart.png';
-     }
-   }
- </script>
-
+		
 		<!--  메인 게시글 -->
 		<main class="mainContent_main_F2EU9">
+
 			<div class="container">
 				<div class="row">
+
 					<c:forEach items="${board}" var="board">
-					<c:if test="${interestList.contains(board.bno)}">
-						<div id="card_${board.bno}" class="col-lg-3">
+					<c:if test="${interestList.contains(board.bno)}"> <!-- only extract the ones with bno in interestList -->
+						<div class="col-lg-3">
 							<div class="card" style="width: 100%">
 								<div class="card-body move" href='<c:out value="${board.bno }"/>'>
 									<!-- 스터디-->
@@ -88,7 +79,7 @@
 										</p>
 									</div>
 									<!--게시글 제목-->
-
+ 
 									<h6 class="studyItem_title__2B_2o">
 										<c:out value="${board.title }" />
 									</h6>
@@ -163,7 +154,7 @@
 										</div>
 									</section>
 									<!-- kdh 0425 관심버튼 추가 -->
-									<button onclick="toggle()"><img id="bookmarkImage" class="studyItem_bookmark__2YtKX" src="/resources/Images/nonfilledheart.png" alt="bookmark"></button>
+									<img class="studyItem_bookmark__2YtKX" src="/resources/Images/nonfilledheart.png" alt="bookmark">
 								</div>
 								<!-- card-body 끝-->
 							</div>
@@ -174,32 +165,6 @@
 						<script>
 							uidkeys.push('${board.uidkey}');
 						</script>
-						<script>
-							/* 마감일자 지난 카드 흐리게 만들기 */
-							var status = '<c:out value="${board.status}"/>';
-							var deadlineStr = '<c:out value="${board.deadline}"/>';
-						  	console.log(deadlineStr);
-						  	var deadlineDate = new Date(deadlineStr);
-						  	var today = new Date(); 
-						  	var diffDays = Math.floor((deadlineDate - today) / (1000 * 60 * 60 * 24));
-						  	console.log(diffDays);
-						  	if (diffDays < 0 || status =="closed") {
-						  		 var expireDiv = $("<div>", { id: "expire", class: "move w-50 p-3 text-center fw-semibold rounded-4", href:"<c:out value="${board.bno }"/>", text: "모집마감" });
-						  		 expireDiv.css({
-						  		    position: "absolute",
-						  		    top: "40%",
-						  		    left: "25%",
-						  		    background: "black",
-						  		    color: "white",
-						  		  	"z-index": 9999,
-						  		  	cursor: "pointer"
-						  		  });
-						  		$("#card_${board.bno}").css("position", "relative");  
-						  		$("#card_${board.bno}").prepend(expireDiv);
-							    $("#card_${board.bno}").css("opacity", "0.5");							    
-							}				    
-							
-						</script>
 						</c:if>
 					</c:forEach>
 					<!--  메인 게시글 반복문 끝 -->
@@ -209,8 +174,9 @@
 			</div>
 			<!--container 끝-->
 		</main>
-		<!--  main 끝 --> 
+		<!--  main 끝 -->
 	</div>
+	<!-- 전체 바디 태그 root 끝 -->
 
 	<!--  pageNation -->
 	<nav aria-label="Page navigation">
@@ -233,7 +199,7 @@
 				<li class="page-item"><a class="page-link"
 					href="${pageMaker.endPage+1 }">Next</a></li>
 			</c:if>
-		</ul> 
+		</ul>
 
 		<form id='actionForm' action="/board/main" method='get'>
 			<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
@@ -244,14 +210,6 @@
 				value='<c:out value="${ pageMaker.cri.keyword }"/>'>
 		</form>
 	</nav>
-
-	<!-- 전체 바디 태그 root 끝 -->
-
-	<!-- 맨 위로 올라가기 버튼 -->
-	<div class="Topbutton_topButton__35AKX">
-		<img class="Topbutton_topButtonImage__2Klzb"
-			src="/resources/Images/TOP.png" alt="default">
-	</div>
-
+	
 
 	<%@ include file="/WEB-INF/includes/footer.jsp"%>

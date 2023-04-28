@@ -30,7 +30,7 @@
 
 		<!--  작성글 목록 label  -->
 		<div class="desktopFilter_filterWrapper__1gwsT">			
-			<span class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">작성 글 목록</span>
+			<span class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">작성글 목록</span>
 		</div>
 		
 		<!--  메인 게시글 -->
