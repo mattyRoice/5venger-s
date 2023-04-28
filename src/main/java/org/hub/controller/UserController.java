@@ -203,7 +203,7 @@ public class UserController {
 
 		// 로그인 성공
 		if (uvo != null) {
-			model.addAttribute("user", user);			
+			model.addAttribute("user", uvo);			
 		} else { // 로그인 실패
 			model.addAttribute("loginResult", "아이디 또는 비밀번호가 일치하지 않습니다.");
 		}
