@@ -30,10 +30,28 @@ public class MainController {
 	@Autowired
 	private BoardService service;
 	
+	// 일반메인
 	@GetMapping("/main")
-	public String getMain(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, @RequestParam(name="filter[]", required=false) String filter, Model model) {
-		System.out.println("main으로 이동");
+	public String getMain(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, Model model) {
+
 		log.info("main 이동");
+		
+		int total = service.getTotal(cri);
+
+		log.info("total: " + total);
+
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+	
+		List<BoardVO> boardList = service.getList(cri);
+		model.addAttribute("board", boardList);
+		
+		return "main";
+	}
+	
+	// 필터작용
+	@GetMapping("/mainWithFilter")
+	public String getMainWithFilter(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, @RequestParam(name="filter[]", required=false) String filter, Model model) {
+		log.info("mainWithFilter 이동");
 		
 		String[] filters = new String[0];
 		
@@ -43,11 +61,12 @@ public class MainController {
 
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 		
+		// 1. 선택한 스택이 없을 때
 		if(filter == null){
 			List<BoardVO> boardList = service.getList(cri);
 			model.addAttribute("board", boardList);
 		} else if (filter != null) {
-			
+			// 2. 선택한 스택이 있을 때
 			filter = filter.toLowerCase();
 			filters = filter.split(",");
 			
@@ -56,13 +75,18 @@ public class MainController {
 			cri.setFilters(filters);
 			
 			List<BoardVO> boardList = service.getListWithFilter(cri);
-			
-			model.addAttribute("board", boardList);
-			
-			return "mainWithFilter";
+			// 2-1. 선택한 스택 관련 글이 있을 때
+			if(boardList.size()>0) {
+				model.addAttribute("board", boardList);				
+				return "mainWithFilter";
+			} else {
+				// 2-2. 선택한 스택 관련 글이 없을 때
+				return "mainNone";
+			}
+
 		}		
 		
-		return "main";
+		return "mainWithFilter";
 	}
 
 }

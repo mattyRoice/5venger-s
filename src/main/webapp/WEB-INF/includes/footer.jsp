@@ -302,26 +302,7 @@ $(function() {
 			$('#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child').css("display", "flex");
 		}
 		// data 배열안에 filter 라는 이름에 필터 값을 담는다
-		if(filter.length != 0) {
-			let data = {
-				filter: filter
-			};
-			
-			// filter 처리할 ajax
-			$.ajax({
-				type: "GET", // 요청 방식
-				url: "/board/main", //요청 URL
-				data: data, // 요청 데이터
-				success: function(data) {
-					// 요청 성공 시 콜백 함수
-					console.log(data);
-					$('#main-filter').html(data);
-				}, 
-				error: function(xhr, status, error) {
-					console.log(status + ": " + error);
-				}
-			});
-		}
+		mainfilter();
 		
 		// 필터를 다 해제했을 때 흐리게 되었던 필터들 다시 제대로 모든 필터 보이게 끔 하고, 필터초기화 버튼 안보이게 처리
 		if (!isFirst && count == 0) {
@@ -361,7 +342,9 @@ $(function() {
 			var language = $(this).text();
 			let index = filter.indexOf(language);
 			filter.splice(index, 1);
-
+			
+			mainfilter();
+			
 			$('li.LanguageBar_languageIcon__Um7GQ').each(function() {
 				
 				let nthLanguage = $(this).text();
@@ -379,6 +362,8 @@ $(function() {
 				}
 			});
 		});
+		
+		mainfilter();
 	}
 	
 	// 필터 아이콘 누르면 필터 삭제되게 하는 함수
@@ -394,6 +379,7 @@ $(function() {
 				$(this).remove();
 			}
 		});
+		mainfilter();
 	}
 	
 	//list.jsp의 검색 버튼의 이벤트 처리
@@ -415,7 +401,41 @@ $(function() {
 		
 		searchForm.submit();
 	});
-	
+	// 메인화면 필터 ajax 함수
+	function mainfilter(){
+		if(filter.length != 0) {
+			let data = {
+				filter: filter
+			};
+			
+			// filter 처리할 ajax
+			$.ajax({
+				type: "GET", // 요청 방식
+				url: "/board/mainWithFilter", //요청 URL
+				data: data, // 요청 데이터
+				success: function(data) {
+					// 요청 성공 시 콜백 함수
+					$('#main-filter').html(data);
+				}, 
+				error: function(xhr, status, error) {
+					console.log(status + ": " + error);
+				}
+			});
+		} else {
+			// filter 처리할 ajax
+			$.ajax({
+				type: "GET", // 요청 방식
+				url: "/board/mainWithFilter", //요청 URL
+				success: function(data) {
+					// 요청 성공 시 콜백 함수
+					$('#main-filter').html(data);
+				}, 
+				error: function(xhr, status, error) {
+					console.log(status + ": " + error);
+				}
+			});
+		}
+	}
 	
 </script>
 

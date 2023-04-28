@@ -125,7 +125,7 @@
 	]]>
 	</select>
 
-	<!--  kdh0422 게시글 페이징처리+필터 처리해서 가져오기(수정중) -->
+	<!--  jsh 0428 게시글 페이징처리+필터 처리해서 가져오기(수정완료) -->
 	<select id="getListWithPagingWithFilter"
 		resultType="org.hub.domain.BoardVO">
 	   <![CDATA[
@@ -141,11 +141,11 @@
 	WHERE rn > (#{pageNum} - 1) * #{amount}
 	]]>
 		<if test="filters != null and filters.length > 0">
-			AND snames IN (
-			<foreach collection="filters" item="filter" separator=",">
-				#{filter}
+			AND 
+			<foreach collection="filters" item="filter" separator="or">
+				snames LIKE '%'||#{filter}||'%'
 			</foreach>
-			)
+			
 		</if>
 	</select>
 
