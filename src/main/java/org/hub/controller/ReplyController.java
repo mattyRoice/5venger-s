@@ -1,8 +1,12 @@
 package org.hub.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.hub.domain.Criteria;
 import org.hub.domain.ReplyPageDTO;
 import org.hub.domain.ReplyVO;
+import org.hub.domain.UserVO;
+import org.hub.interceptor.SessionNames;
 import org.hub.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,8 +34,13 @@ public class ReplyController {
 	private ReplyService service;
 	
 	@PostMapping(value="/new", consumes ="application/json", produces= {MediaType.TEXT_PLAIN_VALUE })
-	public ResponseEntity<String> create(@RequestBody ReplyVO vo) {
+	public ResponseEntity<String> create(@RequestBody ReplyVO vo, HttpSession session) {
 		log.info("ReplyVO : " + vo);
+		
+		UserVO user = (UserVO)session.getAttribute(SessionNames.LOGIN);
+		String uidKey = user.getUidKey();
+		System.out.println(uidKey);
+		vo.setUidKey(uidKey);
 		
 		int insertCount = service.register(vo);
 		

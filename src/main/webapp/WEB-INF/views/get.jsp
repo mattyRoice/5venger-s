@@ -647,8 +647,6 @@ button {
 				<div class="panel-footer">
 	
 				</div>
-	             <c:out value="${board.uname }" />
-	            
 	        </div>
 	        <ul class="commentList_CommentList__30HUh"></ul>
 	    </div>
@@ -716,7 +714,7 @@ $(document).ready(function() {
 	
 	// kdh 댓글 사용자 이미지 불러오기
 	// 	(function() { // 즉시 실행함수
-	// 		uidKeys.forEach(function(uidkey, index) {
+	// 		uidkeys.forEach(function(uidKey, index) {
 	// 			$.getJSON("/user/getAttachList", {uidkey:uidKey}, function(arr) {
 	// 				console.log(arr);
 	// 				var str = "";
@@ -734,7 +732,6 @@ $(document).ready(function() {
 	// 		}) // end forEach(function)
 	// 	}) // end function
 }); // end ready
-}); // end ready	
 		
 	
 	</script>
@@ -749,13 +746,13 @@ function goBack() {
 }
 </script>
 <script>
-	uidkeys.push('${board.uidkey}');
+// 	uidkeys.push('${board.uidkey}');
 	
 	var bnoValue = '<c:out value="${board.bno}"/>'; // bno값 불러오기
-	var nameValue = '<c:out value="${loginUser.unickName}" />'; // uname 값 불러오기
+	var unameValue = '<c:out value="${loginUser.unickName}" />'; // uname 값 불러오기
 	var replyUL = $(".chat");
 	
-	//kdh 04-27 수정 눌렀을 대 폼 보여주기 함수
+	//kdh 04-27 수정 눌렀을 때 폼 보여주기 함수
 	 function showEditCommentForm(rno) {
 		var commentItem = document.querySelector("[data-rno='" + rno + "']");
 		var commentContent = commentItem.querySelector(".commentItem_commentContent__1yK7o");
@@ -933,14 +930,15 @@ function goBack() {
 		       showList(pageNum);
 		     }); //end replyPageFooter    
 
-		 // 4-25 추가
-		    var comment = $('#comment');
-
+		 // kdh 4-25 댓글 등록 
+			var comment = $('.commentInput_commentText__2er8t');
 		    $("#addReplyBtn").on("click",function(e){
-		      
+		      // 기본 동작 중지
+		      e.preventDefault();
+		    	
 		      var reply = {
 		            reply: comment.val(),
-		            replyer:nameValue,
+		            replyer:unameValue,
 		            bno:bnoValue
 		          };
 		      replyService.add(reply, function(result){
@@ -949,7 +947,6 @@ function goBack() {
 		        		        
 		        showList(1);
 		        showList(-1);
-		        
 		      });//end replyService.add 
 		    });//end onClick function
 		});
