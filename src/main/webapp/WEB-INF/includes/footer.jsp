@@ -206,6 +206,10 @@ $(document).ready(function() {
 	
 	$(".move").on("click", function(e) {
 		e.preventDefault();
+		// kdh 0428 bno값이 있다면 중복해서 등록되지 않게끔 지우게 하는 코드
+		if($("input[name='bno']").length) {
+			$("input[name='bno']").remove();
+			}
 		actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>");
 		actionForm.attr("action", "/board/get");
 		actionForm.submit();
@@ -247,7 +251,7 @@ $(function() {
 	// 이동하는 속도는 300(0.3초)
 	btn.on('click', function(e) {
 		e.preventDefault();
-		$('html, body').animate({scrollTop:500}, '1000');
+		$('html, body').animate({scrollTop:0}, '1000');
 	});
 });
 

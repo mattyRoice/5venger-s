@@ -18,8 +18,8 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	 <!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/css/main.css" type="text/css" />
 <script>
 	var uidkeys = [];
@@ -327,6 +327,7 @@ button {
     cursor: pointer;
     text-decoration: underline;
 }
+
 .page-link {
   color: #000; 
   background-color: #ff9149;
@@ -380,6 +381,8 @@ button {
     display: flex;
     flex-direction: column;
 }
+
+
 .commentItem_userNickname__PQ8kV {
     color: #333;
     font-weight: 900;
@@ -454,6 +457,7 @@ button {
     align-items: center;
     margin-top: 1rem;
 }
+
 </style>
 </head>
 <link rel="icon" href="/resources/Images/profileLogo.png">
@@ -466,6 +470,7 @@ button {
 
  <!--게시글 기본 정보 영역-->
 <%--  <c:forEach items="${board}" var="board"> --%>
+
 <input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno }"/>'>
 <input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum }"/>'>
 <input type='hidden' name='amount' value='<c:out value="${cri.amount }"/>'>
@@ -492,76 +497,57 @@ button {
 			</ul>													
 		</div>
 		
-		
 		</div>        
-	           
 	            <div class="studyContent_userName__1GBr8" ><c:out value="${board.uname }" /></div>
 	        </div>
 	        <div class="studyContent_registeredDate__3lybC" ><fmt:formatDate value="${board.regdate}" pattern="YYYY-MM-dd"/></div></div>
 	   
-	   
-	   <!-- 사용자 수정,마감,삭제  -->
+	      <!-- 사용자 수정,마감,삭제  -->
 	    <c:if test="${loginUser.uidKey==board.uidkey}">
-	    	<section class="studyButtons_buttonWrapper__3tcIE">
-	       		<button id="closed" class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#deadlineModal">마감</button>	
-				<button id="opend" class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#resetModal">마감취소</button>
-	        	<button onclick="location.href='modify?bno=<c:out value="${board.bno}" />'" class="studyButtons_buttons__12bG1">수정</button>       
-	       		<button class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#removeModal">삭제</button>
-				<!-- 마감 Modal -->
-				<div class="modal fade" id="deadlineModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				  <div class="modal-dialog">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				      </div>
-				      <div class="modal-body">
-				        마감 처리 하시겠어요?
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
-				        <button type="button" class="btn btn-primary" data-oper='closed'>네, 마감할게요</button>						     
-				      </div>
-				    </div>
-				  </div>
-				</div>
-				
-				<!-- 마감취소 Modal -->
-				<div class="modal fade" id="resetModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-					   <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					      </div>
-					   <div class="modal-body">
-					        마감 취소 하시겠어요?
-					   </div>
-					   <div class="modal-footer">
-					        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
-					        <button type="button" class="btn btn-primary" data-oper='opend'>네, 취소할게요</button>
-					   </div>
-					   </div>
-					</div>
-				</div>		
-			
-				<!-- 삭제 Modal -->
-				<div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				  <div class="modal-dialog">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				      </div>
-				      <div class="modal-body">
-				        작성하신 글을 삭제 하시겠어요?
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
-				        <button type="button" class="btn btn-primary" onclick="location.href='remove?bno=<c:out value="${board.bno}" />'" >네, 삭제할래요</button>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-			</section>
-		</c:if>
+	    <section class="studyButtons_buttonWrapper__3tcIE">
+	        <button class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#deadlineModal">마감</button>
+	        
+	 <!-- 마감 Modal -->
+	<div class="modal fade" id="deadlineModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        마감 처리 하시겠어요?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+	        <button type="button" class="btn btn-primary" onclick="location.href='remove?bno=<c:out value="${board.bno}" />'" >네, 마감할게요</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	        <button onclick="location.href='modify?bno=<c:out value="${board.bno}" />'" class="studyButtons_buttons__12bG1">수정</button>
+	        <button class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#removeModal">삭제</button>
+	 
+	
+	<!-- 삭제 Modal -->
+	<div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        작성하신 글을 삭제 하시겠어요?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+	        <button type="button" class="btn btn-primary" onclick="location.href='remove?bno=<c:out value="${board.bno}" />'" >네, 삭제할래요</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	</section>
+	</c:if>
+	   
 	    
 	
 	    <!--게시글 기본 정보 영역-->
@@ -612,7 +598,7 @@ button {
 	        </li>
 	    </ul>
 	</section>  <!--게시글 기본 정보 영역 끝-->
-
+	
 	<!--본문 영역-->
 	<div class="studyContent_postContentWrapper__187Zh">
 	    <h2 class="studyContent_postInfo__3zpYu">프로젝트 소개</h2>
@@ -621,17 +607,19 @@ button {
 	    </div>
 	</div><!--본문영역 끝-->
 	
+	<c:out value=""/>
+	
 	<!--댓글영역-->
 	<section class="studyContent_commentAndViews__LrV6X">
 	    <div class="studyContent_postComment__2lpJV">
 	        <div class="commentInput_commentInput__39H41">
 	            <h1 class="commentInput_commentCount__2dHvH">${board.replycnt }개의 댓글이 있습니다.</h1>
 	            <c:if test="${loginUser.uidKey ne null}">
-		            <form >
-			            <textarea class="commentInput_commentText__2er8t" placeholder="댓글을 입력하세요."></textarea>
+		            <form>
+			            <textarea id="comment" class="commentInput_commentText__2er8t" placeholder="댓글을 입력하세요."></textarea>
 			            <div class="commentInput_buttonWrapper__2f_l9">
-			            <button class="commentInput_buttonComplete__24z4R" id="addReplyBtn" name="register">댓글 등록</button>
-		            </div>
+			           		<button class="commentInput_buttonComplete__24z4R" id="addReplyBtn" name="register">댓글 등록</button>
+		            	</div>
 		            </form>
 	            </c:if>
 	            <!--  /.panel-heading -->
@@ -651,9 +639,8 @@ button {
 	        <ul class="commentList_CommentList__30HUh"></ul>
 	    </div>
 	</section><!--댓글영역 끝-->
-
-</div><!--  전체 페이지 끝 -->
-<!-- 댓글 삭제 모달 -->
+</div>
+<!-- 삭제 모달 -->
 <div class="cancelButton_wrapper__1bRq9" style="display: none">
 	<div>댓글을 삭제 하시겠어요?</div>
 	<section class="cancelButton_buttons__2SCwD">
@@ -661,7 +648,10 @@ button {
 		<button class="cancelButton_registerButton__2q_So">네, 삭제할래요</button>
 	</section>
 </div>
+<!--  reply test -->
+<div><c:out value="${reply }"/></div>
 </body>
+
 <script src="https://code.jquery.com/jquery-3.6.4.js"
 	integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
 	crossorigin="anonymous">
@@ -673,9 +663,18 @@ button {
 </script>
 <script type="text/javascript" src="/resources/js/reply.js"></script>
 <script>
+uidkeys.push('${board.uidkey}');
+var bnoValue = '<c:out value="${board.bno}"/>'; // bno값 불러오기
+var unameValue = '<c:out value="${loginUser.unickName}" />'; // uname 값 불러오기
+var replyUL = $(".chat"); 
+var userImages = {};
+
 $(document).ready(function() {
+	
+	
 	// jsh <nav> 태그 사용자 이미지 불러오기
 	(function(){
+		
 		var uidKey = '<c:out value="${ loginUser.uidKey }"/>';
 		console.log(uidKey);
 		var targetA = $("#dropImage");
@@ -691,10 +690,12 @@ $(document).ready(function() {
 				});
 			}			 
 		}); //end getjson						
+		
 	})();//end function	
 	
 	// jsh 글 작성자 이미지 불러오기
 	(function(){
+		
 		var uidKey = '<c:out value="${ board.uidkey }"/>';
 		console.log(uidKey);
 		var targetB = $("#photo");
@@ -710,90 +711,84 @@ $(document).ready(function() {
 				});
 			}			 
 		}); //end getjson						
+						
+		
 	})();//end function	
 	
-	// kdh 댓글 사용자 이미지 불러오기
-	// 	(function() { // 즉시 실행함수
-	// 		uidkeys.forEach(function(uidKey, index) {
-	// 			$.getJSON("/user/getAttachList", {uidkey:uidKey}, function(arr) {
-	// 				console.log(arr);
-	// 				var str = "";
-					
-	// 				if(arr.length == 0) {
-	// 					userImages[uidKey] = "/resources/Images/profileLogo.png"; // 기본 이미지 사용					
-	// 				} else {
-	// 					$(arr).each(function(i, attach){
-	// 						userImages[uidKey] = encodeURIComponent(attach.uploadPath+ "/s_" + attach.uuid +"_"+attach.fileName); // 첫 번째 이미지 사용
-	// 					});
-	// 				}
-	// // 				$("?").eq(index).html(str);
-					
-	// 			})// end getJSON
-	// 		}) // end forEach(function)
-	// 	}) // end function
-}); // end ready
+	// ksh 댓글 사용자 이미지 불러오기
+// 	(function() { // 즉시 실행함수
+// 		uidKeys.forEach(function(uidkey, index) {
+// 			$.getJSON("/user/getAttachList", {uidkey:uidKey}, function(arr) {
+// 				console.log(arr);
+// 				var str = "";
+				
+// 				if(arr.length == 0) {
+// 					userImages[uidKey] = "/resources/Images/profileLogo.png"; // 기본 이미지 사용					
+// 				} else {
+// 					$(arr).each(function(i, attach){
+// 						userImages[uidKey] = encodeURIComponent(attach.uploadPath+ "/s_" + attach.uuid +"_"+attach.fileName); // 첫 번째 이미지 사용
+// 					});
+// 				}
+// // 				$("?").eq(index).html(str);
+				
+// 			})// end getJSON
+// 		}) // end forEach(function)
+// 	}) // end function
+}); // end ready	
 		
 	
-	</script>
+</script>
 	
 <script>
 function goBack() {
-  if (document.referrer.includes("main")) {
-      window.location.href = "/board/main";
-  } else{
-	  window.history.back(); 
-  } 
+  window.history.back();
 }
 </script>
 <script>
-// 	uidkeys.push('${board.uidkey}');
-	
-	var bnoValue = '<c:out value="${board.bno}"/>'; // bno값 불러오기
-	var unameValue = '<c:out value="${loginUser.unickName}" />'; // uname 값 불러오기
-	var replyUL = $(".chat");
-	
-	//kdh 04-27 수정 눌렀을 때 폼 보여주기 함수
-	 function showEditCommentForm(rno) {
-		var commentItem = document.querySelector("[data-rno='" + rno + "']");
-		var commentContent = commentItem.querySelector(".commentItem_commentContent__1yK7o");
-		var commentText = commentContent.querySelector("p").textContent;
-		 
-		var editInput = $('.commentItem_modifyInput__1ounT');
-		var commentInputButton = commentItem.querySelector(".commentItem_commentInputButton__1JrQz");
-		editInput.attr("type", "text");
-		commentInputButton.style.display = "flex";
-		
-		 $('#canBtn').on("click", function() {
-			  // 댓글 수정 입력 폼과 완료/취소 버튼 숨김
-			  $('.commentItem_commentInputButton__1JrQz').css("display", "none");
-			  editInput.css("display", "none");
-			  location.reload();
-		}); // end addEventListener	
-		
-		// 수정 완료 버튼 눌렀을 때
-		var sucBtn = $('.commentItem_buttonComplete__3czy4');
-		sucBtn.on("click", function() {
-			var editedComment = editInput.val();
-			var rno = commentItem.getAttribute("data-rno");
-	        var updatedReply = { rno: rno, reply: editedComment };
-	        replyService.update(updatedReply, function (result) {
-	        	alert(result);
-		    	// 수정된 내용으로 화면 갱신
-		    	commentContent.innerHTML = "<p class='commentItem_commentContent__1yK7o'>" + editedComment + "</p>";
-		    	// 댓글 수정 입력 폼과 완료/취소 버튼 숨김
-			    commentItem.querySelector(".commentItem_modifyInput__1ounT").style.display = "none";
-			    commentItem.querySelector(".commentItem_commentInputButton__1JrQz").style.display = "none";
-	    	}); // end replyService.update
-	  	});// end function sucBtn.onClick 
-	 }// end function showEditCommentForm
-	
-	 // 댓글 수정 버튼 눌렀을 때
-	 $('#modBtn').on("click", function() {
-		    var rno = $(this).closest('.commentItem_commentContainer__3eMR4').attr("data-rno");
-		    $('.commentItem_commentInputButton__1JrQz').css('display', 'block !important');
-		    showEditCommentForm(rno);
-		    
-	 });
+//수정 눌렀을 때 폼 보여주기 함수 
+function showEditCommentForm(rno) {
+  var commentItem = document.querySelector("[data-rno='" + rno + "']");
+  var commentContent = commentItem.querySelector(".commentItem_commentContent__1yK7o");
+  var commentText = commentContent.querySelector("p").textContent;
+  var editInput = commentItem.querySelector(".commentItem_modifyInput__1ounT");
+  var commentInputButton = commentItem.querySelector(".commentItem_commentInputButton__1JrQz");
+
+  editInput.value = commentText;
+  editInput.setAttribute("type", "text");
+  commentInputButton.style.display = "flex";
+
+  // 수정 취소 버튼
+  var canBtn = commentItem.querySelector(".commentItem_buttonCancel__10CiY");
+  canBtn.addEventListener("click", function() {
+    editInput.style.display = "none";
+    commentInputButton.style.display = "none";
+  });
+
+  // 수정 완료 버튼
+  var sucBtn = commentItem.querySelector(".commentItem_buttonComplete__3czy4");
+  sucBtn.addEventListener("click", function() {
+    var editedComment = editInput.value;
+    var rno = commentItem.getAttribute("data-rno");
+    var updatedReply = { rno: rno, reply: editedComment };
+    replyService.update(updatedReply, function (result) {
+      alert(result);
+      // 수정된 내용으로 화면 갱신
+      commentContent.innerHTML = "<p class='commentItem_commentContent__1yK7o'>" + editedComment + "</p>";
+      // 댓글 수정 입력 폼과 완료/취소 버튼 숨김
+      editInput.style.display = "none";
+      commentInputButton.style.display = "none";
+    }); // end replyService.update
+  });// end function sucBtn.onClick
+}
+
+// 댓글 수정 버튼 눌렀을 때
+$('.commentItem_buttonModify__2nhuL').on("click", function() {
+  var rno = $(this).closest('.commentItem_commentContainer__3eMR4').attr("data-rno");
+  showEditCommentForm(rno);
+});
+
+
+
 	 
 	 // kdh 댓글 삭제
 	 function deleteReply(rno) {
@@ -801,54 +796,56 @@ function goBack() {
 	    var commentItem = $(this).closest(".commentItem_commentContainer__3eMR4");
 	 	
 		// 댓글 삭제 요청
-  		replyService.remove(rno, function(result){
-  	        
-  	      alert(result);
-  	   	  location.reload();
-  	      
-  	  });//end ReplyService
+   		replyService.remove(rno, function(result){
+   	        
+   	      alert(result);
+   	   	  location.reload();
+   	      
+   	  });//end ReplyService
 	 }
-	
+	 
 	$(document).ready(function() {
 		showList(1);
 		    
-		// 목록 보여주는 함수  
-		function showList(page){
+		// 목록 보여주는 함수
+		function showList(page){ 
 			console.log("show list " + page);
-			
+		    
 			// reply.js에 추가되어있는 replyService함수 호출
 		    replyService.getList({bno:bnoValue,page: page|| 1 }, function(replyCnt, list) {
 		      
-		    console.log("replyCnt: "+ replyCnt );
-		    console.log("list: " + list);
-		    console.log(list);
-		    
-		    if(page == -1){
-		      pageNum = Math.ceil(replyCnt/10.0);
-		      showList(pageNum);
-		      return;
-		    }
+			    console.log("replyCnt: "+ replyCnt );
+			    console.log("list: " + list);
+			    console.log(list);
+			    
+			    if(page == -1){
+			      pageNum = Math.ceil(replyCnt/10.0);
+			      showList(pageNum);
+			      return;
+			    }
 		      
-		     var str="";
-		     
-		     if(list == null || list.length == 0){
-		       return;
-		     }
-		     
-		     for (var i = 0, len = list.length || 0; i < len; i++) {
+			     var str="";
+			     
+			     if(list == null || list.length == 0){
+			       return;
+			     }
+			     
+				for (var i = 0, len = list.length || 0; i < len; i++) {
 					// 각 댓글 항목을 구성하는 HTML 코드 작성
+					var commentId = 'comment_' + list[i].rno;
 					str +="<li class='commentItem_commentContainer__3eMR4' data-rno='"+list[i].rno+"'>";
 					str +="<section class='commentItem_commentHeader__3-Wux'>";
 					str +="  <div class='commentItem_avatarWrapper__2J4nR'>"
 					// 사용자 이미지 추가
-//					str +="		<img class='commentItem_userImg__jWpVc' src='/display?fileName="+userImages[list[i].uidkey]+"' alt='사용자 이미지'>";
+// 					str +="		<img class='commentItem_userImg__jWpVc' src='/display?fileName="+userImages[list[i].uidkey]+"' alt='사용자 이미지'>";
 					str +="		<div class='commentItem_commentInfo__5KL0S'><div class='commentItem_title__36t1w'>"
 					str +="			<div class='commentItem_userNickname__PQ8kV'>"+list[i].replyer+"</div>"
 					str +="			<div class='commentItem_registeredDate__2TPJZ'>"+replyService.displayTime(list[i].replyDate)+"</div>"
 					str +="		</div></div></div>"
 					if (unameValue == list[i].replyer) {
 						str += "<section class='commentButtons_buttonWrapper__2I-EK'>";
-						str += "<button id='modBtn' class='commentButtons_buttons__3vQ84' onclick='showEditCommentForm(" + list[i].rno + ")'>수정</button> ";
+// 						str += "<button id='modBtn' class='commentButtons_buttons__3vQ84' onclick='showEditCommentForm(" + list[i].rno + ")'>수정</button> ";
+						str += "<button id='modBtn_" + list[i].rno + "' class='commentButtons_buttons__3vQ84' onclick='showEditCommentForm(" + list[i].rno + ")'>수정</button> ";
 						str += "<button id='remBtn' class='commentButtons_buttons__3vQ84' onclick='deleteReply("+list[i].rno+")'>삭제</button>";
 						str += "</section>";
 					}
@@ -871,85 +868,87 @@ function goBack() {
 				showReplyPage(replyCnt);
 			});//end getList
 		}//end showList
-		    
-		    var pageNum = 1;
-		    var replyPageFooter = $(".panel-footer");
-		    
-		    
-		    // 댓글 페이지 네이션
-		    function showReplyPage(replyCnt){
-		      
-		      var endNum = Math.ceil(pageNum / 10.0) * 10;  
-		      var startNum = endNum - 9; 
-		      
-		      var prev = startNum != 1;
-		      var next = false;
-		      
-		      if(endNum * 10 >= replyCnt){
-		        endNum = Math.ceil(replyCnt/10.0);
-		      }
-		      
-		      if(endNum * 10 < replyCnt){
-		        next = true;
-		      }
-		      
-		      var str = "<ul class='pagination pull-right'>";
-		      
-		      if(prev){
-		        str+= "<li class='page-item'><a class='page-link' href='"+(startNum -1)+"'>Previous</a></li>";
-		      }
-		      
-		      for(var i = startNum ; i <= endNum; i++){
-		        
-		        var active = pageNum == i? "active":"";
-		        
-		        str+= "<li class='page-item "+active+" '><a class='page-link' href='"+i+"'>"+i+"</a></li>";
-		      }
-		      
-		      if(next){
-		        str+= "<li class='page-item'><a class='page-link' href='"+(endNum + 1)+"'>Next</a></li>";
-		      }
-		      
-		      str += "</ul></div>";
-		      
-		      console.log(str);
-		      
-		      replyPageFooter.html(str);
-		    }// end function showReplyPage
-		     
-		    replyPageFooter.on("click","li a", function(e){
-		       e.preventDefault();
-		       console.log("page click");
-		       
-		       var targetPageNum = $(this).attr("href");
-		       
-		       console.log("targetPageNum: " + targetPageNum);
-		       
-		       pageNum = targetPageNum;
-		       
-		       showList(pageNum);
-		     }); //end replyPageFooter    
+		
+		
+		 
+		 
+	    var pageNum = 1;
+	    var replyPageFooter = $(".panel-footer");
+	    
+	    // 댓글 페이지네이션
+	    function showReplyPage(replyCnt){
+	      
+	      var endNum = Math.ceil(pageNum / 10.0) * 10;  
+	      var startNum = endNum - 9; 
+	      
+	      var prev = startNum != 1;
+	      var next = false;
+	      
+	      if(endNum * 10 >= replyCnt){
+	        endNum = Math.ceil(replyCnt/10.0);
+	      }
+	      
+	      if(endNum * 10 < replyCnt){
+	        next = true;
+	      }
+	      
+	      var str = "<ul class='pagination pull-right'>";
+	      
+	      if(prev){
+	        str+= "<li class='page-item'><a class='page-link' href='"+(startNum -1)+"'>Previous</a></li>";
+	      }
+	      
+	      for(var i = startNum ; i <= endNum; i++){
+	        
+	        var active = pageNum == i? "active":"";
+	        
+	        str+= "<li class='page-item "+active+" '><a class='page-link' href='"+i+"'>"+i+"</a></li>";
+	      }
+	      
+	      if(next){
+	        str+= "<li class='page-item'><a class='page-link' href='"+(endNum + 1)+"'>Next</a></li>";
+	      }
+	      
+	      str += "</ul></div>";
+	      
+	      console.log(str);
+	      
+	      replyPageFooter.html(str);
+	    }// end function showReplyPage
+	     
+	    replyPageFooter.on("click","li a", function(e){
+	       e.preventDefault();
+	       console.log("page click");
+	       
+	       var targetPageNum = $(this).attr("href");
+	       
+	       console.log("targetPageNum: " + targetPageNum);
+	       
+	       pageNum = targetPageNum;
+	       
+	       showList(pageNum);
+	     }); //end replyPageFooter
+   
+	    // 4-25 추가
+	    var comment = $('#comment');
 
-		 // kdh 4-25 댓글 등록 
-			var comment = $('.commentInput_commentText__2er8t');
-		    $("#addReplyBtn").on("click",function(e){
-		      // 기본 동작 중지
-		      e.preventDefault();
-		    	
-		      var reply = {
-		            reply: comment.val(),
-		            replyer:unameValue,
-		            bno:bnoValue
-		          };
-		      replyService.add(reply, function(result){
-		        
-		        alert(result);
-		        		        
-		        showList(1);
-		        showList(-1);
-		      });//end replyService.add 
-		    });//end onClick function
-		});
+	    $("#addReplyBtn").on("click",function(e){
+	      
+	      var reply = {
+	            reply: comment.val(),
+	            replyer:unameValue,
+	            bno:bnoValue
+	          };
+	      replyService.add(reply, function(result){
+	        
+	        alert(result);
+	        		        
+	        showList(1);
+	        showList(-1);
+	        
+	      });//end replyService.add 
+	    });//end onClick function
+	});
 
 </script>
 
@@ -971,56 +970,7 @@ $(document).ready(function() {
     operForm.attr("action","/board/main")
     operForm.submit();
     
-  });
-  
-    /* 마감 기능 */
-    // '마감' 또는 '마감취소' 버튼 display 기존값으로 초기화
-	var status = '<c:out value="${board.status}"/>'; // expireck
-	if (status == 'closed') {
-	    $("#closed").css("display", "none");
-	} else {
-		$("#opend").css("display", "none");
-	}
-	
-	// "네, 마감할게요." 버튼 눌렀을 시
-	$("button[data-oper='closed']").on("click", function(e){		
-		  	var bnoValue = '<c:out value="${board.bno}"/>'; // bno
-		  	var data = {bno : bnoValue};
-		  	
-			$.ajax({
-				type : "get",
-				url : "/board/upClose",
-				data : data,
-				success : function(result){
-					console.log("성공 여부" + result);
-					if(result != 'fail'){
-						$("#closed").css("display", "none");
-						$("#opend").css("display","inline-block");
-					}
-				}
-			});		
-			$("#deadlineModal").modal('hide');
-	});
-	
-	// "마감 취소" 버튼 눌렀을 시
-	$("button[data-oper='opend']").on("click", function(e){		
-		  	var bnoValue = '<c:out value="${board.bno}"/>'; // bno
-		  	var data = {bno : bnoValue};
-		  	
-			$.ajax({
-				type : "get",
-				url : "/board/upOpen",
-				data : data,
-				success : function(result){
-					console.log("성공 여부" + result);
-					if(result != 'fail'){
-						$("#opend").css("display", "none");
-						$("#closed").css("display","inline-block");
-					}
-				}
-			});			
-			$("#resetModal").modal('hide');
-	}); // end 버튼
+  });  
 });
 </script>
 
