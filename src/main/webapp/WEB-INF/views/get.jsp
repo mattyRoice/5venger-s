@@ -418,11 +418,12 @@ button {
     flex-direction: row;
 }
 .commentItem_buttonCancel__10CiY{
-	background: #ff914d;
+	background: #e9ecef;
 }
 .commentItem_buttonComplete__3czy4 {
-    background: #e06034;
+    background: #ff914d;
     font-weight: 700;
+    color: #fff;
 }
 .commentItem_commentInputButton__1JrQz button {
     border-radius: 4px;
@@ -431,7 +432,6 @@ button {
     margin-right: 10px;
     height: 1.75rem;
     font-size: 1rem;
-    color: #fff;
 }
 .commentItem_commentInputButton__1JrQz button {
     border-radius: 4px;
