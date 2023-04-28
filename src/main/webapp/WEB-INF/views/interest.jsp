@@ -28,6 +28,26 @@
 <link rel="icon" href="/resources/Images/profileLogo.png">
 <body>
 
+<!--<img id="bookmarkImage" class="studyItem_bookmark__2YtKX" src="/resources/Images/nonfilledheart.png" alt="bookmark">
+  <button onclick="toggle()">Toggle Bookmark</button>
+  <div id="mydiv" style="display:none">
+    <p>Bookmark toggled!</p>
+  </div>
+
+ <script>
+   function toggle() {
+     var mydiv = document.getElementById('mydiv');
+     var bookmarkImage = document.getElementById('bookmarkImage');
+     if (mydiv.style.display === 'none') {
+       mydiv.style.display = 'block';
+       bookmarkImage.src = '/resources/Images/filledheart.png';
+     } else {
+       mydiv.style.display = 'none';
+       bookmarkImage.src = '/resources/Images/nonfilledheart.png';
+     }
+   }
+ </script> -->
+
 	<!--  전체 바디 태그 root -->
 	<div id="root">
 		<!--  nav 태그 -->
@@ -89,8 +109,8 @@
 				<div class="row">
 
 					<c:forEach items="${board}" var="board">
-					<c:if test="${interestList.contains(board.bno)}"> <!-- only extract the ones with bno in interestList -->
-						<div class="col-lg-3">
+					<c:if test="${interestList.contains(board.bno)}">
+						<div id="card_${board.bno}" class="col-lg-3">
 							<div class="card" style="width: 100%">
 								<div class="card-body move" href='<c:out value="${board.bno }"/>'>
 									<!-- 스터디-->
@@ -118,7 +138,7 @@
 										</p>
 									</div>
 									<!--게시글 제목-->
- 
+
 									<h6 class="studyItem_title__2B_2o">
 										<c:out value="${board.title }" />
 									</h6>
@@ -204,6 +224,32 @@
 						<script>
 							uidkeys.push('${board.uidkey}');
 						</script>
+						<script>
+							/* 마감일자 지난 카드 흐리게 만들기 */
+							var status = '<c:out value="${board.status}"/>';
+							var deadlineStr = '<c:out value="${board.deadline}"/>';
+						  	console.log(deadlineStr);
+						  	var deadlineDate = new Date(deadlineStr);
+						  	var today = new Date(); 
+						  	var diffDays = Math.floor((deadlineDate - today) / (1000 * 60 * 60 * 24));
+						  	console.log(diffDays);
+						  	if (diffDays < 0 || status =="closed") {
+						  		 var expireDiv = $("<div>", { id: "expire", class: "move w-50 p-3 text-center fw-semibold rounded-4", href:"<c:out value="${board.bno }"/>", text: "모집마감" });
+						  		 expireDiv.css({
+						  		    position: "absolute",
+						  		    top: "40%",
+						  		    left: "25%",
+						  		    background: "black",
+						  		    color: "white",
+						  		  	"z-index": 9999,
+						  		  	cursor: "pointer"
+						  		  });
+						  		$("#card_${board.bno}").css("position", "relative");  
+						  		$("#card_${board.bno}").prepend(expireDiv);
+							    $("#card_${board.bno}").css("opacity", "0.5");							    
+							}				    
+							
+						</script>
 						</c:if>
 					</c:forEach>
 					<!--  메인 게시글 반복문 끝 -->
@@ -215,6 +261,7 @@
 		</main>
 		<!--  main 끝 -->
 	</div>
+
 
 	
 
