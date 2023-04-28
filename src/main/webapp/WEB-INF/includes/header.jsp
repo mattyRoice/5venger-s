@@ -12,7 +12,9 @@
 					onclick="location.href='/board/register'">글쓰기</button>
 			
 			
-			<% if (session.getAttribute("loginUser") != null) { %>				
+			<% if (session.getAttribute("loginUser") != null) { %>
+				<button class="navbar_postRegister__FJnRS"
+					onclick="location.href='/user/recommend'">추천글</button>			
 				<!-- 사용자 드롭다운 메뉴 -->
 					<div class="dropdown" style="display: inline-block">
 			  			<a class="btn dropdown-toggle" id="dropImage" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
