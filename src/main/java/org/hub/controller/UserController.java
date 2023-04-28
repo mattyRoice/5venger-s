@@ -470,7 +470,7 @@ public class UserController {
 		int total = service.getTotal(cri);
 
 		log.info("total: " + total);
-
+ 
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 
 		UserVO user = (UserVO)session.getAttribute(SessionNames.LOGIN);
