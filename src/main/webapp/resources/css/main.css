@@ -21,7 +21,7 @@
 	background-color: #fff;
 	cursor: pointer;
 	font-weight: 600;
-	font-size: 1.125rem;
+	font-size: 1.25rem;
 }
 
 .Category_categories__3bwPA {
@@ -195,8 +195,7 @@
 	-webkit-tap-highlight-color: transparent;
 	color: inherit;
 	box-sizing: inherit;
-	background-color: #ff9149;
-	margin-bottom: 16px;
+	background-color: #ff914d;
 }
 
 .firstBanner_container__1M3Ft {
@@ -286,7 +285,7 @@
 	-webkit-tap-highlight-color: transparent;
 	color: inherit;
 	box-sizing: inherit;
-	width: 334px;
+	width: 370px;
 	height: auto;
 	display: block;
 }
@@ -299,7 +298,7 @@
 	-webkit-tap-highlight-color: transparent;
 	color: inherit;
 	box-sizing: inherit;
-	background-color: #e06034;
+	background-color: #ffa297;
 }
 
 .secondBanner_container__1Nu6b {
@@ -339,7 +338,7 @@
 	font-weight: 700;
 	padding: 5px 30px;
 	color: #fff;
-	background: antiquewhite;
+	background: #ffc107;
 	border-radius: 50px;
 	margin-bottom: 24px;
 }
@@ -393,7 +392,7 @@
 	-webkit-tap-highlight-color: transparent;
 	color: inherit;
 	box-sizing: inherit;
-	width: 381px;
+	width: 370px;
 	height: auto;
 	display: block;
 }
@@ -406,7 +405,7 @@
 	max-width: 1300px;
 	width: 100%;
 	padding: 0 15px;
-	margin: 100px auto 60px;
+	margin: 50px auto 50px;
 	position: relative;
 }
 
@@ -474,7 +473,7 @@
 	width: 100%;
 	grid-gap: 15px;
 	gap: 15px;
-	margin-bottom: 40px;
+	margin-bottom:30px;
 }
 
 .LanguageBar_languageIcon__Um7GQ.LanguageBar_full__3qQet {
@@ -542,11 +541,16 @@
 	box-sizing: inherit;
 	display: flex;
 	align-items: center;
-	position: absolute;
+	justify-content: space-around;
 	grid-gap: 8px;
 	gap: 8px;
 	top: -5px;
 	right: 0;
+	margin-top: 90px;
+    padding-bottom: 30px;
+    max-width: 1180px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .search_searchImg__2ia6h {
@@ -554,10 +558,11 @@
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
 	box-sizing: inherit;
-	display: block;
-	width: 32px;
-	height: 32px;
-	cursor: pointer;
+	display: inline-block;
+	width: 37px;
+	height: 37px;
+	margin-right:13px;
+	margin-left:15px;
 }
 
 .search_searchInput__1BF6g {
@@ -565,13 +570,22 @@
 	height: 2.5rem;
 	border-radius: .5rem;
 	margin-right: .5rem;
-	width: 200px;
-	border: none;
-	outline: none;
+	width: 98%;
+/* 	border: none;
+	outline: none; */
 	padding: 0;
-	font-weight: 700;
-	font-size: 20px;
-	animation: search_reveal__1xwGv 1s;
+	font-weight: 600;
+	font-size: 21px;
+	/* animation: search_reveal__1xwGv 1s; */
+	background-color: white;
+    text-align : left;
+    margin-right : 10px;
+}
+
+.input-group-text{
+	padding: 2rem 1.5rem;
+	font-size: 21px;
+	font-weight: semi-bold;
 }
 
 .mainContent_main__F2EU9 {
@@ -1320,6 +1334,10 @@ Topbutton_topButton__35AKX.show {
 	display: flex;
 	align-items: center;
 	margin-top: 30px;
+}
+
+.container{
+	width:1270px;
 }
 
 /* .studyItem_schedule__3oAnA{ */

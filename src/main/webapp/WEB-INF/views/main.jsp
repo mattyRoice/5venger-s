@@ -46,7 +46,7 @@
 							</div>
 							<div class="firstBanner_rightCover__3Olog">
 								<img class="firstBanner_coverImage__1yB1-"
-									src="https://holaworld.io/images/banner/11.png"
+									src="/resources/Images/banner_bunny.png"
 									alt="firstBanner">
 							</div>
 						</div>
@@ -85,6 +85,49 @@
 				<span class="visually-hidden">Next</span>
 			</button>
 		</div>
+		
+		<!--  검색 화면 -->
+		<div class="input-group search_container__2ExFE">
+			<img class="search_searchImg__2ia6h" src="/resources/Images/search.png">
+			
+			<form class="col" id='searchForm' action="/board/main" method='get'>
+				
+				<input type='text' name='keyword' class="input-group-text search_searchInput__1BF6g" placeholder="원하는 스터디를 검색해 보세요!"
+					value='<c:out value="${pageMaker.cri.keyword }"/>'> 
+				<input type='hidden' name='pageNum'
+					value='<c:out value="${pageMaker.cri.pageNum }"/>'> 
+				<input type='hidden' name='amount'
+					value='<c:out value="${pageMaker.cri.amount }"/>'>
+			</form>
+			
+		</div>
+		
+			<%-- <div class="search_container__2ExFE">
+				<div class='row'>
+					<div class="col-lg-12">
+						<form id='searchForm' action="/board/main" method='get'>
+							<select name='type'>
+								<option value=""
+									<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>검색타입</option>
+								<option value="T"
+									<c:out value="${pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
+								<option value="C"
+									<c:out value="${pageMaker.cri.type eq 'C'?'selected':''}"/>>내용</option>
+								<option value="TC"
+									<c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}"/> selected>제목
+									or 내용</option>
+							</select> <input type='text' name='keyword'
+								value='<c:out value="${pageMaker.cri.keyword }"/>'> <input
+								type='hidden' name='pageNum'
+								value='<c:out value="${pageMaker.cri.pageNum }"/>'> <input
+								type='hidden' name='amount'
+								value='<c:out value="${pageMaker.cri.amount }"/>'>
+							<button class='btn btn-default'>Search</button>
+						</form>
+					</div>
+				</div>
+			</div> --%>
+		
 
 		<!--  필터  -->
 		<section class="desktopFilter_filterWrapper__1gwsT">
@@ -245,32 +288,6 @@
 				</ul>
 			</div>
 
-			<!--  검색 화면 -->
-			<div class="search_container__2ExFE">
-				<div class='row'>
-					<div class="col-lg-12">
-						<form id='searchForm' action="/board/main" method='get'>
-							<select name='type'>
-								<option value=""
-									<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>검색타입</option>
-								<option value="T"
-									<c:out value="${pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
-								<option value="C"
-									<c:out value="${pageMaker.cri.type eq 'C'?'selected':''}"/>>내용</option>
-								<option value="TC"
-									<c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}"/> selected>제목
-									or 내용</option>
-							</select> <input type='text' name='keyword'
-								value='<c:out value="${pageMaker.cri.keyword }"/>'> <input
-								type='hidden' name='pageNum'
-								value='<c:out value="${pageMaker.cri.pageNum }"/>'> <input
-								type='hidden' name='amount'
-								value='<c:out value="${pageMaker.cri.amount }"/>'>
-							<button class='btn btn-default'>Search</button>
-						</form>
-					</div>
-				</div>
-			</div>
 		</section>
 		<!--  메인 게시글 -->
 		<main class="mainContent_main_F2EU9">
@@ -281,8 +298,8 @@
 						<span aria-live="polite" aria-atomic="false"
 							aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
 
-						<select class="form-select form-select-lg mb-3"
-							aria-label=".form-select-lg example">
+						<select class="form-select form-select-lg mb-4"
+							aria-label=".form-select-lg example" style="font-size: 1.125rem;">
 							<option selected>내 포지션 찾기</option>
 							<option value="all">전체</option>
 							<option value="front">프론트엔드</option>
@@ -295,11 +312,11 @@
 						</select>
 					</div>
 				</div>
-				<div class="toggleSwitch_switch__hglrb">
-					<span class="toggleSwitch_switchTitle__1g_TJ">모집 중만 보기</span>
-					<div class="form-check form-switch">
-						<input class="form-check-input" type="checkbox" role="switch"
-							id="flexSwitchCheckChecked" checked>
+				<div class="toggleSwitch_switch__hglrb mb-4">
+					<span class="toggleSwitch_switchTitle__1g_TJ fs-4">모집 중만 보기</span>
+					<div class="form-check form-switch" style="margin-bottom:0;">
+						<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked 
+							style="height:1.5em; width:2.45em; background-color:#ff914d; border-color:#ff914d;">
 					</div>
 					</label>
 				</div>
