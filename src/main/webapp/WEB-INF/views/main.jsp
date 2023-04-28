@@ -306,7 +306,7 @@
 			</div>
 
 			<div class="container">
-				<div class="row">
+				<div id ="main-filter" class="row">
 
 					<c:forEach items="${board}" var="board">
 						<div id="card_${board.bno}" class="col-lg-3">

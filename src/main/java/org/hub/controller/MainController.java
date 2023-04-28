@@ -37,6 +37,12 @@ public class MainController {
 		
 		String[] filters = new String[0];
 		
+		int total = service.getTotal(cri);
+
+		log.info("total: " + total);
+
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		
 		if(filter == null){
 			List<BoardVO> boardList = service.getList(cri);
 			model.addAttribute("board", boardList);
@@ -48,31 +54,15 @@ public class MainController {
 			System.out.println(Arrays.toString(filters));
 			
 			cri.setFilters(filters);
+			
 			List<BoardVO> boardList = service.getListWithFilter(cri);
-			if(boardList.size() >0 ) {
-				log.info("------------------------- boardList: " + boardList.get(0) + boardList.get(1));
-			} else {
-				log.info("======================== boardList: null");
-			}
 			
 			model.addAttribute("board", boardList);
-		}
-		
-		int total = service.getTotal(cri);
-
-		log.info("total: " + total);
-
-		model.addAttribute("pageMaker", new PageDTO(cri, total));
+			
+			return "mainWithFilter";
+		}		
 		
 		return "main";
 	}
-
-//	@GetMapping("/register")
-//	public String getRegister() {
-//		System.out.println("새 글쓰기로 이동");
-//		log.info("새 글쓰기로 이동");
-//
-//		return "register";
-//	}
 
 }

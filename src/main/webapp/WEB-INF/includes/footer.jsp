@@ -312,10 +312,10 @@ $(function() {
 				type: "GET", // 요청 방식
 				url: "/board/main", //요청 URL
 				data: data, // 요청 데이터
-				dataType: "json", // 응답 데이터 타입
 				success: function(data) {
 					// 요청 성공 시 콜백 함수
 					console.log(data);
+					$('#main-filter').html(data);
 				}, 
 				error: function(xhr, status, error) {
 					console.log(status + ": " + error);

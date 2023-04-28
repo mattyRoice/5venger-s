@@ -129,7 +129,7 @@
 	<select id="getListWithPagingWithFilter"
 		resultType="org.hub.domain.BoardVO">
 	   <![CDATA[
-	SELECT bno, deadline, uidkey ,title,content, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
+	SELECT bno, deadline, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
 	FROM (
 		select * from board_view 
 		WHERE
@@ -143,7 +143,7 @@
 		<if test="filters != null and filters.length > 0">
 			AND snames IN (
 			<foreach collection="filters" item="filter" separator=",">
-				'%'||#{filter}||'%'
+				#{filter}
 			</foreach>
 			)
 		</if>
