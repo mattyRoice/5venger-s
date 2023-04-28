@@ -8,11 +8,20 @@ import org.hub.domain.Criteria;
 import org.hub.domain.UserReadVO;
 
 public interface BoardMapper {
-
+	
+	// 메인 게시글 불러오기
 	public List<BoardVO> getListWithPaging(Criteria cri);
 	
+	// 메인 게시글 수
+	public int getTotalCount(Criteria cri);
+	
+	// 메인 게시글 불러오기 with 필터
 	public List<BoardVO> getListWithPagingWithFilter(Criteria cri);
 	
+	// 메인 게시글 수 with 필터
+	public int getTotalCountWithFilter(Criteria cri);
+	
+	// 글 등록
 	public void insert(BoardVO board);
 
 	public Integer insertSelectKey(BoardVO board);
@@ -21,11 +30,8 @@ public interface BoardMapper {
 
 	public int delete(int bno);
 	
-	
 	// 게시글 수정하기 - 수정한 행 수 반환
 	public int update(BoardVO board);
-
-	public int getTotalCount(Criteria cri);
 
 	// 추천목록 가져오기
 	public List<Integer> getRecommend(String uidkey);

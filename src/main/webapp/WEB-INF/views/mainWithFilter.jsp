@@ -17,7 +17,8 @@
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/css/main.css" type="text/css" />
-
+				
+				<div id ="main-filter" class="row">
 					<c:forEach items="${board}" var="board">
 						<div id="card_${board.bno}" class="col-lg-3">
 							<div class="card" style="width: 100%">
@@ -161,3 +162,72 @@
 						</script>
 					</c:forEach>
 					<!--  메인 게시글 반복문 끝 -->
+					</div>
+				<!--row 끝-->
+				<br>
+				<!--  pageNation -->
+				<nav aria-label="Page navigation">
+					<ul class="pagination  justify-content-center">
+						<c:if test="${pageMaker.prev }">
+							<li class="page-item"><a class="page-link"
+								href="${pageMaker.startPage-1 }">Previous</a></li>
+						</c:if>
+			
+						<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+							<li class="page-item  ${pageMaker.cri.pageNum == num ? 'active':''} ">
+								<a class="page-link" href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+			
+			
+						<c:if test="${pageMaker.next }">
+							<li class="page-item"><a class="page-link"
+								href="${pageMaker.endPage+1 }">Next</a></li>
+						</c:if>
+					</ul>
+			
+					<form id='actionForm' action="/board/main" method='get'>
+						<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
+						<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>
+						<input type='hidden' name='type'
+							value='<c:out value="${ pageMaker.cri.type }"/>'> <input
+							type='hidden' name='keyword'
+							value='<c:out value="${ pageMaker.cri.keyword }"/>'>
+					</form>
+				</nav>
+				<!--  pageNation 끝 -->
+<script>
+	var actionForm = $("#actionForm");
+	
+	$(".page-item a").on("click", function(e) {
+		e.preventDefault();
+		console.log('click');
+		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+		actionForm.submit();
+	});
+	
+	$(".move").on("click", function(e) {
+		e.preventDefault();
+		// kdh 0428 bno값이 있다면 중복해서 등록되지 않게끔 지우게 하는 코드
+		if($("input[name='bno']").length) {
+			$("input[name='bno']").remove();
+			}
+		actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>");
+		actionForm.attr("action", "/board/get");
+		actionForm.submit();
+	});
+	
+	// kdh 0428  관심글 하트 이벤트
+	var bookmark = $('.studyItem_bookmark__2YtKX');
+	bookmark.on("click", function(e) {
+		e.preventDefault();
+		
+		var heartStatus = $(this).attr('src');
+		if(heartStatus == "/resources/Images/nonfilledheart.png"){
+			$(this).attr("src", "/resources/Images/filledheart.png");	
+		} else {
+			$(this).attr("src", "/resources/Images/nonfilledheart.png");
+		}
+		return false;
+	});
+</script>

@@ -322,8 +322,8 @@
 				</div>
 			</div>
 
-			<div class="container">
-				<div id ="main-filter" class="row">
+			<div id ="main-filter" class="container">
+				<div class="row">
 
 					<c:forEach items="${board}" var="board">
 						<div id="card_${board.bno}" class="col-lg-3">
@@ -471,6 +471,39 @@
 				</div>
 				<!--row 끝-->
 				<br>
+				<!--  pageNation -->
+				<nav aria-label="Page navigation">
+					<ul class="pagination  justify-content-center">
+						<c:if test="${pageMaker.prev }">
+							<li class="page-item"><a class="page-link"
+								href="${pageMaker.startPage-1 }">Previous</a></li>
+						</c:if>
+			
+						<c:forEach var="num" begin="${pageMaker.startPage}"
+							end="${pageMaker.endPage}">
+							<li
+								class="page-item  ${pageMaker.cri.pageNum == num ? 'active':''} ">
+								<a class="page-link" href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+			
+			
+						<c:if test="${pageMaker.next }">
+							<li class="page-item"><a class="page-link"
+								href="${pageMaker.endPage+1 }">Next</a></li>
+						</c:if>
+					</ul>
+			
+					<form id='actionForm' action="/board/main" method='get'>
+						<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
+						<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>
+						<input type='hidden' name='type'
+							value='<c:out value="${ pageMaker.cri.type }"/>'> <input
+							type='hidden' name='keyword'
+							value='<c:out value="${ pageMaker.cri.keyword }"/>'>
+					</form>
+				</nav>
+				<!--  pageNation 끝 -->
 			</div>
 			<!--container 끝-->
 		</main>
@@ -478,37 +511,7 @@
 	</div>
 
 	<!--  pageNation -->
-	<nav aria-label="Page navigation">
-		<ul class="pagination  justify-content-center">
-			<c:if test="${pageMaker.prev }">
-				<li class="page-item"><a class="page-link"
-					href="${pageMaker.startPage-1 }">Previous</a></li>
-			</c:if>
-
-			<c:forEach var="num" begin="${pageMaker.startPage}"
-				end="${pageMaker.endPage}">
-				<li
-					class="page-item  ${pageMaker.cri.pageNum == num ? 'active':''} ">
-					<a class="page-link" href="${num}">${num}</a>
-				</li>
-			</c:forEach>
-
-
-			<c:if test="${pageMaker.next }">
-				<li class="page-item"><a class="page-link"
-					href="${pageMaker.endPage+1 }">Next</a></li>
-			</c:if>
-		</ul>
-
-		<form id='actionForm' action="/board/main" method='get'>
-			<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
-			<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>
-			<input type='hidden' name='type'
-				value='<c:out value="${ pageMaker.cri.type }"/>'> <input
-				type='hidden' name='keyword'
-				value='<c:out value="${ pageMaker.cri.keyword }"/>'>
-		</form>
-	</nav>
+	
 
 	<!-- 전체 바디 태그 root 끝 -->
 
