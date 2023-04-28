@@ -94,7 +94,7 @@ public class BoardServiceTests {
 			log.info("sjs insert----------" + uidkey + "bno: " + bno);
 			/* testGetInterest(); */
 		}
-
+ 
 		// 관심글 삭제하기
 			@Test
 			public void testDeleteInterest() {

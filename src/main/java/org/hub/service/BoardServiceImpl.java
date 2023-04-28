@@ -219,10 +219,10 @@ public class BoardServiceImpl implements BoardService {
 		}
 
 
-	@Override
-	public void deleteInterest(String uidkey, int bno) {
-		mapper.deleteInterest(uidkey, bno);
-		log.info("sts-----deleteInterest" + uidkey + bno);
-	}
+		@Override
+		public void deleteInterest(String uidkey, int bno) {
+			mapper.deleteInterest(uidkey, bno); 
+			log.info("sts-----deleteInterest" + uidkey + bno);
+		}
 	
 }

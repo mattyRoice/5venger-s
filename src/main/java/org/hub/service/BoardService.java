@@ -53,5 +53,5 @@ public interface BoardService {
 	public void insertInterest(String uidkey, int bno);
 	
 	// 관심글 삭제
-	public void deleteInterest(String uidkey, int bno);
+	public void deleteInterest(String uidkey, int bno); 
 }
