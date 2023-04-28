@@ -53,27 +53,28 @@ public class MainController {
 	public String getMainWithFilter(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, @RequestParam(name="filter[]", required=false) String filter, Model model) {
 		log.info("mainWithFilter 이동");
 		
-		String[] filters = new String[0];
-		
-		int total = service.getTotal(cri);
-
-		log.info("total: " + total);
-
-		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		String[] filters = new String[0];						
 		
 		// 1. 선택한 스택이 없을 때
 		if(filter == null){
+			// 페이징
+			int total = service.getTotal(cri);
+			log.info("total: " + total);
+			model.addAttribute("pageMaker", new PageDTO(cri, total));
+			// 게시글 불러오기
 			List<BoardVO> boardList = service.getList(cri);
 			model.addAttribute("board", boardList);
 		} else if (filter != null) {
 			// 2. 선택한 스택이 있을 때
 			filter = filter.toLowerCase();
 			filters = filter.split(",");
-			
-			System.out.println(Arrays.toString(filters));
-			
+			// 페이징
 			cri.setFilters(filters);
+			int total = service.getTotalWithFilter(cri);
+			log.info("total with filter : " + total);
+			model.addAttribute("pageMaker", new PageDTO(cri, total));
 			
+			// 게시글 불러오기
 			List<BoardVO> boardList = service.getListWithFilter(cri);
 			// 2-1. 선택한 스택 관련 글이 있을 때
 			if(boardList.size()>0) {

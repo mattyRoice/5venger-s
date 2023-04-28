@@ -8,10 +8,13 @@ import org.hub.domain.UserReadVO;
 
 public interface BoardService {
 	
+	// 글등록
 	public void register(BoardVO board);
-
+	
+	// 상세보기
 	public BoardVO get(int bno);
-
+	
+	// 글 수정하기
 	public boolean modify(BoardVO board);
 	
 	// 버튼 클릭 시 모집 마감
@@ -23,13 +26,17 @@ public interface BoardService {
 	// 게시물 삭제
 	public boolean remove(int bno);
 
-	// public List<BoardVO> getList();
-	
+	// 일반 메인
 	public List<BoardVO> getList(Criteria cri);
-
+	
+	// 일반 메인 게시글 총 개수
 	public int getTotal(Criteria cri);
-
+	
+	// 메인 with 필터
 	List<BoardVO> getListWithFilter(Criteria cri);
+	
+	// 메인 with 필터 게시글 총 개수
+	public int getTotalWithFilter(Criteria cri);
 	
 	//추천목록 가져오기
 	public List<Integer> getRecommend(String uidkey);

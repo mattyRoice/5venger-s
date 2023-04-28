@@ -124,7 +124,18 @@
 	WHERE rn > (#{pageNum} - 1) * #{amount}
 	]]>
 	</select>
+	
+	<!-- 일반 메인 페이지 수 계산 -->
+	<select id="getTotalCount" resultType="int">
+		select count(*) from board_tbl
+		where
 
+		<include refid="criteria"></include>
+
+		bno > 0
+
+	</select>
+	
 	<!--  jsh 0428 게시글 페이징처리+필터 처리해서 가져오기(수정완료) -->
 	<select id="getListWithPagingWithFilter"
 		resultType="org.hub.domain.BoardVO">
@@ -148,17 +159,23 @@
 			
 		</if>
 	</select>
-
-	<!-- 페이지 수 계산 -->
-	<select id="getTotalCount" resultType="int">
-		select count(*) from board_tbl
+	
+	<!-- 메인 with 필터 페이지 수 계산 -->
+	<select id="getTotalCountWithFilter" resultType="int">
+		select count(*) from board_view
 		where
 
 		<include refid="criteria"></include>
 
-		bno > 0
+		<if test="filters != null and filters.length > 0">
+			<foreach collection="filters" item="filter" separator="or">
+				snames LIKE '%'||#{filter}||'%'
+			</foreach>
+			
+		</if>
 
 	</select>
+
 
 	<update id="updateReplyCnt">
 		update board_tbl set replycnt = replycnt + #{amount}

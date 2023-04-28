@@ -139,14 +139,8 @@ public class BoardServiceImpl implements BoardService {
 		log.info("remove...." + bno);
 		return mapper.delete(bno) == 1;
 	}
-
-	// @Override
-	// public List<BoardVO> getList() {
-	//
-	// log.info("getList..........");
-	//
-	// return mapper.getList();
-	// }
+	
+	// 일반 메인 게시글 불러오기
 	@Override
 	public List<BoardVO> getList(Criteria cri) {
 
@@ -154,7 +148,16 @@ public class BoardServiceImpl implements BoardService {
 
 		return mapper.getListWithPaging(cri);
 	}
-     
+	
+	// 일반 메인 게시글 총 개수
+	@Override
+	public int getTotal(Criteria cri) {
+
+		log.info("get total count");
+		return mapper.getTotalCount(cri);
+	}
+    
+	// 메인 with 필터 게시글 불러오기
 	@Override
 	public List<BoardVO> getListWithFilter(Criteria cri) {
 
@@ -163,11 +166,11 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.getListWithPagingWithFilter(cri);
 	}
 	
+	// 메인 with 필터 게시글 총 개수
 	@Override
-	public int getTotal(Criteria cri) {
-
-		log.info("get total count");
-		return mapper.getTotalCount(cri);
+	public int getTotalWithFilter(Criteria cri) {
+		log.info("get total count with filter");
+		return mapper.getTotalCountWithFilter(cri);
 	}
 	
 	// 추천목록 가져오기
