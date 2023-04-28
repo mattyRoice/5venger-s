@@ -1235,9 +1235,9 @@ ul {
 
 .Topbutton_topButton__35AKX {
     position: fixed;
-    margin-right: 4.8rem;
+    margin-right: 13em;
     right: 1.5rem;
-    bottom: 1.5rem;
+    bottom: -0.5rem;
     width: 1rem;
 }
 Topbutton_topButton__35AKX.show:active {
@@ -1250,7 +1250,7 @@ Topbutton_topButton__35AKX.show {
 }
 
 .Topbutton_topButtonImage__2Klzb {
-    width: 10em;
+    width: 15em;
     cursor: pointer;
 }
 
@@ -1339,6 +1339,24 @@ Topbutton_topButton__35AKX.show {
 	width:1270px;
 }
 
+.active>.page-link, .page-link.active {
+    z-index: 3;
+    color: var(--bs-pagination-active-color);
+    background-color: #ff914d;
+    border-color: #fff;
+}
+.page-link {
+    position: relative;
+    display: block;
+    padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
+    font-size: var(--bs-pagination-font-size);
+    color: #ff914d;
+    text-decoration: none;
+    background-color: var(--bs-pagination-bg);
+    border: var(--bs-pagination-border-width) solid var(--bs-pagination-border-color);
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+ 
 /* .studyItem_schedule__3oAnA{ */
 /*     font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; */
 /*     list-style: none; */

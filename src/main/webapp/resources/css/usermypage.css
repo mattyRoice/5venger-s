@@ -9,6 +9,11 @@
 		  padding: 15px;
 		  margin: auto;
 		}
+		
+		.container{
+			width: 700px !important;
+		}
+
 		nav {
 			margin-left:500px;
 			margin-right:500px;
