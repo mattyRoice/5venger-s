@@ -31,9 +31,10 @@
 		<%@include file="../includes/header.jsp"%>
 
 		<!--  필터  -->
-		<section class="desktopFilter_filterWrapper__1gwsT">
+				<section class="desktopFilter_filterWrapper__1gwsT">
+			<!--  인기, 프론트엔드, 백엔드, 모바일, 기타 필터 -->
 			<ul class="Category_categories__3bwPA">
-				<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es"><button id="searchBtn" class="Category_categoryItem__1ko8V ">추천글 목록</button></li>
+				<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">추천글</li>
 			</ul>
 		</section>
 

@@ -18,9 +18,11 @@
 
 	<!-- 추천목록 가져오기 -->
 	<select resultType="int" id="getRecommend">
-		SELECT DISTINCT b.bno FROM boardstack_tbl b
+		SELECT DISTINCT b.bno
+		FROM boardstack_tbl b
 		INNER JOIN userstack_tbl u
 		ON b.sno = u.sno
+		WHERE u.uidkey = #{uidkey}
 	</select>
 
 	<!-- 관심목록 가져오기 -->
