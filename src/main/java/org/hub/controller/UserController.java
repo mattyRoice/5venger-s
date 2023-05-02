@@ -483,6 +483,24 @@ public class UserController {
 		return "interest";
 	}
 	
+	// 관심글 등록 POST
+	@PostMapping("/interest/insert")
+	@ResponseBody
+	public String insertInterest(HttpSession session, @RequestParam int bno) {
+	    String uidkey = (String) session.getAttribute("uidkey");
+	    boardService.insertInterest(uidkey, bno);
+	    return "success";
+	}
+
+	// 관심글 등록 해제 POST
+	@PostMapping("/interest/delete")
+	@ResponseBody
+	public String deleteInterest(HttpSession session, @RequestParam int bno) {
+	    String uidkey = (String) session.getAttribute("uidkey");
+	    boardService.deleteInterest(uidkey, bno);
+	    return "success";
+	}
+	
 	// 추천글 페이지
 		@GetMapping("/recommend")
 		public String getRecommend(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, Model model, HttpSession session, UserVO vo) {

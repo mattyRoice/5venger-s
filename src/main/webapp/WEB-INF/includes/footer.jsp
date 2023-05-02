@@ -33,7 +33,7 @@
             alert("글 삭제가 완료되었습니다!");
     });
 </script>
-CloseResult
+
 <script type="text/javascript">
     $(document).ready(function() {
         var result = '<c:out value="${CloseResult}"/>';
@@ -305,11 +305,16 @@ $(function() {
 	});
 });
 
+	/* 필터 관련 변수 모음 */
 	let isFirst = true;
 	let count = 0;
 	var selectedClass = 'LanguageBar_full__3qQet';
 	var otherClasses = '.LanguageBar_languageIcon__Um7GQ:not(.' + selectedClass	+ ')';
 	let filter = [];
+	// 모집 분야(포지션)
+	var position = $('#position').val();
+	// 모집중 토글
+	var deadlineToggle = false;
 	
 	// 필터 초기화 버튼 누르면 홈페이지 새로고침
 	$('#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child').click(function() {
@@ -448,9 +453,10 @@ $(function() {
 	});
 	// 메인화면 필터 ajax 함수
 	function mainfilter(){
-		if(filter.length != 0) {
+		// data에 선택된 관심스택, 모집분야 값들을 담는다
 			let data = {
-				filter: filter
+				filter: filter,
+				position : position
 			};
 			
 			// filter 처리할 ajax
@@ -466,20 +472,7 @@ $(function() {
 					console.log(status + ": " + error);
 				}
 			});
-		} else {
-			// filter 처리할 ajax
-			$.ajax({
-				type: "GET", // 요청 방식
-				url: "/board/mainWithFilter", //요청 URL
-				success: function(data) {
-					// 요청 성공 시 콜백 함수
-					$('#main-filter').html(data);
-				}, 
-				error: function(xhr, status, error) {
-					console.log(status + ": " + error);
-				}
-			});
-		}
+		
 	}
 	
 </script>
