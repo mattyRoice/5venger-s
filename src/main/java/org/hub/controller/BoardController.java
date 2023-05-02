@@ -190,7 +190,13 @@ public class BoardController {
 			String uidKey = user.getUidKey();
 			userread.setUidkey(uidKey);
 			userread.setBno(bno);
-			service.saveUserRead(userread);
+			
+			// 읽은글 중복 확인
+			int result = service.bnoCheck(userread);
+			log.info("결과값 = " + result);
+			if(result == 0) {
+				service.saveUserRead(userread);
+			}
 		}				
 		
 		return "get";	

@@ -57,8 +57,11 @@ public interface BoardMapper {
 	// 읽은글 목록 가져오기
 	public List<BoardVO> getUserRead(String uidkey);
 	
-	// 읽은 글 DB 등록
+	// 읽은글 DB 등록
 	public void saveUserRead(UserReadVO userread);
+	
+	// 읽은글 중복 검사
+	public int bnoCheck(UserReadVO userread);
 	
 	// 버튼 클릭시 모집 마감
 	public int updateClose(int bno);

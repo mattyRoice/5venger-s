@@ -63,6 +63,9 @@ public interface BoardService {
 	// 읽은 글 DB 등록
 	public void saveUserRead(UserReadVO userread);
 	
+	// 읽은글 중복 체크
+	public int bnoCheck(UserReadVO userread);
+	
 	// 관심글 등록
 	public void insertInterest(String uidkey, int bno);
 	
