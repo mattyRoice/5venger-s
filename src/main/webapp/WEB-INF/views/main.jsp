@@ -299,12 +299,12 @@
 					<div class=" css-container">
 						<span aria-live="polite" aria-atomic="false"
 							aria-relevant="additions text" class="css-Text"></span> 
-						<select class="form-select form-select-lg mb-4"
+						<select id="position" class="form-select form-select-lg mb-4"
 							aria-label=".form-select-lg example" 
 							id="mySelect"
 							style="font-size: 1.125rem; padding-top: 0.4rem; padding-bottom: 0.4rem;">
 							<option selected value="">내 포지션 찾기</option>
-							<option value="전체">전체</option>
+							<option value="">전체</option>
 							<option value="프론트엔드">프론트엔드</option>
 							<option value="백엔드">백엔드</option>
 							<option value="ios">IOS</option>
@@ -316,13 +316,12 @@
 					</div>
 				</div>
 				<div class="toggleSwitch_switch mb-4">
-					<span class="toggleSwitch_switchTitle fs-5">모집 중만 보기</span>
-					<div class="form-check form-switch" style="margin-bottom: 0;">
-						<input class="form-check-input" type="checkbox" role="switch"
-							id="flexSwitchCheckChecked" checked
-							style="height: 1.5em; width: 2.45em; background-color: #ff914d; border-color: #ff914d; margin-right: 15px;">
+					<label class="toggleSwitch_switchTitle fs-5" for="flexSwitchCheckChecked">모집 중만 보기</label>
+					<div class="form-check form-switch" style="margin-bottom:0;">
+						<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+							style="height:1.5em; width:2.45em; margin-right:15px;">
 					</div>
-					</label>
+					
 				</div>
 			</div>
 

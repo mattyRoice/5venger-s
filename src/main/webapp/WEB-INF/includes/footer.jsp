@@ -260,11 +260,17 @@ $(function() {
 	});
 });
 
+	/* 필터 관련 변수 모음 */
 	let isFirst = true;
 	let count = 0;
 	var selectedClass = 'LanguageBar_full';
 	var otherClasses = '.LanguageBar_languageIcon:not(.' + selectedClass	+ ')';
+	// 기술 스택
 	let filter = [];
+	// 모집 분야(포지션)
+	var position = $('#position').val();
+	// 모집중 토글
+	var deadlineToggle = false;
 	
 	// 필터 초기화 버튼 누르면 홈페이지 새로고침
 	$('#root > section > div.SelectedLanguage_selectedWrapper > ul > li:last-child').click(function() {
@@ -403,9 +409,10 @@ $(function() {
 	});
 	// 메인화면 필터 ajax 함수
 	function mainfilter(){
-		if(filter.length != 0) {
+		// data에 선택된 관심스택, 모집분야 값들을 담는다
 			let data = {
-				filter: filter
+				filter: filter,
+				position : position
 			};
 			
 			// filter 처리할 ajax
@@ -421,40 +428,32 @@ $(function() {
 					console.log(status + ": " + error);
 				}
 			});
-		} else {
-			// filter 처리할 ajax
-			$.ajax({
-				type: "GET", // 요청 방식
-				url: "/board/mainWithFilter", //요청 URL
-				success: function(data) {
-					// 요청 성공 시 콜백 함수
-					$('#main-filter').html(data);
-				}, 
-				error: function(xhr, status, error) {
-					console.log(status + ": " + error);
-				}
-			});
-		}
+		
 	}
 	
-	$(document).ready(function() {
-		  // select 요소의 value가 변경될 때마다 이벤트 처리
-		  $('#mySelect').on('change', function() {
-		    var selectedValue = $(this).val(); // 선택된 option의 value값 가져오기
-	       let data = {position : selectedValue};
-	         
-	       $.ajax({
-	         type : "get",
-	         url: "/board/mainWithPosition", //요청 URL
-	         data : data,
-	         success : function(data) {
-	            $('#main-filter').html(data);
-	         },
-	         error : function(xhr, status, error) {
-	           alert("에러 발생 : " + error);
-	         }
-	       });
-	     });
+	 // 모집 분야 select 요소의 value가 변경될 때마다 이벤트 처리
+	 $('#position').on('change', function() {
+		// 선택된 option의 value값 가져오기   
+		position = $('#position').val();
+		console.log(position);
+		mainfilter();
+	 });
+	 
+		
+	// jsh 0502 모집중 토글 이벤트
+	$('#flexSwitchCheckChecked').on("click", function(e) {
+		// 모집중 토글을 활성화하면 true가 된다
+		deadlineToggle = !deadlineToggle;
+		console.log(deadlineToggle);
+		
+		// 활성화 되어 있으면 배경색 변경
+		if (deadlineToggle) {
+			$(this).css('background-color', '#ff914d');
+			$(this).css('border-color', '#ff914d');
+		} else {
+			$(this).css('background-color', '');
+			$(this).css('border-color', '');
+		}				
 	});
 	
 </script>

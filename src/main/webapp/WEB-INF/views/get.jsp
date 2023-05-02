@@ -26,7 +26,7 @@
 </script>
 <title>스터디허브</title>
 <style>
-.studyContent_wrapper__VVyNH{
+.studyContent_wrapper{
     max-width: 900px;
     width: 100%;
     display: flex;
@@ -34,16 +34,16 @@
     margin: 0 auto;
     padding: 1.5rem 1.5rem 5rem;
 }
-.studyButtons_buttonWrapper__3tcIE {
+.studyButtons_buttonWrapper {
     display: flex;
     justify-content: flex-end;
     margin-top: 20px;
 }
-.studyButtons_buttons__12bG1 {
+.studyButtons_buttons {
     font-size: 16px;
     color: #444;
 	}
-.studyContent_wrapper__VVyNH {
+.studyContent_wrapper {
     max-width: 900px;
     width: 100%;
     display: flex;
@@ -51,12 +51,12 @@
     margin: 0 auto;
     padding: 1.5rem 1.5rem 5rem;
 }
-.studyContent_postHeader__2Qu_y {
+.studyContent_postHeader {
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
 }
-.studyContent_title__3680o {
+.studyContent_title {
     margin-top: 2.5rem;
     font-weight: 800;
     font-size: 3rem;
@@ -64,7 +64,7 @@
     letter-spacing: -.005em;
     color: #000;
 }
-.studyContent_userAndDate__1iYDv {
+.studyContent_userAndDate {
     margin-top: 32px;
     padding-bottom: 32px;
     border-bottom: 3px solid #f2f2f2;
@@ -73,12 +73,12 @@
     gap: 15px;
     align-items: center;
 }
-.studyContent_user__1XYmH {
+.studyContent_user {
     display: flex;
     align-items: center;
     position: relative;
 }
-.studyContent_userImg__3gyI- {
+.studyContent_userImg {
     cursor: pointer;
     display: block;
     height: 3rem;
@@ -87,7 +87,7 @@
     border-radius: 50%;
     object-fit: cover;
 }
-.studyContent_userName__1GBr8 {
+.studyContent_userName {
     color: #333;
     cursor: pointer;
     font-size: 18px;
@@ -96,51 +96,51 @@
     padding-right: 15px; 
     border-right: 2px solid #e1e1e1;
 }
-.studyContent_registeredDate__3lybC {
+.studyContent_registeredDate {
     font-size: 18px;
     color: #717171;
 }
-.studyInfo_studyGrid__38Lfj {
+.studyInfo_studyGrid {
     display: grid;
     grid-template-columns: repeat(2,3fr);
     grid-row-gap: 24px;
     row-gap: 24px;
     margin-top: 60px;
 }
-.studyInfo_contentWrapper__KkSUP {
+.studyInfo_contentWrapper {
     display: flex;
     position: relative;
     align-items: center;
     font-weight: 700;
     font-size: 20px;
 }
-.studyInfo_title__3jXRE {
+.studyInfo_title {
     color: #717171;
     margin-right: 40px;
 }
-.studyInfo_content__eqtqC {
+.studyInfo_content {
     color: #333;
 }
-.contactPoint_contactWrapper__2T_GC, .contactPoint_email__1a-aY {
+.contactPoint_contactWrapper, .contactPoint_email {
     position: absolute;
     left: 110px;
     background: #f2f4f8;
     border-radius: 10px;
     color: #4a5e75;
 }
-.studyInfo_content__eqtqC {
+.studyInfo_content {
     color: #333;
 }
-.studyInfo_languageList__1usTa {
+.studyInfo_languageList {
     display: flex;
     grid-gap: 12px;
     gap: 12px;
 }
-.studyInfo_language__3A3Vi, .studyInfo_languageImage__2b-u9 {
+.studyInfo_language, .studyInfo_languageImage {
     width: 30px;
     height: 30px;
 }
-.studyInfo_positions__3JIxy {
+.studyInfo_positions {
     height: 22px;
     padding: 3px 10px;
     background: #f2f4f8;
@@ -151,7 +151,7 @@
     text-align: center;
     color: #4a5e75;
 }
-.contactPoint_link__2MqRR {
+.contactPoint_link {
     display: flex;
     grid-gap: 8px;
     gap: 8px;
@@ -162,7 +162,7 @@
     -webkit-text-decoration-color: #4a5e75;
     text-decoration-color: #4a5e75;
 }
-.contactPoint_linkImg__2_927 {
+.contactPoint_linkImg {
     width: 16px;
     height: 16px;
 }
@@ -179,7 +179,7 @@ ul {
     margin: 0;
     padding: 0;
 }
-.studyContent_postContentWrapper__187Zh {
+.studyContent_postContentWrapper {
     margin-top: 132px;
     font-size: 1.125rem;
     word-break: break-all;
@@ -190,7 +190,7 @@ ul {
 * {
     box-sizing: inherit;
 }
-.studyContent_postInfo__3zpYu {
+.studyContent_postInfo {
     margin: 0;
     color: #333;
     font-size: 26px;
@@ -198,30 +198,30 @@ ul {
     padding-bottom: 24px;
     border-bottom: 3px solid #f2f2f2;
 }
-.studyContent_postContent__2c-FO {
+.studyContent_postContent {
     width: 100%;
     margin: 40px auto 0;
 }
-.studyContent_commentAndViews__LrV6X {
+.studyContent_commentAndViews {
     display: flex;
     flex-direction: column;
     background: #fff;
 }
-.studyContent_postComment__2lpJV {
+.studyContent_postComment {
     width: 100%;
     margin: 0 auto;
 }
-.commentInput_commentInput__39H41 {
+.commentInput_commentInput {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-top: 100px;
 }
-.commentInput_commentCount__2dHvH {
+.commentInput_commentCount {
     margin: 0 0 30px;
     font-size: 22px;
 }
-.commentInput_commentInput__39H41 textarea {
+.commentInput_commentInput textarea {
     font-family: inherit;
     padding: 1rem 1rem 1.5rem;
     outline: none;
@@ -232,12 +232,12 @@ ul {
     margin-bottom: 10px;
     resize: none;
 }
-.commentInput_buttonWrapper__2f_l9 {
+.commentInput_buttonWrapper {
     display: flex;
     justify-content: flex-end;
     margin: 16px 0 24px;
 }
-.commentInput_buttonComplete__24z4R {
+.commentInput_buttonComplete {
     padding: 0px 0px;
     min-width: 120px;
     height: 40px;
@@ -247,7 +247,7 @@ ul {
     color: #fff;
     font-size: 16px;
 }
-.commentList_CommentList__30HUh {
+.commentList_CommentList {
     width: 100%;
 }
 body {
@@ -257,7 +257,7 @@ body {
     box-sizing: border-box;
     min-height: 100%;
 }
-.navbar_navbar__O41pd {
+.navbar_navbar {
     margin: auto;
     max-width: 1180px;
     display: flex;
@@ -266,16 +266,16 @@ body {
     height: 85px;
     padding: 0 10px;
 }
-.navbar_logo__a5PmC {
+.navbar_logo {
     width: 105px;
     height: 32px;
 }
-.navbar_loginElementWrapper__11CeH {
+.navbar_loginElementWrapper {
     display: flex;
     grid-gap: 30px;
     gap: 30px;
     align-items: center;
-}.navbar_login__3Ui--, .navbar_postRegister__FJnRS {
+}.navbar_login, .navbar_postRegister {
     font-weight: 600;
     font-size: 1.125rem;
 }
@@ -286,23 +286,23 @@ button {
     background-color: #fff;
     cursor: pointer;
 }
-.notice_notificationWrapper__obnzH {
+.notice_notificationWrapper {
     position: relative;
     cursor: pointer;
 }
-.notice_imageWrapper__1A5dg {
+.notice_imageWrapper {
     position: relative;
 }
-.notice_notification__1bz33 {
+.notice_notification {
     display: block;
 }
-.loginUser_userWrapper__1c_jd {
+.loginUser_userWrapper {
     cursor: pointer;
     display: flex;
     align-items: center;
     position: relative;
 }
-.loginUser_userImg__1JpxQ {
+.loginUser_userImg {
     display: block;
     height: 2.5rem;
     width: 2.5rem;
@@ -310,19 +310,14 @@ button {
     object-fit: cover;
     transition: all .125s ease-in 0s;
 }
-.loginUser_userWrapper__1c_jd svg {
+.loginUser_userWrapper svg {
     font-size: 1.5rem;
     color: #868e96;
     transition: all .125s ease-in 0s;
     margin-right: -.4375rem;
 }
-/* a:-webkit-any-link { */
-/*      color: -webkit-link; */
-/*     cursor: pointer; */
-/*     text-decoration: underline; */
-/* } */
 
-.contactPoint_link__2MqRR{
+.contactPoint_link{
  	color: -webkit-link;
     cursor: pointer;
     text-decoration: underline;
@@ -353,23 +348,23 @@ button {
 .chat {
 	width:100%
 }
-.commentItem_commentContainer__3eMR4{
+.commentItem_commentContainer{
     display: flex;
     flex-direction: column;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     border-bottom: 2px solid #e1e1e1;
 }
-.commentItem_commentHeader__3-Wux{
+.commentItem_commentHeader {
 	display: flex;
     justify-content: space-between;
 }
-.commentItem_avatarWrapper__2J4nR{
+.commentItem_avatarWrapper {
 	display: flex;
     align-items: center;
     margin-bottom: 18px;
 }
-.commentItem_userImg__jWpVc{
+.commentItem_userImg{
     display: block;
     width: 52px;
     height: 52px;
@@ -377,23 +372,23 @@ button {
     border-radius: 50%;
     object-fit: cover;
 }
-.commentItem_commentInfo__5KL0S, .commentItem_title__36t1w{
+.commentItem_commentInfo, .commentItem_title{
     display: flex;
     flex-direction: column;
 }
 
 
-.commentItem_userNickname__PQ8kV {
+.commentItem_userNickname {
     color: #333;
     font-weight: 900;
 }
-.commentItem_registeredDate__2TPJZ {
+.commentItem_registeredDate {
     font-size: 14px;
     line-height: 126.5%;
     letter-spacing: -.005em;
     color: #9f9f9f;
 }
-.commentItem_commentContent__1yK7o{
+.commentItem_commentContent{
     font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     list-style: none;
     box-sizing: inherit;
@@ -405,27 +400,27 @@ button {
     overflow-wrap: break-word;
     font-weight: 700;
 }
-.commentButtons_buttonWrapper__2I-EK {
+.commentButtons_buttonWrapper {
     display: flex;
     justify-content: flex-end;
 }
-.commentButtons_buttons__3vQ84 {
+.commentButtons_buttons {
     font-size: 16px;
     color: #444;
 }
-.commentItem_commentInputButton__1JrQz {
+.commentItem_commentInputButton {
     display: flex;
     flex-direction: row;
 }
-.commentItem_buttonCancel__10CiY{
+.commentItem_buttonCancel{
 	background: #e9ecef;
 }
-.commentItem_buttonComplete__3czy4 {
+.commentItem_buttonComplete {
     background: #ff914d;
     font-weight: 700;
     color: #fff;
 }
-.commentItem_commentInputButton__1JrQz button {
+.commentItem_commentInputButton button {
     border-radius: 4px;
     width: 70px;
     margin-top: 10px;
@@ -433,7 +428,7 @@ button {
     height: 1.75rem;
     font-size: 1rem;
 }
-.commentItem_commentInputButton__1JrQz button {
+.commentItem_commentInputButton button {
     border-radius: 4px;
     width: 70px;
     margin-top: 10px;
@@ -441,7 +436,7 @@ button {
     height: 1.75rem;
     font-size: 1rem;
 }
-.cancelButton_wrapper__1bRq9 {
+.cancelButton_wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -460,12 +455,12 @@ button {
     -webkit-animation: cancelButton_modalAnimation__2D2Vp .5s ease-in-out 0s 1 normal forwards running;
     animation: cancelButton_modalAnimation__2D2Vp .5s ease-in-out 0s 1 normal forwards running;
 }
-.cancelButton_buttons__2SCwD {
+.cancelButton_buttons {
     display: flex;
     align-items: center;
     margin-top: 1rem;
 }
-.commentItem_modifyInput__1ounT{
+.commentItem_modifyInput{
     width: 100%;
     border-radius: 8px;
     padding: 8px 12px;
@@ -491,8 +486,8 @@ button {
 <input type='hidden' name='amount' value='<c:out value="${cri.amount }"/>'>
 <input type='hidden' name='keyword' value='<c:out value="${cri.keyword }"/>'>
 <input type='hidden' name='type' value='<c:out value="${cri.type }"/>'>
-<div class="studyContent_wrapper__VVyNH">
-	<section class="studyContent_postHeader__2Qu_y">
+<div class="studyContent_wrapper">
+	<section class="studyContent_postHeader">
 	    <!--뒤로가기버튼-->
 	    <svg button onclick="goBack()" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" color="808080" cursor="pointer" height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="color: rgb(128, 128, 128);" margin-left="0px">
 	    	<path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path>
@@ -501,10 +496,10 @@ button {
 	
 	
 	    <!--게시글 제목-->
-	    <div class="studyContent_title__3680o" name="title" ><c:out value="${board.title }" /></div>
+	    <div class="studyContent_title" name="title" ><c:out value="${board.title }" /></div>
 	    <!--사용자 닉네임영역-->
-	    <div class="studyContent_userAndDate__1iYDv">
-	        <div class="studyContent_user__1XYmH">
+	    <div class="studyContent_userAndDate">
+	        <div class="studyContent_user">
 			<div id="uploadResult">
 			<div class='uploadResult'>
 			<ul>
@@ -513,17 +508,17 @@ button {
 		</div>
 		
 		</div>        
-	            <div class="studyContent_userName__1GBr8" ><c:out value="${board.uname }" /></div>
+	            <div class="studyContent_userName" ><c:out value="${board.uname }" /></div>
 	        </div>
-	        <div class="studyContent_registeredDate__3lybC" ><fmt:formatDate value="${board.regdate}" pattern="YYYY-MM-dd"/></div></div>
+	        <div class="studyContent_registeredDate" ><fmt:formatDate value="${board.regdate}" pattern="YYYY-MM-dd"/></div></div>
 	   
 	      <!-- 사용자 수정,마감,삭제  -->
 	    <c:if test="${loginUser.uidKey==board.uidkey}">
-	        <section class="studyButtons_buttonWrapper__3tcIE">
-	       		<button id="closed" class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#deadlineModal">마감</button>	
-				<button id="opend" class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#resetModal">마감취소</button>
-	        	<button onclick="location.href='modify?bno=<c:out value="${board.bno}" />'" class="studyButtons_buttons__12bG1">수정</button>       
-	       		<button class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#removeModal">삭제</button>
+	        <section class="studyButtons_buttonWrapper">
+	       		<button id="closed" class="studyButtons_buttons" data-bs-toggle="modal" data-bs-target="#deadlineModal">마감</button>	
+				<button id="opend" class="studyButtons_buttons" data-bs-toggle="modal" data-bs-target="#resetModal">마감취소</button>
+	        	<button onclick="location.href='modify?bno=<c:out value="${board.bno}" />'" class="studyButtons_buttons">수정</button>       
+	       		<button class="studyButtons_buttons" data-bs-toggle="modal" data-bs-target="#removeModal">삭제</button>
 				
 				<!-- 마감 Modal -->
 				<div class="modal fade" id="deadlineModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -582,48 +577,48 @@ button {
 		</c:if>	   	    
 	
 	    <!--게시글 기본 정보 영역-->
-	    <ul class="studyInfo_studyGrid__38Lfj">
-	        <li class="studyInfo_contentWrapper__KkSUP">
-	            <span class="studyInfo_title__3jXRE">진행 방식</span>
-	            <span class="studyInfo_content__eqtqC" ><c:out value="${board.meet}"/></span>
+	    <ul class="studyInfo_studyGrid">
+	        <li class="studyInfo_contentWrapper">
+	            <span class="studyInfo_title">진행 방식</span>
+	            <span class="studyInfo_content" ><c:out value="${board.meet}"/></span>
 	        </li>
-	        <li class="studyInfo_contentWrapper__KkSUP">
-	            <span class="studyInfo_title__3jXRE">모집 인원</span>
-	            <span class="studyInfo_content__eqtqC"> <c:out value="${board.memberNum}"/> </span>
+	        <li class="studyInfo_contentWrapper">
+	            <span class="studyInfo_title">모집 인원</span>
+	            <span class="studyInfo_content"> <c:out value="${board.memberNum}"/> </span>
 	        </li>
-	        <li class="studyInfo_contentWrapper__KkSUP">
-	            <span class="studyInfo_title__3jXRE">마감 날짜</span>
-	            <span class="studyInfo_content__eqtqC" > <c:out value="${board.deadline}"/></span>
+	        <li class="studyInfo_contentWrapper">
+	            <span class="studyInfo_title">마감 날짜</span>
+	            <span class="studyInfo_content" > <c:out value="${board.deadline}"/></span>
 	        </li>
-	        <li class="studyInfo_contentWrapper__KkSUP">
-	            <span class="studyInfo_title__3jXRE">연락 방법</span>
-	            <div class="contactPoint_contactWrapper__2T_GC">
-	                <a class="contactPoint_link__2MqRR" href='https://<c:out value="${board.contactaddress}"/>' target="_blank" rel="noreferrer">
-	                    <span>${board.contact}</span><img class="contactPoint_linkImg__2_927" src="https://holaworld.io/images/info/link.svg" alt=""></a>
+	        <li class="studyInfo_contentWrapper">
+	            <span class="studyInfo_title">연락 방법</span>
+	            <div class="contactPoint_contactWrapper">
+	                <a class="contactPoint_link" href='https://<c:out value="${board.contactaddress}"/>' target="_blank" rel="noreferrer">
+	                    <span>${board.contact}</span><img class="contactPoint_linkImg" src="https://holaworld.io/images/info/link.svg" alt=""></a>
 	                 </div>
 	        </li>
-	        <li class="studyInfo_contentWrapper__KkSUP">
-	            <span class="studyInfo_title__3jXRE">예상 기간</span>
-	            <span class="studyInfo_content__eqtqC"><c:out value="${board.period}" /></span>
+	        <li class="studyInfo_contentWrapper">
+	            <span class="studyInfo_title">예상 기간</span>
+	            <span class="studyInfo_content"><c:out value="${board.period}" /></span>
 	        </li>
-	            <li class="studyInfo_contentWrapper__KkSUP">
-	            <span class="studyInfo_title__3jXRE">사용 언어</span>
-	            <ul class="studyInfo_languageList__1usTa">
+	            <li class="studyInfo_contentWrapper">
+	            <span class="studyInfo_title">사용 언어</span>
+	            <ul class="studyInfo_languageList">
 	                <c:set var="snamesArr" value="${fn:split(board.snames, ',') }" />
 											<c:forEach items="${snamesArr }" var="sname">
-												<li class="studyItem_language__20yqw"><img
-													class="studyItem_languageImage__1AfGa" title="${sname }"
+												<li class="studyItem_language"><img
+													class="studyItem_languageImage" title="${sname }"
 													src="https://holaworld.io/images/languages/${sname }.svg"
 													alt="language"></li>
 											</c:forEach>
 	            </ul>
 	        </li>
-	        <li class="studyInfo_contentWrapper__KkSUP">
-	            <span class="studyInfo_title__3jXRE">모집 분야</span>
-	            <ul class="studyInfo_languageList__1usTa">
+	        <li class="studyInfo_contentWrapper">
+	            <span class="studyInfo_title">모집 분야</span>
+	            <ul class="studyInfo_languageList">
 	            <c:set var="fnamesArr" value="${fn:split(board.fnames, ',') }" />
 											<c:forEach items="${fnamesArr}" var="fname">
-												<li class="studyItem_position__2sRRD">${fname }</li>
+												<li class="studyItem_position">${fname }</li>
 											</c:forEach>
 	            </ul>
 	        </li>
@@ -631,9 +626,9 @@ button {
 	</section>  <!--게시글 기본 정보 영역 끝-->
 	
 	<!--본문 영역-->
-	<div class="studyContent_postContentWrapper__187Zh">
-	    <h2 class="studyContent_postInfo__3zpYu">프로젝트 소개</h2>
-	    <div class="studyContent_postContent__2c-FO">
+	<div class="studyContent_postContentWrapper">
+	    <h2 class="studyContent_postInfo">프로젝트 소개</h2>
+	    <div class="studyContent_postContent">
 	        <c:out value="${board.content}" />
 	    </div>
 	</div><!--본문영역 끝-->
@@ -641,15 +636,15 @@ button {
 	<c:out value=""/>
 	
 	<!--댓글영역-->
-	<section class="studyContent_commentAndViews__LrV6X">
-	    <div class="studyContent_postComment__2lpJV">
-	        <div class="commentInput_commentInput__39H41">
-	            <h1 class="commentInput_commentCount__2dHvH">${board.replycnt }개의 댓글이 있습니다.</h1>
+	<section class="studyContent_commentAndViews">
+	    <div class="studyContent_postComment">
+	        <div class="commentInput_commentInput">
+	            <h1 class="commentInput_commentCount">${board.replycnt }개의 댓글이 있습니다.</h1>
 	            <c:if test="${loginUser.uidKey ne null}">
 		            <form>
-			            <textarea id="comment" class="commentInput_commentText__2er8t" placeholder="댓글을 입력하세요."></textarea>
-			            <div class="commentInput_buttonWrapper__2f_l9">
-			           		<button class="commentInput_buttonComplete__24z4R" id="addReplyBtn" name="register">댓글 등록</button>
+			            <textarea id="comment" class="commentInput_commentText" placeholder="댓글을 입력하세요."></textarea>
+			            <div class="commentInput_buttonWrapper">
+			           		<button class="commentInput_buttonComplete" id="addReplyBtn" name="register">댓글 등록</button>
 		            	</div>
 		            </form>
 	            </c:if>
@@ -667,16 +662,16 @@ button {
 	
 				</div>
 	        </div>
-	        <ul class="commentList_CommentList__30HUh"></ul>
+	        <ul class="commentList_CommentList"></ul>
 	    </div>
 	</section><!--댓글영역 끝-->
 </div>
 <!-- 삭제 모달 -->
-<div class="cancelButton_wrapper__1bRq9" style="display: none">
+<div class="cancelButton_wrapper" style="display: none">
 	<div>댓글을 삭제 하시겠어요?</div>
-	<section class="cancelButton_buttons__2SCwD">
-		<button class="cancelButton_cancelButton__1wL0W">아니요</button>
-		<button class="cancelButton_registerButton__2q_So">네, 삭제할래요</button>
+	<section class="cancelButton_buttons">
+		<button class="cancelButton_cancelButton">아니요</button>
+		<button class="cancelButton_registerButton">네, 삭제할래요</button>
 	</section>
 </div>
 <!--  reply test -->
@@ -779,24 +774,24 @@ function goBack() {
 //수정 눌렀을 때 폼 보여주기 함수 
 function showEditCommentForm(rno) {
   var commentItem = document.querySelector("[data-rno='" + rno + "']");
-  var commentContent = commentItem.querySelector(".commentItem_commentContent__1yK7o");
+  var commentContent = commentItem.querySelector(".commentItem_commentContent");
   var commentText = commentContent.querySelector("p").textContent;
-  var editInput = commentItem.querySelector(".commentItem_modifyInput__1ounT");
-  var commentInputButton = commentItem.querySelector(".commentItem_commentInputButton__1JrQz");
+  var editInput = commentItem.querySelector(".commentItem_modifyInput");
+  var commentInputButton = commentItem.querySelector(".commentItem_commentInputButton");
 
   editInput.value = commentText;
   editInput.setAttribute("type", "text");
   commentInputButton.style.display = "flex";
 
   // 수정 취소 버튼
-  var canBtn = commentItem.querySelector(".commentItem_buttonCancel__10CiY");
+  var canBtn = commentItem.querySelector(".commentItem_buttonCancel");
   canBtn.addEventListener("click", function() {
     editInput.style.display = "none";
     commentInputButton.style.display = "none";
   });
 
   // 수정 완료 버튼
-  var sucBtn = commentItem.querySelector(".commentItem_buttonComplete__3czy4");
+  var sucBtn = commentItem.querySelector(".commentItem_buttonComplete");
   sucBtn.addEventListener("click", function() {
     var editedComment = editInput.value;
     var rno = commentItem.getAttribute("data-rno");
@@ -804,7 +799,7 @@ function showEditCommentForm(rno) {
     replyService.update(updatedReply, function (result) {
       alert(result);
       // 수정된 내용으로 화면 갱신
-      commentContent.innerHTML = "<p class='commentItem_commentContent__1yK7o'>" + editedComment + "</p>";
+      commentContent.innerHTML = "<p class='commentItem_commentContent'>" + editedComment + "</p>";
       // 댓글 수정 입력 폼과 완료/취소 버튼 숨김
       editInput.style.display = "none";
       commentInputButton.style.display = "none";
@@ -813,8 +808,8 @@ function showEditCommentForm(rno) {
 }
 
 // 댓글 수정 버튼 눌렀을 때
-$('.commentItem_buttonModify__2nhuL').on("click", function() {
-  var rno = $(this).closest('.commentItem_commentContainer__3eMR4').attr("data-rno");
+$('.commentItem_buttonModif').on("click", function() {
+  var rno = $(this).closest('.commentItem_commentContainer').attr("data-rno");
   showEditCommentForm(rno);
 });
 
@@ -824,7 +819,7 @@ $('.commentItem_buttonModify__2nhuL').on("click", function() {
 	 // kdh 댓글 삭제
 	 function deleteReply(rno) {
 		// 댓글 항목(li) 선택
-	    var commentItem = $(this).closest(".commentItem_commentContainer__3eMR4");
+	    var commentItem = $(this).closest(".commentItem_commentContainer");
 	 	
 		// 댓글 삭제 요청
    		replyService.remove(rno, function(result){
@@ -864,31 +859,29 @@ $('.commentItem_buttonModify__2nhuL').on("click", function() {
 				for (var i = 0, len = list.length || 0; i < len; i++) {
 					// 각 댓글 항목을 구성하는 HTML 코드 작성
 					var commentId = 'comment_' + list[i].rno;
-					str +="<li class='commentItem_commentContainer__3eMR4' data-rno='"+list[i].rno+"'>";
-					str +="<section class='commentItem_commentHeader__3-Wux'>";
-					str +="  <div class='commentItem_avatarWrapper__2J4nR'>"
-					// 사용자 이미지 추가
-// 					str +="		<img class='commentItem_userImg__jWpVc' src='/display?fileName="+userImages[list[i].uidkey]+"' alt='사용자 이미지'>";
-					str +="		<div class='commentItem_commentInfo__5KL0S'><div class='commentItem_title__36t1w'>"
-					str +="			<div class='commentItem_userNickname__PQ8kV'>"+list[i].replyer+"</div>"
-					str +="			<div class='commentItem_registeredDate__2TPJZ'>"+replyService.displayTime(list[i].replyDate)+"</div>"
+					str +="<li class='commentItem_commentContainer' data-rno='"+list[i].rno+"'>";
+					str +="<section class='commentItem_commentHeader'>";
+					str +="  <div class='commentItem_avatarWrapper'>"
+					// 사용자 이미지 추가 					
+					str +="		<div class='commentItem_commentInfo'><div class='commentItem_title'>"
+					str +="			<div class='commentItem_userNickname'>"+list[i].replyer+"</div>"
+					str +="			<div class='commentItem_registeredDate'>"+replyService.displayTime(list[i].replyDate)+"</div>"
 					str +="		</div></div></div>"
 					if (unameValue == list[i].replyer) {
-						str += "<section class='commentButtons_buttonWrapper__2I-EK'>";
-// 						str += "<button id='modBtn' class='commentButtons_buttons__3vQ84' onclick='showEditCommentForm(" + list[i].rno + ")'>수정</button> ";
-						str += "<button id='modBtn_" + list[i].rno + "' class='commentButtons_buttons__3vQ84' onclick='showEditCommentForm(" + list[i].rno + ")'>수정</button> ";
-						str += "<button id='remBtn' class='commentButtons_buttons__3vQ84' onclick='deleteReply("+list[i].rno+")'>삭제</button>";
+						str += "<section class='commentButtons_buttonWrapper'>";
+						str += "<button id='modBtn_" + list[i].rno + "' class='commentButtons_buttons' onclick='showEditCommentForm(" + list[i].rno + ")'>수정</button> ";
+						str += "<button id='remBtn' class='commentButtons_buttons' onclick='deleteReply("+list[i].rno+")'>삭제</button>";
 						str += "</section>";
 					}
-					str +="</section><section class='commentItem_commentContent__1yK7o'><p class='commentItem_commentContent__1yK7o'>"+list[i].reply+"</p>"
+					str +="</section><section class='commentItem_commentContent'><p class='commentItem_commentContent'>"+list[i].reply+"</p>"
 					// 현재 로그인한 사용자와 댓글 작성자가 같은 경우에만 수정/삭제 버튼 추가
 					if (unameValue == list[i].replyer) {
 						// 댓글 수정 입력 폼 추가
-						str += "<div><input class='commentItem_modifyInput__1ounT' type='hidden' name='contentInput'"
+						str += "<div><input class='commentItem_modifyInput' type='hidden' name='contentInput'"
 						str += "placeholder='"+list[i].reply+"' value='"+list[i].reply+"' >"
-						str += "<div class='commentItem_commentInputButton__1JrQz' style='display: none;'>";
-						str += "<button id='canBtn' class='commentItem_buttonCancel__10CiY' name='cancle'>취소</button>";
-						str += "<button class='commentItem_buttonComplete__3czy4' name='complete'>완료</button>";
+						str += "<div class='commentItem_commentInputButton' style='display: none;'>";
+						str += "<button id='canBtn' class='commentItem_buttonCancel' name='cancle'>취소</button>";
+						str += "<button class='commentItem_buttonComplete' name='complete'>완료</button>";
 						str += "</div></div>";
 					}
 					str += "</section></li>";

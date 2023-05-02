@@ -134,7 +134,7 @@
 
 	</select>
 	
-	<!--  jsh 0428 게시글 페이징처리+필터 처리해서 가져오기(수정완료) -->
+	<!-- jsh 0502 게시글 페이징처리+필터 처리해서 가져오기(수정중) -->
 	<select id="getListWithPagingWithFilter"
 		resultType="org.hub.domain.BoardVO">
 	   <![CDATA[
@@ -149,23 +149,32 @@
 	)
 	WHERE rn > (#{pageNum} - 1) * #{amount}
 	]]>
+		
+		<if test="position != null">
+			AND fnames LIKE '%'||#{position}||'%'
+		</if>
+		
 		<if test="filters != null and filters.length > 0">
 			AND 
 			<foreach collection="filters" item="filter" separator="or">
 				snames LIKE '%'||#{filter}||'%'
 			</foreach>
-			
 		</if>
 	</select>
 	
-	<!-- 메인 with 필터 페이지 수 계산 -->
+	<!-- jsh 0502 메인 with 필터 페이지 수 계산(수정중) -->
 	<select id="getTotalCountWithFilter" resultType="int">
 		select count(*) from board_view
 		where
 
 		<include refid="criteria"></include>
-
+		
+		<if test="position != null ">
+			fnames LIKE '%'||#{position}||'%'
+		</if>
+		
 		<if test="filters != null and filters.length > 0">
+			AND
 			<foreach collection="filters" item="filter" separator="or">
 				snames LIKE '%'||#{filter}||'%'
 			</foreach>
@@ -207,38 +216,5 @@
   	<select id="bnoCheck" resultType="int">
   		select count(*) from userread_tbl where uidkey=#{uidkey} and bno=#{bno}
   	</select>
-
-<!--  게시글 페이징처리+position 처리해서 가져오기 -->
-	<select id="getListWithPagingWithPosition"
-		resultType="org.hub.domain.BoardVO">
-	   <![CDATA[
-	SELECT bno, deadline, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
-	FROM (
-		select * from board_view 
-		WHERE
-	]]>
-		<include refid="criteria"></include>
-	<![CDATA[
-		 rownum <= #{pageNum} * #{amount}
-	)
-	WHERE rn > (#{pageNum} - 1) * #{amount}
-	]]>
-		<if test="position != null">
-			AND fnames LIKE '%'||#{position}||'%'
-		</if>
-	</select>
-	
-	<!-- 메인 with position 페이지 수 계산 -->
-	<select id="getTotalCountWithPosition" resultType="int">
-		select count(*) from board_view
-		where
-
-		<include refid="criteria"></include>
-
-		<if test="position != null ">
-				fnames LIKE '%'||#{position}||'%'
-		</if>
-
-	</select>
 
 </mapper>
