@@ -202,6 +202,11 @@
 		insert into userread_tbl (urno, uidkey, bno, readtime) 
 		values (seq_userread.nextval, #{uidkey}, #{bno}, sysdate)
 	</insert>
+	
+	<!-- 0502 읽은 글 중복검사 -->
+  	<select id="bnoCheck" resultType="int">
+  		select count(*) from userread_tbl where uidkey=#{uidkey} and bno=#{bno}
+  	</select>
 
 <!--  게시글 페이징처리+position 처리해서 가져오기 -->
 	<select id="getListWithPagingWithPosition"

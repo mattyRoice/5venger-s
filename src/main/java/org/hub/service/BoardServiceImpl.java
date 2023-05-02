@@ -225,10 +225,17 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	// YJ 04-26 읽은 글 DB 등록
-		public void saveUserRead(UserReadVO userread) {
-			log.info("saveUserRead......" + userread);
-			mapper.saveUserRead(userread);
-		}
+	@Override
+	public void saveUserRead(UserReadVO userread) {
+		log.info("saveUserRead......" + userread);
+		mapper.saveUserRead(userread);
+	}
+	
+	// YJ 05-02 읽은 글 중복 체크
+	@Override
+	public int bnoCheck(UserReadVO userread) {
+		return mapper.bnoCheck(userread);
+	}
 
 		
 		@Override
