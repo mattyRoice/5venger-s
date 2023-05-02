@@ -95,7 +95,7 @@ $(document).ready(function() {
 	})();//end function	
 	
 	// kdh 0428  관심글 하트 이벤트
-	var bookmark = $('.studyItem_bookmark__2YtKX');
+	var bookmark = $('.studyItem_bookmark');
 	bookmark.on("click", function(e) {
 		e.preventDefault();
 		
