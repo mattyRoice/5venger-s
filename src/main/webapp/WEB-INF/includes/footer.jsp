@@ -33,7 +33,7 @@
             alert("글 삭제가 완료되었습니다!");
     });
 </script>
-
+CloseResult
 <script type="text/javascript">
     $(document).ready(function() {
         var result = '<c:out value="${CloseResult}"/>';
@@ -95,7 +95,7 @@ $(document).ready(function() {
 	})();//end function	
 	
 	// kdh 0428  관심글 하트 이벤트
-	var bookmark = $('.studyItem_bookmark');
+/* 	var bookmark = $('.studyItem_bookmark');
 	bookmark.on("click", function(e) {
 		e.preventDefault();
 		
@@ -106,69 +106,114 @@ $(document).ready(function() {
 			$(this).attr("src", "/resources/Images/nonfilledheart.png");
 		}
 		return false;
+	}); */
+	var bookmark = $('.studyItem_bookmark');
+	bookmark.on("click", function(e) {
+	    e.preventDefault();
+	    
+	    var heartStatus = $(this).attr('src');
+	    if(heartStatus == "/resources/Images/nonfilledheart.png"){
+	        $(this).attr("src", "/resources/Images/filledheart.png"); 
+	        $.ajax({
+	            type: "POST",
+	            url: "/interest/insert",
+	            data: {
+	                bno: $(this).closest('.studyItem_card__2RJvP').data('bno')
+	            },
+	            success: function(data) {
+	                console.log("관심글 등록 성공");
+	            },
+	            error: function(xhr, status, error) {
+	                console.error("관심글 등록 실패: " + error);
+	            }
+	        });
+	    } else {
+	        $(this).attr("src", "/resources/Images/nonfilledheart.png");
+	        $.ajax({
+	            type: "POST",
+	            url: "/interest/delete",
+	            data: {
+	                bno: $(this).closest('.studyItem_card__2RJvP').data('bno')
+	            },
+	            success: function(data) {
+	                console.log("관심글 삭제 성공");
+	            },
+	            error: function(xhr, status, error) {
+	                console.error("관심글 삭제 실패: " + error);
+	            }
+	        });
+	    }
+	    return false;
 	});
+
+	
+	
+	
+	
+	
+	
 	
 	// 카테고리 변수
-	let $languageBarArray = $('ul.LanguageBar_languages li');
+	let $languageBarArray = $('ul.LanguageBar_languages__2Ilqf li');
 	$languageBarArray.hide();
 	category(0, 11);
 
 
 	// 인기 카테고리를 클릭할 경우
-	$('li.Category_categoryItem:eq(0)').click(function() {
+	$('li.Category_categoryItem__1ko8V:eq(0)').click(function() {
 		$languageBarArray.hide(); // 모든 li 숨기기
 		category(0, 11); // 인기 카테고리의 li만 보이기
 		
-	 // 모든 li에서 Category_selectedCategory 클래스 제거
-    	$('.Category_categories li').removeClass('Category_selectedCategory');
-    	// 클릭한 li에 Category_selectedCategory 클래스 추가
-    	$(this).addClass('Category_selectedCategory');
+	 // 모든 li에서 Category_selectedCategory__1J7es 클래스 제거
+    	$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
+    	// 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
+    	$(this).addClass('Category_selectedCategory__1J7es');
 	});
 
 	// 프론트엔드 카테고리를 클릭할 경우
-	$('li.Category_categoryItem:eq(1)').click(function() {
-		$('.Category_categories li').removeClass('Category_selectedCategory');
-	    	// 클릭한 li에 Category_selectedCategory 클래스 추가
-	    $(this).addClass('Category_selectedCategory');
+	$('li.Category_categoryItem__1ko8V:eq(1)').click(function() {
+		$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
+	    	// 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
+	    $(this).addClass('Category_selectedCategory__1J7es');
 	    $languageBarArray.hide(); // 모든 li 숨기기
 	  	category(0, 7) // 프론트엔드 카테고리의 li만 보이기
 	});
 
 	// 백엔드 카테고리를 클릭할 경우
-	$('li.Category_categoryItem:eq(2)').click(function() {
-		$('.Category_categories li').removeClass('Category_selectedCategory');
-	    // 클릭한 li에 Category_selectedCategory 클래스 추가
-		$(this).addClass('Category_selectedCategory');
+	$('li.Category_categoryItem__1ko8V:eq(2)').click(function() {
+		$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
+	    // 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
+		$(this).addClass('Category_selectedCategory__1J7es');
 	    $languageBarArray.hide(); // 모든 li 숨기기
 	 	// 백엔드 카테고리의 li만 보이기
 	    category(7,20)
 	});
 
 	// 모바일 카테고리를 클릭할 경우
-	$('li.Category_categoryItem:eq(3)').click(function() {
-		$('.Category_categories li').removeClass('Category_selectedCategory');
-	   	// 클릭한 li에 Category_selectedCategory 클래스 추가
-	   	$(this).addClass('Category_selectedCategory');
+	$('li.Category_categoryItem__1ko8V:eq(3)').click(function() {
+		$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
+	   	// 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
+	   	$(this).addClass('Category_selectedCategory__1J7es');
 	   	$languageBarArray.hide(); // 모든 li 숨기기
-	   	$('ul.LanguageBar_languages li:eq(11)').show();
+	   	$('ul.LanguageBar_languages__2Ilqf li:eq(11)').show();
 		// 모바일 카테고리의 li만 보이기
 		category(20, 24)
 	});
 
 	  // 기타 카테고리를 클릭할 경우
-	$('li.Category_categoryItem:eq(4)').click(function() {
-		$('.Category_categories li').removeClass('Category_selectedCategory');
+	$('li.Category_categoryItem__1ko8V:eq(4)').click(function() {
+		$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
 		// 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
-		$(this).addClass('Category_selectedCategory');
+		$(this).addClass('Category_selectedCategory__1J7es');
 		$languageBarArray.hide();
 		category(24,32);
 	});
 	  
 	  // 모두보기 카테고리를 클릭할 경우
-	$('li.Category_categoryItem:eq(5)').click(function() {
-		$('.Category_categories li').removeClass('Category_selectedCategory');
+	$('li.Category_categoryItem__1ko8V:eq(5)').click(function() {
+		$('.Category_categories__3bwPA li').removeClass('Category_selectedCategory__1J7es');
 	    // 클릭한 li에 Category_selectedCategory__1J7es 클래스 추가
-		$(this).addClass('Category_selectedCategory');
+		$(this).addClass('Category_selectedCategory__1J7es');
 	    $languageBarArray.show(); // 모든 li 보이기
 	});
 	  
@@ -241,7 +286,7 @@ $(document).ready(function() {
 });
 // 화면 상단으로 올리기 버튼
 $(function() {
-	var btn = $('.Topbutton_topButton');
+	var btn = $('.Topbutton_topButton__35AKX');
 	
 	$(window).scroll(function () {
 		if($(window).scrollTop() > 700) {
@@ -262,21 +307,21 @@ $(function() {
 
 	let isFirst = true;
 	let count = 0;
-	var selectedClass = 'LanguageBar_full';
-	var otherClasses = '.LanguageBar_languageIcon:not(.' + selectedClass	+ ')';
+	var selectedClass = 'LanguageBar_full__3qQet';
+	var otherClasses = '.LanguageBar_languageIcon__Um7GQ:not(.' + selectedClass	+ ')';
 	let filter = [];
 	
 	// 필터 초기화 버튼 누르면 홈페이지 새로고침
-	$('#root > section > div.SelectedLanguage_selectedWrapper > ul > li:last-child').click(function() {
+	$('#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child').click(function() {
 		location.reload();
 	});
 	
 	// 스택 아이콘 클릭 이벤트
-	$('#root > section > ul.LanguageBar_languages > li').click(function() {
+	$('#root > section > ul.LanguageBar_languages__2Ilqf > li').click(function() {
 		// 스택 아이콘을 처음 눌렀을 때 발생하는 이벤트
 		if (isFirst) {
 			isFirst = false;
-			$('.LanguageBar_languageIcon').removeClass(selectedClass).addClass('LanguageBar_transparent');
+			$('.LanguageBar_languageIcon__Um7GQ').removeClass(selectedClass).addClass('LanguageBar_transparent__3wlZf');
 		}
 
 		let $this = $(this);
@@ -299,7 +344,7 @@ $(function() {
 			addLanguageFilter(language);
 			
 			// 필터초기화 버튼
-			$('#root > section > div.SelectedLanguage_selectedWrapper > ul > li:last-child').css("display", "flex");
+			$('#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child').css("display", "flex");
 		}
 		// data 배열안에 filter 라는 이름에 필터 값을 담는다
 		mainfilter();
@@ -307,18 +352,18 @@ $(function() {
 		// 필터를 다 해제했을 때 흐리게 되었던 필터들 다시 제대로 모든 필터 보이게 끔 하고, 필터초기화 버튼 안보이게 처리
 		if (!isFirst && count == 0) {
 			isFirst = true;
-			$('.LanguageBar_languageIcon').removeClass('LanguageBar_transparent').addClass(selectedClass);
-			$('#root > section > div.SelectedLanguage_selectedWrapper > ul > li:last-child').css("display", "none");
+			$('.LanguageBar_languageIcon__Um7GQ').removeClass('LanguageBar_transparent__3wlZf').addClass(selectedClass);
+			$('#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child').css("display", "none");
 		}
 	});
 	// toogleLanguage bar 함수
 	function toogleLanguageBar($languageBar, status) {
 		// status가 active라면 선명하게 보이게 하기
 		if (status === "active") {
-			$languageBar.addClass(selectedClass).removeClass('LanguageBar_transparent');
+			$languageBar.addClass(selectedClass).removeClass('LanguageBar_transparent__3wlZf');
 		// status가 inactive 라면 흐리게 보이게 하기
 		} else {
-			$languageBar.removeClass(selectedClass).addClass('LanguageBar_transparent');
+			$languageBar.removeClass(selectedClass).addClass('LanguageBar_transparent__3wlZf');
 		}
 	}
 	
@@ -327,13 +372,13 @@ $(function() {
 	function addLanguageFilter(language) {
 		filter.push(language);
 		
-		var newLi = $('<li>').attr('class',	'SelectedLanguage_selectedLanguage');
+		var newLi = $('<li>').attr('class',	'SelectedLanguage_selectedLanguage__3AUIy');
 		var newDi = $('<div>').text(language);
 		var newImg = $('<img>').attr('src',	'https://holaworld.io/images/info/delete.svg').attr('alt','deleteButton');
 
 		$(newLi).append(newDi);
 		$(newLi).append(newImg);
-		$('.SelectedLanguage_selectedLanguages').prepend(newLi);
+		$('.SelectedLanguage_selectedLanguages__DYJjl').prepend(newLi);
 
 		// 추가된 <li> 태그에 클릭 이벤트 핸들러 추가
 		// 누르면 삭제되게 함
@@ -345,19 +390,19 @@ $(function() {
 			
 			mainfilter();
 			
-			$('li.LanguageBar_languageIcon').each(function() {
+			$('li.LanguageBar_languageIcon__Um7GQ').each(function() {
 				
 				let nthLanguage = $(this).text();
 				
 				if (nthLanguage === language) {
 					count--;
-					$(this).removeClass(selectedClass).addClass('LanguageBar_transparent');
+					$(this).removeClass(selectedClass).addClass('LanguageBar_transparent__3wlZf');
 					if (count == 0) {
 						
 						
 						isFirst = true;
-						$('.LanguageBar_languageIcon').removeClass('LanguageBar_transparent').addClass(selectedClass);
-						$('#root > section > div.SelectedLanguage_selectedWrapper > ul > li:last-child').css("display", "none");
+						$('.LanguageBar_languageIcon__Um7GQ').removeClass('LanguageBar_transparent__3wlZf').addClass(selectedClass);
+						$('#root > section > div.SelectedLanguage_selectedWrapper__2StUQ > ul > li:last-child').css("display", "none");
 					}
 				}
 			});
@@ -371,7 +416,7 @@ $(function() {
 		let index = filter.indexOf(language);
 		filter.splice(index, 1);
 		
-		let $languageFilters = $('.SelectedLanguage_selectedLanguages > li');
+		let $languageFilters = $('.SelectedLanguage_selectedLanguages__DYJjl > li');
 
 		$languageFilters.each(function() {
 			let nthLanguage = $(this).text();
@@ -436,26 +481,6 @@ $(function() {
 			});
 		}
 	}
-	
-	$(document).ready(function() {
-		  // select 요소의 value가 변경될 때마다 이벤트 처리
-		  $('#mySelect').on('change', function() {
-		    var selectedValue = $(this).val(); // 선택된 option의 value값 가져오기
-	       let data = {position : selectedValue};
-	         
-	       $.ajax({
-	         type : "get",
-	         url: "/board/mainWithPosition", //요청 URL
-	         data : data,
-	         success : function(data) {
-	            $('#main-filter').html(data);
-	         },
-	         error : function(xhr, status, error) {
-	           alert("에러 발생 : " + error);
-	         }
-	       });
-	     });
-	});
 	
 </script>
 
