@@ -95,7 +95,7 @@
 					class="input-group-text search_searchInput"
 					placeholder="원하는 스터디를 검색해 보세요!"
 					value='<c:out value="${pageMaker.cri.keyword }"/>'> <input
-					type='hidden' name='type' value='T'>
+					type='hidden' name='type' value='TC'>
 				<!-- 검색조건 -->
 				<input type='hidden' name='pageNum'
 					value='<c:out value="${pageMaker.cri.pageNum }"/>'> <input
