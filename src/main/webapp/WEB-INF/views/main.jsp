@@ -35,17 +35,17 @@
 			<div class="carousel-inner">
 				<!--  첫 번째 배너 -->
 				<div class="carousel-item active">
-					<div class="firstBanner_containerWrapper__1QH6h">
-						<div class="firstBanner_container__1M3Ft">
-							<div class="firstBanner_leftCover__1KzCe">
-								<h2 class="firstBanner_title__3ov1t">스터디를 찾는 가장 쉬운 방법</h2>
-								<div class="firstBanner_subContainer__2lho6">
-									<span class="firstBanner_subText__1pOla">스터디허브에서 함께할 팀원을
+					<div class="firstBanner_containerWrapper">
+						<div class="firstBanner_container">
+							<div class="firstBanner_leftCover">
+								<h2 class="firstBanner_title">스터디를 찾는 가장 쉬운 방법</h2>
+								<div class="firstBanner_subContainer">
+									<span class="firstBanner_subText">스터디허브에서 함께할 팀원을
 										찾으세요 🔍</span>
 								</div>
 							</div>
-							<div class="firstBanner_rightCover__3Olog">
-								<img class="firstBanner_coverImage__1yB1-"
+							<div class="firstBanner_rightCover">
+								<img class="firstBanner_coverImage"
 									src="/resources/Images/banner_bunny.png"
 									alt="firstBanner">
 							</div>
@@ -54,18 +54,18 @@
 				</div>
 				<!--  두 번째 배너 -->
 				<div class="carousel-item">
-					<div class="secondBanner_containerWrapper__1N-i4">
-						<div class="secondBanner_container__1Nu6b">
-							<div class="secondBanner_leftCover__1y4GQ">
-								<button class="secondBanner_promotion__3s4jx">NOTICE</button>
+					<div class="secondBanner_containerWrapper">
+						<div class="secondBanner_container">
+							<div class="secondBanner_leftCover">
+								<button class="secondBanner_promotion">NOTICE</button>
 								<div></div>
-								<h2 class="secondBanner_title__pzIWX">StudyHub!는 봄맞이 새단장 완료</h2>
-								<span class="secondBanner_subText__rl70c">더 편해진 스터디허브!
+								<h2 class="secondBanner_title">StudyHub!는 봄맞이 새단장 완료</h2>
+								<span class="secondBanner_subText">더 편해진 스터디허브!
 									모르는 사람 없게 해주세요 🙏</span>
 							</div>
 
-							<div class="secondBanner_rightCover__3Xm1n">
-								<img class="secondBanner_coverImage__1psJQ"
+							<div class="secondBanner_rightCover">
+								<img class="secondBanner_coverImage"
 									src="/resources/Images/startup.png" 
 									alt="second banner">	
 							</div>
@@ -87,12 +87,12 @@
 		</div>
 		
 		<!--  검색 화면 -->
-		<div class="input-group search_container__2ExFE">
-			<img class="search_searchImg__2ia6h" src="/resources/Images/search.png">
+		<div class="input-group search_container">
+			<img class="search_searchImg" src="/resources/Images/search.png">
 			
 			<form class="col" id='searchForm' action="/board/main" method='get'>
 				
-				<input type='text' name='keyword' class="input-group-text search_searchInput__1BF6g" placeholder="원하는 스터디를 검색해 보세요!"
+				<input type='text' name='keyword' class="input-group-text search_searchInput" placeholder="원하는 스터디를 검색해 보세요!"
 					value='<c:out value="${pageMaker.cri.keyword }"/>'> 
 				<input type='hidden' name='type' value='T'> <!-- 검색조건 -->
 				<input type='hidden' name='pageNum'
@@ -131,177 +131,176 @@
 		
 
 		<!--  필터  -->
-		<section class="desktopFilter_filterWrapper__1gwsT">
+		<section class="desktopFilter_filterWrapper">
 			<!--  인기, 프론트엔드, 백엔드, 모바일, 기타 필터 -->
-			<ul class="Category_categories__3bwPA">
-				<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">인기</li>
-				<li class="Category_categoryItem__1ko8V ">프론트엔드</li>
-				<li class="Category_categoryItem__1ko8V ">백엔드</li>
-				<li class="Category_categoryItem__1ko8V ">모바일</li>
-				<li class="Category_categoryItem__1ko8V ">기타</li>
+			<ul class="Category_categories">
+				<li class="Category_categoryItem Category_selectedCategory">인기</li>
+				<li class="Category_categoryItem">프론트엔드</li>
+				<li class="Category_categoryItem">백엔드</li>
+				<li class="Category_categoryItem">모바일</li>
+				<li class="Category_categoryItem">기타</li>
 				<li
-					class="Category_categoryItem__1ko8V ">모두보기</li>
+					class="Category_categoryItem">모두보기</li>
 			</ul>
-			<ul class="LanguageBar_languages__2Ilqf">
+			<ul class="LanguageBar_languages">
 				<!-- 0 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/javascript.svg"
 					alt="JavaScript"><span>JavaScript</span></li>
 				<!-- 1-->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/typescript.svg"
 					alt="TypeScript"><span>TypeScript</span></li>
 				<!-- 2 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/react.svg" alt="React"><span>React</span></li>
 				<!-- 3 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/vue.svg" alt="Vue"><span>Vue</span></li>
 				<!-- 4 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/svelte.svg" alt="Svelte"><span>Svelte</span></li>
 				<!-- 5 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/nextjs.svg" alt="Nextjs"><span>Nextjs</span></li>
 				<!-- 6 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/nodejs.svg" alt="Nodejs"><span>Nodejs</span></li>
 				<!-- 7 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/java.svg" alt="Java"><span>Java</span></li>
 				<!-- 8 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/spring.svg" alt="Spring"><span>Spring</span></li>
 				<!-- 9 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/go.svg" alt="Go"><span>Go</span></li>
 				<!-- 10 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/nestjs.svg" alt="Nestjs"><span>Nestjs</span></li>
 				<!-- 11 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/kotlin.svg" alt="Kotlin"><span>Kotlin</span></li>
 				<!-- 12 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/express.svg"
 					alt="Express"><span>Express</span></li>
 				<!-- 13 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/mysql.svg" alt="MySQL"><span>MySQL</span></li>
 				<!-- 14 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/mongodb.svg"
 					alt="MongoDB"><span>MongoDB</span></li>
 				<!-- 15 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/python.svg" alt="Python"><span>Python</span></li>
 				<!-- 16 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/django.svg" alt="Django"><span>Django</span></li>
 				<!-- 17 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/php.svg" alt="php"><span>php</span></li>
 				<!-- 18 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/graphql.svg"
 					alt="GraphQL"><span>GraphQL</span></li>
 				<!-- 19 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/firebase.svg"
 					alt="Firebase"><span>Firebase</span></li>
 				<!-- 20 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/flutter.svg"
 					alt="Flutter"><span>Flutter</span></li>
 				<!-- 21 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/swift.svg" alt="Swift"><span>Swift</span></li>
 				<!-- 22 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/reactnative.svg"
 					alt="ReactNative"><span>ReactNative</span></li>
 				<!-- 23 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/unity.svg" alt="Unity"><span>Unity</span></li>
 				<!-- 24 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/aws.svg" alt="AWS"><span>AWS</span></li>
 				<!-- 25 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/kubernetes.svg"
 					alt="Kubernetes"><span>Kubernetes</span></li>
 				<!-- 26 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/docker.svg" alt="Docker"><span>Docker</span></li>
 				<!-- 27 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/git.svg" alt="Git"><span>Git</span></li>
 				<!-- 28 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/figma.svg" alt="Figma"><span>Figma</span></li>
 				<!-- 29 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/zeplin.svg" alt="Zeplin"><span>Zeplin</span></li>
 				<!-- 30 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo"
 					src="https://holaworld.io/images/languages/jest.svg" alt="Jest"><span>Jest</span></li>
 				<!-- 31 -->
-				<li class="LanguageBar_languageIcon__Um7GQ LanguageBar_full__3qQet"><img
-					class="LanguageBar_logo__332tN" src="https://holaworld.io/images/languages/c.svg"
+				<li class="LanguageBar_languageIcon LanguageBar_full"><img
+					class="LanguageBar_logo" src="https://holaworld.io/images/languages/c.svg"
 					alt="C"><span>C</span></li>
 			</ul>
-			<div class="SelectedLanguage_selectedWrapper__2StUQ">
-				<ul class="SelectedLanguage_selectedLanguages__DYJjl">
-					<li class="SelectedLanguage_selectedLanguage__3AUIy"
+			<div class="SelectedLanguage_selectedWrapper">
+				<ul class="SelectedLanguage_selectedLanguages">
+					<li class="SelectedLanguage_selectedLanguage"
 						style="display: none;"><span
-						class="SelectedLanguage_resetFilter__2EZuH">필터 초기화</span></li>
+						class="SelectedLanguage_resetFilter">필터 초기화</span></li>
 				</ul>
 			</div>
 
 		</section>
 		<!--  메인 게시글 -->
-		<main class="mainContent_main_F2EU9">
+		<main class="mainContent_main">
 			<!--  게시글 카테고리 -->
-			<div class="mainContent_categoryWrapper__1n063">
-				<div class="findMyPosition_selectWrapper__23xHq">
-					<div class=" css-2b097c-container">
+			<div class="mainContent_categoryWrapper">
+				<div class="findMyPosition_selectWrapper">
+					<div class=" css-container">
 						<span aria-live="polite" aria-atomic="false"
-							aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
+							aria-relevant="additions text" class="css-Text"></span>
 
 						<select class="form-select form-select-lg mb-4"
 							aria-label=".form-select-lg example" 
-							id="mySelect"
 							style="font-size: 1.125rem; padding-top: 0.4rem; padding-bottom: 0.4rem;">
 							<option selected value="">내 포지션 찾기</option>
 							<option value="전체">전체</option>
@@ -315,8 +314,8 @@
 						</select>
 					</div>
 				</div>
-				<div class="toggleSwitch_switch__hglrb mb-4">
-					<span class="toggleSwitch_switchTitle__1g_TJ fs-5">모집 중만 보기</span>
+				<div class="toggleSwitch_switch mb-4">
+					<span class="toggleSwitch_switchTitle fs-5">모집 중만 보기</span>
 					<div class="form-check form-switch" style="margin-bottom:0;">
 						<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked 
 							style="height:1.5em; width:2.45em; background-color:#ff914d; border-color:#ff914d; margin-right:15px;">
@@ -329,18 +328,18 @@
 				<div class="row">
 
 					<c:forEach items="${board}" var="board">
-						<div id="card_${board.bno}" class="col-lg-3">
+						<div id="card_${board.bno}" class="col-lg-3 col-md-4 col-sm-6">
 							<div class="card" style="width: 100%">
 								<div class="card-body move" href='<c:out value="${board.bno }"/>'>
 									<!-- 스터디-->
-									<div class="studyItem_badgeWrapper__3AW7k">
-										<div class="badge_badge__ZfNyB">
-											<div class="badge_study__39LDm">스터디</div>
+									<div class="studyItem_badgeWrapper">
+										<div class="badge_badge">
+											<div class="badge_study">스터디</div>
 										</div>
 									</div>
 									<!--마감일-->
-									<div class="studyItem_schedule__3oAnA">
-										<p class="studyItem_scheduleTitle__1KN_9">마감일 |</p>
+									<div class="studyItem_schedule">
+										<p class="studyItem_scheduleTitle">마감일 |</p>
 										<p>
 											<c:choose>
 												<c:when test="${board.deadline ne null }">
@@ -358,41 +357,41 @@
 									</div>
 									<!--게시글 제목-->
 
-									<h6 class="studyItem_title__2B_2o">
+									<h6 class="studyItem_title">
 										<c:out value="${board.title }" />
 									</h6>
 									<!--분야-->
-									<ul class="studyItem_positionList__1jzi_">
+									<ul class="studyItem_positionList">
 										<c:set var="fnamesArr" value="${fn:split(board.fnames, ',') }" />
 										<c:forEach items="${fnamesArr}" var="fname">
-											<li class="studyItem_position__2sRRD">${fname }</li>
+											<li class="studyItem_position">${fname }</li>
 										</c:forEach>
 									</ul>
 
 
 									<!--기술태그-->
-									<ul class="studyItem_content__1mJ9M">
+									<ul class="studyItem_content">
 										<c:set var="snamesArr" value="${fn:split(board.snames, ',') }" />
 										<c:forEach items="${snamesArr }" var="sname">
-											<li class="studyItem_language__20yqw"><img
-												class="studyItem_languageImage__1AfGa" title="${sname }"
+											<li class="studyItem_language"><img
+												class="studyItem_languageImage" title="${sname }"
 												src="https://holaworld.io/images/languages/${sname }.svg"
 												alt="language"></li>
 										</c:forEach>
 									</ul>
 
 									<!--구분선-->
-									<div class="studyItem_border__2zAjs"></div>
+									<div class="studyItem_border"></div>
 
 									<!-- 메인게시글 하단 -->
-									<section class="studyItem_info__OFIQU">
+									<section class="studyItem_info">
 										<!--  user이미지, user 닉네임 -->
-										<div class="studyItem_userInfo__1KkGa">
-											<div class="avatar_user__1Pgut">
+										<div class="studyItem_userInfo">
+											<div class="avatar_user">
 												<div id="uploadResult">
 													<div class='uploadResult'>
 														<ul>
-															<li><img id="photo" class="avatar_userImg__hogPI" width="30px"
+															<li><img id="photo" class="avatar_userImg" width="30px"
 														height="30px" src="/resources/Images/profileLogo.png"
 														alt="Profile Image"></li>
 														</ul>
@@ -407,9 +406,9 @@
 										</div>
 
 										<!--  조회수,댓글 -->
-										<div class="studyItem_viewsAndComment__1Bxpj">
+										<div class="studyItem_viewsAndComment">
 											<!--  조회수 -->
-											<div class="studyItem_infoItem__3vxSf">
+											<div class="studyItem_infoItem">
 												<svg stroke="currentColor" fill="currentColor"
 													stroke-width="0" viewBox="0 0 1024 1024" color="#999999"
 													height="24" width="24" xmlns="http://www.w3.org/2000/svg"
@@ -420,7 +419,7 @@
 											</div>
 
 											<!--  댓글 -->
-											<div class="studyItem_infoItem__3vxSf">
+											<div class="studyItem_infoItem">
 												<svg stroke="currentColor" fill="currentColor"
 													stroke-width="0" viewBox="0 0 512 512" color="#999999"
 													height="18" width="18" xmlns="http://www.w3.org/2000/svg"
@@ -432,7 +431,7 @@
 										</div>
 									</section>
 									<!-- kdh 0425 관심버튼 추가 -->
-									<img class="studyItem_bookmark__2YtKX" src="/resources/Images/nonfilledheart.png" alt="bookmark">
+									<img class="studyItem_bookmark" src="/resources/Images/nonfilledheart.png" alt="bookmark">
 								</div>
 								<!-- card-body 끝-->
 							</div>
@@ -519,24 +518,24 @@
 	<!-- 전체 바디 태그 root 끝 -->
 
 	<!-- 맨 위로 올라가기 버튼 -->
-	<div class="Topbutton_topButton__35AKX">
-		<img class="Topbutton_topButtonImage__2Klzb"
+	<div class="Topbutton_topButton">
+		<img class="Topbutton_topButtonImage"
 			src="/resources/Images/TOP.png" alt="default">
 	</div>
 
 	<!--  하단 footer -->
-	<footer class="footer_footer__31o2n">
-		<div class="footer_leftCover__2lNes">
-			<img class="footer_footerImg__1iADK"
+	<footer class="footer_footer">
+		<div class="footer_leftCover">
+			<img class="footer_footerImg"
 				src="/resources/Images/norabbitlogo.png" alt="footer logo">
-			<div class="footer_contactInfo__LUbVV">
-				<div class="footer_title__3M399">Contact</div>
-				<div class="footer_mail__3bYNn">team.studyhub.official@gmail.com</div>
+			<div class="footer_contactInfo">
+				<div class="footer_title">Contact</div>
+				<div class="footer_mail">team.studyhub.official@gmail.com</div>
 			</div>
-			<div class="footer_copyright__CqZaX">Copyright Studyhub. All
+			<div class="footer_copyright">Copyright Studyhub. All
 				rights reserved</div>
 		</div>
-		<div class="footer_rightCover__1Lgjb">
+		<div class="footer_rightCover">
 			<a
 				href="https://www.notion.so/5venger-s-Project-2f126e2c4d6f4f46b4c273a31802fbf1"
 				target="_blank" rel="noreferrer">프로젝트 노션</a> <a
