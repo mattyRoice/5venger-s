@@ -329,7 +329,10 @@
 				<div class="row">
 
 					<c:forEach items="${board}" var="board">
-						<div id="card_${board.bno}" class="col-lg-3 col-md-4 col-sm-6" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+						<div id="card_${board.bno}" class="col-lg-3 col-md-4 col-sm-6" 
+						onmouseover="this.style.transform='scale(1.05)'" 
+						onmouseout="this.style.transform='scale(1)'" 
+						style="transition: transform 0.3s ease-in-out;">
 							<div class="card" style="width: 100%">
 								<div class="card-body move"
 									href='<c:out value="${board.bno }"/>'>
