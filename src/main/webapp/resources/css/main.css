@@ -683,6 +683,20 @@ li {
 	letter-spacing: -.04em;
 }
 
+.badge_deadline {
+	border-radius: 20px;
+    padding: 4px 12px;
+    background: #ffe8e8;
+    color: #ea726f;
+}
+
+.badge_new {
+	border-radius: 20px;
+    padding: 4px 12px;
+    background: #fff9d5;
+    color: #fdb900;
+}
+
 .badge_study {
 	margin-top: 15px;
 	border-radius: 20px;
@@ -698,7 +712,6 @@ li {
 	gap: 8px;
 	color: #999;
 	font-weight: 500;
-	margin-top: 20px;
 }
 
 .studyItem_scheduleTitle {
@@ -711,16 +724,6 @@ p {
 	margin-block-end: 1em;
 	margin-inline-start: 0px;
 	margin-inline-end: 0px;
-}
-
-.studyItem_schedule {
-	display: flex;
-	font-size: 14px;
-	grid-gap: 8px;
-	gap: 8px;
-	color: #999;
-	font-weight: 500;
-	margin-top: 20px;
 }
 
 .studyItem_title {
