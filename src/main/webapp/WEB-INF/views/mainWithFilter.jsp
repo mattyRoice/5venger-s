@@ -18,16 +18,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/css/main.css" type="text/css" />
 				
-				<div id ="main-filter" class="row">
+<div class="row">
+
 					<c:forEach items="${board}" var="board">
-						<div id="card_${board.bno}" class="col-lg-3">
+						<div id="card_${board.bno}" class="col-lg-3 col-md-4 col-sm-6" 
+						onmouseover="this.style.transform='scale(1.05)'" 
+						onmouseout="this.style.transform='scale(1)'" 
+						style="transition: transform 0.3s ease-in-out;">
 							<div class="card" style="width: 100%">
-								<div class="card-body move" href='<c:out value="${board.bno }"/>'>
-									<!-- 스터디-->
+								<div class="card-body move"
+									href='<c:out value="${board.bno }"/>'>
+									<!-- 마감임박, 따끈따끈 새글 배지-->
 									<div class="studyItem_badgeWrapper">
-										<div class="badge_badge">
-											<div class="badge_study">스터디</div>
-										</div>
 									</div>
 									<!--마감일-->
 									<div class="studyItem_schedule">
@@ -53,8 +55,7 @@
 										<c:out value="${board.title }" />
 									</h6>
 									<!--분야-->
-									<ul class="studyItem_positionList
-									">
+									<ul class="studyItem_positionList">
 										<c:set var="fnamesArr" value="${fn:split(board.fnames, ',') }" />
 										<c:forEach items="${fnamesArr}" var="fname">
 											<li class="studyItem_position">${fname }</li>
@@ -84,14 +85,15 @@
 												<div id="uploadResult">
 													<div class='uploadResult'>
 														<ul>
-															<li><img id="photo" class="avatar_userImg" width="30px"
-														height="30px" src="/resources/Images/profileLogo.png"
-														alt="Profile Image"></li>
+															<li><img id="photo" class="avatar_userImg"
+																width="30px" height="30px"
+																src="/resources/Images/profileLogo.png"
+																alt="Profile Image"></li>
 														</ul>
-														
+
 													</div>
 												</div>
-												
+
 											</div>
 											<div>
 												<c:out value="${board.uname }" />
@@ -124,14 +126,17 @@
 										</div>
 									</section>
 									<!-- kdh 0425 관심버튼 추가 -->
-									<img class="studyItem_bookmark" src="/resources/Images/nonfilledheart.png" alt="bookmark">
+									<img class="studyItem_bookmark"
+										src="/resources/Images/nonfilledheart.png" alt="bookmark">
 								</div>
 								<!-- card-body 끝-->
 							</div>
 							<!--class="card-->
+
+
 						</div>
 						<!-- col-md4 끝-->
-						
+
 						<script>
 							uidkeys.push('${board.uidkey}');
 						</script>
@@ -139,31 +144,39 @@
 							/* 마감일자 지난 카드 흐리게 만들기 */
 							var status = '<c:out value="${board.status}"/>';
 							var deadlineStr = '<c:out value="${board.deadline}"/>';
-						  	console.log(deadlineStr);
-						  	var deadlineDate = new Date(deadlineStr);
-						  	var today = new Date(); 
-						  	var diffDays = Math.floor((deadlineDate - today) / (1000 * 60 * 60 * 24));
-						  	console.log(diffDays);
-						  	if (diffDays < 0 || status =="closed") {
-						  		 var expireDiv = $("<div>", { id: "expire", class: "move w-50 p-3 text-center fw-semibold rounded-4", href:"<c:out value="${board.bno }"/>", text: "모집마감" });
-						  		 expireDiv.css({
-						  		    position: "absolute",
-						  		    top: "40%",
-						  		    left: "25%",
-						  		    background: "black",
-						  		    color: "white",
-						  		  	"z-index": 9999,
-						  		  	cursor: "pointer"
-						  		  });
-						  		$("#card_${board.bno}").css("position", "relative");  
-						  		$("#card_${board.bno}").prepend(expireDiv);
-							    $("#card_${board.bno}").css("opacity", "0.5");							    
-							}				    
-							
+							var deadlineDate = new Date(deadlineStr);
+							var today = new Date(); 
+							var diffHours = Math.floor((deadlineDate - today) / (1000 * 60 * 60)); // 현재 시간부터 마감시간까지 남은 시간(시간 단위)
+							console.log(diffHours);
+							if (diffHours <= 0 || status =="closed") { // 마감 시간이 지났거나, status가 'closed'일 경우
+								var expireDiv = $("<div>", { id: "expire", class: "move w-50 p-3 text-center fw-semibold rounded-4", href:"<c:out value='${board.bno }'/>", text: "모집마감" });
+								expireDiv.css({
+									position: "absolute",
+									top: "40%",
+									left: "25%",
+									background: "black",
+									color: "white",
+									"z-index": 9999,
+									cursor: "pointer"
+								});
+								$("#card_${board.bno}").css("position", "relative");  
+								$("#card_${board.bno}").prepend(expireDiv);
+								$("#card_${board.bno}").css("opacity", "0.5");	
+							}
+							else {
+								if (diffHours <= 24) { //kdh 0502 추가 24시간 미만 남았을 경우
+									var wrapper = $('#card_${board.bno} .studyItem_badgeWrapper');
+									wrapper.append("<div class='badge_badge'><div class='badge_deadline'>🔥 마감코앞</div></div>");
+								} 
+								if ((today - deadlineDate) < (24 * 60 * 60 * 1000)) { // 등록한지 하루 이내인 경우
+								    var wrapper = $('#card_${board.bno} .studyItem_badgeWrapper');
+								    wrapper.append("<div class='badge_badge'><div class='badge_new'>🍞 따끈따끈 새 글</div></div>");
+								}
+							} 
 						</script>
 					</c:forEach>
 					<!--  메인 게시글 반복문 끝 -->
-					</div>
+				</div>
 				<!--row 끝-->
 				<br>
 				<!--  pageNation -->
@@ -173,30 +186,34 @@
 							<li class="page-item"><a class="page-link"
 								href="${pageMaker.startPage-1 }">Previous</a></li>
 						</c:if>
-			
-						<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-							<li class="page-item  ${pageMaker.cri.pageNum == num ? 'active':''} ">
+
+						<c:forEach var="num" begin="${pageMaker.startPage}"
+							end="${pageMaker.endPage}">
+							<li
+								class="page-item  ${pageMaker.cri.pageNum == num ? 'active':''} ">
 								<a class="page-link" href="${num}">${num}</a>
 							</li>
 						</c:forEach>
-			
-			
+
+
 						<c:if test="${pageMaker.next }">
 							<li class="page-item"><a class="page-link"
 								href="${pageMaker.endPage+1 }">Next</a></li>
 						</c:if>
 					</ul>
-			
+
 					<form id='actionForm' action="/board/main" method='get'>
-						<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
-						<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>
-						<input type='hidden' name='type'
+						<input type='hidden' name='pageNum'
+							value='${pageMaker.cri.pageNum }'> <input type='hidden'
+							name='amount' value='${pageMaker.cri.amount }'> <input
+							type='hidden' name='type'
 							value='<c:out value="${ pageMaker.cri.type }"/>'> <input
 							type='hidden' name='keyword'
 							value='<c:out value="${ pageMaker.cri.keyword }"/>'>
 					</form>
 				</nav>
 				<!--  pageNation 끝 -->
+
 <script>
 	var actionForm = $("#actionForm");
 	
