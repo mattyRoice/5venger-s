@@ -437,6 +437,26 @@ $(function() {
 		}
 	}
 	
+	$(document).ready(function() {
+		  // select 요소의 value가 변경될 때마다 이벤트 처리
+		  $('#mySelect').on('change', function() {
+		    var selectedValue = $(this).val(); // 선택된 option의 value값 가져오기
+	       let data = {position : selectedValue};
+	         
+	       $.ajax({
+	         type : "get",
+	         url: "/board/mainWithPosition", //요청 URL
+	         data : data,
+	         success : function(data) {
+	            $('#main-filter').html(data);
+	         },
+	         error : function(xhr, status, error) {
+	           alert("에러 발생 : " + error);
+	         }
+	       });
+	     });
+	});
+	
 </script>
 
 
