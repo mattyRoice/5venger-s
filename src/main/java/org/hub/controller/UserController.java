@@ -154,7 +154,7 @@ public class UserController {
 		session.removeAttribute(SessionNames.LOGIN);
 		session.invalidate(); // 세션에 담아둔 모든 것을 비워 버리겠다
 		
-		Cookie loginCookie = WebUtils.getCookie(request, SessionNames.LOGIN);
+		Cookie loginCookie = WebUtils.getCookie(request, SessionNames.LOGIN_COOKIE);
 		if(loginCookie !=null ) {
 			// 쿠키 유효기간을 7일로 지정했는데, 없애려면 지금 시간으로 바꾸면 된다
 			loginCookie.setPath("/");
@@ -371,7 +371,7 @@ public class UserController {
 		session.removeAttribute(SessionNames.LOGIN);
 		session.invalidate(); // 세션에 담아둔 모든 것을 비워 버리겠다
 		// 쿠키도 있으면 삭제
-		Cookie loginCookie = WebUtils.getCookie(request, SessionNames.LOGIN);
+		Cookie loginCookie = WebUtils.getCookie(request, SessionNames.LOGIN_COOKIE);
 		if(loginCookie !=null ) {
 			// 쿠키 유효기간을 7일로 지정했는데, 없애려면 지금 시간으로 바꾸면 된다
 			loginCookie.setPath("/");

@@ -27,6 +27,9 @@ public interface BoardMapper {
 	// 메인 게시글 수 with position
 	public int getTotalCountWithPosition(Criteria cri);
 	
+	// 마감일자 지난 게시글의 status 값을 closed로 변경 
+	public void updateBoardStatus();
+	
 	// 글 등록
 	public void insert(BoardVO board);
 

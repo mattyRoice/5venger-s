@@ -90,7 +90,7 @@
 	
 	<!-- 마감 처리 취소 -->
 	<update id="updateOpend">
-		update board_tbl set status ='opend'
+		update board_tbl set status ='opened'
 		where bno = #{bno}
 	</update>
 
@@ -107,7 +107,14 @@
 		bno = #{bno}
 	</update>
 	
-	<!-- kdh 0422 게시글 페이징처리 하면서 가져오기 -->
+	<!-- jsh 0502 마감일자 지난 게시글의 status 값을 closed로 변경 -->
+	<update id="updateBoardStatus">
+	  <![CDATA[
+	  	UPDATE board_tbl SET status = 'closed' WHERE deadline < TRUNC(SYSDATE)
+	  ]]>
+	</update>
+	
+	<!-- jsh 0502 게시글 페이징처리 하면서 가져오기 -->
 	<select id="getListWithPaging"
 		resultType="org.hub.domain.BoardVO">
 	<![CDATA[
@@ -121,9 +128,14 @@
 	 )
 	WHERE rn > (#{pageNum} - 1) * #{amount}
 	]]>
+		<!-- status 값이 true이면 '모집중 글만 보기 on'인 상태 -->
+		<if test="status == true">
+			AND status = 'opened'
+		</if>
+		
 	</select>
 	
-	<!-- 일반 메인 페이지 수 계산 -->
+	<!-- jsh 0502 일반 메인 페이지 수 계산 -->
 	<select id="getTotalCount" resultType="int">
 		select count(*) from board_tbl
 		where
@@ -131,10 +143,13 @@
 		<include refid="criteria"></include>
 
 		bno > 0
-
+		<!-- status 값이 true이면 '모집중 글만 보기 on'인 상태 -->
+		<if test="status == true">
+			AND status = 'opened'
+		</if>
 	</select>
 	
-	<!--  jsh 0428 게시글 페이징처리+필터 처리해서 가져오기(수정완료) -->
+	<!--  jsh 0502 게시글 페이징처리+필터 처리해서 가져오기 -->
 	<select id="getListWithPagingWithFilter"
 		resultType="org.hub.domain.BoardVO">
 	   <![CDATA[
@@ -149,23 +164,39 @@
 	)
 	WHERE rn > (#{pageNum} - 1) * #{amount}
 	]]>
+		<!-- status 값이 true이면 '모집중 글만 보기 on'인 상태 -->
+		<if test="status == true">
+			AND status = 'opened'
+		</if>
+		<if test="position != null">
+			AND fnames LIKE '%'||#{position}||'%'
+		</if>
+		
 		<if test="filters != null and filters.length > 0">
 			AND 
 			<foreach collection="filters" item="filter" separator="or">
 				snames LIKE '%'||#{filter}||'%'
 			</foreach>
-			
 		</if>
 	</select>
 	
-	<!-- 메인 with 필터 페이지 수 계산 -->
+	<!-- jsh 0502 메인 with 필터 페이지 수 계산 -->
 	<select id="getTotalCountWithFilter" resultType="int">
 		select count(*) from board_view
 		where
 
 		<include refid="criteria"></include>
 
+		<!-- status 값이 true이면 '모집중 글만 보기 on'인 상태 -->
+		<if test="status == true">
+			status = 'opened'
+		</if>
+		<if test="position != null ">
+			AND fnames LIKE '%'||#{position}||'%'
+		</if>
+		
 		<if test="filters != null and filters.length > 0">
+			AND
 			<foreach collection="filters" item="filter" separator="or">
 				snames LIKE '%'||#{filter}||'%'
 			</foreach>
@@ -207,38 +238,5 @@
   	<select id="bnoCheck" resultType="int">
   		select count(*) from userread_tbl where uidkey=#{uidkey} and bno=#{bno}
   	</select>
-
-<!--  게시글 페이징처리+position 처리해서 가져오기 -->
-	<select id="getListWithPagingWithPosition"
-		resultType="org.hub.domain.BoardVO">
-	   <![CDATA[
-	SELECT bno, deadline, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
-	FROM (
-		select * from board_view 
-		WHERE
-	]]>
-		<include refid="criteria"></include>
-	<![CDATA[
-		 rownum <= #{pageNum} * #{amount}
-	)
-	WHERE rn > (#{pageNum} - 1) * #{amount}
-	]]>
-		<if test="position != null">
-			AND fnames LIKE '%'||#{position}||'%'
-		</if>
-	</select>
-	
-	<!-- 메인 with position 페이지 수 계산 -->
-	<select id="getTotalCountWithPosition" resultType="int">
-		select count(*) from board_view
-		where
-
-		<include refid="criteria"></include>
-
-		<if test="position != null ">
-				fnames LIKE '%'||#{position}||'%'
-		</if>
-
-	</select>
 
 </mapper>

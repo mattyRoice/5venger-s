@@ -16,8 +16,12 @@ public class Criteria {
 	private String type;
 	private String keyword;
 	
+	// 기술 스택
 	private String filters[];
+	// 모집 분야
 	private String position;
+	// '모집글만 on' 일때 true, 아닐땐 false(기본값)  
+	private boolean status;
 	
 	public Criteria() {
 		this(1, 20);

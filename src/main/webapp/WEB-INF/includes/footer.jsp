@@ -270,7 +270,7 @@ $(function() {
 	// 모집 분야(포지션)
 	var position = $('#position').val();
 	// 모집중 토글
-	var deadlineToggle = false;
+	var deadlineToggle = true;
 	
 	// 필터 초기화 버튼 누르면 홈페이지 새로고침
 	$('#root > section > div.SelectedLanguage_selectedWrapper > ul > li:last-child').click(function() {
@@ -412,7 +412,8 @@ $(function() {
 		// data에 선택된 관심스택, 모집분야 값들을 담는다
 			let data = {
 				filter: filter,
-				position : position
+				position : position,
+				deadline : deadlineToggle
 			};
 			
 			// filter 처리할 ajax
@@ -441,11 +442,15 @@ $(function() {
 	 
 		
 	// jsh 0502 모집중 토글 이벤트
+	// 토글 초기화(모집중만 보기 'on' 상태로 초기값 설정)
+	$('#flexSwitchCheckChecked').css('background-color', '#ff914d');
+	$('#flexSwitchCheckChecked').css('border-color', '#ff914d');
+	
 	$('#flexSwitchCheckChecked').on("click", function(e) {
-		// 모집중 토글을 활성화하면 true가 된다
+		// deadlineToglle의 값은 1) 모집중 토글을 활성화하면 true, 2) 비활성화하면 false 
 		deadlineToggle = !deadlineToggle;
 		console.log(deadlineToggle);
-		
+		mainfilter();
 		// 활성화 되어 있으면 배경색 변경
 		if (deadlineToggle) {
 			$(this).css('background-color', '#ff914d');

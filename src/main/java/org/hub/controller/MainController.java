@@ -36,6 +36,9 @@ public class MainController {
 
 		log.info("main 이동");
 		
+		// 메인페이지의 기본은 '모집중 on' 상태
+		cri.setStatus(true);
+		
 		int total = service.getTotal(cri);
 
 		log.info("total: " + total);
@@ -43,101 +46,127 @@ public class MainController {
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	
 		List<BoardVO> boardList = service.getList(cri);
+		
 		model.addAttribute("board", boardList);
+		
+		// 글이 없을 때 ('모집중 on' 이 기본 값이라 넣음)
+		if(boardList.size() <= 0) {
+			return "mainNone";
+		} 
 		
 		return "main";
 	}
 	
 	// 필터작용
 	@GetMapping("/mainWithFilter")
-	public String getMainWithFilter(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, @RequestParam(name="filter[]", required=false) String filter, Model model) {
-		log.info("mainWithFilter 이동");
-		
-		String[] filters = new String[0];						
-		
-		// 1. 선택한 스택이 없을 때
-		if(filter == null){
-			// 페이징
-			int total = service.getTotal(cri);
-			log.info("total: " + total);
-			model.addAttribute("pageMaker", new PageDTO(cri, total));
-			// 게시글 불러오기
-			List<BoardVO> boardList = service.getList(cri);
-			model.addAttribute("board", boardList);
-		} else if (filter != null) {
-			// 2. 선택한 스택이 있을 때
-			filter = filter.toLowerCase();
-			filters = filter.split(",");
-			// 페이징
-			cri.setFilters(filters);
-			int total = service.getTotalWithFilter(cri);
-			log.info("total with filter : " + total);
-			model.addAttribute("pageMaker", new PageDTO(cri, total));
+		public String getMainWithFilter(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, @RequestParam(name="filter[]", required=false) String filter, @RequestParam(name="position", required=false) String position, @RequestParam(name="deadline", required=false) boolean deadline, Model model) {
+			log.info("mainWithFilter 이동 : " + position);
 			
-			// 게시글 불러오기
-			List<BoardVO> boardList = service.getListWithFilter(cri);
-			// 2-1. 선택한 스택 관련 글이 있을 때
-			if(boardList.size()>0) {
-				model.addAttribute("board", boardList);				
-				return "mainWithFilter";
-			} else {
-				// 2-2. 선택한 스택 관련 글이 없을 때
-				return "mainNone";
+			// 뷰단에서 받은 필터값들을 담을 String 배열
+			String[] filters = new String[0];
+			
+			// positionSelected 값이 '전체'이면 true, '전체 외' 이면 False
+			log.info("뷰단에서 넘어오는 position" + position);
+			boolean positionFlag = (position == "");
+			log.info("positionFlag 값 확인 : " + positionFlag);
+			
+			// 뷰단에서 넘어오는 deadline은 'true'이면 '모집중인 글만 보기 on', false이면 모든 글 보기 
+			log.info("deadline Toggle 값 확인 : " + deadline);
+			
+			// '모집글만 on' 이라면, cri에 true set하기
+			if(deadline) {
+				cri.setStatus(true);
 			}
-
-		}		
-		
-		return "mainWithFilter";
-	}
-	@GetMapping("/mainWithPosition")
-	public String getMainWithPosition(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, @RequestParam(name="position", required=false) String position, Model model) {
-		log.info("mainWithPosition  이동");
-	
-	
-		// 1. position 값이 null값일때
-		if(position ==null ) {
-			log.info("******************mainWithPosition  null");
 			
-			// 페이징
-			cri.setPosition(position);
-			int total = service.getTotal(cri);
-			log.info("total: " + total);
-			model.addAttribute("pageMaker", new PageDTO(cri, total));
-			// 게시글 불러오기
-			List<BoardVO> boardList = service.getListWithPosition(cri);
-			model.addAttribute("board", boardList);
-			
-		}
-		
-		// 2. 선택한 포지션이 있을 때
-		else if (position != null) {	
-			
-			// 페이징
-			cri.setPosition(position);
-			log.info("cri.setPosition(fosition) : " + position);
-			int total = service.getTotalWithPosition(cri);
-			log.info("total with position : " + total);
-			model.addAttribute("pageMaker", new PageDTO(cri, total));
-			log.info("model.add : " + "pageMaker");
-			
-			// 게시글 불러오기
-			List<BoardVO> boardList = service.getListWithPosition(cri);
-			
-			
-				// 2-1. 선택한 포지션 관련 글이 있을 때
+			// 전제 1) 모집글 on이면, status=opend인 게시글 안에서 filter 2) 모집글 on이 아니면, 모든 게시글 안에서 filter 
+			// 기준1(기본세팅) : 1) 선택한 스택이 없음 2) 모집분야가 '전체' 3) 모든 글 보기
+			if((filter == null) && positionFlag){
+				
+				// 페이징
+				int total = service.getTotal(cri);
+				log.info("기준1 total: " + total);
+				model.addAttribute("pageMaker", new PageDTO(cri, total));
+				
+				// 게시글 불러오기
+				List<BoardVO> boardList = service.getList(cri);
+				model.addAttribute("board", boardList);
+				
+			} else if((filter == null) && !positionFlag) {
+			// 기준2 : 1) 선택한 스택이 없음 2) 모집 분야가 '전체 외'
+				
+				// 페이징
+				cri.setPosition(position);
+				int total = service.getTotal(cri);
+				log.info("기준2 total: " + total);
+				model.addAttribute("pageMaker", new PageDTO(cri, total));
+				
+				// 게시글 불러오기
+				List<BoardVO> boardList = service.getListWithFilter(cri);
+				model.addAttribute("board", boardList);
+				
+				// 2-1. 관련 글이 있을 때
+				if (boardList.size() > 0) {
+					model.addAttribute("board", boardList);
+					return "mainWithFilter";
+				} else {
+					// 2-2. 관련 글이 없을 때
+					return "mainNone";
+				}
+				
+			} else if ((filter != null) && positionFlag) {
+				// 기준3 : 1) 선택한 스택이 있음 2) 모집 분야가 '전체'
+				
+				// 뷰단에서 받은 필터값
+				filter = filter.toLowerCase();
+				filters = filter.split(",");
+				
+				// 페이징
+				cri.setFilters(filters);		
+				int total = service.getTotalWithFilter(cri);
+				log.info("기준3 total: " + total);
+				model.addAttribute("pageMaker", new PageDTO(cri, total));
+				
+				// 게시글 불러오기
+				List<BoardVO> boardList = service.getListWithFilter(cri);
+				
+				// 3-1. 선택한 스택 관련 글이 있을 때
 				if(boardList.size()>0) {
 					model.addAttribute("board", boardList);				
 					return "mainWithFilter";
 				} else {
-					// 2-2. 선택한 포지션 관련 글이 없을 때
-					return "mainNone";}
-		
-		}
-		
-		return "mainWithFilter";
-	}
-	
-	
+					// 3-2. 선택한 스택 관련 글이 없을 때
+					return "mainNone";
+				}
 
+			} else if ((filter != null) && !positionFlag) {
+				// 기준4 : 1) 선택한 스택이 있음 2) 모집 분야가 '전체 외'
+				
+				// 뷰단에서 받은 필터값
+				filter = filter.toLowerCase();
+				filters = filter.split(",");
+				
+				// 페이징
+				cri.setFilters(filters);
+				cri.setPosition(position);
+				int total = service.getTotalWithFilter(cri);
+				log.info("기준total : " + total);
+				model.addAttribute("pageMaker", new PageDTO(cri, total));
+				
+				// 게시글 불러오기
+				List<BoardVO> boardList = service.getListWithFilter(cri);
+				
+				// 4-1. 선택한 스택 관련 글이 있을 때
+				if(boardList.size()>0) {
+					model.addAttribute("board", boardList);				
+					return "mainWithFilter";
+				} else {
+					// 4-2. 선택한 스택 관련 글이 없을 때
+					return "mainNone";
+				}
+
+			}	
+			
+			return "mainWithFilter";
+		}
 
 }
