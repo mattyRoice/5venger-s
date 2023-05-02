@@ -15,7 +15,8 @@
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/css/main.css" type="text/css" />
 <script>
 	var uidkeys = [];
@@ -40,14 +41,13 @@
 							<div class="firstBanner_leftCover">
 								<h2 class="firstBanner_title">스터디를 찾는 가장 쉬운 방법</h2>
 								<div class="firstBanner_subContainer">
-									<span class="firstBanner_subText">스터디허브에서 함께할 팀원을
-										찾으세요 🔍</span>
+									<span class="firstBanner_subText">스터디허브에서 함께할 팀원을 찾으세요
+										🔍</span>
 								</div>
 							</div>
 							<div class="firstBanner_rightCover">
 								<img class="firstBanner_coverImage"
-									src="/resources/Images/banner_bunny.png"
-									alt="firstBanner">
+									src="/resources/Images/banner_bunny.png" alt="firstBanner">
 							</div>
 						</div>
 					</div>
@@ -60,14 +60,13 @@
 								<button class="secondBanner_promotion">NOTICE</button>
 								<div></div>
 								<h2 class="secondBanner_title">StudyHub!는 봄맞이 새단장 완료</h2>
-								<span class="secondBanner_subText">더 편해진 스터디허브!
-									모르는 사람 없게 해주세요 🙏</span>
+								<span class="secondBanner_subText">더 편해진 스터디허브! 모르는 사람 없게
+									해주세요 🙏</span>
 							</div>
 
 							<div class="secondBanner_rightCover">
 								<img class="secondBanner_coverImage"
-									src="/resources/Images/startup.png" 
-									alt="second banner">	
+									src="/resources/Images/startup.png" alt="second banner">
 							</div>
 						</div>
 					</div>
@@ -85,25 +84,28 @@
 				<span class="visually-hidden">Next</span>
 			</button>
 		</div>
-		
+
 		<!--  검색 화면 -->
 		<div class="input-group search_container">
 			<img class="search_searchImg" src="/resources/Images/search.png">
-			
+
 			<form class="col" id='searchForm' action="/board/main" method='get'>
-				
-				<input type='text' name='keyword' class="input-group-text search_searchInput" placeholder="원하는 스터디를 검색해 보세요!"
-					value='<c:out value="${pageMaker.cri.keyword }"/>'> 
-				<input type='hidden' name='type' value='T'> <!-- 검색조건 -->
+
+				<input type='text' name='keyword'
+					class="input-group-text search_searchInput"
+					placeholder="원하는 스터디를 검색해 보세요!"
+					value='<c:out value="${pageMaker.cri.keyword }"/>'> <input
+					type='hidden' name='type' value='T'>
+				<!-- 검색조건 -->
 				<input type='hidden' name='pageNum'
-					value='<c:out value="${pageMaker.cri.pageNum }"/>'> 
-				<input type='hidden' name='amount'
+					value='<c:out value="${pageMaker.cri.pageNum }"/>'> <input
+					type='hidden' name='amount'
 					value='<c:out value="${pageMaker.cri.amount }"/>'>
 			</form>
-			
+
 		</div>
-		
-			<%-- <div class="search_container__2ExFE">
+
+		<%-- <div class="search_container__2ExFE">
 				<div class='row'>
 					<div class="col-lg-12">
 						<form id='searchForm' action="/board/main" method='get'>
@@ -128,7 +130,7 @@
 					</div>
 				</div>
 			</div> --%>
-		
+
 
 		<!--  필터  -->
 		<section class="desktopFilter_filterWrapper">
@@ -139,8 +141,7 @@
 				<li class="Category_categoryItem">백엔드</li>
 				<li class="Category_categoryItem">모바일</li>
 				<li class="Category_categoryItem">기타</li>
-				<li
-					class="Category_categoryItem">모두보기</li>
+				<li class="Category_categoryItem">모두보기</li>
 			</ul>
 			<ul class="LanguageBar_languages">
 				<!-- 0 -->
@@ -278,8 +279,8 @@
 					src="https://holaworld.io/images/languages/jest.svg" alt="Jest"><span>Jest</span></li>
 				<!-- 31 -->
 				<li class="LanguageBar_languageIcon LanguageBar_full"><img
-					class="LanguageBar_logo" src="https://holaworld.io/images/languages/c.svg"
-					alt="C"><span>C</span></li>
+					class="LanguageBar_logo"
+					src="https://holaworld.io/images/languages/c.svg" alt="C"><span>C</span></li>
 			</ul>
 			<div class="SelectedLanguage_selectedWrapper">
 				<ul class="SelectedLanguage_selectedLanguages">
@@ -297,10 +298,9 @@
 				<div class="findMyPosition_selectWrapper">
 					<div class=" css-container">
 						<span aria-live="polite" aria-atomic="false"
-							aria-relevant="additions text" class="css-Text"></span>
-
-						<select class="form-select form-select-lg mb-4"
-							aria-label=".form-select-lg example" 
+							aria-relevant="additions text" class="css-Text"></span> <select
+							class="form-select form-select-lg mb-4"
+							aria-label=".form-select-lg example"
 							style="font-size: 1.125rem; padding-top: 0.4rem; padding-bottom: 0.4rem;">
 							<option selected value="">내 포지션 찾기</option>
 							<option value="전체">전체</option>
@@ -316,26 +316,25 @@
 				</div>
 				<div class="toggleSwitch_switch mb-4">
 					<span class="toggleSwitch_switchTitle fs-5">모집 중만 보기</span>
-					<div class="form-check form-switch" style="margin-bottom:0;">
-						<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked 
-							style="height:1.5em; width:2.45em; background-color:#ff914d; border-color:#ff914d; margin-right:15px;">
+					<div class="form-check form-switch" style="margin-bottom: 0;">
+						<input class="form-check-input" type="checkbox" role="switch"
+							id="flexSwitchCheckChecked" checked
+							style="height: 1.5em; width: 2.45em; background-color: #ff914d; border-color: #ff914d; margin-right: 15px;">
 					</div>
 					</label>
 				</div>
 			</div>
 
-			<div id ="main-filter" class="container">
+			<div id="main-filter" class="container">
 				<div class="row">
 
 					<c:forEach items="${board}" var="board">
 						<div id="card_${board.bno}" class="col-lg-3 col-md-4 col-sm-6">
 							<div class="card" style="width: 100%">
-								<div class="card-body move" href='<c:out value="${board.bno }"/>'>
-									<!-- 스터디-->
+								<div class="card-body move"
+									href='<c:out value="${board.bno }"/>'>
+									<!-- 마감임박, 따끈따끈 새글 배지-->
 									<div class="studyItem_badgeWrapper">
-										<div class="badge_badge">
-											<div class="badge_study">스터디</div>
-										</div>
 									</div>
 									<!--마감일-->
 									<div class="studyItem_schedule">
@@ -391,14 +390,15 @@
 												<div id="uploadResult">
 													<div class='uploadResult'>
 														<ul>
-															<li><img id="photo" class="avatar_userImg" width="30px"
-														height="30px" src="/resources/Images/profileLogo.png"
-														alt="Profile Image"></li>
+															<li><img id="photo" class="avatar_userImg"
+																width="30px" height="30px"
+																src="/resources/Images/profileLogo.png"
+																alt="Profile Image"></li>
 														</ul>
-														
+
 													</div>
 												</div>
-												
+
 											</div>
 											<div>
 												<c:out value="${board.uname }" />
@@ -431,14 +431,17 @@
 										</div>
 									</section>
 									<!-- kdh 0425 관심버튼 추가 -->
-									<img class="studyItem_bookmark" src="/resources/Images/nonfilledheart.png" alt="bookmark">
+									<img class="studyItem_bookmark"
+										src="/resources/Images/nonfilledheart.png" alt="bookmark">
 								</div>
 								<!-- card-body 끝-->
 							</div>
 							<!--class="card-->
+
+
 						</div>
 						<!-- col-md4 끝-->
-						
+
 						<script>
 							uidkeys.push('${board.uidkey}');
 						</script>
@@ -446,27 +449,35 @@
 							/* 마감일자 지난 카드 흐리게 만들기 */
 							var status = '<c:out value="${board.status}"/>';
 							var deadlineStr = '<c:out value="${board.deadline}"/>';
-						  	console.log(deadlineStr);
-						  	var deadlineDate = new Date(deadlineStr);
-						  	var today = new Date(); 
-						  	var diffDays = Math.floor((deadlineDate - today) / (1000 * 60 * 60 * 24));
-						  	console.log(diffDays);
-						  	if (diffDays < 0 || status =="closed") {
-						  		 var expireDiv = $("<div>", { id: "expire", class: "move w-50 p-3 text-center fw-semibold rounded-4", href:"<c:out value="${board.bno }"/>", text: "모집마감" });
-						  		 expireDiv.css({
-						  		    position: "absolute",
-						  		    top: "40%",
-						  		    left: "25%",
-						  		    background: "black",
-						  		    color: "white",
-						  		  	"z-index": 9999,
-						  		  	cursor: "pointer"
-						  		  });
-						  		$("#card_${board.bno}").css("position", "relative");  
-						  		$("#card_${board.bno}").prepend(expireDiv);
-							    $("#card_${board.bno}").css("opacity", "0.5");							    
-							}				    
-							
+							var deadlineDate = new Date(deadlineStr);
+							var today = new Date(); 
+							var diffHours = Math.floor((deadlineDate - today) / (1000 * 60 * 60)); // 현재 시간부터 마감시간까지 남은 시간(시간 단위)
+							console.log(diffHours);
+							if (diffHours <= 0 || status =="closed") { // 마감 시간이 지났거나, status가 'closed'일 경우
+								var expireDiv = $("<div>", { id: "expire", class: "move w-50 p-3 text-center fw-semibold rounded-4", href:"<c:out value='${board.bno }'/>", text: "모집마감" });
+								expireDiv.css({
+									position: "absolute",
+									top: "40%",
+									left: "25%",
+									background: "black",
+									color: "white",
+									"z-index": 9999,
+									cursor: "pointer"
+								});
+								$("#card_${board.bno}").css("position", "relative");  
+								$("#card_${board.bno}").prepend(expireDiv);
+								$("#card_${board.bno}").css("opacity", "0.5");	
+							}
+							else {
+								if (diffHours <= 24) { //kdh 0502 추가 24시간 미만 남았을 경우
+									var wrapper = $('#card_${board.bno} .studyItem_badgeWrapper');
+									wrapper.append("<div class='badge_badge'><div class='badge_deadline'>🔥 마감코앞</div></div>");
+								} 
+								if ((today - deadlineDate) < (24 * 60 * 60 * 1000)) { // 등록한지 하루 이내인 경우
+								    var wrapper = $('#card_${board.bno} .studyItem_badgeWrapper');
+								    wrapper.append("<div class='badge_badge'><div class='badge_new'>🍞 따끈따끈 새 글</div></div>");
+								}
+							} 
 						</script>
 					</c:forEach>
 					<!--  메인 게시글 반복문 끝 -->
@@ -480,7 +491,7 @@
 							<li class="page-item"><a class="page-link"
 								href="${pageMaker.startPage-1 }">Previous</a></li>
 						</c:if>
-			
+
 						<c:forEach var="num" begin="${pageMaker.startPage}"
 							end="${pageMaker.endPage}">
 							<li
@@ -488,18 +499,19 @@
 								<a class="page-link" href="${num}">${num}</a>
 							</li>
 						</c:forEach>
-			
-			
+
+
 						<c:if test="${pageMaker.next }">
 							<li class="page-item"><a class="page-link"
 								href="${pageMaker.endPage+1 }">Next</a></li>
 						</c:if>
 					</ul>
-			
+
 					<form id='actionForm' action="/board/main" method='get'>
-						<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
-						<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>
-						<input type='hidden' name='type'
+						<input type='hidden' name='pageNum'
+							value='${pageMaker.cri.pageNum }'> <input type='hidden'
+							name='amount' value='${pageMaker.cri.amount }'> <input
+							type='hidden' name='type'
 							value='<c:out value="${ pageMaker.cri.type }"/>'> <input
 							type='hidden' name='keyword'
 							value='<c:out value="${ pageMaker.cri.keyword }"/>'>
@@ -513,14 +525,14 @@
 	</div>
 
 	<!--  pageNation -->
-	
+
 
 	<!-- 전체 바디 태그 root 끝 -->
 
 	<!-- 맨 위로 올라가기 버튼 -->
 	<div class="Topbutton_topButton">
-		<img class="Topbutton_topButtonImage"
-			src="/resources/Images/TOP.png" alt="default">
+		<img class="Topbutton_topButtonImage" src="/resources/Images/TOP.png"
+			alt="default">
 	</div>
 
 	<!--  하단 footer -->
@@ -532,18 +544,18 @@
 				<div class="footer_title">Contact</div>
 				<div class="footer_mail">team.studyhub.official@gmail.com</div>
 			</div>
-			<div class="footer_copyright">Copyright Studyhub. All
-				rights reserved</div>
+			<div class="footer_copyright">Copyright Studyhub. All rights
+				reserved</div>
 		</div>
 		<div class="footer_rightCover">
 			<a
 				href="https://www.notion.so/5venger-s-Project-2f126e2c4d6f4f46b4c273a31802fbf1"
 				target="_blank" rel="noreferrer">프로젝트 노션</a> <a
 				href="https://www.notion.so/8304498cf0d04f6899c6cc9d048691d7"
-				target="_blank" rel="noreferrer">만든 사람들</a> <a 
+				target="_blank" rel="noreferrer">만든 사람들</a> <a
 				href="https://www.notion.so/StudyHub-1599dc0e2aea42ccab197b49c6651c0b"
-				target="_blank" rel="noreferrer">서비스 소개	</a> 
-				
+				target="_blank" rel="noreferrer">서비스 소개 </a>
+
 		</div>
 	</footer>
 
