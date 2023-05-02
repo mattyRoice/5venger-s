@@ -89,5 +89,55 @@ public class MainController {
 		
 		return "mainWithFilter";
 	}
+	@GetMapping("/mainWithPosition")
+	public String getMainWithPosition(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, @RequestParam(name="position", required=false) String position, Model model) {
+		log.info("mainWithPosition  이동");
+	
+	
+		// 1. position 값이 null값일때
+		if(position ==null ) {
+			log.info("******************mainWithPosition  null");
+			
+			// 페이징
+			cri.setPosition(position);
+			int total = service.getTotal(cri);
+			log.info("total: " + total);
+			model.addAttribute("pageMaker", new PageDTO(cri, total));
+			// 게시글 불러오기
+			List<BoardVO> boardList = service.getListWithPosition(cri);
+			model.addAttribute("board", boardList);
+			
+		}
+		
+		// 2. 선택한 포지션이 있을 때
+		else if (position != null) {	
+			
+			// 페이징
+			cri.setPosition(position);
+			log.info("cri.setPosition(fosition) : " + position);
+			int total = service.getTotalWithPosition(cri);
+			log.info("total with position : " + total);
+			model.addAttribute("pageMaker", new PageDTO(cri, total));
+			log.info("model.add : " + "pageMaker");
+			
+			// 게시글 불러오기
+			List<BoardVO> boardList = service.getListWithPosition(cri);
+			
+			
+				// 2-1. 선택한 포지션 관련 글이 있을 때
+				if(boardList.size()>0) {
+					model.addAttribute("board", boardList);				
+					return "mainWithFilter";
+				} else {
+					// 2-2. 선택한 포지션 관련 글이 없을 때
+					return "mainNone";}
+		
+		}
+		
+		return "mainWithFilter";
+	}
+	
+	
+
 
 }

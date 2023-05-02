@@ -301,15 +301,16 @@
 
 						<select class="form-select form-select-lg mb-4"
 							aria-label=".form-select-lg example" 
+							id="mySelect"
 							style="font-size: 1.125rem; padding-top: 0.4rem; padding-bottom: 0.4rem;">
-							<option selected>내 포지션 찾기</option>
-							<option value="all">전체</option>
-							<option value="front">프론트엔드</option>
-							<option value="back">백엔드</option>
+							<option selected value="">내 포지션 찾기</option>
+							<option value="전체">전체</option>
+							<option value="프론트엔드">프론트엔드</option>
+							<option value="백엔드">백엔드</option>
 							<option value="ios">IOS</option>
-							<option value="android">안드로이드</option>
-							<option value="devops">DevOps</option>
-							<option value="designer">디자이너</option>
+							<option value="안드로이드">안드로이드</option>
+							<option value="데브옵스">DevOps</option>
+							<option value="디자이너">디자이너</option>
 							<option value="pm">PM</option>
 						</select>
 					</div>

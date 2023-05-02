@@ -21,6 +21,12 @@ public interface BoardMapper {
 	// 메인 게시글 수 with 필터
 	public int getTotalCountWithFilter(Criteria cri);
 	
+	// 메인 게시글 불러오기 with position
+		public List<BoardVO> getListWithPagingWithPosition(Criteria cri);
+		
+	// 메인 게시글 수 with position
+	public int getTotalCountWithPosition(Criteria cri);
+	
 	// 글 등록
 	public void insert(BoardVO board);
 

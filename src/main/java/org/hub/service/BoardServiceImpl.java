@@ -173,6 +173,22 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.getTotalCountWithFilter(cri);
 	}
 	
+	// 메인 with position 게시글 불러오기
+		@Override
+		public List<BoardVO> getListWithPosition(Criteria cri) {
+
+			log.info("get List with position: " + cri);
+
+			return mapper.getListWithPagingWithPosition(cri);
+		}
+		
+		// 메인 with position 게시글 총 개수
+		@Override
+		public int getTotalWithPosition(Criteria cri) {
+			log.info("get total count with position");
+			return mapper.getTotalCountWithPosition(cri);
+		}
+	
 	// 추천목록 가져오기
 	@Override
 	public List<Integer> getRecommend(String uidkey) {

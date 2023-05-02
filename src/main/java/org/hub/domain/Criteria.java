@@ -17,6 +17,7 @@ public class Criteria {
 	private String keyword;
 	
 	private String filters[];
+	private String position;
 	
 	public Criteria() {
 		this(1, 20);

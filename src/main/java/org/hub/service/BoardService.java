@@ -38,6 +38,13 @@ public interface BoardService {
 	// 메인 with 필터 게시글 총 개수
 	public int getTotalWithFilter(Criteria cri);
 	
+	// 메인 with position
+	List<BoardVO> getListWithPosition(Criteria cri);
+	
+	// 메인 with Position 게시글 총 개수
+	public int getTotalWithPosition(Criteria cri);
+
+	
 	//추천목록 가져오기
 	public List<Integer> getRecommend(String uidkey);
 	
