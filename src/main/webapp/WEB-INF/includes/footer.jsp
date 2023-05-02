@@ -95,18 +95,58 @@ $(document).ready(function() {
 	})();//end function	
 	
 	// kdh 0428  관심글 하트 이벤트
-	var bookmark = $('.studyItem_bookmark');
-	bookmark.on("click", function(e) {
-		e.preventDefault();
+	/* 	var bookmark = $('.studyItem_bookmark');
+		bookmark.on("click", function(e) {
+			e.preventDefault();
+			
+			var heartStatus = $(this).attr('src');
+			if(heartStatus == "/resources/Images/nonfilledheart.png"){
+				$(this).attr("src", "/resources/Images/filledheart.png");	
+			} else {
+				$(this).attr("src", "/resources/Images/nonfilledheart.png");
+			}
+			return false;
+		}); */
+	// 버튼통해서 관심글 등록하기 진행중...
+		var bookmark = $('.studyItem_bookmark');
+		bookmark.on("click", function(e) {
+		    e.preventDefault();
+		    
+		    var heartStatus = $(this).attr('src');
+		    if(heartStatus == "/resources/Images/nonfilledheart.png"){
+		        $(this).attr("src", "/resources/Images/filledheart.png"); 
+		        $.ajax({
+		            type: "POST",
+		            url: "/interest/insert",
+		            data: {
+		                bno: $(this).closest('.studyItem_card__2RJvP').data('bno')
+		            },
+		            success: function(data) {
+		                console.log("관심글 등록 성공");
+		            },
+		            error: function(xhr, status, error) {
+		                console.error("관심글 등록 실패: " + error);
+		            }
+		        });
+		    } else {
+		        $(this).attr("src", "/resources/Images/nonfilledheart.png");
+		        $.ajax({
+		            type: "POST",
+		            url: "/interest/delete",
+		            data: {
+		                bno: $(this).closest('.studyItem_card__2RJvP').data('bno')
+		            },
+		            success: function(data) {
+		                console.log("관심글 삭제 성공");
+		            },
+		            error: function(xhr, status, error) {
+		                console.error("관심글 삭제 실패: " + error);
+		            }
+		        });
+		    }
+		    return false;
+		});
 		
-		var heartStatus = $(this).attr('src');
-		if(heartStatus == "/resources/Images/nonfilledheart.png"){
-			$(this).attr("src", "/resources/Images/filledheart.png");	
-		} else {
-			$(this).attr("src", "/resources/Images/nonfilledheart.png");
-		}
-		return false;
-	});
 	
 	// 카테고리 변수
 	let $languageBarArray = $('ul.LanguageBar_languages li');
