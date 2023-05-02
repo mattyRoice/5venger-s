@@ -24,14 +24,14 @@
 							<div class="card" style="width: 100%">
 								<div class="card-body move" href='<c:out value="${board.bno }"/>'>
 									<!-- 스터디-->
-									<div class="studyItem_badgeWrapper__3AW7k">
-										<div class="badge_badge__ZfNyB">
-											<div class="badge_study__39LDm">스터디</div>
+									<div class="studyItem_badgeWrapper">
+										<div class="badge_badge">
+											<div class="badge_study">스터디</div>
 										</div>
 									</div>
 									<!--마감일-->
-									<div class="studyItem_schedule__3oAnA">
-										<p class="studyItem_scheduleTitle__1KN_9">마감일 |</p>
+									<div class="studyItem_schedule">
+										<p class="studyItem_scheduleTitle">마감일 |</p>
 										<p>
 											<c:choose>
 												<c:when test="${board.deadline ne null }">
@@ -49,41 +49,42 @@
 									</div>
 									<!--게시글 제목-->
 
-									<h6 class="studyItem_title__2B_2o">
+									<h6 class="studyItem_title">
 										<c:out value="${board.title }" />
 									</h6>
 									<!--분야-->
-									<ul class="studyItem_positionList__1jzi_">
+									<ul class="studyItem_positionList
+									">
 										<c:set var="fnamesArr" value="${fn:split(board.fnames, ',') }" />
 										<c:forEach items="${fnamesArr}" var="fname">
-											<li class="studyItem_position__2sRRD">${fname }</li>
+											<li class="studyItem_position">${fname }</li>
 										</c:forEach>
 									</ul>
 
 
 									<!--기술태그-->
-									<ul class="studyItem_content__1mJ9M">
+									<ul class="studyItem_content">
 										<c:set var="snamesArr" value="${fn:split(board.snames, ',') }" />
 										<c:forEach items="${snamesArr }" var="sname">
-											<li class="studyItem_language__20yqw"><img
-												class="studyItem_languageImage__1AfGa" title="${sname }"
+											<li class="studyItem_language"><img
+												class="studyItem_languageImage" title="${sname }"
 												src="https://holaworld.io/images/languages/${sname }.svg"
 												alt="language"></li>
 										</c:forEach>
 									</ul>
 
 									<!--구분선-->
-									<div class="studyItem_border__2zAjs"></div>
+									<div class="studyItem_border"></div>
 
 									<!-- 메인게시글 하단 -->
-									<section class="studyItem_info__OFIQU">
+									<section class="studyItem_info">
 										<!--  user이미지, user 닉네임 -->
-										<div class="studyItem_userInfo__1KkGa">
-											<div class="avatar_user__1Pgut">
+										<div class="studyItem_userInfo">
+											<div class="avatar_user">
 												<div id="uploadResult">
 													<div class='uploadResult'>
 														<ul>
-															<li><img id="photo" class="avatar_userImg__hogPI" width="30px"
+															<li><img id="photo" class="avatar_userImg" width="30px"
 														height="30px" src="/resources/Images/profileLogo.png"
 														alt="Profile Image"></li>
 														</ul>
@@ -98,9 +99,9 @@
 										</div>
 
 										<!--  조회수,댓글 -->
-										<div class="studyItem_viewsAndComment__1Bxpj">
+										<div class="studyItem_viewsAndComment">
 											<!--  조회수 -->
-											<div class="studyItem_infoItem__3vxSf">
+											<div class="studyItem_infoItem">
 												<svg stroke="currentColor" fill="currentColor"
 													stroke-width="0" viewBox="0 0 1024 1024" color="#999999"
 													height="24" width="24" xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +112,7 @@
 											</div>
 
 											<!--  댓글 -->
-											<div class="studyItem_infoItem__3vxSf">
+											<div class="studyItem_infoItem">
 												<svg stroke="currentColor" fill="currentColor"
 													stroke-width="0" viewBox="0 0 512 512" color="#999999"
 													height="18" width="18" xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +124,7 @@
 										</div>
 									</section>
 									<!-- kdh 0425 관심버튼 추가 -->
-									<img class="studyItem_bookmark__2YtKX" src="/resources/Images/nonfilledheart.png" alt="bookmark">
+									<img class="studyItem_bookmark" src="/resources/Images/nonfilledheart.png" alt="bookmark">
 								</div>
 								<!-- card-body 끝-->
 							</div>
@@ -218,7 +219,7 @@
 	});
 	
 	// kdh 0428  관심글 하트 이벤트
-	var bookmark = $('.studyItem_bookmark__2YtKX');
+	var bookmark = $('.studyItem_bookmark');
 	bookmark.on("click", function(e) {
 		e.preventDefault();
 		
