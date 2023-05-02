@@ -298,9 +298,10 @@
 				<div class="findMyPosition_selectWrapper">
 					<div class=" css-container">
 						<span aria-live="polite" aria-atomic="false"
-							aria-relevant="additions text" class="css-Text"></span> <select
-							class="form-select form-select-lg mb-4"
-							aria-label=".form-select-lg example"
+							aria-relevant="additions text" class="css-Text"></span> 
+						<select class="form-select form-select-lg mb-4"
+							aria-label=".form-select-lg example" 
+							id="mySelect"
 							style="font-size: 1.125rem; padding-top: 0.4rem; padding-bottom: 0.4rem;">
 							<option selected value="">내 포지션 찾기</option>
 							<option value="전체">전체</option>
