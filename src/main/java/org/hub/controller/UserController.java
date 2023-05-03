@@ -535,9 +535,15 @@ public class UserController {
 
 	// 사용자 작성 글 목록
 	@GetMapping("/write")
-	public String getWrite(Model model, HttpSession session) {
+	public String getWrite(Model model, HttpSession session, @ModelAttribute("cri") Criteria cri) {
 		System.out.println("작성 글 목록으로 이동 YJ");
 		log.info("작성 글 목록으로 이동 YJ");
+		
+		// 게시글 상세 조회 위해 페이징 번호 받아옴
+		List<BoardVO> boardList = service.getList(cri);
+		model.addAttribute("board", boardList);
+		int total = service.getTotal(cri);
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 
 		// 로그인한 사용자 정보 가져오기
 	    UserVO user = (UserVO)session.getAttribute(SessionNames.LOGIN);
@@ -555,9 +561,15 @@ public class UserController {
 	
 	// 사용자 읽은 글 목록
 	@GetMapping("/read")
-	public String getRead(Model model, HttpSession session) {
+	public String getRead(Model model, HttpSession session, @ModelAttribute("cri") Criteria cri) {
 		System.out.println("읽은 글 목록으로 이동 YJ");
 		log.info("읽은 글 목록으로 이동 YJ");
+		
+		// 게시글 상세 조회 위해 페이징 번호 받아옴
+		List<BoardVO> boardList = service.getList(cri);
+		model.addAttribute("board", boardList);
+		int total = service.getTotal(cri);
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 
 		// 로그인한 사용자 정보 가져오기
 	    UserVO user = (UserVO)session.getAttribute(SessionNames.LOGIN);
