@@ -486,8 +486,9 @@ public class UserController {
 	// 관심글 등록 POST
 	@PostMapping("/interest/insert")
 	@ResponseBody
-	public String insertInterest(HttpSession session, @RequestParam int bno) {
-	    String uidkey = (String) session.getAttribute("uidkey");
+	public String insertInterest(HttpSession session, @RequestParam(name="bno", required=false) int bno) {
+		UserVO user = (UserVO)session.getAttribute(SessionNames.LOGIN);
+	    String uidkey = user.getUidKey();
 	    boardService.insertInterest(uidkey, bno);
 	    return "success";
 	}
@@ -495,8 +496,9 @@ public class UserController {
 	// 관심글 등록 해제 POST
 	@PostMapping("/interest/delete")
 	@ResponseBody
-	public String deleteInterest(HttpSession session, @RequestParam int bno) {
-	    String uidkey = (String) session.getAttribute("uidkey");
+	public String deleteInterest(HttpSession session, @RequestParam(name="bno", required=false) int bno) {
+		UserVO user = (UserVO)session.getAttribute(SessionNames.LOGIN);
+	    String uidkey = user.getUidKey();
 	    boardService.deleteInterest(uidkey, bno);
 	    return "success";
 	}
