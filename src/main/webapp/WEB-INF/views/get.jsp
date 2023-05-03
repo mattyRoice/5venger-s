@@ -112,7 +112,7 @@
     position: relative;
     align-items: center;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 21px;
     height:40px;
 }
 .studyInfo_title__3jXRE {
@@ -194,7 +194,7 @@ ul {
 .studyContent_postInfo__3zpYu {
     margin: 0;
     color: #111;
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 800;
     padding-bottom: 24px;
     border-bottom: 3px solid #f2f2f2;
@@ -232,21 +232,22 @@ ul {
     min-height: 100px;
     margin-bottom: 10px;
     resize: none;
+    font-size: 17px;
 }
 .commentInput_buttonWrapper__2f_l9 {
     display: flex;
     justify-content: flex-end;
-    margin: 16px 0 24px;
+    margin: 0 0 24px;
 }
 .commentInput_buttonComplete__24z4R {
     padding: 0px 0px;
-    min-width: 120px;
-    height: 40px;
-    background-color:#ffb300;
+    min-width: 100px;
+    height: 36px;
+    background-color:#ff914d;
     border-radius: 50px;
     font-weight: 700;
     color: #fff;
-    font-size: 16px;
+    font-size: 15px;
 }
 .commentList_CommentList__30HUh {
     width: 100%;
@@ -337,11 +338,13 @@ button {
 
 .page-item.active .page-link {
  z-index: 1;
- color: #FFF;
- font-weight:bold;
- background-color: #ff9149;
- border-color: #ff9149;
+ color: #fff;
+ font-weight:normal;
+ background-color: #adadad;
+ border-color: #adadad;
  text-decoration-line: none;
+ border-radius: 50%; 
+ height: 36.5px; 
  
 }
 
@@ -387,6 +390,7 @@ button {
 .commentItem_userNickname__PQ8kV {
     color: #333;
     font-weight: 900;
+    font-size: 17.5px;
 }
 .commentItem_registeredDate__2TPJZ {
     font-size: 14px;
@@ -404,7 +408,7 @@ button {
     letter-spacing: -.004em;
     word-break: break-all;
     overflow-wrap: break-word;
-    font-weight: 700;
+    font-weight: 500;
 }
 .commentButtons_buttonWrapper__2I-EK {
     display: flex;
@@ -472,6 +476,12 @@ button {
     padding: 8px 12px;
     border: 1px solid #e1e1e1;
     outline: none;
+}
+
+.panel-footer {
+	display: flex;
+    justify-content: center;
+    margin-top: 15px;
 }
 
 </style>
