@@ -104,34 +104,7 @@
 			</form>
 
 		</div>
-
-		<%-- <div class="search_container__2ExFE">
-				<div class='row'>
-					<div class="col-lg-12">
-						<form id='searchForm' action="/board/main" method='get'>
-							<select name='type'>
-								<option value=""
-									<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>검색타입</option>
-								<option value="T"
-									<c:out value="${pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
-								<option value="C"
-									<c:out value="${pageMaker.cri.type eq 'C'?'selected':''}"/>>내용</option>
-								<option value="TC"
-									<c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}"/> selected>제목
-									or 내용</option>
-							</select> <input type='text' name='keyword'
-								value='<c:out value="${pageMaker.cri.keyword }"/>'> <input
-								type='hidden' name='pageNum'
-								value='<c:out value="${pageMaker.cri.pageNum }"/>'> <input
-								type='hidden' name='amount'
-								value='<c:out value="${pageMaker.cri.amount }"/>'>
-							<button class='btn btn-default'>Search</button>
-						</form>
-					</div>
-				</div>
-			</div> --%>
-
-
+	
 		<!--  필터  -->
 		<section class="desktopFilter_filterWrapper">
 			<!--  인기, 프론트엔드, 백엔드, 모바일, 기타 필터 -->
@@ -314,7 +287,7 @@
 				<div class="toggleSwitch_switch mb-4">
 					<label class="toggleSwitch_switchTitle fs-5" for="flexSwitchCheckChecked">모집 중만 보기</label>
 					<div class="form-check form-switch" style="margin-bottom:0;">
-						<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" style="height:1.5em; width:2.45em; margin-right:15px;" checked>
+						<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
 					</div>
 				</div>
 			</div>

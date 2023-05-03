@@ -494,6 +494,21 @@ footer {
     margin-right : 10px;
 }
 
+#flexSwitchCheckChecked {
+	-webkit-appearance: none;
+ 	-moz-appearance: none;
+  	appearance: none;
+	height: 1.5em;
+    width: 2.45em;
+    margin-right: 15px;
+    box-shadow: none;
+    outline: none;
+}
+
+#flexSwitchCheckChecked:focus {
+	outline: none;
+}
+
 .input-group-text {
 	padding: 2rem 1.5rem;
 	font-size: 21px;
