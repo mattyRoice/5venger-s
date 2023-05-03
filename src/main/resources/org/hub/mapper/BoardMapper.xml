@@ -118,7 +118,7 @@
 	<select id="getListWithPaging"
 		resultType="org.hub.domain.BoardVO">
 	<![CDATA[
-	SELECT bno, deadline,status, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
+	SELECT bno, regdate, deadline, status, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
 	FROM (select * from board_view 
 	WHERE 
 	]]>
@@ -153,7 +153,7 @@
 	<select id="getListWithPagingWithFilter"
 		resultType="org.hub.domain.BoardVO">
 	   <![CDATA[
-	SELECT bno, deadline, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
+	SELECT bno, regdate, deadline, uidkey ,title, uname, fnames, snames, cnt, replycnt, NVL(profileImage, 'profileLogo.png') AS profileImage
 	FROM (
 		select * from board_view 
 		WHERE
