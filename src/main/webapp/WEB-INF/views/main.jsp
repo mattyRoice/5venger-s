@@ -524,12 +524,13 @@
 				reserved</div>
 		</div>
 		<div class="footer_rightCover">
-			<a
-				href="https://www.notion.so/5venger-s-Project-2f126e2c4d6f4f46b4c273a31802fbf1"
-				target="_blank" rel="noreferrer">프로젝트 노션</a> <a
-				href="https://www.notion.so/8304498cf0d04f6899c6cc9d048691d7"
-				target="_blank" rel="noreferrer">만든 사람들</a> <a
-				href="https://www.notion.so/StudyHub-1599dc0e2aea42ccab197b49c6651c0b"
+			<a href="https://github.com/mattyRoice/5venger-s"
+				target="_blank" rel="noreferrer">스터디허브 깃허브</a>
+			<a href="https://www.notion.so/5venger-s-Project-2f126e2c4d6f4f46b4c273a31802fbf1"
+				target="_blank" rel="noreferrer">스터디허브 노션</a> 
+			<a href="https://www.notion.so/8304498cf0d04f6899c6cc9d048691d7"
+				target="_blank" rel="noreferrer">만든 사람들</a> 
+			<a href="https://www.notion.so/StudyHub-1599dc0e2aea42ccab197b49c6651c0b"
 				target="_blank" rel="noreferrer">서비스 소개 </a>
 
 		</div>

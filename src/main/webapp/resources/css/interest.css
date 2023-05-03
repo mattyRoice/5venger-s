@@ -1,9 +1,6 @@
 @charset "UTF-8";
 
-.navbar_navbar__O41pd {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
+.navbar_navbar {
 	box-sizing: inherit;
 	margin: auto;
 	max-width: 1180px;
@@ -14,7 +11,7 @@
 	padding: 0 10px;
 }
 
-.navbar_postRegister__FJnRS, .navbar_login__3Ui-- {
+.navbar_postRegister, .navbar_login {
 	box-sizing: inherit;
 	outline: none;
 	border: none;
@@ -22,6 +19,30 @@
 	cursor: pointer;
 	font-weight: 600;
 	font-size: 1.25rem;
+}
+
+.navbar_logo {
+	color: inherit;
+	box-sizing: inherit;
+	width: 220px;
+	height: 60px;
+}
+
+.navbar_loginElementWrapper {
+	box-sizing: inherit;
+	display: flex;
+	grid-gap: 30px;
+	gap: 30px;
+	align-items: center;
+}
+
+body {
+    margin: 0;
+    font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,
+    "Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans",
+    "Droid Sans","Helvetica Neue",sans-serif;
+    box-sizing: border-box;
+    min-height: 100%;
 }
 
 .Category_categories__3bwPA {
@@ -39,27 +60,6 @@
 	padding-bottom: 20px;
 	padding-left: 16px;
 	margin-bottom: 30px;
-}
-
-.navbar_logo__a5PmC {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	color: inherit;
-	box-sizing: inherit;
-	width: 200px;
-	height: 50px;
-}
-
-.navbar_loginElementWrapper__11CeH {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	box-sizing: inherit;
-	display: flex;
-	grid-gap: 30px;
-	gap: 30px;
-	align-items: center;
 }
 
 .Category_categoryItem__1ko8V { -
@@ -962,15 +962,6 @@ ul {
 	object-fit: cover;
 }
 
-.uploadResult{
-	display: block;
-	border-radius: 50%;
-	object-fit: cover;
-	width: 30px;
-	aspect-ratio: auto 30 / 30;
-	height: 30px;
-}
-
 .card {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
@@ -995,185 +986,6 @@ ul {
 	margin-bottom: 30px;
 }
 
-.Topbutton_topButton__35AKX {
-	position: fixed;
-	right: 1.5rem;
-	bottom: 1.5rem;
-	width: 4.5rem;
-	height: 4.5rem;
-}
-
-Topbutton_topButton__35AKX.show:active {
-	opacity: 1;
-}
-
-Topbutton_topButton__35AKX.show {
-	opacity: 0.7;
-	visibility: visible;
-}
-
-.Topbutton_topButtonImage__2Klzb {
-	width: 100%;
-	cursor: pointer;
-}
-
-.footer_footer__31o2n {
-	height: 180px;
-	background-color: #f9f9f9;
-	display: flex;
-	align-items: center;
-}
-
-.footer_leftCover__2lNes {
-	display: flex;
-	flex-direction: column;
-	width: 30%;
-}
-
-.footer_footerImg__1iADK {
-	display: block;
-	width: 200px;	
-	margin-bottom: 32px;
-}
-
-.footer_contactInfo__LUbVV {
-	display: flex;
-	grid-gap: 10px;
-	gap: 10px;
-}
-
-.footer_mail__3bYNn, .footer_title__3M399 {
-	font-weight: 700;
-	font-size: 13px;
-	letter-spacing: -.2px;
-	color: #777;
-}
-
-.footer_copyright__CqZaX {
-	font-weight: 700;
-	font-size: 13px;
-	line-height: 16px;
-	letter-spacing: -.2px;
-	color: #777;
-}
-
-.footer_rightCover__1Lgjb {
-	display: flex;
-	grid-gap: 50px;
-	gap: 50px;
-	color: #777;
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 17px;
-	align-items: center;
-	margin-top: 20px;
-	
-}
-
-.footer_rightCover__1Lgjb a {
-	color: inherit;
-	text-decoration: none;
-}
-
-.footer {
-	background-color: #fff;
-	border-radius: 0 0 20px 20px;
-	height: 4rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.footer_footer__31o2n {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	box-sizing: inherit;
-	border-radius: 0 0 20px 20px;
-	justify-content: center;
-	height: 180px;
-	background-color: #f9f9f9;
-	display: flex;
-	align-items: center;
-	margin-top: 30px;
-}
-
 .container{
 	width:1270px;
 }
-
-/* .studyItem_schedule__3oAnA{ */
-/*     font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; */
-/*     list-style: none; */
-/*     cursor: pointer; */
-/*     box-sizing: inherit; */
-/*     display: flex; */
-/*     font-size: 14px; */
-/*     grid-gap: 8px; */
-/*     gap: 8px; */
-/*     color: #999; */
-/*     font-weight: 500; */
-/*     margin-top: 20px; */
-/* } */
-
-/* .studyItem_scheduleTitle__1KN_9{ */
-/*     font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; */
-/*     list-style: none; */
-/*     cursor: pointer; */
-/*     font-size: 14px; */
-/*     color: #999; */
-/*     font-weight: 500; */
-/*     box-sizing: inherit; */
-/*     margin: 0; */
-/* } */
-
-/* .studyItem_title__2B_2o{ */
-/*     font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; */
-/*     list-style: none; */
-/*     color: inherit; */
-/*     cursor: pointer; */
-/*     box-sizing: inherit; */
-/*     font-size: 17px; */
-/*     min-height: 50px; */
-/*     line-height: 28px; */
-/*     font-weight: 500; */
-/*     letter-spacing: -.05em; */
-/*     margin: 7px 0 10px; */
-/*     display: -webkit-box; */
-/*     -webkit-box-orient: vertical; */
-/*     -webkit-line-clamp: 2; */
-/*     word-break: break-all; */
-/*     overflow: hidden; */
-/* } */
-
-/* .studyItem_positionList__1jzi_{ */
-/*     font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; */
-/*     color: inherit; */
-/*     cursor: pointer; */
-/*     box-sizing: inherit; */
-/*     list-style: none; */
-/*     margin: 0; */
-/*     padding: 0; */
-/*     height: 22px; */
-/*     display: flex; */
-/*     margin-bottom: 20px; */
-/*     grid-gap: 3px; */
-/*     gap: 3px; */
-/* } */
-/* .class="studyItem_position__2sRRD"{ */
-/*     font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; */
-/*     cursor: pointer; */
-/*     list-style: none; */
-/*     box-sizing: inherit; */
-/*     margin: 0; */
-/*     padding: 3px 10px; */
-/*     grid-gap: 5px; */
-/*     gap: 5px; */
-/*     height: 22px; */
-/*     background: #f2f4f8; */
-/*     border-radius: 15px; */
-/*     font-weight: 700; */
-/*     font-size: 13px; */
-/*     line-height: 16px; */
-/*     color: #3e86f5; */
-/* } */

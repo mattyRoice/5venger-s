@@ -24,8 +24,8 @@
 .navbar_logo {
 	color: inherit;
 	box-sizing: inherit;
-	width: 200px;
-	height: 50px;
+	width: 220px;
+	height: 60px;
 }
 
 .navbar_loginElementWrapper {
@@ -898,7 +898,8 @@ Topbutton_topButton.show {
 
 .footer_footerImg{
 	display: block;
-	width: 200px;	
+	width: 190px;
+	height:41px;	
 	margin-bottom: 32px;
 }
 
