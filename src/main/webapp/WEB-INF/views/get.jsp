@@ -40,7 +40,7 @@
     margin-top: 20px;
 }
 .studyButtons_buttons__12bG1 {
-    font-size: 16px;
+    font-size: 17px;
     color: #444;
 	}
 .studyContent_wrapper__VVyNH {
@@ -113,6 +113,7 @@
     align-items: center;
     font-weight: 700;
     font-size: 20px;
+    height:40px;
 }
 .studyInfo_title__3jXRE {
     color: #717171;
@@ -136,9 +137,9 @@
     grid-gap: 12px;
     gap: 12px;
 }
-.studyInfo_language__3A3Vi, .studyInfo_languageImage__2b-u9 {
-    width: 30px;
-    height: 30px;
+.studyInfo_language__3A3Vi, .studyInfo_languageImage__2b-u9, .studyItem_languageImage__1AfGa {
+    width: 40px;
+    height: 40px;
 }
 .studyInfo_positions__3JIxy {
     height: 22px;
@@ -192,9 +193,9 @@ ul {
 }
 .studyContent_postInfo__3zpYu {
     margin: 0;
-    color: #333;
+    color: #111;
     font-size: 26px;
-    font-weight: 700;
+    font-weight: 800;
     padding-bottom: 24px;
     border-bottom: 3px solid #f2f2f2;
 }
@@ -632,7 +633,7 @@ button {
 	
 	<!--본문 영역-->
 	<div class="studyContent_postContentWrapper__187Zh">
-	    <h2 class="studyContent_postInfo__3zpYu">프로젝트 소개</h2>
+	    <h2 class="studyContent_postInfo__3zpYu">스터디 소개</h2>
 	    <div class="studyContent_postContent__2c-FO">
 	        <c:out value="${board.content}" />
 	    </div>
