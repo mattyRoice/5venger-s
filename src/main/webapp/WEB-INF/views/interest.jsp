@@ -27,21 +27,12 @@
 </head>
 <link rel="icon" href="/resources/Images/profileLogo.png">
 <body>
-
-	<!--헤더-->
-	<!--  nav 태그 -->
-	<%@include file="../includes/header.jsp"%>
 	
 	<!--  전체 바디 태그 root -->
 	<div id="root">
 	
-		<!--  관심글/읽은글 카테고리  -->
-		<section class="desktopFilter_filterWrapper__1gwsT">
-			<ul class="Category_categories__3bwPA">
-				<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">관심글 목록</li>
-				<li class="Category_categoryItem__1ko8V ">읽은글 목록</li>
-			</ul>
-		</section>
+	<!-- myLike.js 적용을 위한 div 태그 -->
+	<div id="interest-list">
 		
 		<!--  메인 게시글 -->
 		<main class="mainContent_main_F2EU9">
@@ -175,41 +166,14 @@
 			<!--container 끝-->
 		</main>
 		<!--  main 끝 -->
+	
+	</div>
+	<!-- myLike.js 적용을 위한 div 태그 끝 -->
+	
 	</div>
 	<!-- 전체 바디 태그 root 끝 -->
-
-	<!--  pageNation -->
-	<nav aria-label="Page navigation">
-		<ul class="pagination  justify-content-center">
-			<c:if test="${pageMaker.prev }">
-				<li class="page-item"><a class="page-link"
-					href="${pageMaker.startPage-1 }">Previous</a></li>
-			</c:if>
-
-			<c:forEach var="num" begin="${pageMaker.startPage}"
-				end="${pageMaker.endPage}">
-				<li
-					class="page-item  ${pageMaker.cri.pageNum == num ? 'active':''} ">
-					<a class="page-link" href="${num}">${num}</a>
-				</li>
-			</c:forEach>
-
-
-			<c:if test="${pageMaker.next }">
-				<li class="page-item"><a class="page-link"
-					href="${pageMaker.endPage+1 }">Next</a></li>
-			</c:if>
-		</ul>
-
-		<form id='actionForm' action="/board/main" method='get'>
-			<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
-			<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>
-			<input type='hidden' name='type'
-				value='<c:out value="${ pageMaker.cri.type }"/>'> <input
-				type='hidden' name='keyword'
-				value='<c:out value="${ pageMaker.cri.keyword }"/>'>
-		</form>
-	</nav>
 	
 
 	<%@ include file="/WEB-INF/includes/footer.jsp"%>
+	
+	<script src="../../../resources/js/myLike.js"></script>
