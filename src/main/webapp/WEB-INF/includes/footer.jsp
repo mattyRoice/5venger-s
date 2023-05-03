@@ -94,91 +94,45 @@ $(document).ready(function() {
 		
 	})();//end function	
 
-	 // 버튼통해서 관심글 등록하기 진행중...
-	/*	var bookmark = $('.studyItem_bookmark');
-	
-		bookmark.on("click", function(e) {
-		    e.preventDefault();
-		    
-			// 해당 글 bno 값 얻기
-			var bookmarkBno = $('.move').attr('href');
-			// 개발자 도구 콘솔창에서 bno 값 확인하는 용도
-			console.log(bookmarkBno);
-			// data에 담기
-			let data = { bno: bookmarkBno };
-			
-		    var heartStatus = $(this).attr('src');
-		    
-		    if(heartStatus == "/resources/Images/nonfilledheart.png"){
-		    	
-		        $(this).attr("src", "/resources/Images/filledheart.png"); 
-		        $.ajax({
-		            type: "POST",
-		            url: "/user/interest/insert",
-		            data: data,
-		            success: function(data) {
-		                console.log("관심글 등록 성공");
-		            },
-		            error: function(xhr, status, error) {
-		                console.error("관심글 등록 실패: " + error);
-		            }
-		        });
-		    } else {
-		        $(this).attr("src", "/resources/Images/nonfilledheart.png");
-		        $.ajax({
-		            type: "POST",
-		            url: "/user/interest/delete",
-		            data: data,
-		            success: function(data) {
-		                console.log("관심글 삭제 성공");
-		            },
-		            error: function(xhr, status, error) {
-		                console.error("관심글 삭제 실패: " + error);
-		            }
-		        });
-		    }
-		    return false;
-		}); */
+	// 버튼통해서 관심글 등록하기 진행중...
+	var bookmark = $('.studyItem_bookmark');
+
+	bookmark.on("click", function(e) {
+	    e.preventDefault();
+	    
+		// 해당 글 bno 값 얻기
+		var bookmarkBno = $(this).closest('.card-body').attr('href');
+		// 개발자 도구 콘솔창에서 bno 값 확인하는 용도
+		console.log(bookmarkBno);
+		// data에 담기
+		let data = { bno: bookmarkBno };
 		
-		// 버튼통해서 관심글 등록하기 진행중...
-		var bookmark = $('.studyItem_bookmark');
-	
-		bookmark.on("click", function(e) {
-		    e.preventDefault();
-		    
-			// 해당 글 bno 값 얻기
-			var bookmarkBno = $('.move').attr('href');
-			// 개발자 도구 콘솔창에서 bno 값 확인하는 용도
-			console.log(bookmarkBno);
-			// data에 담기
-			let data = { bno: bookmarkBno };
-			
-		    var heartStatus = $(this).attr('src');
-		    
-		    if(heartStatus == "/resources/Images/nonfilledheart.png"){
-		    	
-		        $(this).attr("src", "/resources/Images/filledheart.png"); 
-		        $.ajax({
-		            type: "POST",
-		            url: "/user/interest/insert",
-		            data: data,
-		            success: function(data) {
-		            	alert("관심글 목록에 추가되었습니다.");
-		            }
-		        });
-		    } else {
-		        $(this).attr("src", "/resources/Images/nonfilledheart.png");
-		        $.ajax({
-		            type: "POST",
-		            url: "/user/interest/delete",
-		            data: data,
-		            success: function(data) {
-		            	alert("관심글 목록에서 삭제되었습니다.");
-		            }
-		        });
-		    }
-		    return false;
-		});
+	    var heartStatus = $(this).attr('src');
+	    
+	    if(heartStatus == "/resources/Images/nonfilledheart.png"){
+	    	
+	        $(this).attr("src", "/resources/Images/filledheart.png"); 
+	        $.ajax({
+	            type: "POST",
+	            url: "/user/interest/insert",
+	            data: data,
+	            success: function(data) {
+	            	alert("관심글 목록에 추가되었습니다.");
+	            }
+	        });
+	    } else {
+	        $(this).attr("src", "/resources/Images/nonfilledheart.png");
+	        $.ajax({
+	            type: "POST",
+	            url: "/user/interest/delete",
+	            data: data,
+	            success: function(data) {
+	            	alert("관심글 목록에서 삭제되었습니다.");
+	            }
+	        });
+	    }
+	    return false;
+	});
 		
 		
 	
