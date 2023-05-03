@@ -47,7 +47,7 @@
 							</div>
 							<div class="firstBanner_rightCover">
 								<img class="firstBanner_coverImage"
-									src="/resources/Images/banner_bunny.png" alt="firstBanner">
+									src="/resources/Images/banner_bunny_2.png" alt="firstBanner">
 							</div>
 						</div>
 					</div>
