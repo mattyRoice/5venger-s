@@ -583,6 +583,12 @@ public class UserController {
 	    model.addAttribute("user", userService.get(uidkey));
 
 	    return "userRead";
-	}  
+	} 
+	
+	// 내 관심글 페이지
+	@GetMapping("/mylike")
+	public String getMyLike() {
+		return "myLike";
+	}
 	
 }

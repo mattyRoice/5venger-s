@@ -14,7 +14,7 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="/resources/css/write.css" type="text/css" />
+<link rel="stylesheet" href="/resources/css/interest.css" type="text/css" />
 <script>
 	var uidkeys = [];
 </script>
@@ -24,19 +24,13 @@
 <body>
 	<!--  전체 바디 태그 root -->
 	<div id="root">
-		<!--  nav 태그 -->
-		<%@include file="../includes/header.jsp"%>
-
-
-		<!--  작성글 목록 label  -->
-		<div class="desktopFilter_filterWrapper__1gwsT">			
-			<span class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">읽은 글 목록</span>
-		</div>
-		
+	
+	<!-- myLike.js 적용을 위한 div 태그 -->
+	<div id="read-list">
+	
 		<!--  메인 게시글 -->
 		<main class="mainContent_main_F2EU9">
 			
-
 			<div class="container">
 				<div class="row">
 
@@ -161,42 +155,13 @@
 			<!--container 끝-->
 		</main>
 		<!--  main 끝 -->
-	</div>
-
-	<!--  pageNation -->
-	<nav aria-label="Page navigation" class="mb-5">
-		<ul class="pagination  justify-content-center">
-			<c:if test="${pageMaker.prev }">
-				<li class="page-item"><a class="page-link"
-					href="${pageMaker.startPage-1 }">Previous</a></li>
-			</c:if>
-
-			<c:forEach var="num" begin="${pageMaker.startPage}"
-				end="${pageMaker.endPage}">
-				<li
-					class="page-item  ${pageMaker.cri.pageNum == num ? 'active':''} ">
-					<a class="page-link" href="${num}">${num}</a>
-				</li>
-			</c:forEach>
-
-
-			<c:if test="${pageMaker.next }">
-				<li class="page-item"><a class="page-link"
-					href="${pageMaker.endPage+1 }">Next</a></li>
-			</c:if>
-		</ul>
-
-		<form id='actionForm' action="/user/board" method='get'>
-			<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
-			<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>
-			<input type='hidden' name='type'
-				value='<c:out value="${ pageMaker.cri.type }"/>'> <input
-				type='hidden' name='keyword'
-				value='<c:out value="${ pageMaker.cri.keyword }"/>'>
-		</form>
-	</nav>
-
-	<!-- 전체 바디 태그 root 끝 -->
 	
+	</div>
+	<!-- myLike.js 적용을 위한 div 태그 끝 -->
+	
+	</div>
+	<!-- 전체 바디 태그 root 끝 -->
 
 	<%@ include file="/WEB-INF/includes/footer.jsp"%>
+	
+	<script src="../../../resources/js/myLike.js"></script>

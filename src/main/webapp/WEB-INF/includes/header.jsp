@@ -22,7 +22,7 @@
 						</a>						
 					   <ul class="dropdown-menu dropdown-menu-end">
 					   	   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/user/write">내 작성글</a></li>
-					   	   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/user/interest">내 관심글</a></li>						  
+					   	   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/user/mylike">내 관심글</a></li>						  
 						   <li><a class="dropdown-item fs-6 fw-bold mb-2" href="/user/mypage">마이페이지</a></li>
 						   <li><a class="dropdown-item fs-6 fw-bold" href="/user/logout">로그아웃</a></li>
 						</ul>			  
