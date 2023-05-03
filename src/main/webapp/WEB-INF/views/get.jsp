@@ -580,7 +580,37 @@ button {
 				  </div>
 				</div>
 			</section>
-		</c:if>	   	    
+		</c:if>	 
+		
+		
+		<!-- 관리자 삭제  -->
+	    <% if (session.getAttribute("loginAdmin") != null) { %>
+	    
+	        <section class="studyButtons_buttonWrapper__3tcIE">
+	       		       
+	       		<button class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#removeModal">삭제</button>
+
+				<!-- 삭제 Modal -->
+				<div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				      </div>
+				      <div class="modal-body">
+				        글을 삭제 하시겠어요?
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+				        <button type="button" class="btn btn-primary" onclick="location.href='remove?bno=<c:out value="${board.bno}" />'" >네, 삭제할래요</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			</section>
+			
+		<% } %> 	    
+		  	    
 	
 	    <!--게시글 기본 정보 영역-->
 	    <ul class="studyInfo_studyGrid__38Lfj">
