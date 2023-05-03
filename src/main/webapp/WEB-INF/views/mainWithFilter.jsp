@@ -4,8 +4,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
-<html>
-<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,8 +16,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/css/main.css" type="text/css" />
 				
-<div class="row">
-
+				<div class="row">
 					<c:forEach items="${board}" var="board">
 						<div id="card_${board.bno}" class="col-lg-3 col-md-4 col-sm-6" 
 						onmouseover="this.style.transform='scale(1.05)'" 
@@ -214,38 +211,4 @@
 				</nav>
 				<!--  pageNation 끝 -->
 
-<script>
-	var actionForm = $("#actionForm");
-	
-	$(".page-item a").on("click", function(e) {
-		e.preventDefault();
-		console.log('click');
-		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
-		actionForm.submit();
-	});
-	
-	$(".move").on("click", function(e) {
-		e.preventDefault();
-		// kdh 0428 bno값이 있다면 중복해서 등록되지 않게끔 지우게 하는 코드
-		if($("input[name='bno']").length) {
-			$("input[name='bno']").remove();
-			}
-		actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>");
-		actionForm.attr("action", "/board/get");
-		actionForm.submit();
-	});
-	
-	// kdh 0428  관심글 하트 이벤트
-	var bookmark = $('.studyItem_bookmark');
-	bookmark.on("click", function(e) {
-		e.preventDefault();
-		
-		var heartStatus = $(this).attr('src');
-		if(heartStatus == "/resources/Images/nonfilledheart.png"){
-			$(this).attr("src", "/resources/Images/filledheart.png");	
-		} else {
-			$(this).attr("src", "/resources/Images/nonfilledheart.png");
-		}
-		return false;
-	});
-</script>
+<script src="../../../resources/js/mainWithFilter.js"></script>
