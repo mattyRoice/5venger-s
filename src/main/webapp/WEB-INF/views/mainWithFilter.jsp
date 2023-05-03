@@ -141,11 +141,13 @@
 							/* 마감일자 지난 카드 흐리게 만들기 */
 							var status = '<c:out value="${board.status}"/>';
 							var deadlineStr = '<c:out value="${board.deadline}"/>';
+							var postDateStr = '<c:out value="${board.regdate}"/>';
+							var postDate = new Date(postDateStr.replace('KST', '+0900'));
 							var deadlineDate = new Date(deadlineStr);
 							var today = new Date(); 
-							var diffHours = Math.floor((deadlineDate - today) / (1000 * 60 * 60)); // 현재 시간부터 마감시간까지 남은 시간(시간 단위)
-							console.log(diffHours);
-							if (diffHours <= 0 || status =="closed") { // 마감 시간이 지났거나, status가 'closed'일 경우
+							var diffDays = Math.floor((deadlineDate - today) / (1000 * 60 * 60 * 24)); // 현재 시간부터 마감시간까지 남은 날짜(날짜 단위)
+							console.log(diffDays);
+							if (diffDays < 0 || status =="closed") { // 마감 시간이 지났거나, status가 'closed'일 경우
 								var expireDiv = $("<div>", { id: "expire", class: "move w-50 p-3 text-center fw-semibold rounded-4", href:"<c:out value='${board.bno }'/>", text: "모집마감" });
 								expireDiv.css({
 									position: "absolute",
@@ -158,16 +160,20 @@
 								});
 								$("#card_${board.bno}").css("position", "relative");  
 								$("#card_${board.bno}").prepend(expireDiv);
-								$("#card_${board.bno}").css("opacity", "0.5");	
+								$("#card_${board.bno}").css("opacity", "0.5");
+								$("#card_${board.bno} .studyItem_schedule").css("margin-top", "30px");
 							}
 							else {
-								if (diffHours <= 24) { //kdh 0502 추가 24시간 미만 남았을 경우
+								if (diffDays <= 1) { //kdh 0502 추가 24시간 미만 남았을 경우
 									var wrapper = $('#card_${board.bno} .studyItem_badgeWrapper');
 									wrapper.append("<div class='badge_badge'><div class='badge_deadline'>🔥 마감코앞</div></div>");
 								} 
-								if ((today - deadlineDate) < (24 * 60 * 60 * 1000)) { // 등록한지 하루 이내인 경우
+								if ((today - postDate) < (24 * 60 * 60 * 1000)) { // 등록한지 하루 이내인 경우
 								    var wrapper = $('#card_${board.bno} .studyItem_badgeWrapper');
 								    wrapper.append("<div class='badge_badge'><div class='badge_new'>🍞 따끈따끈 새 글</div></div>");
+								} 
+								if (diffDays > 1 && (today - postDate) > (24 * 60 * 60 * 1000)) {
+									$("#card_${board.bno} .studyItem_schedule").css("margin-top", "30px");
 								}
 							} 
 						</script>
