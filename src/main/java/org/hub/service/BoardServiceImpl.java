@@ -68,6 +68,8 @@ public class BoardServiceImpl implements BoardService {
 			stack.setSno(sno); // StackVO의 sno에 변수 sno를 저장
 			stackMapper.insertBoardStack(stack); // 그리고 sql에 등록
 		}
+		// 등록한 글의 마감일자가 이미 지난 것이라면 status 값을 closed로 바꾸고 register() 메소드 끝낸다
+		mapper.updateBoardStatus();
 	}
 
 	@Override
