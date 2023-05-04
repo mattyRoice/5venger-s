@@ -401,8 +401,18 @@
 										</div>
 									</section>
 									<!-- kdh 0425 관심버튼 추가 -->
-									<img class="studyItem_bookmark"
-										src="/resources/Images/nonfilledheart.png" alt="bookmark">
+									<c:choose>
+										<c:when test="${interestList.contains(board.bno)}">
+											<img class="studyItem_bookmark"
+												src="/resources/Images/filledheart.png" alt="bookmark">
+										</c:when>
+										<c:otherwise>
+											<img class="studyItem_bookmark"
+												src="/resources/Images/nonfilledheart.png" alt="bookmark">
+										</c:otherwise>
+									</c:choose>
+
+
 								</div>
 								<!-- card-body 끝-->
 							</div>

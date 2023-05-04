@@ -1,6 +1,5 @@
 package org.hub.controller;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,6 +8,7 @@ import org.hub.domain.BoardVO;
 import org.hub.domain.Criteria;
 import org.hub.domain.PageDTO;
 import org.hub.domain.UserVO;
+import org.hub.interceptor.SessionNames;
 import org.hub.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +32,7 @@ public class MainController {
 	
 	// 일반메인
 	@GetMapping("/main")
-	public String getMain(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, Model model) {
+	public String getMain(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, Model model, HttpSession session) {
 
 		log.info("main 이동");
 		
@@ -48,6 +48,13 @@ public class MainController {
 		List<BoardVO> boardList = service.getList(cri);
 		
 		model.addAttribute("board", boardList);
+		
+		UserVO user = (UserVO)session.getAttribute(SessionNames.LOGIN);
+		if(user != null) {
+			String useridKey = user.getUidKey(); 
+			List<Integer> interestList = service.getInterest(useridKey);
+			model.addAttribute("interestList", interestList);
+		}
 		
 		// 글이 없을 때 ('모집중 on' 이 기본 값이라 넣음)
 		if(boardList.size() <= 0) {
