@@ -6,6 +6,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import ="org.hub.domain.BoardVO" %>
+<% pageContext.setAttribute("replaceChar", "\n"); %>
 
 <!DOCTYPE html>
 <html>
@@ -675,8 +676,8 @@ button {
 	<!--본문 영역-->
 	<div class="studyContent_postContentWrapper__187Zh">
 	    <h2 class="studyContent_postInfo__3zpYu">스터디 소개</h2>
-	    <div class="studyContent_postContent__2c-FO" style="white-space: pre-wrap;">
-	        <c:out value="${board.content}" />
+	    <div class="studyContent_postContent__2c-FO">
+	        ${fn:replace(board.content, replaceChar, "<br/>")}
 	    </div>
 	</div><!--본문영역 끝-->
 	
