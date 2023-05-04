@@ -6,6 +6,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import ="org.hub.domain.BoardVO" %>
+<% pageContext.setAttribute("replaceChar", "\n"); %>
 
 <!DOCTYPE html>
 <html>
@@ -202,6 +203,7 @@ ul {
 .studyContent_postContent__2c-FO {
     width: 100%;
     margin: 40px auto 0;
+    font-weight: 700;
 }
 .studyContent_commentAndViews__LrV6X {
     display: flex;
@@ -675,11 +677,10 @@ button {
 	<div class="studyContent_postContentWrapper__187Zh">
 	    <h2 class="studyContent_postInfo__3zpYu">스터디 소개</h2>
 	    <div class="studyContent_postContent__2c-FO">
-	        <c:out value="${board.content}" />
+	        ${fn:replace(board.content, replaceChar, "<br/>")}
 	    </div>
 	</div><!--본문영역 끝-->
 	
-	<c:out value=""/>
 	
 	<!--댓글영역-->
 	<section class="studyContent_commentAndViews__LrV6X">
@@ -711,6 +712,7 @@ button {
 	        <ul class="commentList_CommentList__30HUh"></ul>
 	    </div>
 	</section><!--댓글영역 끝-->
+	
 </div>
 <!-- 삭제 모달 -->
 <div class="cancelButton_wrapper__1bRq9" style="display: none">
@@ -738,6 +740,7 @@ button {
 uidkeys.push('${board.uidkey}');
 var bnoValue = '<c:out value="${board.bno}"/>'; // bno값 불러오기
 var unameValue = '<c:out value="${loginUser.unickName}" />'; // uname 값 불러오기
+var adminValue = '<c:out value="${loginAdmin.adminId}" />' // admin 값 불러오기
 var replyUL = $(".chat"); 
 var userImages = {};
 
@@ -916,11 +919,15 @@ $('.commentItem_buttonModify__2nhuL').on("click", function() {
 					str +="		</div></div></div>"
 					if (unameValue == list[i].replyer) {
 						str += "<section class='commentButtons_buttonWrapper__2I-EK'>";
-// 						str += "<button id='modBtn' class='commentButtons_buttons__3vQ84' onclick='showEditCommentForm(" + list[i].rno + ")'>수정</button> ";
 						str += "<button id='modBtn_" + list[i].rno + "' class='commentButtons_buttons__3vQ84' onclick='showEditCommentForm(" + list[i].rno + ")'>수정</button> ";
 						str += "<button id='remBtn' class='commentButtons_buttons__3vQ84' onclick='deleteReply("+list[i].rno+")'>삭제</button>";
 						str += "</section>";
+					}else if(adminValue !=  null) {
+						str += "<section class='commentButtons_buttonWrapper__2I-EK'>";
+						str += "<button id='remBtn' class='commentButtons_buttons__3vQ84' onclick='deleteReply("+list[i].rno+")'>삭제</button>";
+						str += "</section>";
 					}
+					
 					str +="</section><section class='commentItem_commentContent__1yK7o'><p class='commentItem_commentContent__1yK7o'>"+list[i].reply+"</p>"
 					// 현재 로그인한 사용자와 댓글 작성자가 같은 경우에만 수정/삭제 버튼 추가
 					if (unameValue == list[i].replyer) {
