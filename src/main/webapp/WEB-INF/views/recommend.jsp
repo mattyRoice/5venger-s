@@ -16,7 +16,7 @@
 	crossorigin="anonymous">
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="/resources/css/interest.css" type="text/css" />
+<link rel="stylesheet" href="/resources/css/recommend.css" type="text/css" />
 <script>
 	var uidkeys = [];
 </script>
@@ -30,11 +30,9 @@
 		<!--  nav 태그 -->
 		<%@include file="../includes/header.jsp"%>
 
-		<!--  필터  -->
-				<section class="desktopFilter_filterWrapper__1gwsT">
-			<!--  인기, 프론트엔드, 백엔드, 모바일, 기타 필터 -->
+		<section class="desktopFilter_filterWrapper__1gwsT">
 			<ul class="Category_categories__3bwPA">
-				<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">추천글</li>
+				<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">추천글 목록</li>
 			</ul>
 		</section>
 
@@ -44,18 +42,19 @@
 				<div class="row">
 					<c:forEach items="${board}" var="board">
 					<c:if test="${recommendList.contains(board.bno)}">
-						<div id="card_${board.bno}" class="col-lg-3">
+						<div id="card_${board.bno}" class="col-lg-3 col-md-4 col-sm-6" 
+						onmouseover="this.style.transform='scale(1.05)'" 
+						onmouseout="this.style.transform='scale(1)'" 
+						style="transition: transform 0.3s ease-in-out;">
 							<div class="card" style="width: 100%">
-								<div class="card-body move" href='<c:out value="${board.bno }"/>'>
-									<!-- 스터디-->
-									<div class="studyItem_badgeWrapper__3AW7k">
-										<div class="badge_badge__ZfNyB">
-											<div class="badge_study__39LDm">스터디</div>
-										</div>
+								<div class="card-body move"
+									href='<c:out value="${board.bno }"/>'>
+									<!-- 마감임박, 따끈따끈 새글 배지-->
+									<div class="studyItem_badgeWrapper">
 									</div>
 									<!--마감일-->
-									<div class="studyItem_schedule__3oAnA">
-										<p class="studyItem_scheduleTitle__1KN_9">마감일 |</p>
+									<div class="studyItem_schedule">
+										<p class="studyItem_scheduleTitle">마감일 |</p>
 										<p>
 											<c:choose>
 												<c:when test="${board.deadline ne null }">
@@ -73,48 +72,49 @@
 									</div>
 									<!--게시글 제목-->
 
-									<h6 class="studyItem_title__2B_2o">
+									<h6 class="studyItem_title">
 										<c:out value="${board.title }" />
 									</h6>
 									<!--분야-->
-									<ul class="studyItem_positionList__1jzi_">
+									<ul class="studyItem_positionList">
 										<c:set var="fnamesArr" value="${fn:split(board.fnames, ',') }" />
 										<c:forEach items="${fnamesArr}" var="fname">
-											<li class="studyItem_position__2sRRD">${fname }</li>
+											<li class="studyItem_position">${fname }</li>
 										</c:forEach>
 									</ul>
 
 
 									<!--기술태그-->
-									<ul class="studyItem_content__1mJ9M">
+									<ul class="studyItem_content">
 										<c:set var="snamesArr" value="${fn:split(board.snames, ',') }" />
 										<c:forEach items="${snamesArr }" var="sname">
-											<li class="studyItem_language__20yqw"><img
-												class="studyItem_languageImage__1AfGa" title="${sname }"
+											<li class="studyItem_language"><img
+												class="studyItem_languageImage" title="${sname }"
 												src="https://holaworld.io/images/languages/${sname }.svg"
 												alt="language"></li>
 										</c:forEach>
 									</ul>
 
 									<!--구분선-->
-									<div class="studyItem_border__2zAjs"></div>
+									<div class="studyItem_border"></div>
 
 									<!-- 메인게시글 하단 -->
-									<section class="studyItem_info__OFIQU">
+									<section class="studyItem_info">
 										<!--  user이미지, user 닉네임 -->
-										<div class="studyItem_userInfo__1KkGa">
-											<div class="avatar_user__1Pgut">
+										<div class="studyItem_userInfo">
+											<div class="avatar_user">
 												<div id="uploadResult">
 													<div class='uploadResult'>
 														<ul>
-															<li><img id="photo" class="avatar_userImg__hogPI" width="30px"
-														height="30px" src="/resources/Images/profileLogo.png"
-														alt="Profile Image"></li>
+															<li><img id="photo" class="avatar_userImg"
+																width="30px" height="30px"
+																src="/resources/Images/profileLogo.png"
+																alt="Profile Image"></li>
 														</ul>
-														
+
 													</div>
 												</div>
-												
+
 											</div>
 											<div>
 												<c:out value="${board.uname }" />
@@ -122,9 +122,9 @@
 										</div>
 
 										<!--  조회수,댓글 -->
-										<div class="studyItem_viewsAndComment__1Bxpj">
+										<div class="studyItem_viewsAndComment">
 											<!--  조회수 -->
-											<div class="studyItem_infoItem__3vxSf">
+											<div class="studyItem_infoItem">
 												<svg stroke="currentColor" fill="currentColor"
 													stroke-width="0" viewBox="0 0 1024 1024" color="#999999"
 													height="24" width="24" xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +135,7 @@
 											</div>
 
 											<!--  댓글 -->
-											<div class="studyItem_infoItem__3vxSf">
+											<div class="studyItem_infoItem">
 												<svg stroke="currentColor" fill="currentColor"
 													stroke-width="0" viewBox="0 0 512 512" color="#999999"
 													height="18" width="18" xmlns="http://www.w3.org/2000/svg"
@@ -147,14 +147,27 @@
 										</div>
 									</section>
 									<!-- kdh 0425 관심버튼 추가 -->
-									<img id="bookmarkImage" class="studyItem_bookmark__2YtKX" src="/resources/Images/nonfilledheart.png" alt="bookmark">
+									<c:choose>
+										<c:when test="${interestList.contains(board.bno)}">
+											<img class="studyItem_bookmark"
+												src="/resources/Images/filledheart.png" alt="bookmark">
+										</c:when>
+										<c:otherwise>
+											<img class="studyItem_bookmark"
+												src="/resources/Images/nonfilledheart.png" alt="bookmark">
+										</c:otherwise>
+									</c:choose>
+ 
+
 								</div>
 								<!-- card-body 끝-->
 							</div>
 							<!--class="card-->
+
+
 						</div>
 						<!-- col-md4 끝-->
-						
+
 						<script>
 							uidkeys.push('${board.uidkey}');
 						</script>
@@ -162,27 +175,41 @@
 							/* 마감일자 지난 카드 흐리게 만들기 */
 							var status = '<c:out value="${board.status}"/>';
 							var deadlineStr = '<c:out value="${board.deadline}"/>';
-						  	console.log(deadlineStr);
-						  	var deadlineDate = new Date(deadlineStr);
-						  	var today = new Date(); 
-						  	var diffDays = Math.floor((deadlineDate - today) / (1000 * 60 * 60 * 24));
-						  	console.log(diffDays);
-						  	if (diffDays < 0 || status =="closed") {
-						  		 var expireDiv = $("<div>", { id: "expire", class: "move w-50 p-3 text-center fw-semibold rounded-4", href:"<c:out value="${board.bno }"/>", text: "모집마감" });
-						  		 expireDiv.css({
-						  		    position: "absolute",
-						  		    top: "40%",
-						  		    left: "25%",
-						  		    background: "black",
-						  		    color: "white",
-						  		  	"z-index": 9999,
-						  		  	cursor: "pointer"
-						  		  });
-						  		$("#card_${board.bno}").css("position", "relative");  
-						  		$("#card_${board.bno}").prepend(expireDiv);
-							    $("#card_${board.bno}").css("opacity", "0.5");							    
-							}				    
-							
+							var postDateStr = '<c:out value="${board.regdate}"/>';
+							var postDate = new Date(postDateStr.replace('KST', '+0900'));
+							var deadlineDate = new Date(deadlineStr);
+							var today = new Date(); 
+							var diffDays = Math.floor((deadlineDate - today) / (1000 * 60 * 60 * 24)); // 현재 시간부터 마감시간까지 남은 날짜(날짜 단위)
+							console.log(diffDays);
+							if (diffDays < -1 || status =="closed") { // 마감 날짜가 지났거나, status가 'closed'일 경우
+								var expireDiv = $("<div>", { id: "expire", class: "move w-50 p-3 text-center fw-semibold rounded-4", href:"<c:out value='${board.bno }'/>", text: "모집마감" });
+								expireDiv.css({
+									position: "absolute",
+									top: "40%",
+									left: "25%",
+									background: "black",
+									color: "white",
+									"z-index": 9999,
+									cursor: "pointer"
+								});
+								$("#card_${board.bno}").css("position", "relative");  
+								$("#card_${board.bno}").prepend(expireDiv);
+								$("#card_${board.bno}").css("opacity", "0.5");
+								$("#card_${board.bno} .studyItem_schedule").css("margin-top", "30px");
+							}
+							else {
+								if (diffDays <= 1) { //kdh 0502 추가 24시간 미만 남았을 경우
+									var wrapper = $('#card_${board.bno} .studyItem_badgeWrapper');
+									wrapper.append("<div class='badge_badge'><div class='badge_deadline'>🔥 마감코앞</div></div>");
+								} 
+								if ((today - postDate) < (24 * 60 * 60 * 1000)) { // 등록한지 하루 이내인 경우
+								    var wrapper = $('#card_${board.bno} .studyItem_badgeWrapper');
+								    wrapper.append("<div class='badge_badge'><div class='badge_new'>🍞 따끈따끈 새 글</div></div>");
+								} 
+								if (diffDays > 1 && (today - postDate) > (24 * 60 * 60 * 1000)) {
+									$("#card_${board.bno} .studyItem_schedule").css("margin-top", "30px");
+								}
+							} 
 						</script>
 						</c:if>
 					</c:forEach>
@@ -193,49 +220,13 @@
 			</div>
 			<!--container 끝-->
 		</main>
-		<!--  main 끝 --> 
+		<!--  main 끝 -->
+	
 	</div>
-
-	<!--  pageNation -->
-	<nav aria-label="Page navigation">
-		<ul class="pagination  justify-content-center">
-			<c:if test="${pageMaker.prev }">
-				<li class="page-item"><a class="page-link"
-					href="${pageMaker.startPage-1 }">Previous</a></li>
-			</c:if>
-
-			<c:forEach var="num" begin="${pageMaker.startPage}"
-				end="${pageMaker.endPage}">
-				<li
-					class="page-item  ${pageMaker.cri.pageNum == num ? 'active':''} ">
-					<a class="page-link" href="${num}">${num}</a>
-				</li>
-			</c:forEach>
-
-
-			<c:if test="${pageMaker.next }">
-				<li class="page-item"><a class="page-link"
-					href="${pageMaker.endPage+1 }">Next</a></li>
-			</c:if>
-		</ul> 
-
-		<form id='actionForm' action="/board/main" method='get'>
-			<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>
-			<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>
-			<input type='hidden' name='type'
-				value='<c:out value="${ pageMaker.cri.type }"/>'> <input
-				type='hidden' name='keyword'
-				value='<c:out value="${ pageMaker.cri.keyword }"/>'>
-		</form>
-	</nav>
-
+	<!-- myLike.js 적용을 위한 div 태그 끝 -->
+	
+	</div>
 	<!-- 전체 바디 태그 root 끝 -->
-
-	<!-- 맨 위로 올라가기 버튼 -->
-	<div class="Topbutton_topButton__35AKX">
-		<img class="Topbutton_topButtonImage__2Klzb"
-			src="/resources/Images/TOP.png" alt="default">
-	</div>
-
+	
 
 	<%@ include file="/WEB-INF/includes/footer.jsp"%>
