@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="/resources/css/main.css" type="text/css" />
 				
 				<div class="row">
+
 					<c:forEach items="${board}" var="board">
 						<div id="card_${board.bno}" class="col-lg-3 col-md-4 col-sm-6" 
 						onmouseover="this.style.transform='scale(1.05)'" 
@@ -123,8 +124,18 @@
 										</div>
 									</section>
 									<!-- kdh 0425 관심버튼 추가 -->
-									<img class="studyItem_bookmark"
-										src="/resources/Images/nonfilledheart.png" alt="bookmark">
+									<c:choose>
+										<c:when test="${interestList.contains(board.bno)}">
+											<img class="studyItem_bookmark"
+												src="/resources/Images/filledheart.png" alt="bookmark">
+										</c:when>
+										<c:otherwise>
+											<img class="studyItem_bookmark"
+												src="/resources/Images/nonfilledheart.png" alt="bookmark">
+										</c:otherwise>
+									</c:choose>
+ 
+
 								</div>
 								<!-- card-body 끝-->
 							</div>
@@ -147,7 +158,7 @@
 							var today = new Date(); 
 							var diffDays = Math.floor((deadlineDate - today) / (1000 * 60 * 60 * 24)); // 현재 시간부터 마감시간까지 남은 날짜(날짜 단위)
 							console.log(diffDays);
-							if (diffDays < -1 || status =="closed") { // 마감 시간이 지났거나, status가 'closed'일 경우
+							if (diffDays < -1 || status =="closed") { // 마감 날짜가 지났거나, status가 'closed'일 경우
 								var expireDiv = $("<div>", { id: "expire", class: "move w-50 p-3 text-center fw-semibold rounded-4", href:"<c:out value='${board.bno }'/>", text: "모집마감" });
 								expireDiv.css({
 									position: "absolute",
