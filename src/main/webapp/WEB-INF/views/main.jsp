@@ -425,7 +425,7 @@
 							var today = new Date(); 
 							var diffDays = Math.floor((deadlineDate - today) / (1000 * 60 * 60 * 24)); // 현재 시간부터 마감시간까지 남은 날짜(날짜 단위)
 							console.log(diffDays);
-							if (diffDays < 0 || status =="closed") { // 마감 시간이 지났거나, status가 'closed'일 경우
+							if (diffDays < -1 || status =="closed") { // 마감 날짜가 지났거나, status가 'closed'일 경우
 								var expireDiv = $("<div>", { id: "expire", class: "move w-50 p-3 text-center fw-semibold rounded-4", href:"<c:out value='${board.bno }'/>", text: "모집마감" });
 								expireDiv.css({
 									position: "absolute",
