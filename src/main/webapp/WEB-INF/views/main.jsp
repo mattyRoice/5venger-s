@@ -411,7 +411,7 @@
 												src="/resources/Images/nonfilledheart.png" alt="bookmark">
 										</c:otherwise>
 									</c:choose>
-
+ 
 
 								</div>
 								<!-- card-body 끝-->

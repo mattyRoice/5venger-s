@@ -111,7 +111,7 @@ public class BoardMapperTests {
 
 		list.forEach(board -> log.info(board));
 	}
-
+*/
 	// 관심글 목록 가져오기
 
 	@Test
@@ -129,7 +129,7 @@ public class BoardMapperTests {
 			log.info("sjs " + list.get(i));
 		}
 	}
-	*/
+
 	// 관심글 등록하기
 	@Test
 	public void testInsertInterest() {
