@@ -40,7 +40,7 @@
     margin-top: 20px;
 }
 .studyButtons_buttons__12bG1 {
-    font-size: 16px;
+    font-size: 17px;
     color: #444;
 	}
 .studyContent_wrapper__VVyNH {
@@ -112,7 +112,8 @@
     position: relative;
     align-items: center;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 21px;
+    height:40px;
 }
 .studyInfo_title__3jXRE {
     color: #717171;
@@ -136,9 +137,9 @@
     grid-gap: 12px;
     gap: 12px;
 }
-.studyInfo_language__3A3Vi, .studyInfo_languageImage__2b-u9 {
-    width: 30px;
-    height: 30px;
+.studyInfo_language__3A3Vi, .studyInfo_languageImage__2b-u9, .studyItem_languageImage__1AfGa {
+    width: 40px;
+    height: 40px;
 }
 .studyInfo_positions__3JIxy {
     height: 22px;
@@ -192,9 +193,9 @@ ul {
 }
 .studyContent_postInfo__3zpYu {
     margin: 0;
-    color: #333;
-    font-size: 26px;
-    font-weight: 700;
+    color: #111;
+    font-size: 30px;
+    font-weight: 800;
     padding-bottom: 24px;
     border-bottom: 3px solid #f2f2f2;
 }
@@ -231,21 +232,22 @@ ul {
     min-height: 100px;
     margin-bottom: 10px;
     resize: none;
+    font-size: 17px;
 }
 .commentInput_buttonWrapper__2f_l9 {
     display: flex;
     justify-content: flex-end;
-    margin: 16px 0 24px;
+    margin: 0 0 24px;
 }
 .commentInput_buttonComplete__24z4R {
     padding: 0px 0px;
-    min-width: 120px;
-    height: 40px;
-    background-color:#ffb300;
+    min-width: 100px;
+    height: 36px;
+    background-color:#ff914d;
     border-radius: 50px;
     font-weight: 700;
     color: #fff;
-    font-size: 16px;
+    font-size: 15px;
 }
 .commentList_CommentList__30HUh {
     width: 100%;
@@ -336,11 +338,13 @@ button {
 
 .page-item.active .page-link {
  z-index: 1;
- color: #FFF;
- font-weight:bold;
- background-color: #ff9149;
- border-color: #ff9149;
+ color: #fff;
+ font-weight:normal;
+ background-color: #adadad;
+ border-color: #adadad;
  text-decoration-line: none;
+ border-radius: 50%; 
+ height: 36.5px; 
  
 }
 
@@ -386,6 +390,7 @@ button {
 .commentItem_userNickname__PQ8kV {
     color: #333;
     font-weight: 900;
+    font-size: 17.5px;
 }
 .commentItem_registeredDate__2TPJZ {
     font-size: 14px;
@@ -403,7 +408,7 @@ button {
     letter-spacing: -.004em;
     word-break: break-all;
     overflow-wrap: break-word;
-    font-weight: 700;
+    font-weight: 500;
 }
 .commentButtons_buttonWrapper__2I-EK {
     display: flex;
@@ -471,6 +476,12 @@ button {
     padding: 8px 12px;
     border: 1px solid #e1e1e1;
     outline: none;
+}
+
+.panel-footer {
+	display: flex;
+    justify-content: center;
+    margin-top: 15px;
 }
 
 </style>
@@ -579,7 +590,37 @@ button {
 				  </div>
 				</div>
 			</section>
-		</c:if>	   	    
+		</c:if>	 
+		
+		
+		<!-- 관리자 삭제  -->
+	    <% if (session.getAttribute("loginAdmin") != null) { %>
+	    
+	        <section class="studyButtons_buttonWrapper__3tcIE">
+	       		       
+	       		<button class="studyButtons_buttons__12bG1 " data-bs-toggle="modal" data-bs-target="#removeModal">삭제</button>
+
+				<!-- 삭제 Modal -->
+				<div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				      </div>
+				      <div class="modal-body">
+				        글을 삭제 하시겠어요?
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+				        <button type="button" class="btn btn-primary" onclick="location.href='remove?bno=<c:out value="${board.bno}" />'" >네, 삭제할래요</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			</section>
+			
+		<% } %> 	    
+		  	    
 	
 	    <!--게시글 기본 정보 영역-->
 	    <ul class="studyInfo_studyGrid__38Lfj">
@@ -632,7 +673,7 @@ button {
 	
 	<!--본문 영역-->
 	<div class="studyContent_postContentWrapper__187Zh">
-	    <h2 class="studyContent_postInfo__3zpYu">프로젝트 소개</h2>
+	    <h2 class="studyContent_postInfo__3zpYu">스터디 소개</h2>
 	    <div class="studyContent_postContent__2c-FO">
 	        <c:out value="${board.content}" />
 	    </div>
