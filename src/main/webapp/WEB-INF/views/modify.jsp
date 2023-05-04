@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -542,7 +543,7 @@
 								<br>
 								<div class="form-group">
 									<label>프로젝트 내용</label>
-									<textarea class="form-control" rows="15" id="content" name='content'></textarea>
+									<textarea class="form-control" rows="15" id="content" name='content'><c:out value="${board.content}" /></textarea>
 								</div>
 								<section class="writebutton_buttons__2qW83">
 									<button type="submit" data-oper='reset' class="writebutton_cancelButton__2W7b_">취소</button>
@@ -595,7 +596,7 @@
 		var contact = "<c:out value="${board.contact}"/>"; //연락 방법
 		var contactaddress ="<c:out value="${board.contactaddress}"/>"; //연락 방법주소
 		var title = "<c:out value="${board.title}" />"; //제목
-		var content = "<c:out value="${board.content}" />";  //스터디내용
+		
 		// 사용 언어
 		var snames = "<c:out value="${board.snames}" />"; // board.snames 변수의 값
 		var snamesArr = snames.split(","); // ,를 구분자로 나눈 배열 생성
@@ -662,7 +663,6 @@
 		$("#contact").val(contact);// 연락방법 초기화
 		$("#contactaddress").val(contactaddress); // 연락방법 주소초기화
 		$("#title").val(title);// 제목 초기화
-		$("#content").val(content);// 스터디 내용 초기화
 		
 		/* (페이징 정보 넘어오는지 cri 확인) */
 		var pn = '<c:out value="${cri.pageNum}"/>';
