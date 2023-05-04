@@ -42,10 +42,10 @@ body {
     "Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans",
     "Droid Sans","Helvetica Neue",sans-serif;
     box-sizing: border-box;
-    min-height: 100%;
+    min-height: 1200px;
 }
 
-.Category_categories__3bwPA {
+.Category_categories {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
@@ -62,7 +62,7 @@ body {
 	margin-bottom: 30px;
 }
 
-.Category_categoryItem__1ko8V { -
+.Category_categoryItem { -
 	-bs-blue: #0d6efd; -
 	-bs-indigo: #6610f2; -
 	-bs-purple: #6f42c1; -
@@ -160,7 +160,7 @@ body {
 	margin-right: 100px;
 }
 
-.desktopFilter_filterWrapper__1gwsT {
+.desktopFilter_filterWrapper {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
@@ -172,7 +172,7 @@ body {
 	position: relative;
 }
 
-.Category_categories__3bwPA {
+.Category_categories {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
@@ -189,7 +189,7 @@ body {
 	margin-bottom: 30px;
 }
 
-.Category_categoryItem__1ko8V.Category_selectedCategory__1J7es {
+.Category_categoryItem.Category_selectedCategory {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
@@ -206,7 +206,7 @@ body {
 	color: #333;
 }
 
-.Category_categoryItem__1ko8V {
+.Category_categoryItem {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
@@ -223,7 +223,7 @@ body {
 	position: relative;
 }
 
-.LanguageBar_languages__2Ilqf {
+.LanguageBar_languages {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
@@ -239,110 +239,6 @@ body {
 	margin-bottom: 30px;
 }
 
-.LanguageBar_languageIcon__Um7GQ.LanguageBar_full__3qQet {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	list-style: none;
-	box-sizing: inherit;
-	margin: 0;
-	display: flex;
-	grid-gap: 10px;
-	gap: 10px;
-	align-items: center;
-	border: 1px solid #d0d0d0;
-	border-radius: 100px;
-	padding: 12px 20px 12px 15px;
-	transition: all .1s ease-in;
-	cursor: pointer;
-	opacity: 1;
-	transform: scale(1.02);
-}
-
-.LanguageBar_logo__332tN {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	list-style: none;
-	cursor: pointer;
-	box-sizing: inherit;
-	width: 36px;
-	height: 36px;
-}
-
-.SelectedLanguage_selectedWrapper__2StUQ {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	box-sizing: inherit;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	grid-gap: 30px;
-	gap: 30px;
-}
-
-.SelectedLanguage_selectedLanguages__DYJjl {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	box-sizing: inherit;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	grid-gap: 30px;
-	gap: 30px;
-}
-
-.search_container__2ExFE {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	box-sizing: inherit;
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	grid-gap: 8px;
-	gap: 8px;
-	top: -5px;
-	right: 0;
-	margin-top: 90px;
-	padding-bottom: 30px;
-	max-width: 1180px;
-	margin-left:auto;
-	margin-right:auto;
-}
-
-
-.search_searchImg__2ia6h {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	box-sizing: inherit;
-	display: inline-block;
-	width: 37px;
-	height: 37px;
-	margin-right:13px;
-	margin-left:15px;
-}
-
-.search_searchInput__1BF6g {
-	box-sizing: inherit;
-	height: 3rem;
-	border-radius: 1rem;
-	width: 98%;
-	/* border: none;
-	outline: none; */
-	font-weight: 600;
-	font-size: 21px;
-	/* animation: search_reveal__1xwGv 1s; */
-	background-color: white;
-	text-align : left;
-	margin-right : 10px;
-}
 
 .input-group-text{
 	padding: 2rem 1.5rem;
@@ -350,7 +246,7 @@ body {
  	font-weight: semi-bold;
 }
 
-.mainContent_main__F2EU9 {
+.mainContent_main {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
@@ -362,40 +258,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
-}
-
-.mainContent_main_F2EU9 {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	box-sizing: inherit;
-	width: 100%;
-	max-width: 1300px;
-	min-height: 60rem;
-	padding: 0 20px;
-	display: flex;
-	flex-direction: column;
-	margin: 0 auto;
-}
-
-.mainContent_categoryWrapper__1n063 {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	box-sizing: inherit;
-	display: flex;
-	align-items: center;
-	position: relative;
-	margin-bottom: 2rem;
-}
-
-.findMyPosition_selectWrapper__23xHq {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	box-sizing: inherit;
-	position: absolute;
-	right: 230px;
 }
 
 .css-2b097c-container {
@@ -557,134 +419,7 @@ css-1wa3eu0-placeholder {
 	stroke-width: 0;
 }
 
-.toggleSwitch_switch__hglrb {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	box-sizing: inherit;
-	display: flex;
-	align-items: center;
-	position: absolute;
-	right: 0;
-}
-
-.toggleSwitch_switchTitle__1g_TJ {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	box-sizing: inherit;
-	color: #444;
-	font-size: 24px;
-	font-weight: 700;
-	letter-spacing: -.03em;
-	margin-right: 20px;
-}
-
-.toggleSwitch_switchLabel__2oz0J.toggleSwitch_switchChecked__SrqJl {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	box-sizing: inherit;
-	position: relative;
-	display: inline-block;
-	height: 26px;
-	width: 50px;
-	border-radius: 50px;
-	cursor: pointer;
-	background-color: #ff914d;
-}
-
-.toggleSwitch_switchCheckbox__3lrfj {
-	box-sizing: inherit;
-	outline: none;
-	font-size: 1rem;
-	border-radius: .5rem;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border: 0;
-}
-
-.SelectedLanguage_selectedLanguage__3AUIy {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	list-style: none;
-	box-sizing: inherit;
-	margin: 0;
-	display: flex;
-	grid-gap: 10px;
-	gap: 10px;
-	background: #f2f2f2;
-	padding: 8px 15px;
-	height: 41px;
-	border-radius: 10px;
-	font-weight: 500;
-	font-size: 20px;
-	color: #313131;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-	transition: all .1s ease-in;
-}
-
-.LanguageBar_languageIcon__Um7GQ.LanguageBar_transparent__3wlZf {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	list-style: none;
-	box-sizing: inherit;
-	margin: 0;
-	display: flex;
-	grid-gap: 10px;
-	gap: 10px;
-	align-items: center;
-	border: 1px solid #d0d0d0;
-	border-radius: 100px;
-	padding: 12px 20px 12px 15px;
-	transition: all .1s ease-in;
-	cursor: pointer;
-	opacity: .3;
-}
-
-.SelectedLanguage_resetFilter__2EZuH {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	list-style: none;
-	box-sizing: inherit;
-	font-size: 20px;
-	color: #333;
-	cursor: pointer;
-}
-
-.studyItem_studyItem__1Iipn studyItem_open__1PGn- {
-	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	list-style: none;
-	box-sizing: inherit;
-	color: inherit;
-	text-decoration: none;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding: 20px 25px 0;
-	width: 300px;
-	height: 340px;
-	background: #fff;
-	border: 2px solid #d1d1d1;
-	border-radius: 30px;
-	position: relative;
-	cursor: pointer;
-	transition: .2s ease-in;
-	opacity: 1;
-}
-
-.studyItem_content__1mJ9M {
+.studyItem_content {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
@@ -700,7 +435,7 @@ css-1wa3eu0-placeholder {
 	list-style: none;
 }
 
-.studyItem_language__20yqw {
+.studyItem_language {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
@@ -714,7 +449,7 @@ css-1wa3eu0-placeholder {
 	height: 32px;
 }
 
-.studyItem_languageImage__1AfGa {
+.studyItem_languageImage {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
@@ -726,13 +461,13 @@ css-1wa3eu0-placeholder {
 	height: 32px;
 }
 
-.studyItem_userInfo__1KkGa, .studyItem_viewsAndComment__1Bxpj {
+.studyItem_userInfo, .studyItem_viewsAndComment {
 	display: flex;
 	grid-gap: 10px;
 	gap: 10px;
 }
 
-.studyItem_userInfo__1KkGa {
+.studyItem_userInfo {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
@@ -749,7 +484,7 @@ css-1wa3eu0-placeholder {
 	gap: 10px;
 }
 
-.studyItem_info__OFIQU {
+.studyItem_info {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
@@ -765,7 +500,7 @@ css-1wa3eu0-placeholder {
 	margin-top: 8px;
 }
 
-.studyItem_viewsAndComment__1Bxpj {
+.studyItem_viewsAndComment {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
@@ -781,7 +516,7 @@ css-1wa3eu0-placeholder {
 	gap: 10px;
 }
 
-.studyItem_infoItem__3vxSf {
+.studyItem_infoItem {
 	font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
 		"Droid Sans", "Helvetica Neue", sans-serif;
@@ -802,14 +537,14 @@ li {
 	padding: 0;
 }
 
-.studyItem_badgeWrapper__3AW7k {
+.studyItem_badgeWrapper {
 	display: flex;
 	align-items: center;
 	grid-gap: 3px;
 	gap: 3px;
 }
 
-.badge_badge__ZfNyB {
+.badge_badge {
 	height: 28px;
 	font-weight: 800;
 	font-size: 12px;
@@ -817,7 +552,21 @@ li {
 	letter-spacing: -.04em;
 }
 
-.badge_study__39LDm {
+.badge_deadline {
+	border-radius: 20px;
+    padding: 4px 12px;
+    background: #ffe8e8;
+    color: #ea726f;
+}
+
+.badge_new {
+	border-radius: 20px;
+    padding: 4px 12px;
+    background: #fff9d5;
+    color: #fdb900;
+}
+
+.badge_study {
 	margin-top: 15px;
 	border-radius: 20px;
 	padding: 4px 12px;
@@ -825,17 +574,17 @@ li {
 	color: #656565;
 }
 
-.studyItem_schedule__3oAnA {
+.studyItem_schedule {
 	display: flex;
 	font-size: 14px;
 	grid-gap: 8px;
 	gap: 8px;
 	color: #999;
 	font-weight: 500;
-	margin-top: 20px;
+	/* margin-top: 5px; */
 }
 
-.studyItem_scheduleTitle__1KN_9 {
+.studyItem_scheduleTitle {
 	letter-spacing: -4%;
 }
 
@@ -847,17 +596,7 @@ p {
 	margin-inline-end: 0px;
 }
 
-.studyItem_schedule__3oAnA {
-	display: flex;
-	font-size: 14px;
-	grid-gap: 8px;
-	gap: 8px;
-	color: #999;
-	font-weight: 500;
-	margin-top: 20px;
-}
-
-.studyItem_title__2B_2o {
+.studyItem_title {
 	font-size: 17px;
 	min-height: 50px;
 	line-height: 28px;
@@ -872,7 +611,7 @@ p {
 	
 }
 
-.studyItem_positionList__1jzi_ {
+.studyItem_positionList {
 	height: 22px;
 	display: flex;
 	margin-bottom: 20px;
@@ -880,7 +619,7 @@ p {
 	gap: 3px;
 }
 
-.studyItem_position__2sRRD {
+.studyItem_position {
 	padding: 3px 10px;
 	grid-gap: 5px;
 	gap: 5px;
@@ -899,7 +638,7 @@ ul {
 	padding: 0;
 }
 
-.studyItem_content__1mJ9M {
+.studyItem_content {
 	margin-bottom: 24px;
 	padding: 0;
 	display: flex;
@@ -908,11 +647,11 @@ ul {
 	list-style: none;
 }
 
-.studyItem_border__2zAjs {
+.studyItem_border {
 	border-top: 2px solid #f2f2f2;
 }
 
-.studyItem_bookmark__2YtKX {
+.studyItem_bookmark {
 	display: block;
 	width: 28px;
 	height: 28px;
@@ -921,27 +660,12 @@ ul {
 	right: 20px;
 }
 
-.studyItem_content__1mJ9M {
-	margin-bottom: 24px;
-	padding: 0;
-	display: flex;
-	grid-gap: 8px;
-	gap: 8px;
-	list-style: none;
-}
-
-.studyItem_language__20yqw, .studyItem_languageImage__1AfGa {
+.studyItem_language, .studyItem_languageImage {
 	width: 32px;
 	height: 32px;
 }
 
-.studyItem_userInfo__1KkGa, .studyItem_viewsAndComment__1Bxpj {
-	display: flex;
-	grid-gap: 10px;
-	gap: 10px;
-}
-
-.studyItem_info__OFIQU {
+.studyItem_info {
 	display: flex;
 	font-size: 14px;
 	font-weight: 500;
@@ -950,13 +674,13 @@ ul {
 	margin-top: 8px;
 }
 
-.avatar_user__1Pgut {
+.avatar_user {
 	display: flex;
 	align-items: center;
 	position: relative;
 }
 
-.avatar_userImg__hogPI {
+.avatar_userImg {
 	display: block;
 	border-radius: 50%;
 	object-fit: cover;
@@ -988,4 +712,27 @@ ul {
 
 .container{
 	width:1270px;
+}
+
+.active>.page-link, .page-link.active {
+    z-index: 3;
+    color: var(--bs-pagination-active-color);
+    background-color: #ff914d;
+    border-color: #fff;
+}
+.page-link {
+    position: relative;
+    display: block;
+    padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
+    font-size: var(--bs-pagination-font-size);
+    color: #ff914d;
+    text-decoration: none;
+    background-color: var(--bs-pagination-bg);
+    border: var(--bs-pagination-border-width) solid var(--bs-pagination-border-color);
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+a {
+	color: inherit;
+  	text-decoration: none;
 }

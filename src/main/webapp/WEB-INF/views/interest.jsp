@@ -18,7 +18,7 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="/resources/css/main.css" type="text/css" />
+<link rel="stylesheet" href="/resources/css/interest.css" type="text/css" />
 <script>
 	var uidkeys = [];
 </script>
@@ -228,5 +228,3 @@
 	
 
 	<%@ include file="/WEB-INF/includes/footer.jsp"%>
-	
-	<script src="../../../resources/js/myLike.js"></script>

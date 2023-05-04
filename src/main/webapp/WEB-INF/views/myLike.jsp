@@ -6,9 +6,7 @@
 
 <!DOCTYPE html>
 <html>
-<head>   
-<%@ page import="javax.servlet.http.HttpSession" %>
-<%@ page import="java.util.Enumeration" %>                
+<head>            
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
@@ -35,10 +33,10 @@
 	<div id="root">
 	
 		<!--  관심글/읽은글 카테고리  -->
-		<section class="desktopFilter_filterWrapper__1gwsT">
-			<ul class="Category_categories__3bwPA">
-				<li class="Category_categoryItem__1ko8V Category_selectedCategory__1J7es">관심글 목록</li>
-				<li class="Category_categoryItem__1ko8V ">읽은글 목록</li>
+		<section class="desktopFilter_filterWrapper">
+			<ul class="Category_categories">
+				<li class="Category_categoryItem Category_selectedCategory">관심글 목록</li>
+				<li class="Category_categoryItem ">읽은글 목록</li>
 			</ul>
 		</section>
 		
