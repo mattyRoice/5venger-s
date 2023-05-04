@@ -675,7 +675,7 @@ button {
 	<div class="studyContent_postContentWrapper__187Zh">
 	    <h2 class="studyContent_postInfo__3zpYu">스터디 소개</h2>
 	    <div class="studyContent_postContent__2c-FO">
-	        <c:out value="${board.content}" />
+	        <pre><c:out value="${board.content}" /></pre>
 	    </div>
 	</div><!--본문영역 끝-->
 	
