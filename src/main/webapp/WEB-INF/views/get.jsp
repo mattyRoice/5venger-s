@@ -202,6 +202,7 @@ ul {
 .studyContent_postContent__2c-FO {
     width: 100%;
     margin: 40px auto 0;
+    font-weight: 700;
 }
 .studyContent_commentAndViews__LrV6X {
     display: flex;
@@ -674,8 +675,8 @@ button {
 	<!--본문 영역-->
 	<div class="studyContent_postContentWrapper__187Zh">
 	    <h2 class="studyContent_postInfo__3zpYu">스터디 소개</h2>
-	    <div class="studyContent_postContent__2c-FO">
-	        <pre><c:out value="${board.content}" /></pre>
+	    <div class="studyContent_postContent__2c-FO" style="white-space: pre-wrap;">
+	        <c:out value="${board.content}" />
 	    </div>
 	</div><!--본문영역 끝-->
 	
