@@ -45,8 +45,8 @@
 						onmouseout="this.style.transform='scale(1)'" 
 						style="transition: transform 0.3s ease-in-out;">
 							<div class="card" style="width: 100%">
-								<div class="card-body move"
-									href='<c:out value="${board.bno }"/>'>
+								<div class="card-body move">
+								<a href='/board/get?bno=<c:out value="${board.bno }"/>' style="color: inherit; text-decoration: none;">
 									<!-- 마감임박, 따끈따끈 새글 배지-->
 									<div class="studyItem_badgeWrapper">
 									</div>
@@ -155,7 +155,7 @@
 												src="/resources/Images/nonfilledheart.png" alt="bookmark">
 										</c:otherwise>
 									</c:choose>
-
+								</a>
 								</div>
 								<!-- card-body 끝-->
 							</div>
