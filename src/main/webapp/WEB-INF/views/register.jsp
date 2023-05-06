@@ -377,6 +377,7 @@
 								aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
 							<select class="css-1iewm1a-control" name="memberNum" id=memberNum>
 								<option value="members choice">선택하세요</option>
+								<option value="인원미정">인원미정</option>
 								<option value="1명">1명</option>
 								<option value="2명">2명</option>
 								<option value="3명">3명</option>
