@@ -47,7 +47,6 @@ $(document).ready(function() {
 		// uidkey는 글마다 다르므로 배열로 저장해서 반복문으로 처리 
 		uidkeys.forEach(function(uidKey, index) {
 			$.getJSON("/user/getAttachList", {uidKey:uidKey}, function(arr) {
-				console.log(arr);
 				var str = "";
 				
 				if(arr.length == 0){
@@ -76,11 +75,9 @@ $(document).ready(function() {
 	(function(){
 		
 		var uidKey = '<c:out value="${ loginUser.uidKey }"/>';
-		console.log(uidKey);
 		var targetA = $("#dropImage");
 		
 		$.getJSON("/user/getAttachList", {uidKey:uidKey}, function(arr){
-			console.log(arr);
 			if(arr.length == 0){				
 				 targetA.html("<img width='30px' height='30px' style='border-radius: 50%' src='/resources/Images/profileLogo.png'>");
 			} else {
