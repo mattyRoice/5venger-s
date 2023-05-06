@@ -23,7 +23,7 @@
 
 <title>스터디허브</title>
 	<style>
-		.navbar_navbar__O41pd {
+		.navbar_navbar {
 			margin: auto;
 			max-width: 1180px;
 			display: flex;
@@ -33,19 +33,19 @@
 			padding: 0 10px;
 		}
 		
-		.navbar_logo__a5PmC {
+		.navbar_logo {
 			width: 105px;
 			height: 32px;
 		}
 		
-		.navbar_loginElementWrapper__11CeH {
+		.navbar_loginElementWrapper {
 			display: flex;
 			grid-gap: 30px;
 			gap: 30px;
 			align-items: center;
 		}
 		
-		.navbar_login__3Ui--, .navbar_postRegister__FJnRS {
+		.navbar_login, .navbar_postRegister {
 			font-weight: 600;
 			font-size: 1.125rem;
 		}
@@ -57,27 +57,27 @@
 			cursor: pointer;
 		}
 		
-		.notice_notificationWrapper__obnzH {
+		.notice_notificationWrapper {
 			position: relative;
 			cursor: pointer;
 		}
 		
-		.notice_imageWrapper__1A5dg {
+		.notice_imageWrapper {
 			position: relative;
 		}
 		
-		.notice_notification__1bz33 {
+		.notice_notification {
 			display: block;
 		}
 		
-		.loginUser_userWrapper__1c_jd {
+		.loginUser_userWrapper {
 			cursor: pointer;
 			display: flex;
 			align-items: center;
 			position: relative;
 		}
 		
-		.loginUser_userImg__1JpxQ {
+		.loginUser_userImg {
 			display: block;
 			height: 2.5rem;
 			width: 2.5rem;
@@ -86,7 +86,7 @@
 			transition: all .125s ease-in 0s;
 		}
 		
-		.postRegister_postWrapper__1s7mv {
+		.postRegister_postWrapper {
 			max-width: 1040px;
 			display: flex;
 			flex-direction: column;
@@ -99,7 +99,7 @@
 			position: relative;
 		}
 		
-		.postRegister_postContentWrapper__3BXZ6 {
+		.postRegister_postContentWrapper {
 			display: flex;
 			align-items: center;
 			padding: 16px;
@@ -107,7 +107,7 @@
 			border-bottom: 3px solid #f2f2f2;
 		}
 		
-		.postRegister_sequence__nC1Px {
+		.postRegister_sequence {
 			margin-right: 8px;
 			width: 28px;
 			height: 28px;
@@ -115,14 +115,14 @@
 			justify-content: center;
 			align-items: center;
 			border-radius: 50%;
-			background: #ffcd00;
+			background: #ff914d;
 			font-size: 16px;
 			font-weight: 700;
 			line-height: 19px;
 			color: #fff;
 		}
 		
-		.postRegister_text__17jg3 {
+		.postRegister_text {
 			font-weight: 700;
 			font-size: 24px;
 			line-height: 40px;
@@ -130,7 +130,7 @@
 			margin: 0;
 		}
 		
-		.postinfo_inputList__3SKF- {
+		.postinfo_inputList {
 			margin-top: 40px;
 			display: flex;
 			grid-gap: 15px;
@@ -138,7 +138,7 @@
 			list-style: none;
 		}
 		
-		.postinfo_listItem__OFhXr {
+		.postinfo_listItem {
 			flex: 1 1;
 		}
 		
@@ -150,7 +150,7 @@
 			margin: 0;
 		}
 		
-		.selectbox_labelText__3Q9iz {
+		.selectbox_labelText {
 			display: inline-block;
 			margin-bottom: 5px;
 			color: #333;
@@ -286,7 +286,7 @@
 			border-color: rgba(0, 0, 0, 0.23);
 		}
 		
-		.postRegister_postWrapper__1s7mv {
+		.postRegister_postWrapper {
 			max-width: 1040px;
 			display: flex;
 			flex-direction: column;
@@ -299,14 +299,14 @@
 			position: relative;
 		}
 		
-		.writebutton_buttons__2qW83 {
+		.writebutton_buttons {
 			display: flex;
 			justify-content: flex-end;
 			align-items: center;
 			margin-top: 1rem;
 		}
 		
-		.writebutton_cancelButton__2W7b_, .writebutton_registerButton__n_O2M {
+		.writebutton_cancelButton, .writebutton_registerButton {
 			cursor: pointer;
 			outline: none;
 			border: none;
@@ -316,7 +316,7 @@
 			font-size: 1rem;
 		}
 		
-		.writebutton_cancelButton__2W7b_ {
+		.writebutton_cancelButton {
 			background: #e9ecef;
 			color: #495057;
 			margin-right: 1rem;
@@ -329,9 +329,9 @@
 			cursor: pointer;
 		}
 		
-		.writebutton_registerButton__n_O2M {
+		.writebutton_registerButton {
 			font-weight: 700;
-			background-color: #ffb300;
+			background-color: #ff914d;
 			color: #fff;
 		}
 		
@@ -366,11 +366,11 @@
 	<!--헤더 끝-->
 
 	<!-- 본문 바디시작 -->
-	<div class="postRegister_postWrapper__1s7mv">
+	<div class="postRegister_postWrapper">
 		<section>
-			<div class="postRegister_postContentWrapper__3BXZ6">
-				<span class="postRegister_sequence__nC1Px">1</span>
-				<h2 class="postRegister_text__17jg3">스터디 기본 정보를 입력해주세요.</h2>
+			<div class="postRegister_postContentWrapper">
+				<span class="postRegister_sequence">1</span>
+				<h2 class="postRegister_text">스터디 기본 정보를 입력해주세요.</h2>
 			</div>
 
 			<form role="form" action="/board/modify" method="post">		
@@ -378,9 +378,9 @@
 			<input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
 			<input type='hidden' name='type' value='<c:out value="${cri.type}"/>'>
 			<input	type='hidden' name='keyword' value='<c:out value="${cri.keyword}"/>'>
-				<ul class="postinfo_inputList__3SKF-">
-					<li class="postinfo_listItem__OFhXr"><label
-						class="selectbox_labelText__3Q9iz" for="onoffline">모집 인원</label>
+				<ul class="postinfo_inputList">
+					<li class="postinfo_listItem"><label
+						class="selectbox_labelText" for="onoffline">모집 인원</label>
 						<div class=" css-2b097c-container">
 							<span aria-live="polite" aria-atomic="false"
 								aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
@@ -399,8 +399,8 @@
 							</select>
 						</div></li>
 
-					<li class="postinfo_listItem__OFhXr"><label
-						class="selectbox_labelText__3Q9iz" for="onoffline">진행 방식</label>
+					<li class="postinfo_listItem"><label
+						class="selectbox_labelText" for="onoffline">진행 방식</label>
 						<div class=" css-2b097c-container">
 							<span aria-live="polite" aria-atomic="false"
 								aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
@@ -411,12 +411,12 @@
 							</select>
 						</div></li>
 				</ul>
-				<ul class="postinfo_inputList__3SKF-">
+				<ul class="postinfo_inputList">
 				
 				
 				
-					<li class="postinfo_listItem__OFhXr"><label
-						class="selectbox_labelText__3Q9iz" for="onoffline">모집 포지션</label>
+					<li class="postinfo_listItem"><label
+						class="selectbox_labelText" for="onoffline">모집 포지션</label>
 						<div class=" css-2b097c-container">
 							<span aria-live="polite" aria-atomic="false"
 								aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
@@ -434,8 +434,8 @@
 						</div>
 					</li>
 
-					<li class="postinfo_listItem__OFhXr"><label
-						class="selectbox_labelText__3Q9iz" for="onoffline">기술 스택</label>
+					<li class="postinfo_listItem"><label
+						class="selectbox_labelText" for="onoffline">기술 스택</label>
 						<div class=" css-2b097c-container">
 							<span aria-live="polite" aria-atomic="false"
 								aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
@@ -474,9 +474,9 @@
 					</li>
 				</ul>
 
-				<ul class="postinfo_inputList__3SKF-">
-					<li class="postinfo_listItem__OFhXr"><label
-						class="selectbox_labelText__3Q9iz" for="onoffline">마감일</label>
+				<ul class="postinfo_inputList">
+					<li class="postinfo_listItem"><label
+						class="selectbox_labelText" for="onoffline">마감일</label>
 						<div class=" css-2b097c-container">
 							<span aria-live="polite" aria-atomic="false"
 								aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
@@ -485,8 +485,8 @@
 						</div>
 					</li>
 					
-					<li class="postinfo_listItem__OFhXr"><label
-						class="selectbox_labelText__3Q9iz" for="onoffline">진행 기간</label>
+					<li class="postinfo_listItem"><label
+						class="selectbox_labelText" for="onoffline">진행 기간</label>
 						<div class=" css-2b097c-container">
 							<span aria-live="polite" aria-atomic="false"
 								aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
@@ -503,9 +503,9 @@
 						</div></li>
 				</ul>
 
-				<ul class="postinfo_inputList__3SKF-">
-					<li class="postinfo_listItem__OFhXr"><label
-						class="selectbox_labelText__3Q9iz" for="onoffline">연락 방법</label>
+				<ul class="postinfo_inputList">
+					<li class="postinfo_listItem"><label
+						class="selectbox_labelText" for="onoffline">연락 방법</label>
 						<div class=" css-2b097c-container">
 							<span aria-live="polite" aria-atomic="false"
 								aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
@@ -518,14 +518,14 @@
 								name="contactaddress" id="contactaddress" placeholder="링크 주소를 입력해주세요">
 						</div>
 					</li>
-					<li class="postinfo_listItem__OFhXr"></li>
+					<li class="postinfo_listItem"></li>
 				</ul>
 
 
 				<br>
-				<div class="postRegister_postContentWrapper__3BXZ6">
-					<span class="postRegister_sequence__nC1Px">2</span>
-					<h2 class="postRegister_text__17jg3">스터디에 대해 소개해주세요.</h2>
+				<div class="postRegister_postContentWrapper">
+					<span class="postRegister_sequence">2</span>
+					<h2 class="postRegister_text">스터디에 대해 소개해주세요.</h2>
 				</div>
 
 				<!-- /.row -->
@@ -545,9 +545,9 @@
 									<label>프로젝트 내용</label>
 									<textarea class="form-control" rows="15" id="content" name='content'><c:out value="${board.content}" /></textarea>
 								</div>
-								<section class="writebutton_buttons__2qW83">
-									<button type="submit" data-oper='reset' class="writebutton_cancelButton__2W7b_">취소</button>
-									<button type="submit" data-oper='modify' class="writebutton_registerButton__n_O2M">수정완료</button>
+								<section class="writebutton_buttons">
+									<button type="submit" data-oper='reset' class="writebutton_cancelButton">취소</button>
+									<button type="submit" data-oper='modify' class="writebutton_registerButton">수정완료</button>
 								</section>
 							</div>
 							<!-- /.panel-body -->
