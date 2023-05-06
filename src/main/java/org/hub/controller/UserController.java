@@ -82,9 +82,6 @@ public class UserController {
     private BoardService boardService;
 	
 	private UserVO user;
-
-	
-	// public static final String LOGIN = "loginUser"; //이름이 loginUser인 세션
 	 
 	// 비밀번호 찾기 화면으로 이동
 	@GetMapping(value="/findpw")
@@ -461,7 +458,10 @@ public class UserController {
 	public String getMain(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, Model model, HttpSession session, UserVO vo) {
 		System.out.println("interest로 이동");
 		log.info("intereset 이동");
-
+		
+		// 모집중인 글만 추천하게끔 setStatus 'true'
+		cri.setStatus(true);
+		
 		List<BoardVO> boardList = service.getList(cri);
 		model.addAttribute("board", boardList);
 
@@ -508,7 +508,9 @@ public class UserController {
 		public String getRecommend(@ModelAttribute("board") BoardVO board, @ModelAttribute("cri") Criteria cri, Model model, HttpSession session, UserVO vo) {
 			System.out.println("recommend로 이동");
 			log.info("recommend 이동");
-
+			
+			// 모집중인 글만 추천하게끔 setStatus 'true'
+			cri.setStatus(true);
 			List<BoardVO> boardList = service.getList(cri);
 			model.addAttribute("board", boardList);
  
