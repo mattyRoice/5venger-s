@@ -688,12 +688,10 @@ button {
 	        <div class="commentInput_commentInput__39H41">
 	            <h1 class="commentInput_commentCount__2dHvH">${board.replycnt }개의 댓글이 있습니다.</h1>
 	            <c:if test="${loginUser.uidKey ne null}">
-		            <form>
-			            <textarea id="comment" class="commentInput_commentText__2er8t" placeholder="댓글을 입력하세요."></textarea>
-			            <div class="commentInput_buttonWrapper__2f_l9">
-			           		<button class="commentInput_buttonComplete__24z4R" id="addReplyBtn" name="register">댓글 등록</button>
-		            	</div>
-		            </form>
+		            <textarea id="comment" class="commentInput_commentText__2er8t" placeholder="댓글을 입력하세요."></textarea>
+		            <div class="commentInput_buttonWrapper__2f_l9">
+		           		<button class="commentInput_buttonComplete__24z4R" id="addReplyBtn" name="register">댓글 등록</button>
+	            	</div>
 	            </c:if>
 	            <!--  /.panel-heading -->
 				<div class="panel-body"> 
