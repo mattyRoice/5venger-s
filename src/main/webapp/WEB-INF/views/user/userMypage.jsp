@@ -49,7 +49,7 @@
 									</label>								 
 								</div>						
 							 <div class="photoDelete">
-							 	<button type="button" data-type="image"  class="btn d-block" id="photoDeleteBtn" style="background-color:#ff914d; color:#fff">이미지 제거</button><i class='fa fa-times'></i>
+							 	<button type="button" data-type="image"  class="btn d-block" id="photoDeleteBtn" style="background-color:#5d5d5d; color:#fff">이미지 제거</button><i class='fa fa-times'></i>
 							 </div>
 						</div>
 					</div>
@@ -129,7 +129,7 @@
 				<!-- 버튼 -->
 				<div class="text-end">		
 					  	<button type="submit" data-oper='modify' class="btn mt-5 me-2" style="background-color:#ff914d; color:#fff">완료</button>
-						<button type="submit" data-oper='remove' class="btn btn-outline-danger mt-5">회원탈퇴</button>
+						<button type="submit" data-oper='remove' class="btn btn-outline-danger mt-5" style="background-color: #5D5D5D; color: #fff; border-color: #fff;">회원탈퇴</button>
 				</div>				    			    
 	  		</form>
 		
