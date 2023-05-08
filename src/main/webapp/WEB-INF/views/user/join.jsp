@@ -212,7 +212,7 @@
 	
 		
 			<!-- 로고 - 메인페이지 연결 -->
-			<a href="/main">
+			<a href="/board/main">
 				<img class="mb-3 rounded mx-auto d-block" src="/resources/Images/norabbitlogo.png" alt="StudyHubLogo" width="320" height=auto>				
 			</a>
 			<h1 class="h4 mb-3 text-center fw-bold">StudyHub에 오신 것을 환영합니다!</h1>

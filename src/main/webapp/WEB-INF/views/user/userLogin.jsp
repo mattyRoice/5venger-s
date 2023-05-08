@@ -82,8 +82,11 @@
 <link rel="icon" href="/resources/Images/profileLogo.png">	    
 <body>
 		<!-- 부트스트랩 -->
-		<main class="form-signin">  		
-	    	<img class="mb-3 rounded mx-auto d-block" src="/resources/Images/SHLogo.png" alt="StudyHubLogo" width="350" height="100">
+		<main class="form-signin">
+			<!-- 로고 - 메인페이지 연결 -->
+			<a href="/board/main">  		
+	    		<img class="mb-3 rounded mx-auto d-block" src="/resources/Images/SHLogo.png" alt="StudyHubLogo" width="350" height="100">
+	    	</a>
 			<div class="container text-center">				
 				<form action="/user/loginPost" role="form" method="post">
 					<input type="text" id="inputId" class="form-control p-3 mt-3" name="uidKey" placeholder="사용자아이디"> 
