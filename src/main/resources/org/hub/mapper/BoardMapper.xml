@@ -161,13 +161,15 @@
 		<include refid="criteria"></include>
 	<![CDATA[
 		 rownum <= #{pageNum} * #{amount}
-	)
-	WHERE rn > (#{pageNum} - 1) * #{amount}
 	]]>
 		<!-- status 값이 true이면 '모집중 글만 보기 on'인 상태 -->
 		<if test="status == true">
 			AND status = 'opened'
-		</if>
+		</if>)
+	<![CDATA[
+		WHERE rn > (#{pageNum} - 1) * #{amount}
+	]]>
+		
 		<if test="position != null">
 			AND fnames LIKE '%'||#{position}||'%'
 		</if>
