@@ -27,7 +27,7 @@ $(document).ready(function() {
 				var str = "";
 				
 				if(arr.length == 0){
-					str += "<li><div><img width='30px' height='30px' aspect-ratio='auto 30/30' display='block' border-radius='50%' object-fit='cover'  src='/resources/Images/profileLogo.png'></div></li>";					
+					str += "<li><div><img width='30px' height='30px' aspect-ratio='auto 30/30' display='block' style='border-radius: 50%' object-fit='cover'  src='/resources/Images/profileLogo.png'></div></li>";					
 				} else {
 					$(arr).each(function(i, attach){
 						
@@ -37,7 +37,7 @@ $(document).ready(function() {
 							
 							str += "<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+
 							"' data-filename='"+attach.fileName+"' data-type='"+attach.fileType+"' ><div>";
-							str += "<img width='30px' height='30px' aspect-ratio='auto 30/30' display='block' border-radius='50%' object-fit='cover'  src='/display?fileName="+fileCallPath+"'>";
+							str += "<img width='30px' height='30px' aspect-ratio='auto 30/30' display='block' style='border-radius: 50%' object-fit='cover'  src='/display?fileName="+fileCallPath+"'>";
 							str += "</div>";
 							str += "</li>";
 						} 
