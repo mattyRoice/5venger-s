@@ -180,7 +180,6 @@
 							var deadlineDate = new Date(deadlineStr);
 							var today = new Date(); 
 							var diffDays = Math.floor((deadlineDate - today) / (1000 * 60 * 60 * 24)); // 현재 시간부터 마감시간까지 남은 날짜(날짜 단위)
-							console.log(diffDays);
 							if (diffDays < -1 || status =="closed") { // 마감 날짜가 지났거나, status가 'closed'일 경우
 								var expireDiv = $("<div>", { id: "expire", class: "move w-50 p-3 text-center fw-semibold rounded-4", href:"<c:out value='${board.bno }'/>", text: "모집마감" });
 								expireDiv.css({
@@ -229,8 +228,6 @@
 	
 			// 해당 글 bno 값 얻기
 			var bookmarkBno = $(this).closest('.cardbody').attr('id').split('_')[1];
-			// 개발자 도구 콘솔창에서 bno 값 확인하는 용도
-			console.log(bookmarkBno);
 			// data에 담기
 			
 		    var heartStatus = $(this).attr('src');
@@ -254,6 +251,7 @@
 			            data: data,
 			            success: function(data) {
 			            	alert("관심글 목록에서 삭제되었습니다.");
+			            	location.reload();
 			            }
 			        });
 			    }

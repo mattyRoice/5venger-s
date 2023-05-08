@@ -99,8 +99,6 @@ $(document).ready(function() {
 	    
 		// 해당 글 bno 값 얻기
 		var bookmarkBno = $(this).closest('.card-body').attr('href');
-		// 개발자 도구 콘솔창에서 bno 값 확인하는 용도
-		console.log(bookmarkBno);
 		// data에 담기
 		let data = { bno: bookmarkBno };
 		
@@ -229,7 +227,6 @@ $(document).ready(function() {
 	
 	$(".page-item a").on("click", function(e) {
 		e.preventDefault();
-		console.log('click');
 		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
 		actionForm.submit();
 	});
@@ -461,7 +458,6 @@ $(function() {
 	 $('#position').on('change', function() {
 		// 선택된 option의 value값 가져오기   
 		position = $('#position').val();
-		console.log(position);
 		mainfilter();
 	 });
 	 
@@ -474,7 +470,6 @@ $(function() {
 	$('#flexSwitchCheckChecked').on("click", function(e) {
 		// deadlineToglle의 값은 1) 모집중 토글을 활성화하면 true, 2) 비활성화하면 false 
 		deadlineToggle = !deadlineToggle;
-		console.log(deadlineToggle);
 		mainfilter();
 		// 활성화 되어 있으면 배경색 변경
 		if (deadlineToggle) {
