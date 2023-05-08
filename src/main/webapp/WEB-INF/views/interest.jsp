@@ -43,7 +43,7 @@
 
 					<c:forEach items="${board}" var="board">
 					<c:if test="${interestList.contains(board.bno)}"> <!-- 관심글만 보이게하기 -->
-						<div id="card_${board.bno}" class="col-lg-3 col-md-4 col-sm-6" 
+						<div id="card_${board.bno}" class="col-lg-3 col-md-4 col-sm-6 cardbody" 
 						onmouseover="this.style.transform='scale(1.05)'" 
 						onmouseout="this.style.transform='scale(1)'" 
 						style="transition: transform 0.3s ease-in-out;">
@@ -228,7 +228,7 @@
 				e.preventDefault();
 	
 			// 해당 글 bno 값 얻기
-			var bookmarkBno = $(this).closest('.card-body').attr('href');
+			var bookmarkBno = $(this).closest('.cardbody').attr('id').split('_')[1];
 			// 개발자 도구 콘솔창에서 bno 값 확인하는 용도
 			console.log(bookmarkBno);
 			// data에 담기
