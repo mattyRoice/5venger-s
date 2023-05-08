@@ -202,4 +202,3 @@
 	</div>
 	<!-- 전체 바디 태그 root 끝 -->
 
-	<%@ include file="/WEB-INF/includes/footer.jsp"%>
