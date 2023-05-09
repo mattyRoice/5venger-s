@@ -9,6 +9,5 @@ import lombok.Data;
 public class StackVO {
 	private int sno;
 	private String sname;
-	private String icon;
 	private String dept;
 }
