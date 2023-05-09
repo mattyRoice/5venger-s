@@ -62,11 +62,6 @@ public class BoardController {
 			model.addAttribute("interestList", interestList);
 		}
 
-		// 글이 없을 때 ('모집중 on' 이 기본 값이라 넣음)
-		if (boardList.size() <= 0) {
-			return "mainNone";
-		}
-
 		return "main";
 	}
 
@@ -94,7 +89,7 @@ public class BoardController {
 			cri.setStatus(true);
 		}
 
-		// 관심글용
+		// 관심글용..
 		UserVO user = (UserVO) session.getAttribute(SessionNames.LOGIN);
 		if (user != null) {
 			String useridKey = user.getUidKey();
@@ -108,7 +103,7 @@ public class BoardController {
 		if ((filter == null) && positionFlag) {
 
 			// 페이징
-			int total = service.getTotal(cri);
+			int total = service.getTotalWithFilter(cri);
 			log.info("기준1 total: " + total);
 			model.addAttribute("pageMaker", new PageDTO(cri, total));
 
@@ -121,7 +116,8 @@ public class BoardController {
 
 			// 페이징
 			cri.setPosition(position);
-			int total = service.getTotal(cri);
+			int total = service.getTotalWithFilter(cri);
+			log.info(cri);
 			log.info("기준2 total: " + total);
 			model.addAttribute("pageMaker", new PageDTO(cri, total));
 
