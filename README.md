@@ -1,1 +1,1 @@
-# 5venger-s
+# StudyHub 프로젝트
